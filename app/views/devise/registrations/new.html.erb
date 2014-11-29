@@ -6,11 +6,11 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
   <div>
-   <div><%= f.label :role %><br />
+   <div><%= f.label "Tipo" %><br />
    	<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   
   </div>
-  <div><%= f.label :password %> <% if @validatable %><i>(<%= @minimum_password_length %> characters minimum)</i><% end %><br />
+  <div><%= f.label t(:password) %> <% if @validatable %><i>(Minimo <%= @minimum_password_length %> digitos)</i><% end %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
   <div><%= f.label :password_confirmation %><br />

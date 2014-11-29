@@ -1,17 +1,17 @@
 Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations' }
-  #root to: 'dashboard#index'
+  root to: 'dashboard#index'
 
 
-devise_scope :user do
-  authenticated :user do
-    root 'dashboard#index', as: :authenticated_root
-  end
+# devise_scope :user do
+#   authenticated :user do
+#     root 'dashboard#index', as: :authenticated_root
+#   end
 
-  unauthenticated do
-    root 'devise/sessions#new', as: :unauthenticated_root
-  end
-end
+#   unauthenticated do
+#     root 'devise/sessions#new', as: :unauthenticated_root
+#   end
+# end
 
 resources :customers
   # The priority is based upon order of creation: first created -> highest priority.
