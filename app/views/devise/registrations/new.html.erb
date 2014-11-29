@@ -10,7 +10,7 @@
    	<%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
   
   </div>
-  <div><%= f.label t(:password) %> <% if @validatable %><i>(Minimo <%= @minimum_password_length %> digitos)</i><% end %><br />
+  <div><%= f.label t(':password') %> <% if @validatable %><i>(Minimo <%= @minimum_password_length %> digitos)</i><% end %><br />
     <%= f.password_field :password, autocomplete: "off" %></div>
 
   <div><%= f.label :password_confirmation %><br />
