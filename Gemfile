@@ -34,6 +34,11 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'cancancan', '~> 1.9.2'
 
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+end
+
 # Use unicorn as the app server
 #gem 'unicorn', '~> 4.8.3'
 
