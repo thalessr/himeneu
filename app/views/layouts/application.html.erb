@@ -42,10 +42,10 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#quem-somos">Quem somos</a>
+                    	<%= link_to 'Quem somos', dashboard_path+"#quem-somos"%>
                     </li>
                     <li>
-                        <a href="#contato">Contato</a>
+                        <%= link_to 'Contato', dashboard_path+"#contato"%>
                     </li>
                     <% if user_signed_in? %>
 						<li><%= link_to "Edit profile", edit_user_registration_path %></li>
