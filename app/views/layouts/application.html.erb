@@ -60,22 +60,21 @@
     </nav>
 
 
-
-
-	<% if notice %>
-		<p class="notice"><%= notice %></p>
-	<% end %>
-	<% if alert %>
-    	<p class="alert"><%= alert %></p>
-    <% end %>
+    <div class="panel panel-danger">
+    	<div class="panel-body">
+			<% if notice %>
+				<p class="notice"><%= notice %></p>
+			<% end %>
+			<% if alert %>
+		    	<p class="alert"><%= alert %></p>
+		    <% end %>
+		</div>
+	</div>
 	<div class="container">
 		 <% if can? :manage, @users %>
 		 	shit
 		 <% end %>
-		
-		<div class="row">
-			<%= yield %>
-		</div>
+		<%= yield %>
 	</div>
 	
 
