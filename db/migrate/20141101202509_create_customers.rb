@@ -2,7 +2,7 @@ class CreateCustomers < ActiveRecord::Migration
   def change
     create_table :customers do |t|
       t.string :cpf
-      t.string :first_name
+      t.string :fist_name
       t.string :last_name
       t.integer :age
       t.string :image_url
