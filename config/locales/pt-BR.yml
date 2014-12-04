@@ -5,3 +5,6 @@ pt-BR:
   sign_in: "Acessar o sistema"
   remember_me: "Lembrar"
   password: "senha"
+  confirm_account: "Confirmar minha conta"
+  welcome: "Bem-vindo"
+  confirmation_text: "Para confirmar o seu cadastro clique no link abaixo:"
