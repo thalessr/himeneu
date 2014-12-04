@@ -1,5 +1,6 @@
-<p>Welcome <%= @email %>!</p>
-
-<p>You can confirm your account email through the link below:</p>
-
-<p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+<div class="jumbotron">
+	<h1>Himeneu</h1>
+	<p><%= t(:welcome) %> <%= @email %>!</p>
+	<p class="lead"><%= t(:confirmation_text) %></p>
+	<p><%= link_to t(:confirm_account), confirmation_url(@resource, confirmation_token: @token) %></p>
+</div>
