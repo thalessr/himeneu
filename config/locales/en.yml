@@ -28,4 +28,5 @@ en:
   password: "password"
   confirm_account: "Confirm my account"
   confirmation_text: "You can confirm your account email through the link below:"
+  confirmation_email: "Didn't receive confirmation instructions?"
   welcome: "Welcome"
