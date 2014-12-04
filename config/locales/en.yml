@@ -26,3 +26,6 @@ en:
   sign_in: "Please Sign In"
   remember_me: "Remember me"
   password: "password"
+  confirm_account: "Confirm my account"
+  confirmation_text: "You can confirm your account email through the link below:"
+  welcome: "Welcome"
