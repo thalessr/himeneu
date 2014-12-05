@@ -1,16 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  cpf: MyString
-  fist_name: MyString
+valid_customer:
+  first_name: MyString
   last_name: MyString
   age: 1
   image_url: MyString
   wedding_date: 2014-11-01 18:25:09
 
 two:
-  cpf: MyString
-  fist_name: MyString
+  first_name: MyString
   last_name: MyString
   age: 1
   image_url: MyString

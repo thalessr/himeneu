@@ -4,8 +4,31 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-one: {}
-# column: value
-#
-two: {}
-#  column: value
+bride_completed: 
+  email: bridal@himeneu.com
+  role: noiva(o)
+  confirmed_at: 2014-12-04 01:59:05
+  confirmation_sent_at: 2014-12-04 01:58:48
+  is_completed: true
+
+bride_not_completed: 
+  email: bridal1@himeneu.com
+  role: noiva(o)
+  confirmed_at: 2014-12-04 01:59:05
+  confirmation_sent_at: 2014-12-04 01:58:48
+  is_completed: false
+
+provider_completed: 
+  email: provider@himeneu.com
+  role: fornecedor
+  confirmed_at: 2014-12-04 01:59:05
+  confirmation_sent_at: 2014-12-04 01:58:48
+  is_completed: true
+
+provider_not_completed: 
+  email: provider1@himeneu.com
+  role: fornecedor
+  confirmed_at: 2014-12-04 01:59:05
+  confirmation_sent_at: 2014-12-04 01:58:48
+  is_completed: false
+
