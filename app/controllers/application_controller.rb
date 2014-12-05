@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
   
-  before_filter :current_ability
+  # before_filter :current_ability
   before_action :set_locale , :authenticate_user!
  
 
@@ -12,8 +12,8 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-	flash[:error] = "Access denied."
-	redirect_to root_url
+  	flash[:error] = "Access denied."
+  	redirect_to root_url
   end
 
   def current_ability
