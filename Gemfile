@@ -8,6 +8,7 @@ group :development do
 	# Use sqlite3 as the database for Active Record
 	gem 'sqlite3'
 	gem 'spring'
+	gem 'better_errors'
 end
 
 
@@ -41,6 +42,13 @@ group :production do
   gem 'rails_12factor'
   gem 'passenger'
 end
+
+group :test do
+	gem 'minitest-reporters'
+	gem 'mini_backtrace'
+    gem 'guard-minitest'
+end
+
 
 # Use unicorn as the app server
 #gem 'unicorn', '~> 4.8.3'
