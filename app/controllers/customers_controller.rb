@@ -10,6 +10,7 @@ class CustomersController < ApplicationController
 
 	def create
 		@customer = Customer.new(customer_params)
+		@customer.user_id = current_user.id
 		if @customer.save
 			@customer.set_completed
 			redirect_to @customer
@@ -38,6 +39,6 @@ class CustomersController < ApplicationController
 
 	private 
 	def customer_params
-		params.require(:customer).permit(:fist_name, :last_name, :age, :wedding_date)
+		params.require(:customer).permit(:first_name, :last_name, :age, :wedding_date)
 	end
 end
