@@ -9,6 +9,7 @@ group :development do
 	gem 'sqlite3'
 	gem 'spring'
 	gem 'better_errors'
+	gem 'rails_best_practices'
 end
 
 
@@ -47,7 +48,15 @@ group :test do
 	gem 'minitest-reporters'
 	gem 'mini_backtrace'
     gem 'guard-minitest'
+    gem 'mocha'
 end
+
+gem 'font-awesome-rails'
+gem 'bootstrap3-datetimepicker-rails'
+gem 'bootstrap-switch-rails'
+gem 'bootstrap-wysihtml5-rails'
+gem 'bootstrap-select-rails'
+gem 'autosize-rails'
 
 
 # Use unicorn as the app server
