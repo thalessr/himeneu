@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap-datetimepicker
  *= require bootstrap_and_overrides
  */
  body,
