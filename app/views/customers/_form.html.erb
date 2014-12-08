@@ -1,27 +1,42 @@
+<div class="page-header">
+	<% if @customer.errors.full_messages.any? %>
+		<% @customer.errors.full_messages.each do |error_message| %>
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only"><%= t(:error) %></span>
+				<%= error_message %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+
+
+
 <%= form_for @customer, :html => { :class => "form-horizontal"} do |f| %>
 
 	<div class="form-group">
-	    <%= f.label :first_name, :class => 'control-label col-lg-2' %>
+	    <%= f.label t(:first_name), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.text_field :first_name, autofocus: true, :class => 'form-control' %>
 	    </div>
   	</div>
   	<div class="form-group">
-	    <%= f.label :last_name, :class => 'control-label col-lg-2' %>
+	    <%= f.label t(:last_name), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.text_field :last_name, :class => 'form-control' %>
 	    </div>
   	</div>
 	<div class="form-group">
-	    <%= f.label :age, :class => 'control-label col-lg-2' %>
+	    <%= f.label t(:age), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.number_field :age, :class => 'form-control' %>
 	    </div>
   	</div>
   	<div class="form-group" id="datetimepicker5">
-	    <%= f.label :wedding_date, :class => 'control-label col-lg-2' %>
+	    <%= f.label t(:wedding_date), :class => 'control-label col-lg-2' %>
 	    <div class='input-group date col-lg-10'>
-	        <%= f.text_field :wedding_date, :class => 'form-control' %>
+	        <%= f.text_field :wedding_date,:class => 'form-control' %>
 	        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 	        </span>
 	    </div>

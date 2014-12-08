@@ -13,6 +13,8 @@
  *= require_tree .
  *= require_self
  *= require bootstrap-datetimepicker
+ *= require twitter-bootstrap-static/sprites
+ *=require twitter-bootstrap-static/fontawesome
  *= require bootstrap_and_overrides
  */
  body,

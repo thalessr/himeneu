@@ -32,7 +32,6 @@ class CustomersController < ApplicationController
 		if @customer.update_attributes(customer_params)
 			redirect_to @customer
 		else
-			flash[:alert] = @user.errors[0]
 			render :edit
 		end
 	end
