@@ -30,3 +30,11 @@ en:
   confirmation_text: "You can confirm your account email through the link below:"
   confirmation_email: "Didn't receive confirmation instructions?"
   welcome: "Welcome"
+  first_name: "First Name"
+  last_name: "Last Name"
+  age: Age
+  wedding_date: Wedding Date
+  error: Error
+  errors:
+    messages:
+      blank: "blank"
