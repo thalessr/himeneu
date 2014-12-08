@@ -235,6 +235,7 @@ DEPENDENCIES
   mini_backtrace
   minitest-reporters
   mocha
+  momentjs-rails
   passenger
   pg
   rails (= 4.1.1)
