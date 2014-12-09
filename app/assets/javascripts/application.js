@@ -17,8 +17,6 @@
 //= require bootstrap-wysihtml5
 //= require jquery.autosize
 //= require bootstrap-select
-//= require bootstrap/alert
-//= require bootstrap/dropdown
 //= require bootstrap-datetimepicker
 //= require twitter/bootstrap
 //= require_tree .
