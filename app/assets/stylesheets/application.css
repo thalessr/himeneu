@@ -14,7 +14,8 @@
  *= require_self
  *= require bootstrap-datetimepicker
  *= require twitter-bootstrap-static/sprites
- *=require twitter-bootstrap-static/fontawesome
+ *= require font-awesome
+ *= require bootstrap-wysihtml5
  *= require bootstrap_and_overrides
  */
  body,

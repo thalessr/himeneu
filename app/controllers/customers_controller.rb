@@ -21,10 +21,12 @@ class CustomersController < ApplicationController
 
 	def show
 		@customer = Customer.find_by_user_id(current_user.id)
+		@customer.get_wedding_date
 	end
 
 	def edit
 		@customer = Customer.find_by_user_id(current_user.id)
+		@customer.get_wedding_date
 	end
 
 	def update
