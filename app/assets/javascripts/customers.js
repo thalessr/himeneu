@@ -2,8 +2,9 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 	$(function () {
-				$('#datetimepicker5').datetimepicker({
-					pickTime: false
-				});
+			$('#datetimepicker5').datetimepicker({
+				pickTime: false,
+				dateFormat: 'dd/mm/yyyy'
 			});
+		});
 });
