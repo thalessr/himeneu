@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :customers, dependent: :destroy
+  has_and_belongs_to_many :roles
 
   ROLES = %w[fornecedor noiva(o)]
 end
