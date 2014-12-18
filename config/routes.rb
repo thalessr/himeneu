@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'providers/index'
+
+  get 'providers/create'
+
+  get 'providers/new'
+
+  get 'providers/destroy'
+
+  get 'providers/show'
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations' }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
@@ -14,6 +24,7 @@ Rails.application.routes.draw do
 # end
 
 resources :customers
+resources :providers
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
