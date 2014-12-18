@@ -9,4 +9,10 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :roles
 
   ROLES = %w[fornecedor noiva(o)]
+
+
+  def is_customer?
+  	return false unless self.role == "noiva(o)"
+  end
+
 end

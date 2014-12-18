@@ -10,6 +10,7 @@ group :development do
 	gem 'spring'
 	gem 'better_errors'
 	gem 'rails_best_practices'
+	gem 'pry'
 end
 
 

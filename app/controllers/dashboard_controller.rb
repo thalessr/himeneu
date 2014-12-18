@@ -3,9 +3,15 @@ class DashboardController < ApplicationController
 
 	def index
 		if current_user
+			binding.pry
 			@user = current_user
 			unless @user.is_completed
-				redirect_to new_customer_path
+				binding.pry
+				if @user.is_customer?
+					redirect_to new_customer_path
+				else
+					redirect_to new_provider_path
+				end
 			else
 				#redirect users who complted their sign up
 				
