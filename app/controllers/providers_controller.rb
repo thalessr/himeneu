@@ -10,6 +10,12 @@ class ProvidersController < ApplicationController
     @provider = Provider.new
   end
 
+  def edit
+  end
+
+  def update
+  end
+
   def destroy
   end
 

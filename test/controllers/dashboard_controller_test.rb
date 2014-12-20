@@ -11,17 +11,17 @@ class DashboardControllerTest < ActionController::TestCase
 		assert_response :success
 	end
 
-	test "Bride Should get new customers paths" do
+	test "Bride Should get new customers path" do
 		@user = users(:bride_not_completed)
   	    sign_in @user
 		get :index
 		assert_redirected_to(controller: "customers", action: "new")
 	end
 
-	test "Should get new customers paths" do
+	test "Provider should get new providers path" do
 		@user = users(:provider_not_completed)
   	    sign_in @user
 		get :index
-		assert_redirected_to(controller: "customers", action: "new")
+		assert_redirected_to(controller: "providers", action: "new")
 	end
 end

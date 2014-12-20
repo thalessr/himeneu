@@ -1,13 +1,25 @@
 require 'test_helper'
 
 class ProvidersControllerTest < ActionController::TestCase
+  fixtures :users
+  include Devise::TestHelpers
+
+  def setup
+    @provider = users(:provider_not_completed)
+  end
+
+  def teardown
+    @provider = nil
+  end
+
   test "should get index" do
     get :index
     assert_response :success
   end
 
   test "should get create" do
-    get :create
+    sign_in @provider
+    post :create
     assert_response :success
   end
 
@@ -17,12 +29,14 @@ class ProvidersControllerTest < ActionController::TestCase
   end
 
   test "should get destroy" do
-    get :destroy
+    sign_in @provider
+    delete :destroy, id: @provider
     assert_response :success
   end
 
   test "should get show" do
-    get :show
+    sign_in @provider
+    get :show, id: @provider
     assert_response :success
   end
 

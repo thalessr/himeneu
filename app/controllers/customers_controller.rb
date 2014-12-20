@@ -9,8 +9,7 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		@customer = Customer.new(customer_params)
-		@customer.user_id = current_user.id
+		current_user.customers.build(customer_params)
 		if @customer.save
 			@customer.set_completed
 			redirect_to @customer
