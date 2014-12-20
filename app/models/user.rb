@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
 
   def is_customer?
-  	return false unless self.role == "noiva(o)"
+  	return self.role == "noiva(o)"
   end
 
 end

@@ -3,10 +3,8 @@ class DashboardController < ApplicationController
 
 	def index
 		if current_user
-			binding.pry
 			@user = current_user
 			unless @user.is_completed
-				binding.pry
 				if @user.is_customer?
 					redirect_to new_customer_path
 				else
