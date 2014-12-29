@@ -44,7 +44,7 @@
                         <%= link_to 'Contato', dashboard_path+"#contato"%>
                     </li>
                     <% if user_signed_in? %>
-						<li><%= link_to "Edit profile", edit_user_registration_path %></li>
+						<li><%= link_to "Edit profile", redirect_to_edit %></li>
 						<li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
 				    <% else %>
 						<li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
