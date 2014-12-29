@@ -1,0 +1,11 @@
+<div class="page-header">
+	<% if errors.full_messages.any? %>
+		<% errors.full_messages.each do |error_message| %>
+			<div class="alert alert-danger" role="alert">
+				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+				<span class="sr-only"><%= t(:error) %></span>
+				<%= t(error_message) %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
