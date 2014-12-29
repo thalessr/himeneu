@@ -7,12 +7,6 @@ class Customer < ActiveRecord::Base
 	validates_presence_of :age
 	validates_presence_of :wedding_date
 
-	def set_completed
-		user = User.find(self.user_id)
-		user.is_completed = true
-		user.save
-	end
-
 	def get_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date 
 	end
