@@ -1,3 +1,3 @@
-class Provider < ActiveRecord::Base
+ class Provider < ActiveRecord::Base
 	belongs_to :user
 end

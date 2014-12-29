@@ -11,7 +11,7 @@ class CustomersController < ApplicationController
 	def create
 		@customer = current_user.customers.build(customer_params)
 		if @customer.save
-			@customer.set_completed
+			current_user.set_completed
 			redirect_to @customer
 		else
 			render :new
