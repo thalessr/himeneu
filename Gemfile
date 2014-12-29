@@ -11,6 +11,8 @@ group :development do
 	gem 'better_errors'
 	gem 'rails_best_practices'
 	gem 'pry'
+	gem 'bullet'
+	gem 'rb-readline'
 end
 
 
@@ -43,9 +45,11 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
   gem 'passenger'
+  gem 'heroku-deflater'
 end
 
 group :test do
+	gem 'selenium-webdriver'
 	gem 'minitest-reporters'
 	gem 'mini_backtrace'
     gem 'guard-minitest'
