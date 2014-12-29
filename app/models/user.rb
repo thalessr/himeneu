@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
          :confirmable
 
   has_many :customers, dependent: :destroy
+  has_many :providers, dependent: :destroy
   has_and_belongs_to_many :roles
 
   ROLES = %w[fornecedor noiva(o)]
@@ -13,6 +14,11 @@ class User < ActiveRecord::Base
 
   def is_customer?
   	return self.role == "noiva(o)"
+  end
+
+  def set_completed
+    self.is_completed = true
+    self.save
   end
 
 end
