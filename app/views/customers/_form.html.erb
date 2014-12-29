@@ -1,14 +1,4 @@
-<div class="page-header">
-	<% if @customer.errors.full_messages.any? %>
-		<% @customer.errors.full_messages.each do |error_message| %>
-			<div class="alert alert-danger" role="alert">
-				<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-				<span class="sr-only"><%= t(:error) %></span>
-				<%= error_message %>
-			</div>
-		<% end %>
-	<% end %>
-</div>
+<%= render :partial => "shared/errors", :locals => {:errors => @customer.errors} %>
 
 
 
