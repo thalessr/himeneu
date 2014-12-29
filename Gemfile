@@ -63,6 +63,7 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-select-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
+gem 'carrierwave'
 
 
 # Use unicorn as the app server
