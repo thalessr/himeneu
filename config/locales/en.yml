@@ -35,6 +35,17 @@ en:
   age: Age
   wedding_date: Wedding Date
   error: Error
+  profession: "Profession"
+  contact: "Phone number"
+  experience: "Experience"
+  links:
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      destroy: "Delete"
+      new: "New"
+      edit: "Edit"
+      save: "Save"
   errors:
     messages:
       blank: "blank"
