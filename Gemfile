@@ -65,6 +65,9 @@ gem 'autosize-rails'
 gem 'momentjs-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+#gem 'rmagick'
+gem 'fog'
+gem 'carrierwave_backgrounder'
 
 
 # Use unicorn as the app server

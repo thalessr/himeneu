@@ -1,5 +1,6 @@
 <div class="panel">
 	<%= @customer.last_name %>
 	<%= image_tag @customer.image_url(:thumb) if @customer.image? %>
+	<%= image_tag @customer.image_url(:regular) if @customer.image? %>
 	<%= link_to t('links.edit'), edit_customer_path  %>
 </div>

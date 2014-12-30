@@ -9,8 +9,8 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		binding.pry
 		@customer = current_user.customers.build(customer_params)
+		@customer.process_image_upload = true
 		if @customer.save
 			current_user.set_completed
 			redirect_to @customer
@@ -31,6 +31,7 @@ class CustomersController < ApplicationController
 
 	def update
 		@customer = Customer.find(params[:id])
+		@customer.process_image_upload = true
 		if @customer.update_attributes(customer_params)
 			redirect_to @customer
 		else
