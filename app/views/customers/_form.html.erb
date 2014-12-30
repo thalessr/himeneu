@@ -31,6 +31,7 @@
 	        </span>
 	    </div>
   	</div>
+  	<%= image_tag @customer.image_url(:thumb) if @customer.image? %>
     <div class="form-group">
 	    <%= f.label t(:image), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
