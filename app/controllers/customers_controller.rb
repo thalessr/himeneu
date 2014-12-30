@@ -9,6 +9,7 @@ class CustomersController < ApplicationController
 	end
 
 	def create
+		binding.pry
 		@customer = current_user.customers.build(customer_params)
 		if @customer.save
 			current_user.set_completed
