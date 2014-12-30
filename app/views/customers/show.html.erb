@@ -1,4 +1,5 @@
 <div class="panel">
 	<%= @customer.last_name %>
+	<%= image_tag @customer.image(:thumb) if @customer.image? %>
 	<%= link_to t('links.edit'), edit_customer_path  %>
 </div>

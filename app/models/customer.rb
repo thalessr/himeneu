@@ -7,6 +7,9 @@ class Customer < ActiveRecord::Base
 	validates_presence_of :age
 	validates_presence_of :wedding_date
 
+    #CarrierWave
+    mount_uploader :image, ImageUploader
+
 	def get_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date 
 	end

@@ -12,6 +12,7 @@ pt-BR:
   first_name: "Nome"
   last_name: Sobrenome
   age: Idade
+  image: Foto
   wedding_date: Data do casamento
   error: Erro
   profession: "Profissão"
