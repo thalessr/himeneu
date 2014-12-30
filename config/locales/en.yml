@@ -33,6 +33,7 @@ en:
   first_name: "First Name"
   last_name: "Last Name"
   age: Age
+  image: Picture
   wedding_date: Wedding Date
   error: Error
   profession: "Profession"

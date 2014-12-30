@@ -64,6 +64,7 @@ gem 'bootstrap-select-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
 gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Use unicorn as the app server

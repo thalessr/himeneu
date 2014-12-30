@@ -19,17 +19,17 @@ class CustomersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.find_by_user_id(current_user.id)
+		@customer = Customer.find(params[:id])
 		@customer.get_wedding_date
 	end
 
 	def edit
-		@customer = Customer.find_by_user_id(current_user.id)
+		@customer = Customer.find(params[:id])
 		@customer.get_wedding_date
 	end
 
 	def update
-		@customer = Customer.find_by_user_id(current_user.id)
+		@customer = Customer.find(params[:id])
 		if @customer.update_attributes(customer_params)
 			redirect_to @customer
 		else
@@ -39,6 +39,6 @@ class CustomersController < ApplicationController
 
 	private 
 	def customer_params
-		params.require(:customer).permit(:first_name, :last_name, :age, :wedding_date)
+		params.require(:customer).permit(:first_name, :last_name, :age, :wedding_date, :image)
 	end
 end
