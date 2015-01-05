@@ -1,8 +1,5 @@
 <%= render :partial => "shared/errors", :locals => {:errors => @customer.errors} %>
 
-
-
-
 <%= form_for @customer, :html => { :class => "form-horizontal", :multipart => true} do |f| %>
      <%= f.hidden_field :key %>
 	<div class="form-group">
@@ -30,9 +27,9 @@
 	        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 	        </span>
 	    </div>
-	    
+
   	</div>
-  
+
 
 	<div class="form-group">
 	    <div class="col-lg-offset-2 col-lg-10">

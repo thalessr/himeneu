@@ -20,7 +20,7 @@ Rails.application.configure do
     Bullet.airbrake = true
     Bullet.add_footer = true
   end
-  
+
 
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true

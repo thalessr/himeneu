@@ -17,15 +17,15 @@
    <div class="form-group">
     <%= f.label "Tipo", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.collection_select :role, User::ROLES , :to_s, :humanize, 
-                              {prompt: "Selecione uma categoria"}, 
-                              {class: "form-control"} 
+      <%= f.collection_select :role, User::ROLES , :to_s, :humanize,
+                              {prompt: "Selecione uma categoria"},
+                              {class: "form-control"}
       %>
     </div>
   </div>
 
   <div class="form-group">
-    
+
     <%= f.label t(:password), :class => 'control-label col-lg-2' %>
     <% if @validatable %><i>(Minimo <%= @minimum_password_length %> digitos)</i><% end %>
     <div class="col-lg-10">
