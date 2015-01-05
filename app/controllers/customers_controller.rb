@@ -6,11 +6,14 @@ class CustomersController < ApplicationController
 
 	def new
 		@customer = Customer.new
+		@uploader = Customer.new.image
+        @uploader.success_action_redirect = new_customer_url
 	end
 
 	def create
 		@customer = current_user.customers.build(customer_params)
-		@customer.process_image_upload = true
+		@customer.key = params[:key]
+		 binding.pry
 		if @customer.save
 			current_user.set_completed
 			redirect_to @customer
@@ -22,18 +25,24 @@ class CustomersController < ApplicationController
 	def show
 		@customer = Customer.find(params[:id])
 		@customer.get_wedding_date
+		@uploader = @customer.image
+        @uploader.success_action_redirect = edit_customer_url(@customer.id)
 	end
 
 	def edit
 		@customer = Customer.find(params[:id])
 		@customer.get_wedding_date
+		@customer.update_attribute(:key, params[:key])
 	end
 
 	def update
 		@customer = Customer.find(params[:id])
-		@customer.process_image_upload = true
 		if @customer.update_attributes(customer_params)
-			redirect_to @customer
+			if @customer.image_processed
+			   redirect_to @customer 
+		    else
+			    render :edit
+			end
 		else
 			render :edit
 		end
@@ -41,6 +50,6 @@ class CustomersController < ApplicationController
 
 	private 
 	def customer_params
-		params.require(:customer).permit(:first_name, :last_name, :age, :wedding_date, :image)
+		params.require(:customer).permit(:first_name, :last_name, :age, :key, :wedding_date, :image)
 	end
 end

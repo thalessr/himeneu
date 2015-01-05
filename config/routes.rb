@@ -1,6 +1,7 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
 
-
+  mount Sidekiq::Web => '/sidekiq'
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations' }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
