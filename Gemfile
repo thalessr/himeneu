@@ -63,6 +63,14 @@ gem 'bootstrap-wysihtml5-rails'
 gem 'bootstrap-select-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
+gem 'carrierwave'
+gem 'carrierwave_direct'
+gem 'mini_magick'
+gem 'fog', require: "fog/aws/storage"
+gem 'sidekiq'
+gem 'sinatra'
+gem 'dotenv-rails'
+gem 'redis'
 
 
 # Use unicorn as the app server
