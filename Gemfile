@@ -71,6 +71,7 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'dotenv-rails'
 gem 'redis'
+gem 'activeadmin', github: 'activeadmin'
 
 
 # Use unicorn as the app server
