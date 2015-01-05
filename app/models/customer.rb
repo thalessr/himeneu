@@ -13,12 +13,12 @@ class Customer < ActiveRecord::Base
     
 
 	def get_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date 
+		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date 
 	end
     
     private
 	def set_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%Y-%d-%m')
+		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date 
 	end
 
 	def enqueue_image
