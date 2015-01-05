@@ -3,8 +3,8 @@
 $( document ).ready(function() {
 	$(function () {
 			$('#datetimepicker5').datetimepicker({
-				pickTime: false,
-				dateFormat: 'dd/mm/yyyy'
+				pickTime: false
+				
 			});
 		});
 });
