@@ -18,6 +18,16 @@ pt-BR:
   profession: "Profissão"
   contact: "Telefone"
   experience: "Experiência"
+  upload_image: "Enviar imagem"
+  errors:
+    messages:
+      blank: "blank"
+      carrierwave_direct_filename_taken: O nome do arquivo já foi utilizado
+      carrierwave_direct_upload_missing: upload is missing
+      carrierwave_direct_attachment_missing: attachment is missing
+      carrierwave_direct_filename_invalid: "é invalido. "
+      carrierwave_direct_allowed_extensions: São aceitas as imagens do tipo %{extensions}
+      carrierwave_direct_allowed_schemes: Allowed schemes are %{schemes}
   links:
       back: "Voltar"
       cancel: "Cancelar"
