@@ -39,7 +39,7 @@ class CustomersController < ApplicationController
 		@customer = Customer.find(params[:id])
 		if @customer.update_attributes(customer_params)
 			if @customer.image_processed
-			   redirect_to @customer 
+			   redirect_to @customer
 		    else
 			    render :edit
 			end
@@ -48,7 +48,7 @@ class CustomersController < ApplicationController
 		end
 	end
 
-	private 
+	private
 	def customer_params
 		params.require(:customer).permit(:first_name, :last_name, :age, :key, :wedding_date, :image)
 	end

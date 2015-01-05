@@ -40,7 +40,7 @@ class ProvidersController < ApplicationController
     @provider = Provider.find(params[:id])
   end
 
-  private 
+  private
   def provider_params
     params.require(:provider).permit(
                                       :first_name, :last_name, :age, :contact,

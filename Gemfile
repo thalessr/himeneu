@@ -14,7 +14,7 @@ group :development do
 	gem 'bullet'
 	gem 'rb-readline'
 end
-group :assets  do 
+group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
 	gem 'uglifier', '>= 1.3.0'
 	gem 'coffee-rails', '~> 4.0.0'

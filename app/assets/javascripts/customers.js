@@ -4,7 +4,7 @@ $( document ).ready(function() {
 	$(function () {
 			$('#datetimepicker5').datetimepicker({
 				pickTime: false
-				
+
 			});
 		});
 });

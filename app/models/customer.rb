@@ -10,15 +10,15 @@ class Customer < ActiveRecord::Base
     #CarrierWave
     mount_uploader :image, ImageUploader
     after_save :enqueue_image
-    
+
 
 	def get_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date 
+		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date
 	end
-    
+
     private
 	def set_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date 
+		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
 	end
 
 	def enqueue_image
@@ -30,10 +30,10 @@ class Customer < ActiveRecord::Base
 
 	class ImageWorker
 	    include Sidekiq::Worker
-	    
+
 		    def perform(id, key)
 		      customer = Customer.find(id)
-		      customer.key = key 
+		      customer.key = key
 		      customer.remote_image_url = customer.image.direct_fog_url(with_path: true)
 		      customer.update_column(:image_processed, true)
 		      customer.save
