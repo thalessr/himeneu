@@ -11,17 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141229070217) do
+ActiveRecord::Schema.define(version: 20141231072842) do
 
   create_table "customers", force: true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "age"
-    t.string   "image_url"
+    t.string   "image"
     t.date     "wedding_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.boolean  "image_processed"
   end
 
   add_index "customers", ["user_id"], name: "index_customers_on_user_id"
@@ -30,7 +31,7 @@ ActiveRecord::Schema.define(version: 20141229070217) do
     t.string   "first_name"
     t.string   "last_name"
     t.integer  "age"
-    t.string   "image_url"
+    t.string   "image"
     t.string   "profession"
     t.text     "experience"
     t.string   "city"
