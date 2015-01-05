@@ -1,9 +1,7 @@
-ActiveAdmin.register Customer do
-  
+ActiveAdmin.register Role do
 
   index do
-    column :first_name
-    column :last_name
+    column :name
     actions
   end
 
