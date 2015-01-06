@@ -47,10 +47,10 @@ Rails.application.configure do
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    :address   => "smtp.mandrillapp.com",
+    :address   => ENV['MANDRILL_ADDRESS'],
     :port      => 587,
-    :user_name => "thalessr@gmail.com",
-    :password  => "_xRMsiT0NHt675Wa9PcYiw",
+    :user_name => ENV['MANDRILL_USER_NAME'],
+    :password  => ENV['MANDRILL_PASSWORD'],
     :authentication => :plain,
     :enable_starttls_auto => true
   }
