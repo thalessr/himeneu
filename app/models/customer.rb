@@ -30,6 +30,7 @@ class Customer < ActiveRecord::Base
 
 	class ImageWorker
 	    include Sidekiq::Worker
+	    sidekiq_options :queue => :carrierwave
 
 		    def perform(id, key)
 		      customer = Customer.find(id)

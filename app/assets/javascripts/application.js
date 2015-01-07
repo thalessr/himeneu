@@ -20,4 +20,5 @@
 //= require bootstrap-datetimepicker
 //= require twitter/bootstrap
 //= require_tree .
+//= stub active_admin
 
