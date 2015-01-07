@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
 	def new
 		@customer = Customer.new
 		@uploader = Customer.new.image
-        @uploader.success_action_redirect = new_customer_url
+        # @uploader.success_action_redirect = new_customer_url
 	end
 
 	def create

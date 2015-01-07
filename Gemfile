@@ -13,6 +13,8 @@ group :development do
 	gem 'pry'
 	gem 'bullet'
 	gem 'rb-readline'
+	gem 'mailcatcher'
+	gem "binding_of_caller"
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
@@ -37,6 +39,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
+gem "devise-async"
 gem 'cancancan', '~> 1.9.2'
 
 group :production do
@@ -69,7 +72,9 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'dotenv-rails'
 gem 'redis'
+#Active Admin
 gem 'activeadmin', github: 'activeadmin'
+gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 
 
 # Use unicorn as the app server
