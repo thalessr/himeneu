@@ -1,11 +1,13 @@
 class Customer < ActiveRecord::Base
 	belongs_to :user
+	belongs_to :address
 	# before_save :set_wedding_date
 	#include all required fields here
 	validates_presence_of :first_name
 	validates_presence_of :last_name
 	validates_presence_of :age
 	validates_presence_of :wedding_date
+
 
     #CarrierWave
     mount_uploader :image, ImageUploader
