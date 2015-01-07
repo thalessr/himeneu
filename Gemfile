@@ -76,6 +76,8 @@ gem 'redis'
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 
+gem 'geocoder'
+
 
 # Use unicorn as the app server
 #gem 'unicorn', '~> 4.8.3'
