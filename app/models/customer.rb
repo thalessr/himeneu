@@ -1,6 +1,6 @@
 class Customer < ActiveRecord::Base
 	belongs_to :user
-	before_save :set_wedding_date
+	# before_save :set_wedding_date
 	#include all required fields here
 	validates_presence_of :first_name
 	validates_presence_of :last_name
@@ -13,12 +13,14 @@ class Customer < ActiveRecord::Base
 
 
 	def get_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date
+		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
+
+		# self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date
 	end
 
     private
 	def set_wedding_date
-		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
+		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date
 	end
 
 	def enqueue_image
