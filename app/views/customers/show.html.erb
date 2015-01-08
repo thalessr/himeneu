@@ -1,9 +1,23 @@
 <div class="panel">
-	<%= @customer.last_name %>
-	<%= image_tag @customer.image_url(:thumb) if @customer.image? %>
-	<%= image_tag @customer.image_url(:regular) if @customer.image? %>
-	
-	
+	<div class="col-md-12">
+        <div class="col-md-8">
+            <h5><%= @customer.last_name %></h5>
+            <% if @customer.address %>
+                <address>
+				  <%= @customer.address.city %><br>
+				  <%= @customer.address.zipcode %><br>
+				  <abbr title="telefone">Fone:</abbr> +5511009903989
+				</address>
+			<% end %>
+            <!-- Indeed it will become a contact form -->
+            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+        </div>
+         <div class="col-md-4">
+    		<%= image_tag @customer.image_url(:regular),:class => "img-thumbnail" if @customer.image? %>
+    	</div>
+    </div>
+
+
 	<%= link_to t('links.edit'), edit_customer_path  %>
 	<%= direct_upload_form_for @uploader do |f| %>
 	  <%= f.file_field :image, :class => 'form-control' %>
