@@ -21,10 +21,11 @@ group :assets  do
 	gem 'uglifier', '>= 1.3.0'
 	gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-# gem 'therubyracer',  platforms: :ruby
+    # gem 'therubyracer',  platforms: :ruby
 end
 
-gem "twitter-bootstrap-rails"
+gem 'therubyracer',  platforms: :ruby
+gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -57,7 +58,7 @@ group :test do
     gem 'mocha'
 end
 
-gem 'font-awesome-rails'
+# gem 'font-awesome-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-switch-rails'
 gem 'bootstrap-wysihtml5-rails'

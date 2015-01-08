@@ -33,11 +33,12 @@ class CustomersController < ApplicationController
 	def edit
 		@customer = Customer.find(params[:id])
 		@customer.get_wedding_date
+		@customer.update_attribute(:key, params[:key])
 	end
 
 	def update
 		@customer = Customer.find(params[:id])
-		@customer.update_attribute(:key, params[:key])
+
 		if @customer.update_attributes(customer_params)
 			if @customer.image_processed
 			   redirect_to @customer
