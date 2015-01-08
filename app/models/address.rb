@@ -6,6 +6,13 @@ class Address < ActiveRecord::Base
 
     private
     def full_address
-    	"#{city},#{zipcode}"
+    	if self.city and self.zipcode
+	    	"#{city},#{zipcode}"
+	    elsif self.city
+	    	"#{city}"
+	    else
+	    	"#{zipcode}"
+	    end
+
     end
 end
