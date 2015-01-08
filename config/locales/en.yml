@@ -40,6 +40,8 @@ en:
   contact: "Phone number"
   experience: "Experience"
   upload_image: "Upload image"
+  city: City
+  zipcode: Zip code
   links:
       back: "Back"
       cancel: "Cancel"

@@ -7,6 +7,7 @@ class CustomersController < ApplicationController
 	def new
 		@customer = Customer.new
 		@uploader = Customer.new.image
+		@customer.build_address
         # @uploader.success_action_redirect = new_customer_url
 	end
 
@@ -50,6 +51,10 @@ class CustomersController < ApplicationController
 
 	private
 	def customer_params
-		params.require(:customer).permit(:first_name, :last_name, :age, :key, :wedding_date, :image)
+		params.require(:customer).permit(
+				                             :first_name, :last_name,
+				                             :age, :key, :wedding_date, :image,
+				                             address_attributes: [:id, :city, :zipcode, :_destroy]
+				                        )
 	end
 end

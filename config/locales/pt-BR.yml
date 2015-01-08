@@ -19,6 +19,8 @@ pt-BR:
   contact: "Telefone"
   experience: "Experiência"
   upload_image: "Enviar imagem"
+  city: Cidade
+  zipcode: CEP
   errors:
     messages:
       blank: "blank"
