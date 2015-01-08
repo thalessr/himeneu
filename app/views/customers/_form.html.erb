@@ -31,6 +31,23 @@
   	</div>
 
 
+   <%= f.fields_for :address  do |a| %>
+	    <div class="form-group">
+		    <%= a.label t(:city), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.text_field :city, :class => 'form-control' %>
+		    </div>
+	  	</div>
+	  	<div class="form-group">
+		    <%= a.label t(:zipcode), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.text_field :zipcode, :class => 'form-control' %>
+		    </div>
+	  	</div>
+   <% end %>
+
+
+
 	<div class="form-group">
 	    <div class="col-lg-offset-2 col-lg-10">
 	      <%= f.submit "Salvar", :class => 'btn btn-primary' %>
