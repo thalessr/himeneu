@@ -2,7 +2,7 @@ class Address < ActiveRecord::Base
 	has_one :customer
 
 	geocoded_by :full_address
-    after_validation :geocode, :if => :city_changed?
+    after_validation :geocode_address, :if => :has_changes?
 
     private
     def full_address
@@ -13,6 +13,27 @@ class Address < ActiveRecord::Base
 	    else
 	    	"#{zipcode}"
 	    end
-
     end
+
+    private
+    def has_changes?
+    	:city_changed? || :zipcode_changed?
+    end
+
+    private
+    def geocode_address
+		GeocodeWorker.perform_async(self.id)
+	end
+
+	class GeocodeWorker
+	    include Sidekiq::Worker
+	    sidekiq_options :queue => :default
+
+	    def perform(id)
+	      address = Address.find(id)
+	      address.geocode
+	      address.save!
+	    end
+	end
+
 end
