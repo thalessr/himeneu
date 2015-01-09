@@ -20,6 +20,12 @@
 	      <%= f.text_field :contact, :class => 'form-control' %>
 	    </div>
   	</div>
+  	<div class="form-group">
+	    <%= f.label t(:image), :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.file_field :image, :class => 'form-control' %>
+	    </div>
+  	</div>
 	<div class="form-group">
 	    <%= f.label t(:age), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
@@ -38,6 +44,21 @@
 	      <%= f.text_area :experience, :class => 'form-control' %>
 	    </div>
   	</div>
+
+  	<%= f.fields_for :addresses  do |a| %>
+	    <div class="form-group">
+		    <%= a.label t(:city), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.text_field :city, :class => 'form-control' %>
+		    </div>
+	  	</div>
+	  	<div class="form-group">
+		    <%= a.label t(:zipcode), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.text_field :zipcode, :class => 'form-control' %>
+		    </div>
+	  	</div>
+    <% end %>
 
 
 	<div class="form-group">

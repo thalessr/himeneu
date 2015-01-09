@@ -8,6 +8,7 @@
 				  <%= @customer.address.zipcode %><br>
 				  <abbr title="telefone">Fone:</abbr> +5511009903989
 				</address>
+                <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.address.latitude}%2C#{@customer.address.longitude}" %>
 			<% end %>
             <!-- Indeed it will become a contact form -->
             <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
@@ -16,6 +17,7 @@
     		<%= image_tag @customer.image_url(:regular),:class => "img-thumbnail" if @customer.image? %>
     	</div>
     </div>
+
 
 
 	<%= link_to t('links.edit'), edit_customer_path  %>
