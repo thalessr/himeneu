@@ -1,5 +1,6 @@
 class Address < ActiveRecord::Base
-	has_one :customer
+	has_one  :customer
+	belongs_to :provider
 
 	geocoded_by :full_address
     after_validation :geocode_address, :if => :has_changes?
