@@ -13,7 +13,8 @@ class Customer < ActiveRecord::Base
 
     #CarrierWave
     mount_uploader :image, ImageUploader
-    after_save :enqueue_image
+    # after_save :enqueue_image
+    process_in_background :image
 
 
 	def get_wedding_date
