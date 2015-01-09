@@ -1,7 +1,7 @@
 <%= render :partial => "shared/errors", :locals => {:errors => @customer.errors} %>
 
 <%= form_for @customer, :html => { :class => "form-horizontal", :multipart => true} do |f| %>
-     <%= f.hidden_field :key %>
+
 	<div class="form-group">
 	    <%= f.label t(:first_name), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
@@ -18,6 +18,12 @@
 	    <%= f.label t(:age), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.number_field :age, :class => 'form-control' %>
+	    </div>
+  	</div>
+  	<div class="form-group">
+	    <%= f.label t(:image), :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.file_field :image, :class => 'form-control' %>
 	    </div>
   	</div>
   	<div class="form-group" id="datetimepicker5">
