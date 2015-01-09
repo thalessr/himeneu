@@ -3,7 +3,8 @@ class Address < ActiveRecord::Base
 	belongs_to :provider
 
 	geocoded_by :full_address
-    after_validation :geocode_address, :if => :has_changes?
+    # after_validation :geocode_address, :if => :has_changes?
+    after_validation :geocode
 
     private
     def full_address

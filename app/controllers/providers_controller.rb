@@ -5,6 +5,7 @@ class ProvidersController < ApplicationController
 
   def new
     @provider = Provider.new
+    @provider.addresses.build
   end
 
   def create
@@ -44,6 +45,8 @@ class ProvidersController < ApplicationController
   def provider_params
     params.require(:provider).permit(
                                       :first_name, :last_name, :age, :contact,
-                                      :image, :profession, :city, :experience)
+                                      :image, :profession, :city, :experience,
+                                      addresses_attributes: [:id, :city, :zipcode, :_destroy]
+                                      )
   end
 end
