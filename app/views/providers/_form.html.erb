@@ -44,13 +44,13 @@
 	      <%= f.text_area :experience, :class => 'form-control' %>
 	    </div>
   	</div>
-
-  	<%= f.fields_for :addresses, id: "addresses"  do |a| %>
+  	<%= f.fields_for :addresses  do |a| %>
 
 	    <%= render :partial => "address", :locals => {:f => a} %>
 
     <% end %>
-    <%= link_to "ADD", "#", :remote => true , id:"add_address" %>
+    <div id = "addresses"></div>
+    <%= link_to_add_fields("add", f , :addresses) %>
 
 
 
