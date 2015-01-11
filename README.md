@@ -6,6 +6,8 @@
 
 
 To start the sidekiq, type:  ` bundle exec sidekiq -q mailer, -q default, -q carrierwave `
+
 To start the mailcatcher, type : ` bundle exec mailcatcher `
+
 To start redis: `redis-server`
 

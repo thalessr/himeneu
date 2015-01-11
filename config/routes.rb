@@ -30,6 +30,7 @@ end
 resources :providers do
   resources :address, :except => [:index]
 end
+get 'build_address' => 'providers#build_address'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
