@@ -9,11 +9,16 @@ class ProvidersController < ApplicationController
 
   def create
     @provider = current_user.providers.build(provider_params)
-    if @provider.save
-      current_user.set_completed
-      redirect_to @provider
-    else
-      render :new
+    respond_to do |format|
+      if @provider.save
+        current_user.set_completed
+        response.headers['X-Flash-Notice'] = 'Criado com sucesso.'
+        format.html { redirect_to @provider}
+        format.json { render :json => @provider, status: :created, location: @provider }
+      else
+        format.html { render :new }
+        format.json { render json: @provider.errors, status: :unprocessable_entry}
+      end
     end
   end
 
@@ -23,10 +28,15 @@ class ProvidersController < ApplicationController
 
   def update
     @provider = Provider.find(params[:id])
-    if @provider.update_attributes(provider_params)
-      redirect_to @provider
-    else
-      render :edit
+    respond_to do |format|
+      if @provider.update_attributes(provider_params)
+        response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
+        format.html  { redirect_to @provider_ur}
+        format.json  { render :json => @provider, location: @provider, notice: 'Printer was successfully created.' }
+      else
+        format.html { render :edit }
+        format.json { render json: @provider.errors, status: :unprocessable_entry}
+      end
     end
   end
 
@@ -37,13 +47,16 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.find(params[:id])
+    @provider = Provider.includes(:addresses).find(params[:id])
   end
+
 
   private
   def provider_params
     params.require(:provider).permit(
                                       :first_name, :last_name, :age, :contact,
-                                      :image, :profession, :city, :experience)
+                                      :image, :profession, :city, :experience,
+                                      addresses_attributes: [:id, :city, :zipcode, :_destroy]
+                                      )
   end
 end

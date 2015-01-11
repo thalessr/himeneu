@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require moment
 //= require bootstrap-switch
 //= require bootstrap-wysihtml5
@@ -21,4 +22,7 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= stub active_admin
+$.ajaxSetup({
+  dataType: 'json'
+})
 

@@ -1,9 +1,10 @@
 # encoding: utf-8
 
 class ImageUploader < CarrierWave::Uploader::Base
-  include CarrierWaveDirect::Uploader
+  # include CarrierWaveDirect::Uploader
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
+  include ::CarrierWave::Backgrounder::Delay
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
@@ -16,7 +17,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   # Override the directory where uploaded files will be stored.
   # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}/#{model.id}"
+    "public/uploads/tmp"
   end
 
   def cache_dir
@@ -40,11 +41,11 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [50, 50]
+    process :resize_to_fit => [140, 140]
   end
 
   version :regular do
-    process :resize_to_limit => [250, 250]
+    process :resize_to_limit => [300, 300]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
