@@ -1,7 +1,3 @@
-<% if @uploader %>
-<%= direct_upload_form_for @uploader do |f| %>
-	  <%= f.file_field :image, :class => 'form-control' %>
-	  <%= f.submit t(:upload_image) %>
-<% end %>
-<% end %>
+
 <%= render 'form' %>
+

@@ -1,11 +1,13 @@
 
-Himeneu  | https://himeneu.herokuapp.com/ 
+# H1 Himeneu  | https://himeneu.herokuapp.com/
 
-Website para facilitar a comunicação entre provedores de serviços e as noivas
-no estilo do easyroommate.
+>Website para facilitar a comunicação entre provedores de serviços e as noivas
+>no estilo do easyroommate. http://www.easyroommate.com
 
-In development env must have installed the mailcatcher
-gem install mailcatcher 
-to run the service just type mailcatcher after the instalation
 
-http://www.easyroommate.com
+To start the sidekiq, type:  ` bundle exec sidekiq -q mailer, -q default, -q carrierwave `
+
+To start the mailcatcher, type : ` bundle exec mailcatcher `
+
+To start redis: `redis-server`
+

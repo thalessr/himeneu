@@ -1,6 +1,6 @@
 <%= render :partial => "shared/errors", :locals => {:errors => @provider.errors} %>
 
-<%= form_for @provider, :html => { :class => "form-horizontal"} do |f| %>
+<%= form_for @provider, :remote => true, :html => {:'data-type' => 'json',role: "form" ,id: "provider_form",:class => "form-horizontal"} do |f| %>
 
 	<div class="form-group">
 	    <%= f.label t(:first_name), :class => 'control-label col-lg-2' %>
@@ -18,6 +18,12 @@
 	    <%= f.label t(:contact), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.text_field :contact, :class => 'form-control' %>
+	    </div>
+  	</div>
+  	<div class="form-group">
+	    <%= f.label t(:image), :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.file_field :image, :class => 'form-control' %>
 	    </div>
   	</div>
 	<div class="form-group">
@@ -38,6 +44,14 @@
 	      <%= f.text_area :experience, :class => 'form-control' %>
 	    </div>
   	</div>
+  	<%= f.fields_for :addresses  do |a| %>
+
+	    <%= render :partial => "address", :locals => {:f => a} %>
+
+    <% end %>
+    <div id = "addresses"></div>
+    <%= link_to_add_fields("add", f , :addresses) %>
+
 
 
 	<div class="form-group">

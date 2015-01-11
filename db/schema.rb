@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150105033213) do
+ActiveRecord::Schema.define(version: 20150109040354) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20150105033213) do
   add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
   add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+
+  create_table "addresses", force: true do |t|
+    t.string   "city"
+    t.string   "zipcode"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "provider_id"
+  end
+
+  add_index "addresses", ["provider_id"], name: "index_addresses_on_provider_id"
 
   create_table "admin_users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -56,6 +68,7 @@ ActiveRecord::Schema.define(version: 20150105033213) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "image_processed"
+    t.integer  "address_id"
   end
 
   add_index "customers", ["user_id"], name: "index_customers_on_user_id"

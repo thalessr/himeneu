@@ -1,4 +1,24 @@
 <div class="panel">
-	<%= @provider.last_name %>
+	<div class="panel">
+	<div class="col-md-12">
+        <div class="col-md-8">
+            <h5><%= @provider.last_name %></h5>
+            <% if @provider.addresses %>
+	            <% @provider.addresses.each do |address| %>
+	                <address>
+					  <%= address.city %><br>
+					  <%= address.zipcode %><br>
+					  <abbr title="telefone">Fone:</abbr> +5511009903989
+					</address>
+					<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}" %>
+				<% end %>
+			<% end %>
+            <!-- Indeed it will become a contact form -->
+            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+        </div>
+         <div class="col-md-4">
+    		<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
+    	</div>
+    </div>
 	<%= link_to t('links.edit'), edit_provider_path  %>
 </div>
