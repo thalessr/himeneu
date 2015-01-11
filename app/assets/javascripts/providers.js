@@ -4,10 +4,14 @@ function remove_address(link){
 	$(link).prev("input[type=hidden]").val("1");
 	$(link).closest("#address").hide();
 }
+function add_fields(link, association, content) {
+  var new_id = new Date().getTime();
+  var regexp = new RegExp("new_" + association, "g")
+  $("#addresses").append(content.replace(regexp, new_id));
+}
+
 $(document).ready(function(){
   $('textarea').autosize();
-
-
 
   $('#provider_form').bind('ajax:success', function(event, xhr, status) {
   	  $(this).animate({ height:'toggle'}, 'slow');
@@ -24,21 +28,6 @@ $(document).ready(function(){
    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
 	 $('.container').append(xhr);
    });
-
-   $('#add_address').click(function() {
-   	    console.log("clicado");
-	   	 $.ajax({
-		    type: "GET",
-		    url: "/build_address",
-		    success: function(data){
-		        console.log(data);
-		        $('#addresses').append(data);
-		    }
-		 });
-	});
-
-
-
 
 
 });

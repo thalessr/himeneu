@@ -5,7 +5,6 @@ class ProvidersController < ApplicationController
 
   def new
     @provider = Provider.new
-    @provider.addresses.build
   end
 
   def create
@@ -25,7 +24,6 @@ class ProvidersController < ApplicationController
 
   def edit
     @provider = Provider.find(params[:id])
-    @provider.addresses.build
   end
 
   def update
@@ -52,12 +50,6 @@ class ProvidersController < ApplicationController
     @provider = Provider.includes(:addresses).find(params[:id])
   end
 
-  def build_address
-     Provider.new.addresses.build
-     respond_to do |format|
-      format.json {render json:  Provider.new.addresses.build}
-     end
-  end
 
   private
   def provider_params
