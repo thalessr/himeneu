@@ -6,8 +6,7 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
   <div><%= f.label :role %><br />
-    <%= f.collection_select :role, User::ROLES, :to_s, :humanize %>
-
+    <%= f.collection_select :role_ids, Role.all, :id, :name, {prompt: "Selecione uma categoria"} ,{class: "form-control", :selected => @user.role_ids, :multiple => false} -%>
   </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>

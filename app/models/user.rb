@@ -13,12 +13,20 @@ class User < ActiveRecord::Base
 
 
   def is_customer?
-  	return self.role == "noiva(o)"
+    unless self.roles.empty?
+      return self.roles.first.id = 1 #check seeds, it can be improved
+    end
   end
 
   def set_completed
     self.is_completed = true
     self.save
+  end
+
+  def is_provider?
+    unless self.roles.empty?
+      return self.roles.first.id = 2
+    end
   end
 
 end
