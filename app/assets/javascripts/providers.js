@@ -14,7 +14,7 @@ $(document).ready(function(){
   $('textarea').autosize();
 
   $('#provider_form').bind('ajax:success', function(event, xhr, status) {
-  	  $(this).animate({ height:'toggle'}, 'slow');
+  	$(this).animate({ height:'toggle'}, 'slow');
 	  $(this).before(
         '<div class="alert alert-success alert-dismissable">'+
             '<button type="button" class="close" ' +
@@ -26,7 +26,15 @@ $(document).ready(function(){
 
    });
    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
-	 $('.container').append(xhr);
+     $(this).show('blind', 1000);
+     $(this).before(
+        '<div class="alert alert-danger alert-dismissable">'+
+            '<button type="button" class="close" ' +
+                    'data-dismiss="alert" aria-hidden="true">' +
+                '&times;' +
+            '</button>' + xhr.responseText + xhr.getResponseHeader("X-Flash-ERROR")+
+         '</div>');
+
    });
 
 

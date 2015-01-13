@@ -1,25 +1,27 @@
-<div class="panel">
-	<div class="col-md-12">
-        <div class="col-md-8">
-            <h5><%= @customer.last_name %></h5>
-            <% if @customer.address %>
-                <address>
-				  <%= @customer.address.city %><br>
-				  <%= @customer.address.zipcode %><br>
-				  <abbr title="telefone">Fone:</abbr> +5511009903989
-				</address>
-                <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.address.latitude}%2C#{@customer.address.longitude}" %>
-			<% end %>
-            <!-- Indeed it will become a contact form -->
-            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+<% if can? :read, @customer %>
+    <div class="panel">
+    	<div class="col-md-12">
+            <div class="col-md-8">
+                <h5><%= @customer.last_name %></h5>
+                <% if @customer.address %>
+                    <address>
+    				  <%= @customer.address.city %><br>
+    				  <%= @customer.address.zipcode %><br>
+    				  <abbr title="telefone">Fone:</abbr> +5511009903989
+    				</address>
+                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.address.latitude}%2C#{@customer.address.longitude}" %>
+    			<% end %>
+                <!-- Indeed it will become a contact form -->
+                <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+            </div>
+             <div class="col-md-4">
+                <% if @customer.image_processing %>
+                     <%= image_tag('loading.gif', class: "img-responsive") %>
+                <% else %>
+            		<%= image_tag @customer.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @customer.image? %>
+                <% end %>
+        	</div>
         </div>
-         <div class="col-md-4">
-    		<%= image_tag @customer.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @customer.image? %>
-    	</div>
+    	<%= link_to t('links.edit'), edit_customer_path  %>
     </div>
-
-
-
-	<%= link_to t('links.edit'), edit_customer_path  %>
-
-</div>
+<% end %>

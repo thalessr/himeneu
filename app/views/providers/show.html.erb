@@ -1,24 +1,42 @@
-<div class="panel">
+<% if can? :read, @provider %>
 	<div class="panel">
-	<div class="col-md-12">
-        <div class="col-md-8">
-            <h5><%= @provider.last_name %></h5>
-            <% if @provider.addresses %>
-	            <% @provider.addresses.each do |address| %>
-	                <address>
-					  <%= address.city %><br>
-					  <%= address.zipcode %><br>
-					  <abbr title="telefone">Fone:</abbr> +5511009903989
-					</address>
-					<%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}" %>
-				<% end %>
-			<% end %>
-            <!-- Indeed it will become a contact form -->
-            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
-        </div>
-         <div class="col-md-4">
-    		<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
-    	</div>
-    </div>
-	<%= link_to t('links.edit'), edit_provider_path  %>
-</div>
+		<div class="panel">
+		<div class="col-md-12">
+	        <div class="col-md-8">
+	            <h5><%= @provider.last_name %></h5>
+	            <p><%= @provider.experience %></p>
+	            <%= @provider.profession %>
+
+	            <!-- Indeed it will become a contact form -->
+	            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+	        </div>
+	         <div class="col-md-4">
+	    		<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
+	    	</div>
+	    </div>
+		<%= link_to t('links.edit'), edit_provider_path  %>
+	</div>
+	<h2>Endereços</h2>
+	<% @provider.addresses.each do |address| %>
+		<div class="row" id="address_show">
+		  <div class="col-md-12">
+		      <div class="col-md-4">
+		        <address>
+		        <strong>Peggy Guggenheim Collection</strong><br>
+		            <%= address.city %>, <%= address.zipcode %><br>
+		            30123<br>
+		            Venezia<br>
+		            Italia<br>
+		            <abbr title="telefone">Fone:</abbr> +39 041 240 5411
+		       </address>
+		     </div>
+		     <div id="map" class="col-md-8">
+				<%= image_tag "http://maps.google.com/maps/api/staticmap?size=580x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}" %>
+
+		     </div>
+		  </div>
+		</div>
+	<% end %>
+<% end %>
+
+
