@@ -6,8 +6,10 @@ class Ability
     #
 
       user ||= User.new # guest user (not logged in)
-      if user.role == "admin"
-        can :manage, :all
+      if user.is_customer?
+        can :manage, Customer
+      elsif user.is_provider?
+        can :manage, Provider
       else
         can :create, User
       end
