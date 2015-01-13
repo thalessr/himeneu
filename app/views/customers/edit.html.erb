@@ -1,4 +1,6 @@
-<p>
-	<%= link_to t('links.back'), @customer %>
-</p>
-<%= render 'form' %>
+<% if can? :update, @customer %>
+    <p>
+		<%= link_to t('links.back'), @customer %>
+	</p>
+	<%= render 'form' %>
+<% end %>

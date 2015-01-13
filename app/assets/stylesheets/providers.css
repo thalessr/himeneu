@@ -2,3 +2,8 @@
   Place all the styles related to the matching controller here.
   They will automatically be included in application.css.
 */
+#address_show {
+	height: 440px;
+	padding: 20px;
+	margin-bottom: 20px;
+}
