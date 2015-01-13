@@ -7,11 +7,22 @@ class Ability
 
       user ||= User.new # guest user (not logged in)
       if user.is_customer?
-        can :manage, Customer
+        can :read, Customer, :user_id => user.id
+        can :update, Customer, :user_id => user.id
+        can :destroy, Customer, :user_id => user.id
+        can :create, Customer, :user_id => nil
+        can :read, Provider
       elsif user.is_provider?
-        can :manage, Provider
+        can :read, Provider, :user_id => user.id
+        can :update, Provider, :user_id => user.id
+        can :destroy, Provider, :user_id => user.id
+        can :create, Provider, :user_id => nil
+        can :read, Customer
+        # cannot [:edit, :create, :destroy], Customer
       else
         can :create, User
+        cannot :manage, Customer
+        can :read, Provider
       end
     #
     # The first argument to `can` is the action you are giving the user

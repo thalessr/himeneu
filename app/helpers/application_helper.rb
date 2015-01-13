@@ -5,7 +5,7 @@ module ApplicationHelper
 		   if customer
 	           edit_customer_path(customer.id)
            end
-		else
+		elsif current_user.is_provider?
 		   provider = Provider.find_by_user_id(current_user.id)
 		   if provider
 	           edit_provider_path(provider.id)

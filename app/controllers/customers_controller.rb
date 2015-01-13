@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+	load_and_authorize_resource
+	skip_authorize_resource :only => [:new, :create]
 
 	def index
 		@customers = Customer.all.where(user_id: current_user.id)
@@ -20,7 +22,7 @@ class CustomersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.find(params[:id])
+		@customer = Customer.includes(:address).find(params[:id])
 		@customer.get_wedding_date
 	end
 
@@ -31,13 +33,8 @@ class CustomersController < ApplicationController
 
 	def update
 		@customer = Customer.find(params[:id])
-
 		if @customer.update_attributes(customer_params)
-			# if @customer.image_processed
-			   redirect_to @customer
-		    # else
-			    # render :edit
-			# end
+			redirect_to @customer
 		else
 			render :edit
 		end
