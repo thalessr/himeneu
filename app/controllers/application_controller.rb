@@ -2,9 +2,9 @@ class ApplicationController < ActionController::Base
    # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-
-  # before_filter :current_ability
+  before_filter :current_ability
   before_action :set_locale #, :authenticate_user!
+
 
 
   def set_locale
@@ -12,8 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do |exception|
-  	flash[:error] = "Access denied."
-  	redirect_to root_url
+  	render :file => "#{Rails.root}/public/404", :layout => false, :status => :not_found
   end
 
   def current_ability

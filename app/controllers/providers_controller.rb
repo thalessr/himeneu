@@ -1,4 +1,6 @@
 class ProvidersController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @providers = Provider.all
   end
