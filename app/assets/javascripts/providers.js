@@ -13,15 +13,15 @@ function add_fields(link, association, content) {
 $(document).ready(function(){
   $('textarea').autosize();
 
-  $('#provider_form').bind('ajax:success', function(event, xhr, status) {
-  	$(this).animate({ height:'toggle'}, 'slow');
+  $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
+  	$('#error_msg').remove();
 	  $(this).before(
         '<div class="alert alert-success alert-dismissable">'+
             '<button type="button" class="close" ' +
                     'data-dismiss="alert" aria-hidden="true">' +
                 '&times;' +
             '</button>' +
-            xhr.responseJSON.first_name + ','+ xhr.getResponseHeader("X-Flash-Notice")+
+            xhr.responseJSON.first_name +" " + xhr.responseJSON.last_name  + ', '+ xhr.getResponseHeader("X-Flash-Notice")+
          '</div>');
 
    });
