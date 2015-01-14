@@ -16,10 +16,10 @@ class ProvidersController < ApplicationController
         current_user.set_completed
         response.headers['X-Flash-Notice'] = 'Criado com sucesso.'
         format.html { redirect_to @provider}
-        format.json { render :json => @provider, status: :created, location: @provider }
+        format.json { render :json => @provider,message: "j", status: :created, location: @provider }
       else
         format.html { render :new }
-        format.json { render json: @provider.errors, status: :unprocessable_entry}
+        format.json { render json: @provider.errors, message: "j", status: :unprocessable_entry}
       end
     end
   end
@@ -34,7 +34,7 @@ class ProvidersController < ApplicationController
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
         format.html  { redirect_to @provider_ur}
-        format.json  { render :json => @provider, location: @provider, notice: 'Printer was successfully created.' }
+        format.json  { render :json => @provider, location: @provider }
       else
         format.html { render :edit }
         format.json { render json: @provider.errors, status: :unprocessable_entry}

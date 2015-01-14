@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
 
   def is_customer?
     unless self.roles.empty?
-      return self.roles.first.id = 1 #check seeds, it can be improved
+      return self.roles.first.id == 1 #check seeds, it can be improved
     end
   end
 
@@ -25,7 +25,7 @@ class User < ActiveRecord::Base
 
   def is_provider?
     unless self.roles.empty?
-      return self.roles.first.id = 2
+      return self.roles.first.id == 2
     end
   end
 

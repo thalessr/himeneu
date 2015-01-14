@@ -50,6 +50,8 @@ en:
       new: "New"
       edit: "Edit"
       save: "Save"
+      new_address: "New address"
+      remove_address: "Remove address"
   errors:
     messages:
       blank: "blank"
