@@ -26,16 +26,26 @@ $(document).ready(function(){
 
    });
    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
+      console.log(xhr);
       var errors, errorText;
+
+      $('#error_msg').remove();
 
       errors = $.parseJSON(xhr.responseText);
       for ( error in errors ) {
         errorText += "<li>" + error + ': ' + errors[error] + "</li> ";
+        var field = error.replace(':', "");
+        $("#"+field).animate({
+          borderBottomColor: "red",
+          borderLeftColor: "red",
+          borderRightColor: "red",
+          borderTopColor: "red"
+        });
       }
 
       errorText += "</ul>";
      $(this).before(
-        '<div class="alert alert-danger alert-dismissable">'+
+        '<div id="error_msg" class="alert alert-danger alert-dismissable">'+
             '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">' +
                 '&times;' +
             '</button>' +

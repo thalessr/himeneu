@@ -1,7 +1,7 @@
 require 'test_helper'
 require "mocha/mini_test"
 
-class ProvidersControllerTest < ActionController::TestCase
+class ProvidersControllerTest <  MiniTest::Unit::TestCase
   fixtures :users
   fixtures :providers
   include Devise::TestHelpers
