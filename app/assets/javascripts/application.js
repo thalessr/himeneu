@@ -22,7 +22,22 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= stub active_admin
-$.ajaxSetup({
-  dataType: 'json'
-})
+
+
+$(document).ready(function(){
+	$.ajaxSetup({
+	  dataType: 'json'
+	})
+
+	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
+
+		$(this).before('<img alt="Loading" id="load" class="img-responsive" src="/assets/loading.gif">');
+
+	});
+
+	$('form').bind('ajax:complete', function(event, xhr, status) {
+		$("#load").remove();
+	});
+
+});
 
