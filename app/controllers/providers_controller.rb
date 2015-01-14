@@ -16,10 +16,10 @@ class ProvidersController < ApplicationController
         current_user.set_completed
         response.headers['X-Flash-Notice'] = 'Criado com sucesso.'
         format.html { redirect_to @provider}
-        format.json { render :json => @provider,message: "j", status: :created, location: @provider }
+        format.json { render :json => @provider, status: :created, location: @provider }
       else
         format.html { render :new }
-        format.json { render json: @provider.errors, message: "j", status: :unprocessable_entry}
+        format.json { render json: @provider.errors, status: :unprocessable_entry}
       end
     end
   end
