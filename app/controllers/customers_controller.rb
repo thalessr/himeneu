@@ -27,7 +27,8 @@ class CustomersController < ApplicationController
 	end
 
 	def edit
-		@customer = Customer.find(params[:id])
+		@customer = Customer.includes(:address).find(params[:id])
+	    @customer.build_address
 		@customer.get_wedding_date
 	end
 
@@ -45,7 +46,7 @@ class CustomersController < ApplicationController
 		params.require(:customer).permit(
 				                             :first_name, :last_name,
 				                             :age, :key, :wedding_date, :image,
-				                             address_attributes: [:id, :city, :zipcode, :_destroy]
+				                             address_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
 				                        )
 	end
 end
