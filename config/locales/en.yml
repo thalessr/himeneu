@@ -37,11 +37,12 @@ en:
   wedding_date: Wedding Date
   error: Error
   profession: "Profession"
-  contact: "Phone number"
   experience: "Experience"
   upload_image: "Upload image"
   city: City
   zipcode: Zip code
+  phone: Phone number
+  email: Email
   links:
       back: "Back"
       cancel: "Cancel"

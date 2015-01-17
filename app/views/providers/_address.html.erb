@@ -1,5 +1,17 @@
 <div id="address">
 	<div class="form-group">
+	    <%= f.label t(:phone), :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.telephone_field :phone, :class => 'form-control' %>
+	    </div>
+  	</div>
+  	<div class="form-group">
+	    <%= f.label t(:email), :class => 'control-label col-lg-2' %>
+	    <div class="col-lg-10">
+	      <%= f.email_field :email, :class => 'form-control' %>
+	    </div>
+  	</div>
+	<div class="form-group">
 	    <%= f.label t(:city), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.text_field :city, :class => 'form-control' %>
