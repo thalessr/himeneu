@@ -1,4 +1,5 @@
 class ProvidersController < ApplicationController
+  skip_before_filter :verify_authenticity_token
   load_and_authorize_resource
 
   def index
@@ -24,8 +25,12 @@ class ProvidersController < ApplicationController
     end
   end
 
+  def show
+    @provider = Provider.includes(:addresses).find(params[:id])
+  end
+
   def edit
-    @provider = Provider.find(params[:id])
+    @provider = Provider.includes(:addresses).find(params[:id])
   end
 
   def update
@@ -33,11 +38,11 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
-        format.html  { redirect_to @provider_ur}
+        format.html  { redirect_to @provider_url}
         format.json  { render :json => @provider, location: @provider }
       else
         format.html { render :edit }
-        format.json { render json: @provider.errors, status: :unprocessable_entry}
+        format.json { render json: @provider.errors}
       end
     end
   end
@@ -48,17 +53,12 @@ class ProvidersController < ApplicationController
     redirect_to new_provider_path
   end
 
-  def show
-    @provider = Provider.includes(:addresses).find(params[:id])
-  end
-
-
   private
   def provider_params
     params.require(:provider).permit(
-                                      :first_name, :last_name, :age, :contact,
+                                      :first_name, :last_name, :age,
                                       :image, :profession, :city, :experience,
-                                      addresses_attributes: [:id, :city, :zipcode, :_destroy]
+                                      addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
                                       )
   end
 end

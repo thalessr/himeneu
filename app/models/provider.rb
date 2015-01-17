@@ -12,4 +12,9 @@
     mount_uploader :image, ImageUploader
     process_in_background :image
 
+
+    def full_name
+    	"#{first_name} #{last_name}"
+    end
+
 end

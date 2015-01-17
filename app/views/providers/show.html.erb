@@ -3,12 +3,15 @@
 		<div class="panel">
 		<div class="col-md-12">
 	        <div class="col-md-8">
-	            <h5><%= @provider.last_name %></h5>
-	            <p><%= @provider.experience %></p>
-	            <%= @provider.profession %>
-
-	            <!-- Indeed it will become a contact form -->
-	            <p>Email<a href="mailto:blabla@bla.com?subject=Himeneu">email do bol</a>.</p>
+				<h3><%= @provider.full_name %></h3>
+			    <dl class="dl-horizontal">
+			        <dt><%= t(:experience) %></dt>
+			        <dd><%= @provider.experience %></dd>
+			        <dt><%= t(:profession) %></dt>
+			        <dd><%= @provider.profession %></dd>
+			        <dt>Document Tree</dt>
+			        <dd>The tree of elements encoded in the source document.</dd>
+			    </dl>
 	        </div>
 	         <div class="col-md-4">
 	    		<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
@@ -22,12 +25,10 @@
 		  <div class="col-md-12">
 		      <div class="col-md-4">
 		        <address>
-		        <strong>Peggy Guggenheim Collection</strong><br>
+		        <strong></strong><br>
 		            <%= address.city %>, <%= address.zipcode %><br>
-		            30123<br>
-		            Venezia<br>
-		            Italia<br>
-		            <abbr title="telefone">Fone:</abbr> +39 041 240 5411
+		            <abbr title="telefone">Fone:</abbr> <%= address.phone %>
+		            <p>Email: <%= mail_to address.email %></p>
 		       </address>
 		     </div>
 		     <div id="map" class="col-md-8">

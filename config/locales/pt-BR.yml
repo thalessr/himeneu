@@ -16,11 +16,12 @@ pt-BR:
   wedding_date: Data do casamento
   error: Erro
   profession: "Profissão"
-  contact: "Telefone"
   experience: "Experiência"
   upload_image: "Enviar imagem"
   city: Cidade
   zipcode: CEP
+  phone: Telefone
+  email: Email
   errors:
     messages:
       blank: "blank"
