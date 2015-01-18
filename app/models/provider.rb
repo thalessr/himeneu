@@ -12,6 +12,10 @@
     mount_uploader :image, ImageUploader
     process_in_background :image
 
+    #Tags
+    acts_as_taggable
+    acts_as_taggable_on :profession
+
 
     def full_name
     	"#{first_name} #{last_name}"

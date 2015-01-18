@@ -24,7 +24,7 @@ group :assets  do
     # gem 'therubyracer',  platforms: :ruby
 end
 
-gem 'therubyracer',  platforms: :ruby
+gem 'therubyracer'
 gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
@@ -79,6 +79,8 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 
 gem 'geocoder'
+
+gem 'acts-as-taggable-on', '~> 3.4'
 
 
 # Use unicorn as the app server
