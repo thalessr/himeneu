@@ -16,6 +16,7 @@ pt-BR:
   wedding_date: Data do casamento
   error: Erro
   profession: "Profissão"
+  profession_hint: "(separados por virgula Ex: Fotógrafo, Buffet)"
   experience: "Experiência"
   upload_image: "Enviar imagem"
   city: Cidade

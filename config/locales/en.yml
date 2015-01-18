@@ -37,6 +37,7 @@ en:
   wedding_date: Wedding Date
   error: Error
   profession: "Profession"
+  profession_hint: "(Separate by commas)"
   experience: "Experience"
   upload_image: "Upload image"
   city: City
