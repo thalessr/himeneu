@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  def role_id 
+  def role_id
     if self.is_customer?
       return self.customers.first.id
     else

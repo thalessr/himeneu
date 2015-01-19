@@ -1,10 +1,23 @@
-<h1>Providers#index</h1>
+<h1>Encontre o melhor profissional para seu casamento</h1>
+
+<table class="table table-hover">
+
+	<tr>
+      <th>Nome</th>
+      <th>Profissão</th>
+      <th>Experiência</th>
+    </tr>
+
+    <tbody>
+	  	<% @providers.each do |p| %>
+		  	<tr>
+	  			<td><%= link_to p.first_name, p %></td>
+	  			<td><%= p.profession %></td>
+	  			<td><%= p.experience %></td>
+	  		</tr>
+  		<% end %>
+    </tbody>
+</table>
 
 
-<ul class="users">
-  <% @providers.each do |p| %>
-    <li>
-      <%= link_to p.first_name, p %>
-    </li>
-  <% end %>
-</ul>
+
