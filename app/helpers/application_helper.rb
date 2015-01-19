@@ -12,4 +12,14 @@ module ApplicationHelper
            end
 		end
 	end
+
+
+	def redirect_to_profile
+		if current_user.is_customer?
+            customer_path(current_user.role_id)
+        else
+            provider_path(current_user.role_id)
+        end
+	end
+
 end
