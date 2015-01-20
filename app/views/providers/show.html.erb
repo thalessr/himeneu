@@ -16,7 +16,7 @@
 
           <div class="panel panel-info">
             <div class="panel-heading">
-              <h3 class="panel-title"><%= @provider.first_name + " " + @provider.last_name %></h3>
+              <h3 class="panel-title"><%= @provider.full_name %></h3>
             </div>
             <div class="panel-body">
               <div class="row">
@@ -54,8 +54,12 @@
                 <div class="panel-footer">
                         <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
                         <span class="pull-right">
+                          <% if can? :update, @provider %>
                             <a href="edit.html" data-original-title="Edit this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                          <% end %>
+                          <% if can? :destroy, @provider %>
                             <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                          <% end %>
                         </span>
                 </div>
                 <div>
@@ -68,7 +72,9 @@
                                 <strong>Peggy Guggenheim Collection</strong><br>
                                     <%= address.city %>, <%= address.zipcode %><br>
                                     <abbr title="telefone">Fone:</abbr> <%= address.phone %>
-                                    Email: <%= mail_to address.email %>
+                                    <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
+                                      <i class="glyphicon glyphicon-envelope"></i>
+                                    <% end %>
                                </address>
                              </div>
                              <div id="map" class="col-md-8">
