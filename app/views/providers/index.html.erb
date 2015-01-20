@@ -1,21 +1,17 @@
 <h1>Encontre o melhor profissional para seu casamento</h1>
 
-	<% @providers.each do |p| %>
-	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-8 col-lg-6">
+<% @providers.each do |p| %>
+	<div class="row">
+		<div class="col-md-8 col-lg-6">
 	    	 <div class="well profile">
 	            <div class="col-sm-12">
 	                <div class="col-xs-12 col-sm-8">
 	                    <h2><%= link_to p.first_name+" "+p.last_name, p%></h2>
-	                    <p><strong>Profissão: </strong> </p>
-	                    <p><strong>Experiência: </strong> <%= p.experience %> </p>
+	                    <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
 	                    <p><strong>Skills: </strong>
-	                        <span class="tags">html5</span>
-	                        <span class="tags">css3</span>
-	                        <span class="tags">jquery</span>
-	                        <span class="tags">bootstrap3</span>
+	                    	<% p.profession_list.each do |s| %>
+		                        <span class="tags"><%= s %></span>
+	                        <% end %>
 	                    </p>
 	                </div>
 	                <div class="col-xs-12 col-sm-4 text-center">
@@ -43,9 +39,7 @@
 	                    </figure>
 	                </div>
 	            </div>
-
 	    	 </div>
-			</div>
 		</div>
 	</div>
 <% end %>
