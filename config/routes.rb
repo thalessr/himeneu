@@ -24,7 +24,7 @@ Rails.application.routes.draw do
 #   end
 # end
 
-resources :customers do
+resources :customers, :except => [:index] do
   resources :address, :except => [:index, :show, :edit]
 end
 resources :providers do
