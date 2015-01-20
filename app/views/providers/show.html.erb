@@ -57,8 +57,17 @@
                     <% end %>
                   </span>
           </div>
-          <div>
-              <h2>Endereços</h2>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#add">
+              Endereços  <span class="badge"><%= @provider.addresses.count %></a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#comment">Recomedação <span class="badge">
+                <%= @provider.recommendations.count %></a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="add" class="tab-pane fade in active">
               <% @provider.addresses.each do |address| %>
                   <div class="row" id="address_show">
                     <div class="col-md-12">
@@ -78,10 +87,47 @@
                         </div>
                       </div>
               <% end %>
-          </div>
+            </div>
+            <div id="comment" class="tab-pane fade">
+              <% @provider.recommendations.each do |rec| %>
+                <p>
+                  <strong>Titulo</strong>
+                  <%= rec.title %>
+                </p>
+
+                <p>
+                  <strong>Comentário</strong>
+                  <%= rec.comment %>
+                </p>
+
+                <p>
+                  <strong>Author</strong>
+                  <%= rec.customer.full_name %>
+                </p>
+              <% end %>
+            </div>
+         </div>
+
       </div>
     </div>
   </div>
+
+
+
+  <h2>Recommendation:</h2>
+  <%= form_for([@provider, @provider.recommendations.build]) do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :comment %><br>
+      <%= f.text_area :comment %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>
 
 <% end %>
 
