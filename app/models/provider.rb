@@ -1,6 +1,8 @@
  class Provider < ActiveRecord::Base
 	belongs_to :user
 	has_many :addresses
+    has_many :recommendations
+    has_many :customers, through: :recommendations
 
 	validates_presence_of :first_name
 	validates_presence_of :last_name
