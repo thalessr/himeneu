@@ -13,12 +13,8 @@ class User < ActiveRecord::Base
 
 
   def is_customer?
-   unless self.roles.empty?
-      if self.roles.first.id == 1
-        return true  #check seeds, it can be improved
-      else
-        return false
-      end
+    unless self.roles.empty?
+      return self.roles.first.id == 1
     end
   end
 
@@ -29,11 +25,7 @@ class User < ActiveRecord::Base
 
   def is_provider?
     unless self.roles.empty?
-      if self.roles.first.id == 2
-        return true  #check seeds, it can be improved
-      else
-        return false
-      end
+      return self.roles.first.id == 2
     end
   end
 
@@ -43,9 +35,6 @@ class User < ActiveRecord::Base
     else
       return self.providers.first.id
     end
-  end  
-
-
-
+  end
 
 end
