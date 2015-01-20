@@ -37,19 +37,13 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <%= link_to 'Profissionais', providers_path %>
-                    </li>
-                    <li>
-                    	<%= link_to 'Quem somos', dashboard_path+"#quem-somos"%>
-                    </li>
-                    <li>
-                        <%= link_to 'Contato', dashboard_path+"#contato"%>
-                    </li>
                     <% if user_signed_in? && current_user.is_completed %>
+                        <li><%= link_to 'Profissionais', providers_path %></li>
 						<li><%= link_to "Meu Perfil", redirect_to_profile %></li>
 						<li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
 				    <% else %>
+                        <li><%= link_to 'Quem somos', dashboard_path+"#quem-somos"%> </li>
+                        <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
 						<li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
                     	<li><%= link_to 'Login', new_user_session_path %></li>
                 	<% end %>
