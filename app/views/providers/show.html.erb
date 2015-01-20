@@ -1,8 +1,10 @@
 <% if can? :read, @provider %>
-	
-	         <div class="col-md-4">
-	    		<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
-	    	</div>
+
+
+<div class="col-md-4">
+	<%= image_tag @provider.image_url(:thumb),  size: "304x236", :class => "img-thumbnail" if @provider.image? %>
+</div>
+
 
 <div class="container">
       <div class="row">
@@ -10,8 +12,8 @@
            <%= link_to t('links.edit'), edit_provider_path  %>
       </div>
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-   
-   
+
+
           <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title"><%= @provider.first_name + " " + @provider.last_name %></h3>
@@ -19,45 +21,31 @@
             <div class="panel-body">
               <div class="row">
                 <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle"> </div>
-                
-                <div class=" col-md-9 col-lg-9 "> 
+
+                <div class=" col-md-9 col-lg-9 ">
                   <table class="table table-user-information">
                     <tbody>
                       <tr>
-                        <td>Profissão:</td>
-                        <td><%= @provider.profession %></td>
+                        <td><%= t(:profession) %></td>
+                        <td><%= @provider.profession_list %></td>
                       </tr>
                       <tr>
                         <td>Hire date:</td>
                         <td>06/23/2013</td>
                       </tr>
                       <tr>
-                        <td>Experiência:</td>
+                        <td><%= t(:experience) %></td>
                         <td><%= @provider.experience %></td>
                       </tr>
-                   
-                         <tr>
-                             <tr>
-                        <td>Gender</td>
-                        <td>Male</td>
-                      </tr>
-                        <tr>
-                        <td>Cidade</td>
-                        <td><%= @provider.city %></td>
-                      </tr>
                       <tr>
-                        <td>Email</td>
-                        <td><%= @provider.provider_email %></td>
-                      </tr>
                         <td>Phone Number</td>
                         <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
                         </td>
-                           
                       </tr>
-                     
+
                     </tbody>
                   </table>
-                  
+
                   <a href="#" class="btn btn-primary">Me interessa!</a>
                   <a href="#" class="btn btn-primary">Pedir orçamento</a>
                 </div>
@@ -79,10 +67,8 @@
                                 <address>
                                 <strong>Peggy Guggenheim Collection</strong><br>
                                     <%= address.city %>, <%= address.zipcode %><br>
-                                    30123<br>
-                                    Venezia<br>
-                                    Italia<br>
-                                    <abbr title="telefone">Fone:</abbr> +39 041 240 5411
+                                    <abbr title="telefone">Fone:</abbr> <%= address.phone %>
+                                    Email: <%= mail_to address.email %>
                                </address>
                              </div>
                              <div id="map" class="col-md-8">

@@ -38,6 +38,18 @@
 
 
    <%= f.fields_for :address  do |a| %>
+	   <div class="form-group">
+		    <%= a.label t(:phone), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.telephone_field :phone, :class => 'form-control' %>
+		    </div>
+	  	</div>
+	  	<div class="form-group">
+		    <%= a.label t(:email), :class => 'control-label col-lg-2' %>
+		    <div class="col-lg-10">
+		      <%= a.email_field :email, :class => 'form-control' %>
+		    </div>
+	  	</div>
 	    <div class="form-group">
 		    <%= a.label t(:city), :class => 'control-label col-lg-2' %>
 		    <div class="col-lg-10">

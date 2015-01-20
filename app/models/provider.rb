@@ -4,6 +4,7 @@
 
 	validates_presence_of :first_name
 	validates_presence_of :last_name
+	validates_presence_of :age
 
 	accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
@@ -11,6 +12,9 @@
     mount_uploader :image, ImageUploader
     process_in_background :image
 
+    #Tags
+    acts_as_taggable
+    acts_as_taggable_on :profession
 
     def provider_email
     	id = self.user_id
@@ -19,5 +23,8 @@
    	end
 
 
+    def full_name
+    	"#{first_name} #{last_name}"
+    end
 
 end
