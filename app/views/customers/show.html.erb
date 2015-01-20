@@ -23,6 +23,8 @@
                 <% end %>
         	</div>
         </div>
-    	<%= link_to t('links.edit'), edit_customer_path  %>
+        <% if can? :update, @customer %>
+        	<%= link_to t('links.edit'), edit_customer_path  %>
+        <% end %>
     </div>
 <% end %>
