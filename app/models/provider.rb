@@ -16,6 +16,12 @@
     acts_as_taggable
     acts_as_taggable_on :profession
 
+    def provider_email
+    	id = self.user_id
+    	user = User.find(id)
+    	user.email
+   	end
+
 
     def full_name
     	"#{first_name} #{last_name}"
