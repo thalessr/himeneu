@@ -11,4 +11,13 @@
     mount_uploader :image, ImageUploader
     process_in_background :image
 
+
+    def provider_email
+    	id = self.user_id
+    	user = User.find(id)
+    	user.email
+   	end
+
+
+
 end

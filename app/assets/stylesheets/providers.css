@@ -19,7 +19,7 @@ body
     }
 .profile 
 {
-    min-height: 355px;
+    min-height: 215px;
     display: inline-block;
     }
 figcaption.ratings
@@ -93,3 +93,8 @@ span.tags
     margin-left: -10px;
     z-index: 10;
     }
+
+.boxhead a {
+    color: #FFFFFF;
+    text-decoration: none;
+}
