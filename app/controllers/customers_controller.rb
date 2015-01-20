@@ -6,6 +6,10 @@ class CustomersController < ApplicationController
 		@customers = Customer.all.where(user_id: current_user.id)
 	end
 
+	def show_all
+		@customers = Customer.all
+	end
+
 	def new
 		@customer = Customer.new
 		@customer.build_address
