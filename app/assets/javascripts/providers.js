@@ -57,3 +57,30 @@ $(document).ready(function(){
 
 
 });
+
+var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
+
+app.factory("Recommendation", function($resource) {
+  return $resource("/providers/:id/recommendations");
+});
+
+app.controller("RecommendationCtrl", function($scope, Recommendation){
+  var i = $('#comment').data("param");
+  Recommendation.query({ id: i },function(data){
+    $scope.recommendations = data;
+  });
+
+  $scope.save = function(recommendation) {
+        Recommendation.save({id:i},angular.copy(recommendation),function(data){
+          $scope.recommendations.push(data);
+          $scope.recommendation.title = '';
+          $scope.recommendation.comment = '';
+          $scope.recommendation.rating = '';
+        });
+
+  };
+
+});
+
+
+
