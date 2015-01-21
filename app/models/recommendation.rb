@@ -6,7 +6,7 @@ class Recommendation < ActiveRecord::Base
 
 
 	def as_json(options = {})
-		super(options.merge(include: {:customer => {:only => :first_name, :methods =>[:full_name]}}))
+		super(options.merge(include: {:customer => {:only => [:first_name, :image], :methods =>[:full_name]}}))
 	end
 
 end

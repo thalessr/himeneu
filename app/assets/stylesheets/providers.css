@@ -12,7 +12,7 @@
 /* imported code http://bootsnipp.com/snippets/featured/flat-user-profile-uis
 */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
 body
 {
     font-family: 'Lato', 'sans-serif';
@@ -97,4 +97,27 @@ span.tags
 .boxhead a {
     color: #FFFFFF;
     text-decoration: none;
+}
+
+
+.media .media-object { max-width: 120px; }
+.media-body { position: relative; }
+.media-comment { margin-bottom: 20px; }
+.media-date {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before {
+    content: '.';
+    margin-left: -2px;
+    margin-right: 2px;
+}
+
+.reviews {
+    color: #555;
+    font-weight: bold;
+    margin: 10px auto 20px;
 }
