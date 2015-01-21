@@ -1,13 +1,21 @@
 class RecommendationsController < ApplicationController
 
+	def index
+		@recommendations = Recommendation.where(provider_id: params[:provider_id])
+		render json: @recommendations
+	end
+
 	def create
 		@customer = current_user.customers.first
 		@recommendation = @customer.recommendations.build(recommendation_params)
 		@recommendation.provider_id = params[:provider_id]
-		if @recommendation.save
-			redirect_to provider_path(@recommendation.provider_id)
-		else
-            flash[:alert] = "Erro ao criar recomedação"
+		respond_to do |format|
+			if @recommendation.save
+				format.html { redirect_to redirect_to provider_path(@recommendation.provider_id)}
+				format.json { render :json => @recommendation, status: :created}
+			else
+	            format.json { render json: @recommendation.errors, status: :unprocessable_entry}
+			end
 		end
 	end
 

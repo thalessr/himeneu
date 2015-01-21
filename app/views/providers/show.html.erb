@@ -88,23 +88,30 @@
                       </div>
               <% end %>
             </div>
-            <div id="comment" class="tab-pane fade">
-              <% @provider.recommendations.each do |rec| %>
-                <p>
-                  <strong>Titulo</strong>
-                  <%= rec.title %>
-                </p>
+            <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
+              <form novalidate class="simple-form">
+                  Assunto: <input type="text" ng-model="recommendation.title" /><br />
+                  Comentário: <textarea ng-model="recommendation.comment"/></textarea><br />
+                  <input type="submit" ng-click="save(recommendation)" value="Save" />
+              </form>
 
-                <p>
-                  <strong>Comentário</strong>
-                  <%= rec.comment %>
-                </p>
 
-                <p>
-                  <strong>Author</strong>
-                  <%= rec.customer.full_name %>
-                </p>
-              <% end %>
+               <div ng-repeat="rec in recommendations">
+                  <p>
+                    <strong>Titulo</strong>
+                    {{rec.title }}
+                  </p>
+
+                  <p>
+                    <strong>Comentário</strong>
+                    {{rec.comment}}
+                  </p>
+
+                  <p>
+                    <strong>Author</strong>
+                    {{rec.customer.full_name }}
+                  </p>
+              </div>
             </div>
          </div>
 
@@ -112,22 +119,6 @@
     </div>
   </div>
 
-
-
-  <h2>Recommendation:</h2>
-  <%= form_for([@provider, @provider.recommendations.build]) do |f| %>
-    <p>
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :comment %><br>
-      <%= f.text_area :comment %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-  <% end %>
 
 <% end %>
 
