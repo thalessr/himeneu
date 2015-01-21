@@ -121,3 +121,19 @@ span.tags
     font-weight: bold;
     margin: 10px auto 20px;
 }
+
+/*input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+input.ng-valid.ng-touched {
+    background-color: #78FA89;
+}
+
+textarea.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+textarea.ng-valid.ng-touched {
+    background-color: #78FA89;
+}*/
