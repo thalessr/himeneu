@@ -1,5 +1,4 @@
 <% if can? :read, @provider %>
-
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
       <div class="panel panel-info">
@@ -90,8 +89,9 @@
             </div>
             <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
               <form novalidate  class="form-horizontal" role="form">
-                  Assunto: <input type="text" ng-model="recommendation.title" /><br />
-                  Comentário: <textarea ng-model="recommendation.comment"/></textarea><br />
+                  Assunto: <input type="text" ng-model="recommendation.title" name="title"/><br/>
+                  Comentário: <textarea ng-model="recommendation.comment" /></textarea><br />
+                  <div ng-model="recommendation.rating" id="rate"> </div>
                   <input type="submit" class="btn btn-success btn-circle text-uppercase" ng-click="save(recommendation)" value="Save" />
               </form>
 
@@ -105,6 +105,7 @@
                           <h4 class="media-heading text-uppercase reviews">{{rec.title }}
                             <small> {{rec.customer.full_name }} </small> </h4>
                           <ul class="media-date text-uppercase reviews list-inline">
+                             <div data-score="{{rec.rating}}" id="score"></div>
 
                           </ul>
 

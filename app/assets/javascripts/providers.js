@@ -11,6 +11,8 @@ function add_fields(link, association, content) {
 }
 
 $(document).ready(function(){
+
+
   $('textarea').autosize();
 
   $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
@@ -54,8 +56,21 @@ $(document).ready(function(){
          '</div>');
 
    });
+  $('#rate').raty();
 
 
+});
+
+$(window).bind("load", function(){
+  $('div#score').raty({
+        readOnly: function() {
+          return true;
+        },
+        score: function() {
+          return $(this).attr('data-score');
+        }
+
+      });
 });
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
@@ -65,17 +80,25 @@ app.factory("Recommendation", function($resource) {
 });
 
 app.controller("RecommendationCtrl", function($scope, Recommendation){
+
   var i = $('#comment').data("param");
   Recommendation.query({ id: i },function(data){
     $scope.recommendations = data;
+
   });
 
   $scope.save = function(recommendation) {
+        $scope.recommendation.rating = $('input:hidden[name=score]').val();
         Recommendation.save({id:i},angular.copy(recommendation),function(data){
           $scope.recommendations.push(data);
           $scope.recommendation.title = '';
           $scope.recommendation.comment = '';
           $scope.recommendation.rating = '';
+          $('input:hidden[name=score]').val('');
+        }, function(error) {
+
+          $scope.recommendation.title = error.data['title'][0];
+
         });
 
   };

@@ -10,19 +10,18 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require angular
-//= require angular-ui-router
+//= require angular/angular.min.js
 //= require angular-resource
 //= require ng-rails-csrf
-//= require jquery
+//= require jquery.min.js
 //= require jquery_ujs
-//= require jquery-ui
 //= require moment
 //= require bootstrap-wysihtml5
 //= require jquery.autosize
 //= require bootstrap-select
 //= require bootstrap-datetimepicker
 //= require bootstrap/dist/js/bootstrap
+//= require raty/lib/jquery.raty
 //= require_tree .
 //= stub active_admin
 
