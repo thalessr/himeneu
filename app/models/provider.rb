@@ -29,4 +29,9 @@
     	"#{first_name} #{last_name}"
     end
 
+    def score
+        total = (self.recommendations.sum(:rating)/self.recommendations.count)
+        total
+    end
+
 end
