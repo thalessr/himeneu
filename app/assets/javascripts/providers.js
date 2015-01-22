@@ -63,14 +63,21 @@ $(document).ready(function(){
 
 $(window).bind("load", function(){
   $('div#score').raty({
-        readOnly: function() {
-          return true;
-        },
-        score: function() {
-          return $(this).attr('data-score');
-        }
-
-      });
+      readOnly: function() {
+        return true;
+      },
+      score: function() {
+        return $(this).attr('data-score');
+      }
+  });
+  $('div#provider_rating').raty({
+      readOnly: function() {
+        return true;
+      },
+      score: function() {
+        return $(this).attr('data-score');
+      }
+  });
 });
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
