@@ -12,7 +12,6 @@
 	<meta name="description" content="">
 	<%= favicon_link_tag 'favicon.ico' %>
 	<meta name="author" content="Thales Ribeiro(@_thalessr), Rodrigo Vitulli">
-	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 	<!--[if lt IE 9]>
@@ -20,8 +19,7 @@
 	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
 	<![endif]-->
 </head>
-<body>
-
+<body ng-app="App" >
 	 <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -55,10 +53,11 @@
 
 
 	<div class="container">
-	    <div class="row"><%= notice %>  <%= alert %></div>
+	    <div class="row"><%= notice %>  <%= alert %> </div>
 		<%= yield %>
 	</div>
 
 
 </body>
+
 </html>

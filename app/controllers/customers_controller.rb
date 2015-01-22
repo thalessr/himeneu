@@ -32,7 +32,6 @@ class CustomersController < ApplicationController
 
 	def edit
 		@customer = Customer.includes(:address).find(params[:id])
-	    @customer.build_address
 		@customer.get_wedding_date
 	end
 

@@ -3,7 +3,7 @@
   They will automatically be included in application.css.
 */
 #address_show {
-	height: 440px;
+	height: 300px;
 	padding: 20px;
 	margin-bottom: 20px;
 }
@@ -12,12 +12,12 @@
 /* imported code http://bootsnipp.com/snippets/featured/flat-user-profile-uis
 */
 
-@import url(http://fonts.googleapis.com/css?family=Lato:400,700);
+
 body
 {
     font-family: 'Lato', 'sans-serif';
     }
-.profile 
+.profile
 {
     min-height: 215px;
     display: inline-block;
@@ -36,15 +36,15 @@ figcaption.ratings a:hover
     color:#f39c12;
     text-decoration:none;
     }
-.divider 
+.divider
 {
     border-top:1px solid rgba(0,0,0,0.1);
     }
-.emphasis 
+.emphasis
 {
     border-top: 4px solid transparent;
     }
-.emphasis:hover 
+.emphasis:hover
 {
     border-top: 4px solid #1abc9c;
     }
@@ -52,7 +52,7 @@ figcaption.ratings a:hover
 {
     margin-bottom:0;
     }
-span.tags 
+span.tags
 {
     background: #1abc9c;
     border-radius: 2px;
@@ -60,28 +60,28 @@ span.tags
     font-weight: bold;
     padding: 2px 4px;
     }
-.dropdown-menu 
+.dropdown-menu
 {
-    background-color: #34495e;    
+    background-color: #34495e;
     box-shadow: none;
     -webkit-box-shadow: none;
     width: 250px;
     margin-left: -125px;
     left: 50%;
     }
-.dropdown-menu .divider 
+.dropdown-menu .divider
 {
-    background:none;    
+    background:none;
     }
 .dropdown-menu>li>a
 {
     color:#f5f5f5;
     }
-.dropup .dropdown-menu 
+.dropup .dropdown-menu
 {
     margin-bottom:10px;
     }
-.dropup .dropdown-menu:before 
+.dropup .dropdown-menu:before
 {
     content: "";
     border-top: 10px solid #34495e;
@@ -98,3 +98,42 @@ span.tags
     color: #FFFFFF;
     text-decoration: none;
 }
+
+
+.media .media-object { max-width: 120px; }
+.media-body { position: relative; }
+.media-comment { margin-bottom: 20px; }
+.media-date {
+    position: absolute;
+    right: 25px;
+    top: 25px;
+}
+.media-date li { padding: 0; }
+.media-date li:first-child:before { content: ''; }
+.media-date li:before {
+    content: '.';
+    margin-left: -2px;
+    margin-right: 2px;
+}
+
+.reviews {
+    color: #555;
+    font-weight: bold;
+    margin: 10px auto 20px;
+}
+
+/*input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+input.ng-valid.ng-touched {
+    background-color: #78FA89;
+}
+
+textarea.ng-invalid.ng-touched {
+    background-color: #FA787E;
+}
+
+textarea.ng-valid.ng-touched {
+    background-color: #78FA89;
+}*/
