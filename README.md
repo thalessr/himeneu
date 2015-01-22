@@ -11,9 +11,9 @@ To start the mailcatcher, type : ` bundle exec mailcatcher `
 
 To start redis: `redis-server`
 
-brew install node
+To install nodejs `brew install node`
 
-bower install angular angular-ui-router angular-resource bootstrap --save
+Run `bower install angular angular-ui-router angular-resource bootstrap raty --save `
 
 bundle exec rake assets:precompile
 
