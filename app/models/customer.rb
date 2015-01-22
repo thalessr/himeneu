@@ -1,6 +1,7 @@
 class Customer < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :address, dependent: :destroy
+	has_many :recommendations, dependent: :destroy
 	# before_save :set_wedding_date
 	#include all required fields here
 	validates_presence_of :first_name

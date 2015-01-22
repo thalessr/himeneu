@@ -82,6 +82,8 @@ gem 'geocoder'
 
 gem 'acts-as-taggable-on', '~> 3.4'
 
+gem 'ng-rails-csrf'
+
 
 # Use unicorn as the app server
 #gem 'unicorn', '~> 4.8.3'

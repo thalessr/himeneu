@@ -1,5 +1,4 @@
 <% if can? :read, @provider %>
-
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
       <div class="panel panel-info">
@@ -57,8 +56,17 @@
                     <% end %>
                   </span>
           </div>
-          <div>
-              <h2>Endereços</h2>
+          <ul class="nav nav-tabs">
+            <li class="active"><a data-toggle="tab" href="#add">
+              Endereços  <span class="badge"><%= @provider.addresses.count %></a>
+            </li>
+            <li>
+              <a data-toggle="tab" href="#comment">Recomedação <span class="badge">
+                <%= @provider.recommendations.count %></a>
+            </li>
+          </ul>
+          <div class="tab-content">
+            <div id="add" class="tab-pane fade in active">
               <% @provider.addresses.each do |address| %>
                   <div class="row" id="address_show">
                     <div class="col-md-12">
@@ -78,10 +86,44 @@
                         </div>
                       </div>
               <% end %>
-          </div>
+            </div>
+            <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
+              <form novalidate  class="form-horizontal" role="form">
+                  Assunto: <input type="text" ng-model="recommendation.title" name="title"/><br/>
+                  Comentário: <textarea ng-model="recommendation.comment" /></textarea><br />
+                  <div ng-model="recommendation.rating" id="rate"> </div>
+                  <input type="submit" class="btn btn-success btn-circle text-uppercase" ng-click="save(recommendation)" value="Save" />
+              </form>
+
+                <ul class="media-list" ng-repeat="rec in recommendations">
+                  <li class="media">
+                    <a class="pull-left" href="#">
+                      <img class="media-object img-circle" ng-src="{{rec.customer.image['thumb'].url}}" alt="profile"></img>
+                    </a>
+                    <div class="media-body">
+                      <div class="well well-lg">
+                          <h4 class="media-heading text-uppercase reviews">{{rec.title }}
+                            <small> {{rec.customer.full_name }} </small> </h4>
+                          <ul class="media-date text-uppercase reviews list-inline">
+                             <div data-score="{{rec.rating}}" id="score"></div>
+
+                          </ul>
+
+                          <p class="media-comment">
+                            {{rec.comment }}
+                          </p>
+                      </div>
+                    </div>
+                 </li>
+               </ul>
+
+            </div>
+         </div>
+
       </div>
     </div>
   </div>
+
 
 <% end %>
 

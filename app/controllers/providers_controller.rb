@@ -26,7 +26,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.includes(:addresses).find(params[:id])
+    @provider = Provider.includes(:addresses, :recommendations).find(params[:id])
   end
 
   def edit

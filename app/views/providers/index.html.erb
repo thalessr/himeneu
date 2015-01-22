@@ -18,23 +18,7 @@
 	                    <figure>
 	                        <%= image_tag p.image_url(:thumb), class: "img-circle img-responsive" %>
 	                        <figcaption class="ratings">
-	                            <p>Ratings
-	                            <a href="#">
-	                                <span class="fa fa-star"></span>
-	                            </a>
-	                            <a href="#">
-	                                <span class="fa fa-star"></span>
-	                            </a>
-	                            <a href="#">
-	                                <span class="fa fa-star"></span>
-	                            </a>
-	                            <a href="#">
-	                                <span class="fa fa-star"></span>
-	                            </a>
-	                            <a href="#">
-	                                 <span class="fa fa-star-o"></span>
-	                            </a>
-	                            </p>
+	                           <div id="provider_rating" data-score="<%= p.score %>" ></div>
 	                        </figcaption>
 	                    </figure>
 	                </div>
