@@ -25,7 +25,7 @@ group :assets  do
 end
 
 gem 'therubyracer'
-gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -61,8 +61,8 @@ end
 # gem 'font-awesome-rails'
 gem 'bootstrap3-datetimepicker-rails'
 gem 'bootstrap-switch-rails'
-gem 'bootstrap-wysihtml5-rails'
-gem 'bootstrap-select-rails'
+# gem 'bootstrap-wysihtml5-rails'
+# gem 'bootstrap-select-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
 gem 'carrierwave'

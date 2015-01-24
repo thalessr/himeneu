@@ -19,3 +19,4 @@
 /dump.rdb
 node_modules
 .idea
+.DS_Store
