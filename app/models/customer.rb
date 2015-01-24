@@ -15,9 +15,9 @@ class Customer < ActiveRecord::Base
 	accepts_nested_attributes_for :address, :allow_destroy => true
 
 
-    #CarrierWave
-    mount_uploader :image, ImageUploader
-    process_in_background :image
+  #CarrierWave
+  mount_uploader :image, ImageUploader
+  process_in_background :image
 
 	def get_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
