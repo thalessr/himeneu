@@ -4,6 +4,7 @@ class Customer < ActiveRecord::Base
 	has_many :recommendations, dependent: :destroy
 
 	delegate :city, :zipcode, :email, :phone, :longitude, :latitude, to: :address
+	delegate :email, to: :user
 	# before_save :set_wedding_date
 	#include all required fields here
 	validates_presence_of :first_name

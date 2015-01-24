@@ -8,6 +8,8 @@
 	validates_presence_of :last_name
 	validates_presence_of :age
 
+    delegate :email, to: :user
+
 	accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
 	#CarrierWave
@@ -18,12 +20,6 @@
     acts_as_taggable
     acts_as_taggable_on :profession
 
-    def provider_email
-    	id = self.user_id
-    	user = User.find(id)
-    	user.email
-   	end
-
 
     def full_name
     	"#{first_name} #{last_name}"
@@ -32,6 +28,14 @@
     def score
         total = (self.recommendations.sum(:rating)/self.recommendations.count)
         total
+    end
+
+    def self.recent(number)
+        if number
+            limit(number).reverse_order
+        else
+            none
+        end
     end
 
 end
