@@ -25,13 +25,13 @@
     	"#{first_name} #{last_name}"
     end
 
-    def score
-        total = 0
-        if self.recommendations.any?
-            total = (self.recommendations.sum(:rating)/self.recommendations.count)
-        end
-        total
-    end
+    # def score
+    #     total = 0
+    #     if self.recommendations.any?
+    #         total = (self.recommendations.sum(:rating)/self.recommendations.count)
+    #     end
+    #     total
+    # end
 
     def self.recent(number)
         if number
