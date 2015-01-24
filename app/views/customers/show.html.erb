@@ -5,12 +5,12 @@
                 <h5><%= @customer.full_name %></h5>
                 <% if @customer.address %>
                     <address>
-    				  <%= @customer.address.city %><br>
-    				  <%= @customer.address.zipcode %><br>
-    				  <abbr title="<%= t(:phone) %>"><%= t(:phone) %></abbr> <%= @customer.address.phone %>
-                       <p><%= t(:email) %> <%= mail_to @customer.address.email %>.</p>
+    				  <%= @customer.city %><br>
+    				  <%= @customer.zipcode %><br>
+    				  <abbr title="<%= t(:phone) %>"><%= t(:phone) %></abbr> <%= @customer.phone %>
+                       <p><%= t(:email) %> <%= mail_to @customer.email %>.</p>
     				</address>
-                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.address.latitude}%2C#{@customer.address.longitude}" %>
+                    <%= image_tag "http://maps.google.com/maps/api/staticmap?size=450x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
     			<% end %>
                 <!-- Indeed it will become a contact form -->
 
