@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :async,:trackable, :validatable,
          :confirmable
 
-  has_many :customers, dependent: :destroy
-  has_many :providers, dependent: :destroy
+  has_one :customer, dependent: :destroy
+  has_one :provider, dependent: :destroy
   has_and_belongs_to_many :roles
 
-  ROLES = %w[fornecedor noiva(o)]
+  # ROLES = %w[fornecedor noiva(o)]
 
 
   def set_completed
@@ -19,30 +19,32 @@ class User < ActiveRecord::Base
 
   def is_customer?
     unless self.roles.empty?
-      return self.roles.first.id == 1
+      return role_id == 1
     end
   end
 
   def is_provider?
     unless self.roles.empty?
-      return self.roles.first.id == 2
+      return role_id == 2
     end
   end
 
   def role_id
-    if self.is_customer?
-      return self.customers.first.id
-    else
-      return self.providers.first.id
-    end
+    self.roles.first.id
   end
 
   def is_customer_completed?
-    self.is_completed && self.is_customer?
+    if self
+      self.is_completed && self.is_customer?
+    end
   end
 
    def is_provider_completed?
-    self.is_completed && self.is_provider?
+    if self
+      self.is_completed && self.is_provider?
+    end
   end
+
+
 
 end

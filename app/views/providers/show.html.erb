@@ -44,7 +44,9 @@
             </div>
           </div>
           <div class="panel-footer">
-                  <a data-original-title="Broadcast Message" data-toggle="tooltip" type="button" class="btn btn-sm btn-primary"><i class="glyphicon glyphicon-envelope"></i></a>
+                  <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
+                    <i class="glyphicon glyphicon-envelope"></i>
+                  <% end %>
                   <span class="pull-right">
                     <% if can? :update, @provider %>
                       <%= link_to edit_provider_path ,class: "btn btn-sm btn-warning" do %>
