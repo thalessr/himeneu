@@ -26,7 +26,10 @@
     end
 
     def score
-        total = (self.recommendations.sum(:rating)/self.recommendations.count)
+        total = 0
+        if self.recommendations.any?
+            total = (self.recommendations.sum(:rating)/self.recommendations.count)
+        end
         total
     end
 
