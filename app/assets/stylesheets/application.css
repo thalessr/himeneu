@@ -11,13 +11,14 @@
  * file per style scope.
  *= require bootstrap/dist/css/bootstrap
  *= require raty/lib/jquery.raty
+ *= require bootstrap-datetimepicker
  *= require_tree .
  *= require_self
- *= require bootstrap-datetimepicker
  */
  body,
 html {
     width: 100%;
     height: 100%;
 }
+body { padding-top: 60px; }
 

@@ -15,12 +15,10 @@
 //= require ng-rails-csrf
 //= require jquery.min.js
 //= require jquery_ujs
-//= require moment
-//= require bootstrap-wysihtml5
 //= require jquery.autosize
-//= require bootstrap-select
-//= require bootstrap-datetimepicker
+//= require moment
 //= require bootstrap/dist/js/bootstrap
+//= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require_tree .
 //= stub active_admin
@@ -40,6 +38,12 @@ $(document).ready(function(){
 	$('form').bind('ajax:complete', function(event, xhr, status) {
 		$("#load").remove();
 	});
+
+  $(function () {
+    $('[data-toggle="popover"]').popover();
+  });
+
+
 
 });
 

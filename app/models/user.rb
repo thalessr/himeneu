@@ -12,15 +12,15 @@ class User < ActiveRecord::Base
   ROLES = %w[fornecedor noiva(o)]
 
 
+  def set_completed
+    self.is_completed = true
+    self.save
+  end
+
   def is_customer?
     unless self.roles.empty?
       return self.roles.first.id == 1
     end
-  end
-
-  def set_completed
-    self.is_completed = true
-    self.save
   end
 
   def is_provider?
@@ -35,6 +35,14 @@ class User < ActiveRecord::Base
     else
       return self.providers.first.id
     end
+  end
+
+  def is_customer_completed?
+    self.is_completed && self.is_customer?
+  end
+
+   def is_provider_completed?
+    self.is_completed && self.is_provider?
   end
 
 end
