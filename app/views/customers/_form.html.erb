@@ -26,10 +26,10 @@
 	      <%= f.file_field :image, :class => 'form-control' %>
 	    </div>
   	</div>
-  	<div class="form-group" >
+  	<div class="form-group" id:"datetimepicker5">
 	    <%= f.label t(:wedding_date), :class => 'control-label col-lg-2' %>
 	    <div class='input-group date col-lg-10' >
-	        <%= f.text_field :wedding_date,'data-date-format' => "DD/MM/YYYY",:class => 'form-control', id:"datetimepicker5" %>
+	        <%= f.text_field :wedding_date, 'data-behaviour' => 'datepicker','data-date-format' => "DD/MM/YYYY",:class => 'form-control' %>
 	        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span>
 	        </span>
 	    </div>

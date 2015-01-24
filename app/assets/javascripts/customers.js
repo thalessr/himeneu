@@ -2,9 +2,13 @@
 // All this logic will automatically be available in application.js.
 $( document ).ready(function() {
 	$(function () {
-			$('#datetimepicker5').datetimepicker({
-				pickTime: false
 
-			});
+       $("[data-behaviour~='datepicker']").focus(function() {
+         $(this).datetimepicker({
+            pickTime: false
+
+          });
+      });
+
 		});
 });
