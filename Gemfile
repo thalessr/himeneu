@@ -54,8 +54,10 @@ group :test do
 	gem 'selenium-webdriver'
 	gem 'minitest-reporters'
 	gem 'mini_backtrace'
-    gem 'guard-minitest'
-    gem 'mocha'
+  gem 'minitest'
+  # gem 'minitest-rails'
+  gem 'guard-minitest'
+  gem 'mocha'
 end
 
 # gem 'font-awesome-rails'

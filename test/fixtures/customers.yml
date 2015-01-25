@@ -4,12 +4,12 @@ valid_customer:
   first_name: MyString
   last_name: MyString
   age: 1
-  image_url: MyString
+  image: MyString
   wedding_date: 2014-11-01 18:25:09
 
 two:
   first_name: MyString
   last_name: MyString
   age: 1
-  image_url: MyString
+  image: MyString
   wedding_date: 2014-11-01 18:25:09

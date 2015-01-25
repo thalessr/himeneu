@@ -12,7 +12,7 @@ class ProvidersController < ApplicationController
   end
 
   def create
-    @provider = current_user.providers.build(provider_params)
+    @provider = current_user.build_provider(provider_params)
     respond_to do |format|
       if @provider.save
         current_user.set_completed
@@ -27,7 +27,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.includes(:addresses, :recommendations).find(params[:id])
+    @provider = Provider.includes(:addresses).find(params[:id])
   end
 
   def edit
@@ -39,7 +39,7 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
-        format.html  { redirect_to @provider_url}
+        format.html  { redirect_to @provider}
         format.json  { render :json => @provider, location: @provider }
       else
         format.html { render :edit }

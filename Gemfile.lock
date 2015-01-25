@@ -462,6 +462,7 @@ DEPENDENCIES
   mailcatcher
   mini_backtrace
   mini_magick
+  minitest
   minitest-reporters
   mocha
   momentjs-rails
