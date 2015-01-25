@@ -1,11 +1,6 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 noiva:
   id: 1
-  name: Noiva
-  description: MyText
 
 fornecedor:
   id: 2
-  name: Fornecedor
-  description: MyText
