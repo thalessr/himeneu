@@ -15,7 +15,7 @@ bride_completed:
 bride_not_completed:
   id: 2
   email: bridal1@himeneu.com
-  roles: roles(:noiva)
+  roles: noiva
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: false
