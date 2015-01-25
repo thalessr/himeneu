@@ -4,30 +4,34 @@
 # model remove the '{}' from the fixture names and add the columns immediately
 # below each fixture, per the syntax in the comments below
 #
-bride_completed: 
+bride_completed:
+  id: 1
   email: bridal@himeneu.com
-  role: noiva(o)
+  roles: roles(:noiva)
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: true
 
-bride_not_completed: 
+bride_not_completed:
+  id: 2
   email: bridal1@himeneu.com
-  role: noiva(o)
+  roles: roles(:noiva)
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: false
 
-provider_completed: 
+provider_completed:
+  id: 3
   email: provider@himeneu.com
-  role: fornecedor
+  roles: roles(:fornecedor)
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: true
 
-provider_not_completed: 
+provider_not_completed:
+  id: 4
   email: provider1@himeneu.com
-  role: fornecedor
+  roles: roles(:fornecedor)
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: false
