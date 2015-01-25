@@ -17,7 +17,7 @@ class CustomersController < ApplicationController
 	end
 
 	def create
-		@customer = current_user.customers.build(customer_params)
+		@customer = current_user.build_customer(customer_params)
 		if @customer.save
 			current_user.set_completed
 			redirect_to @customer
@@ -43,6 +43,12 @@ class CustomersController < ApplicationController
 		else
 			render :edit
 		end
+	end
+
+	def destroy
+		@customer = Customer.find(params[:id])
+		@customer.destroy
+		redirect_to new_customer_path
 	end
 
 	private
