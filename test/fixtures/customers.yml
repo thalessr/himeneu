@@ -1,10 +1,12 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 valid_customer:
+  id: 1
   first_name: MyString
   last_name: MyString
   age: 1
-  image: MyString
+  user: users(:bride_not_completed)
+  image: MyString.jpg
   wedding_date: 2014-11-01 18:25:09
 
 two:
