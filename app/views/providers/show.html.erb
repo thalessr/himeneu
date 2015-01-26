@@ -22,16 +22,12 @@
                       <td><%= @provider.profession_list %></td>
                     </tr>
                     <tr>
-                      <td>Hire date:</td>
-                      <td>06/23/2013</td>
-                    </tr>
-                    <tr>
                       <td><%= t(:experience) %></td>
                       <td><%= @provider.experience %></td>
                     </tr>
                     <tr>
-                      <td>Phone Number</td>
-                      <td>123-4567-890(Landline)<br><br>555-4567-890(Mobile)
+                      <td><%= t(:phone) %></td>
+                      <td><%= @provider.contact %><br><br>
                       </td>
                     </tr>
 
@@ -44,19 +40,19 @@
             </div>
           </div>
           <div class="panel-footer">
-                  <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
-                    <i class="glyphicon glyphicon-envelope"></i>
+              <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
+                <i class="glyphicon glyphicon-envelope"></i>
+              <% end %>
+              <span class="pull-right">
+                <% if can? :update, @provider %>
+                  <%= link_to edit_provider_path ,class: "btn btn-sm btn-warning" do %>
+                    <i class="glyphicon glyphicon-edit" alt="t('links.edit')"></i>
                   <% end %>
-                  <span class="pull-right">
-                    <% if can? :update, @provider %>
-                      <%= link_to edit_provider_path ,class: "btn btn-sm btn-warning" do %>
-                        <i class="glyphicon glyphicon-edit" alt="t('links.edit')"></i>
-                      <% end %>
-                    <% end %>
-                    <% if can? :destroy, @provider %>
-                      <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
-                    <% end %>
-                  </span>
+                <% end %>
+                <% if can? :destroy, @provider %>
+                  <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                <% end %>
+              </span>
           </div>
           <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#add">
@@ -74,7 +70,7 @@
                     <div class="col-md-12">
                        <div class="col-md-4">
                          <address>
-                          <strong>Peggy Guggenheim Collection</strong><br>
+                          <strong></strong><br>
                               <%= address.city %>, <%= address.zipcode %><br>
                               <abbr title="telefone">Fone:</abbr> <%= address.phone %>
                               <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
@@ -108,11 +104,10 @@
                             <small> {{rec.customer.full_name }} </small> </h4>
                           <ul class="media-date text-uppercase reviews list-inline">
                              <div data-score="{{rec.rating}}" id="score"></div>
-
                           </ul>
 
                           <p class="media-comment">
-                            {{rec.comment }}
+                            {{rec.comment}}
                           </p>
                       </div>
                     </div>

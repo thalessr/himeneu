@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+recommendation:
   comment: MyText
   title: MyString
   rating: 1
+  provider: bride
+  customer: valid_customer
 
 two:
   comment: MyText
