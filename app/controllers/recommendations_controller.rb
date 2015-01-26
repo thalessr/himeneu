@@ -1,12 +1,12 @@
 class RecommendationsController < ApplicationController
 
 	def index
-		@recommendations = Recommendation.where(provider_id: params[:provider_id])
+		@recommendations = Recommendation.includes(:customer).where(provider_id: params[:provider_id])
 		render json: @recommendations
 	end
 
 	def create
-		@customer = current_user.customers.first
+		@customer = current_user.customer
 		@recommendation = @customer.recommendations.build(recommendation_params)
 		@recommendation.provider_id = params[:provider_id]
 		respond_to do |format|
@@ -14,7 +14,7 @@ class RecommendationsController < ApplicationController
 				format.html { redirect_to redirect_to provider_path(@recommendation.provider_id)}
 				format.json { render :json => @recommendation, status: :created}
 			else
-	            format.json { render json: @recommendation.errors, status: :unprocessable_entry}
+	      format.json { render json: @recommendation.errors, status: :unprocessable_entry}
 			end
 		end
 	end
