@@ -17,7 +17,7 @@ class Customer < ActiveRecord::Base
 
   #CarrierWave
   mount_uploader :image, ImageUploader
-  process_in_background :image
+  process_in_background :image if Rails.env.production?
 
 	def get_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date

@@ -14,7 +14,7 @@
 
 	#CarrierWave
     mount_uploader :image, ImageUploader
-    process_in_background :image
+    process_in_background :image if Rails.env.production?
 
     #Tags
     acts_as_taggable
