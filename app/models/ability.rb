@@ -12,6 +12,7 @@ class Ability
         can :destroy, Customer, :user_id => user.id
         can :create, Customer, :user_id => nil
         can :read, Provider
+        can :search, Provider
       elsif user.is_provider?
         can :read, Provider, :user_id => user.id
         can :update, Provider, :user_id => user.id

@@ -86,6 +86,10 @@ app.factory("Recommendation", function($resource) {
   return $resource("/providers/:id/recommendations");
 });
 
+app.factory("Search", function($resource) {
+  return $resource("/providers/search?q=");
+});
+
 app.controller("RecommendationCtrl", function($scope, Recommendation){
 
   var i = $('#comment').data("param");
@@ -111,6 +115,18 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
   };
 
 });
+
+app.controller("SearchCtrl", function($scope, Search){
+
+  $scope.search = function(q){
+    Search.query({q: $scope.q}, function(data){
+      $scope.providers = data;
+    });
+  };
+
+});
+
+
 
 
 

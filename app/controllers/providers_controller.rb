@@ -4,7 +4,16 @@ class ProvidersController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @providers = Provider.all
+    @providers = Provider.recent(5)
+  end
+
+  def search
+     @providers = Provider.search(params[:q])
+     respond_to do |format|
+      format.html{ @providers}
+      format.json{ render json: @providers}
+     end
+
   end
 
   def new
