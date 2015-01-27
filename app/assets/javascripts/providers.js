@@ -58,7 +58,6 @@ $(document).ready(function(){
    });
   $('#rate').raty();
 
-
 });
 
 $(window).bind("load", function(){
@@ -114,17 +113,33 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 
   };
 
+
+
 });
 
 app.controller("SearchCtrl", function($scope, Search){
 
   $scope.search = function(q){
+    if (q === null || q === ""){
+       q = "";
+    }
+
     Search.query({q: $scope.q}, function(data){
       $scope.providers = data;
     });
   };
 
 });
+
+$('div#provider_rating').raty({
+      readOnly: function() {
+        return true;
+      },
+      score: function() {
+        return 0;
+      }
+  });
+
 
 
 
