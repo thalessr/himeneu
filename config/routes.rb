@@ -29,6 +29,7 @@ resources :customers
 resources :providers do
   resources :address, :except => [:index, :show, :edit]
   resources :recommendations
+  get 'search', on: :collection
 end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

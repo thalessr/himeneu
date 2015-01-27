@@ -1,24 +1,37 @@
-<h1>Encontre o melhor profissional para seu casamento</h1>
+<div ng-controller="SearchCtrl">
 
-<% @providers.each do |p| %>
 	<div class="row">
+		<div class="col-lg-3 center">
+			<div class="input-group custom-search-form">
+				<input type="text" class="form-control" ng-model="q">
+				<span class="input-group-btn">
+					<button class="btn btn-default" type="button" ng-click="search(q)">
+						<span class="glyphicon glyphicon-search"></span>
+					</button>
+				</span>
+			</div>
+		</div>
+	</div>
+
+	<div class="row" ng-repeat="p in providers">
 		<div class="col-md-8 col-lg-6">
 	    	 <div class="well profile">
 	            <div class="col-sm-12">
 	                <div class="col-xs-12 col-sm-8">
-	                    <h2><%= link_to p.first_name+" "+p.last_name, p%></h2>
-	                    <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
-	                    <p><strong>Skills: </strong>
-	                    	<% p.profession_list.each do |s| %>
-		                        <span class="tags"><%= s %></span>
-	                        <% end %>
+	                	  <h2><a href="providers/{{p.id}}">{{p.first_name}} {{p.last_name}}</a></h2>
+	                    <p><strong><%= t(:experience) %>: </strong> {{p.experience}}  </p>
+	                    <p><strong>Serviços: </strong>
+                        <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
+                              {{s.name}}
+                        </span>
 	                    </p>
 	                </div>
 	                <div class="col-xs-12 col-sm-4 text-center">
 	                    <figure>
-	                        <%= image_tag p.image_url(:thumb), class: "img-circle img-responsive" %>
+	                    	  <img class="media-object img-responsive" ng-src="{{p.image['thumb'].url}}"> </img>
+
 	                        <figcaption class="ratings">
-	                           <div id="provider_rating" data-score="<%= p.score %>" ></div>
+	                           <div id="provider_rating" data-score="{{p.score}}" ></div>
 	                        </figcaption>
 	                    </figure>
 	                </div>
@@ -26,4 +39,5 @@
 	    	 </div>
 		</div>
 	</div>
-<% end %>
+</div>
+
