@@ -43,7 +43,7 @@
 
     def self.search(query)
       if query.blank?
-        scoped
+        where(nil)
       else
         q = "%#{query}%"
         distinct.joins(:addresses).where("first_name like ? or addresses.city like ? ", q, q)
