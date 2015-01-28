@@ -19,6 +19,10 @@ class Customer < ActiveRecord::Base
   mount_uploader :image, ImageUploader
   process_in_background :image if Rails.env.production?
 
+  #Friendly_id
+  extend FriendlyId
+  friendly_id :slug_options, use: :slugged
+
 	def get_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
 	end
@@ -27,7 +31,15 @@ class Customer < ActiveRecord::Base
 		"#{self.first_name} #{self.last_name}"
 	end
 
-    private
+	def slug_options
+    [
+      :first_name,
+      [:first_name, :last_name],
+      [:first_name, :age, :last_name]
+    ]
+   end
+
+  private
 	def set_wedding_date
 		self.wedding_date = self.wedding_date.strftime('%m-%d-%Y') if self.wedding_date
 	end
