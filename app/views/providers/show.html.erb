@@ -45,7 +45,7 @@
               <% end %>
               <span class="pull-right">
                 <% if can? :update, @provider %>
-                  <%= link_to edit_provider_path ,class: "btn btn-sm btn-warning" do %>
+                  <%= link_to edit_provider_path(@provider.slug) ,class: "btn btn-sm btn-warning" do %>
                     <i class="glyphicon glyphicon-edit" alt="t('links.edit')"></i>
                   <% end %>
                 <% end %>

@@ -18,7 +18,7 @@ module ApplicationHelper
     if current_user.is_customer_completed?
       customer_path(current_user.customer.id)
     elsif current_user.is_provider_completed?
-      provider_path(current_user.provider.id)
+      provider_path(current_user.provider.slug)
     end
   end
 
