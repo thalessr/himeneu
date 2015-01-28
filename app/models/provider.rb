@@ -50,4 +50,8 @@
       end
     end
 
+    def self.autocomplet_seed
+        $redis.set "autocomplete", ActsAsTaggableOn::Tag.most_used(10).pluck(:name).to_json
+    end
+
 end
