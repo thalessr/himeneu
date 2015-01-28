@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.search(params[:q])
+     @providers = Provider.friendly.search(params[:q])
      respond_to do |format|
       format.html{ @providers}
       format.json{ render json: @providers}
@@ -36,15 +36,15 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.includes(:addresses).find(params[:id])
+    @provider = Provider.includes(:addresses).friendly.find(params[:id])
   end
 
   def edit
-    @provider = Provider.includes(:addresses).find(params[:id])
+    @provider = Provider.includes(:addresses).friendly.find(params[:id])
   end
 
   def update
-    @provider = Provider.find(params[:id])
+    @provider = Provider.friendly.find(params[:id])
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
@@ -58,7 +58,7 @@ class ProvidersController < ApplicationController
   end
 
   def destroy
-    @provider = Provider.find(params[:id])
+    @provider = Provider.friendly.find(params[:id])
     @provider.destroy
     redirect_to new_provider_path
   end

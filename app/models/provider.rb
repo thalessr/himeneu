@@ -20,18 +20,22 @@
     acts_as_taggable
     acts_as_taggable_on :profession
 
+    #Friendly_id
+    extend FriendlyId
+    friendly_id :slug_options, use: :slugged
+
 
     def full_name
     	"#{first_name} #{last_name}"
     end
 
-    # def score
-    #     total = 0
-    #     if self.recommendations.any?
-    #         total = (self.recommendations.sum(:rating)/self.recommendations.count)
-    #     end
-    #     total
-    # end
+   def slug_options
+    [
+      :first_name,
+      [:first_name, :last_name],
+      [:first_name, :age, :last_name]
+    ]
+   end
 
     def self.recent(number)
         if number
