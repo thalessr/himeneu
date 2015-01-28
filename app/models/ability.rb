@@ -7,14 +7,14 @@ class Ability
 
       user ||= User.new # guest user (not logged in)
       if user.is_customer?
-        can :read, Customer, :user_id => user.id
+        can :read, Customer
         can :update, Customer, :user_id => user.id
         can :destroy, Customer, :user_id => user.id
         can :create, Customer, :user_id => nil
         can :read, Provider
         can :search, Provider
       elsif user.is_provider?
-        can :read, Provider, :user_id => user.id
+        can :read, Provider
         can :update, Provider, :user_id => user.id
         can :destroy, Provider, :user_id => user.id
         can :create, Provider, :user_id => nil
