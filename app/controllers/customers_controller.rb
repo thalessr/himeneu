@@ -27,17 +27,17 @@ class CustomersController < ApplicationController
 	end
 
 	def show
-		@customer = Customer.includes(:address).find(params[:id])
+		@customer = Customer.includes(:address).friendly.find(params[:id])
 		@customer.get_wedding_date
 	end
 
 	def edit
-		@customer = Customer.includes(:address).find(params[:id])
+		@customer = Customer.includes(:address).friendly.find(params[:id])
 		@customer.get_wedding_date
 	end
 
 	def update
-		@customer = Customer.find(params[:id])
+		@customer = Customer.friendly.find(params[:id])
 		if @customer.update_attributes(customer_params)
 			redirect_to @customer
 		else
@@ -46,7 +46,7 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		@customer = Customer.find(params[:id])
+		@customer = Customer.friendly.find(params[:id])
 		@customer.destroy
 		redirect_to new_customer_path
 	end

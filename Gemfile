@@ -86,6 +86,8 @@ gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'ng-rails-csrf'
 
+gem 'friendly_id', '~> 5.1.0'
+
 
 # Use unicorn as the app server
 #gem 'unicorn', '~> 4.8.3'
