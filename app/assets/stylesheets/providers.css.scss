@@ -1,3 +1,9 @@
+
+body
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+    }
+
 .providers{
 
     #address_show {
@@ -117,4 +123,56 @@
     }
 
 
+}
+
+
+.list-profile {
+    padding: 0;
+    height: 140px;
+    margin-top: 30px;
+    border: 1px solid #E8E8EE
+}
+
+.list-profile:hover {
+    border: 1px solid #B8B8B9;
+    background-color: #EEEEF7
+}
+
+
+.image-container-list {
+    padding: 0;
+    height: 140px
+}
+
+a:hover{
+    color: #23547E;
+    text-decoration: none
+}
+
+
+.listing-profile-info {
+    padding: 0;
+    height: 140px;
+    margin-left: 45px;
+}
+
+.profile_listing_image {
+    height: 100px;
+    width: 100px;
+    top: 50%;
+    margin-top: -50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -36px;
+}
+
+
+.profile_image {
+    height: 130px;
+    width: 130px;
+/*    top: 50%;
+    margin-top: -50px;
+    position: absolute;
+    left: 50%;
+    margin-left: -36px;*/
 }
