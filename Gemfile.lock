@@ -494,7 +494,7 @@ DEPENDENCIES
   momentjs-rails
   ng-rails-csrf
   passenger
-  pg (~> 0.18.1)
+  pg
   pry
   rails (= 4.1.1)
   rails_12factor
