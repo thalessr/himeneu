@@ -15,7 +15,7 @@ role :db,  %w{deployer@104.236.232.221}
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
 
-server '104.236.232.221', user: 'deployer', roles: %w{web app}
+server '104.236.232.221', user: 'deployer', roles: %w{web}
 
 
 # Custom SSH Options
@@ -26,7 +26,8 @@ server '104.236.232.221', user: 'deployer', roles: %w{web app}
 # Global options
 # --------------
 set :ssh_options, {
-    forward_agent: false,
+    forward_agent: true,
+    keys: "~/.ssh/id_rsa" ,
     auth_methods: %w(password),
     password: ENV['DEPLOYER_PASSWORD'],
     user: 'deployer',
