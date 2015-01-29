@@ -43,20 +43,22 @@
 
 
 <% @providers.each do |p| %>
-<div class="row">
-	<div class="col-lg-12 list-profile">
-		<div class="col-lg-1 image-container-list">
-			<%= image_tag p.image_url(:thumb), class: "profile_listing_image" %>
+	<div class="row">
+		<div class="col-lg-10 list-profile">
+			<div class="col-lg-1 image-container-list">
+				<%=	link_to image_tag(p.image_url(:thumb), :class => "profile_listing_image"), p  %>
+			</div>
+			<div class="col-lg-9 listing-profile-info">
+				<h2><%= link_to p.first_name+" "+p.last_name, p %></h2>
+	            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
+	                <p><strong>Skills: </strong>
+	                	<% p.profession_list.each do |s| %>
+	                        <span class="tags"><%= s %></span>
+	                    <% end %>
+	                </p>
+			</div>
 		</div>
-		<div class="col-lg-10 listing-profile-info">
-			<h2><%= link_to p.first_name+" "+p.last_name, p %></h2>
-            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
-                <p><strong>Skills: </strong>
-                	<% p.profession_list.each do |s| %>
-                        <span class="tags"><%= s %></span>
-                    <% end %>
-                </p>
+		<div class="col-lg-2">	
 		</div>
 	</div>
-</div>
 <% end %> 
