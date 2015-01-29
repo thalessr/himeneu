@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 #   end
 # end
 
-resources :customers
+resources :customers do
+  get 'search', on: :collection
+end
 
 resources :providers do
   resources :address, :except => [:index, :show, :edit]

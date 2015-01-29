@@ -12,6 +12,8 @@ function add_fields(link, association, content) {
 
 $(document).ready(function(){
 
+  $.fn.raty.defaults.path = "/assets";
+  $.fn.raty.defaults.half_show = true;
 
   $('textarea').autosize();
 
@@ -57,10 +59,22 @@ $(document).ready(function(){
 
    });
   $('#rate').raty();
+  $('div#provider_rating').raty({
+      readOnly: function() {
+        return true;
+      },
+      score: function() {
+        return $(this).attr('data-score');
+      },
+  });
+
+
 
 });
 
 $(window).bind("load", function(){
+  $.fn.raty.defaults.path = "/assets";
+  $.fn.raty.defaults.half_show = true;
   $('div#score').raty({
       readOnly: function() {
         return true;
@@ -69,76 +83,13 @@ $(window).bind("load", function(){
         return $(this).attr('data-score');
       }
   });
-  $('div#provider_rating').raty({
-      readOnly: function() {
-        return true;
-      },
-      score: function() {
-        return $(this).attr('data-score');
-      }
-  });
-});
-
-var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
-
-app.factory("Recommendation", function($resource) {
-  return $resource("/providers/:id/recommendations");
-});
-
-app.factory("Search", function($resource) {
-  return $resource("/providers/search?q=");
-});
-
-app.controller("RecommendationCtrl", function($scope, Recommendation){
-
-  var i = $('#comment').data("param");
-  Recommendation.query({ id: i },function(data){
-    $scope.recommendations = data;
-
-  });
-
-  $scope.save = function(recommendation) {
-        $scope.recommendation.rating = $('input:hidden[name=score]').val();
-        Recommendation.save({id:i},angular.copy(recommendation),function(data){
-          $scope.recommendations.push(data);
-          $scope.recommendation.title = '';
-          $scope.recommendation.comment = '';
-          $scope.recommendation.rating = '';
-          $('input:hidden[name=score]').val('');
-        }, function(error) {
-
-          $scope.recommendation.title = error.data['title'][0];
-
-        });
-
-  };
-
-
 
 });
 
-app.controller("SearchCtrl", function($scope, Search){
 
-  $scope.search = function(q){
-    if (q === null || q === ""){
-       q = "";
-    }
 
-    Search.query({q: $scope.q}, function(data){
-      $scope.providers = data;
-    });
-  };
 
-});
 
-$('div#provider_rating').raty({
-      readOnly: function() {
-        return true;
-      },
-      score: function() {
-        return 0;
-      }
-  });
 
 
 

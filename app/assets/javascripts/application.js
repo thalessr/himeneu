@@ -37,13 +37,14 @@ $(document).ready(function(){
 
 	$('form').bind('ajax:complete', function(event, xhr, status) {
 		$("#load").remove();
+    alert("Done!");
 	});
 
   $(function () {
     $('[data-toggle="popover"]').popover();
   });
 
-
+var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
 });
 

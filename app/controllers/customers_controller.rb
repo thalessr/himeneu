@@ -11,6 +11,14 @@ class CustomersController < ApplicationController
 		@customers = Customer.all
 	end
 
+	def search
+		@customers = Customer.search(params[:q])
+	 respond_to do |format|
+    format.html{ @customers}
+    format.json{ render json: @customers}
+   end
+	end
+
 	def new
 		@customer = Customer.new
 		@customer.build_address
