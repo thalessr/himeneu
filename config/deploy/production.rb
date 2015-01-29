@@ -7,7 +7,7 @@
 role :app, %w{deployer@104.236.232.221}
 role :web, %w{deployer@104.236.232.221}
 role :db,  %w{deployer@104.236.232.221}
-role :all, %w{deployer@104.236.232.221}
+
 
 
 # Extended Server Syntax
