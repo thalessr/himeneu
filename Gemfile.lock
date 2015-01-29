@@ -84,6 +84,23 @@ GEM
       activesupport (>= 3.0.0)
       uniform_notifier (>= 1.6.0)
     cancancan (1.9.2)
+    capistrano (3.3.5)
+      capistrano-stats (~> 1.1.0)
+      i18n
+      rake (>= 10.0.0)
+      sshkit (~> 1.3)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-passenger (0.0.1)
+      capistrano (~> 3.0)
+    capistrano-rails (1.1.2)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rbenv (2.0.3)
+      capistrano (~> 3.1)
+      sshkit (~> 1.3)
+    capistrano-stats (1.1.1)
     carrierwave (0.10.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -106,6 +123,7 @@ GEM
       execjs
     coffee-script-source (1.8.0)
     colored (1.2)
+    colorize (0.7.5)
     connection_pool (2.1.0)
     daemon_controller (1.2.0)
     daemons (1.1.9)
@@ -408,6 +426,10 @@ GEM
     sqlite3 (1.3.10)
     sqlite3-ruby (1.3.3)
       sqlite3 (>= 1.3.3)
+    sshkit (1.6.1)
+      colorize (>= 0.7.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -448,6 +470,10 @@ DEPENDENCIES
   bootstrap3-datetimepicker-rails
   bullet
   cancancan (~> 1.9.2)
+  capistrano-bundler
+  capistrano-passenger
+  capistrano-rails
+  capistrano-rbenv
   carrierwave
   carrierwave_backgrounder
   coffee-rails (~> 4.0.0)
