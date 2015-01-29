@@ -3,6 +3,7 @@ lock '3.3.5'
 
 set :application, 'himeneu'
 set :repo_url, 'git@github.com:thalessr/himeneu.git'
+set :rbenv_ruby, '2.1.2p95'
 
 # Default branch is :master
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
