@@ -1,3 +1,21 @@
-<% @customers.each do |c| %>
-<%=  c.last_name %>
-<% end %>
+<div ng-controller="CustomerCtrl">
+
+  <div class="row">
+    <div class="col-lg-8" style="margin:0 auto; float:none;">
+      <div class="input-group search-form">
+        <input type="text" class="form-control" ng-model="q" placeholder="Pesquise noivas(os)">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="search(q)">
+            <span class="glyphicon glyphicon-search"></span>
+          </button>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div>
+    <article class="search-result row" ng-repeat="c in customers | filter:q ">
+      {{c.first_name}}
+    </article>
+  </div>
+
+</div>

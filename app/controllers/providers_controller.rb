@@ -13,7 +13,6 @@ class ProvidersController < ApplicationController
       format.html{ @providers}
       format.json{ render json: @providers}
      end
-
   end
 
   def new

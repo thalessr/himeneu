@@ -20,6 +20,7 @@ class Ability
         can :create, Provider, :user_id => nil
         can :read, Customer
         can :search, Provider
+        can :search, Customer
         # cannot [:edit, :create, :destroy], Customer
       else
         can :create, User

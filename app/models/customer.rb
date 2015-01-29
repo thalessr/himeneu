@@ -37,7 +37,16 @@ class Customer < ActiveRecord::Base
       [:first_name, :last_name],
       [:first_name, :age, :last_name]
     ]
-   end
+  end
+
+  def self.search(query)
+    if query.blank?
+      where(nil)
+    else
+      q = "%#{query}%"
+      distinct.joins(:address).where("first_name like ? or addresses.city like ? ", q, q)
+    end
+  end
 
   private
 	def set_wedding_date
