@@ -128,20 +128,20 @@ body
 
 .list-profile {
     padding: 0;
-    height: 140px;
+    height: 170px;
     margin-top: 30px;
     border: 1px solid #E8E8EE
 }
 
 .list-profile:hover {
     border: 1px solid #B8B8B9;
-    background-color: #EEEEF7
+    background-color: #FCFCFC
 }
 
 
 .image-container-list {
     padding: 0;
-    height: 140px
+    height: 170px
 }
 
 a:hover{
@@ -152,27 +152,23 @@ a:hover{
 
 .listing-profile-info {
     padding: 0;
-    height: 140px;
-    margin-left: 45px;
+    height: 170px;
+    margin-left: 65px;
 }
 
 .profile_listing_image {
-    height: 100px;
-    width: 100px;
+    height: 110px;
+    width: 110px;
     top: 50%;
-    margin-top: -50px;
+    margin-top: -60px;
     position: absolute;
     left: 50%;
-    margin-left: -36px;
+    margin-left: -22px;
 }
 
 
 .profile_image {
     height: 130px;
     width: 130px;
-/*    top: 50%;
-    margin-top: -50px;
-    position: absolute;
-    left: 50%;
-    margin-left: -36px;*/
+
 }
