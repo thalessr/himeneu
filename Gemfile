@@ -93,7 +93,10 @@ gem 'friendly_id', '~> 5.1.0'
 #gem 'unicorn', '~> 4.8.3'
 
 # Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+gem 'capistrano-rails'
+gem 'capistrano-passenger'
+gem 'capistrano-rbenv'
+gem 'capistrano-bundler'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
