@@ -97,6 +97,8 @@ gem 'capistrano-passenger'
 gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 
+gem "sass_rails_patch"
+
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
