@@ -16,6 +16,7 @@ set :rbenv_roles, :all
  set :deploy_to, '/home/deployer/apps/himeneu'
 
 
+
 # Default value for :scm is :git
  set :scm, :git
  set :user, "deployer"
