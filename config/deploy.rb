@@ -42,6 +42,22 @@ set :pty, true
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+set :default_env, {
+   S3_BUCKET: "himeneusp",
+  AWS_SECRET_ACCESS_KEY: "p+cOTO8/KiobSMtDI/7p0OxR5YyFMAav/IOsrcKS",
+  AWS_ACCESS_KEY_ID: "AKIAIFQFVIS34VVFGNWQ",
+  RDS_HOST: "himeneu.cilct9pmpdx5.us-west-2.rds.amazonaws.com",
+  RDS_DB: "himeneu_production",
+  RDS_USERNAME: "himeneu_admin",
+  RDS_PASSWORD: "kill_klb",
+  REGION: "sa-east-1",
+  MANDRILL_USER_NAME: "thalessr@gmail.com",
+  MANDRILL_PASSWORD: "_xRMsiT0NHt675Wa9PcYiw",
+  MANDRILL_ADDRESS: "smtp.mandrillapp.com",
+  ASSET: "d3fdbsfz8d5x1m.cloudfront.net",
+  DEPLOYER_PASSWORD: "tr3ta"
+}
+
 
 namespace :deploy do
 
