@@ -22,10 +22,9 @@ test:
 
 production:
   adapter: postgresql
-  #encoding: utf8
-  host: ENV['RDS_HOST']
+  encoding: utf8
+  host: <%= ENV['RDS_HOST'] %>
   port: 5432
-  #reconnect: false
-  database: ENV['RDS_DB']
-  username: ENV['RDS_USERNAME']
-  password: ENV['RDS_PASSWORD']
+  database: <%= ENV['RDS_DB'] %>
+  username: <%= ENV['RDS_USERNAME'] %>
+  password: <%= ENV['RDS_PASSWORD'] %>
