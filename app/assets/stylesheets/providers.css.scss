@@ -1,3 +1,9 @@
+
+body
+{
+    font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+    }
+
 .providers{
 
     #address_show {
@@ -136,5 +142,53 @@ hgroup h2.lead { font: normal normal 1.125em "Roboto",Arial,Verdana,sans-serif; 
 .search-result span.plus a i { color: #fff !important; }
 .search-result span.border { display: block; width: 97%; margin: 0 15px; border-bottom: 1px dotted #ccc; }
 
+
+}
+
+
+.list-profile {
+    padding: 0;
+    height: 170px;
+    margin-top: 30px;
+    border: 1px solid #E8E8EE
+}
+
+.list-profile:hover {
+    border: 1px solid #B8B8B9;
+    background-color: #FCFCFC
+}
+
+
+.image-container-list {
+    padding: 0;
+    height: 170px
+}
+
+a:hover{
+    color: #23547E;
+    text-decoration: none
+}
+
+
+.listing-profile-info {
+    padding: 0;
+    height: 170px;
+    margin-left: 65px;
+}
+
+.profile_listing_image {
+    height: 110px;
+    width: 110px;
+    top: 50%;
+    margin-top: -60px;
+    position: absolute;
+    left: 50%;
+    margin-left: -22px;
+}
+
+
+.profile_image {
+    height: 130px;
+    width: 130px;
 
 }
