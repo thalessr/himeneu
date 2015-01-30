@@ -316,6 +316,7 @@ GEM
       daemon_controller (>= 1.2.0)
       rack
       rake (>= 0.8.1)
+    pg (0.18.1)
     polyamorous (1.1.0)
       activerecord (>= 3.0)
     polyglot (0.3.5)
@@ -488,6 +489,7 @@ DEPENDENCIES
   momentjs-rails
   ng-rails-csrf
   passenger
+  pg
   pry
   rails (= 4.1.1)
   rails_best_practices
