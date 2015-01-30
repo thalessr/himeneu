@@ -73,7 +73,7 @@ gem 'mini_magick'
 gem 'fog', require: "fog/aws/storage"
 gem 'sidekiq'
 gem 'sinatra'
-gem 'dotenv-rails'
+gem 'dotenv-rails', :groups => [:development, :test]
 gem 'redis'
 #Active Admin
 gem 'activeadmin', github: 'activeadmin'
