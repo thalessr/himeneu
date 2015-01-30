@@ -40,10 +40,10 @@ set :pty, true
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 3
 
 set :default_env, {
-   S3_BUCKET: "himeneusp",
+  S3_BUCKET: "himeneusp",
   AWS_SECRET_ACCESS_KEY: "p+cOTO8/KiobSMtDI/7p0OxR5YyFMAav/IOsrcKS",
   AWS_ACCESS_KEY_ID: "AKIAIFQFVIS34VVFGNWQ",
   RDS_HOST: "himeneu.cilct9pmpdx5.us-west-2.rds.amazonaws.com",
@@ -64,9 +64,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
-      # within release_path do
-      #   execute :rake, 'cache:clear'
-      # end
+       within release_path do
+        execute :rake, 'cache:clear'
+       end
     end
   end
 
