@@ -382,6 +382,8 @@ GEM
       sass (~> 3.2.2)
       sprockets (~> 2.8, < 3.0)
       sprockets-rails (~> 2.0)
+    sass_rails_patch (0.0.2)
+      sass-rails
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
@@ -496,6 +498,7 @@ DEPENDENCIES
   rb-readline
   redis
   sass-rails (~> 4.0.3)
+  sass_rails_patch
   sdoc (~> 0.4.0)
   selenium-webdriver
   sidekiq
