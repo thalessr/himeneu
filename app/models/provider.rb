@@ -49,8 +49,20 @@
       if query.blank?
         where(nil)
       else
-        q = "%#{query}%"
-        distinct.joins(:addresses).where("first_name like ? or addresses.city like ? ", q, q)
+        array = query.split(',')
+        if array.length == 1
+          name = "#{array[0]}"
+          distinct.where("first_name like ?", name)
+        elsif array.length == 2
+          name = "#{array[0]}"
+          profession = "#{array[1]}"
+          distinct.where("first_name like ? ", name).tagged_with(profession)
+        elsif array.length == 3
+          name = "#{array[0]}"
+          profession = "#{array[1]}"
+          city = "#{array[2]}"
+          distinct.joins(:addresses).tagged_with(profession).where("first_name like ? or addresses.city like ? ", name, city)
+        end
       end
     end
 
