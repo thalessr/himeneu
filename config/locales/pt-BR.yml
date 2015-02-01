@@ -23,6 +23,7 @@ pt-BR:
   zipcode: CEP
   phone: Telefone
   email: Email
+  address: Endereço
   errors:
     messages:
       blank: "blank"

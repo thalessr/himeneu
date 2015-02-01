@@ -44,6 +44,7 @@ en:
   zipcode: Zip code
   phone: Phone number
   email: Email
+  address: Address
   links:
       back: "Back"
       cancel: "Cancel"
