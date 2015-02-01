@@ -45,6 +45,7 @@ en:
   phone: Phone number
   email: Email
   address: Address
+  hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   links:
       back: "Back"
       cancel: "Cancel"
