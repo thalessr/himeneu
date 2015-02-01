@@ -24,6 +24,7 @@ pt-BR:
   phone: Telefone
   email: Email
   address: Endereço
+  hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   errors:
     messages:
       blank: "blank"
