@@ -43,12 +43,12 @@
 
 
 <% @providers.each do |p| %>
-	<div class="row">
-		<div class="col-lg-10 list-profile">
-			<div class="col-lg-1 image-container-list">
+	<div class="row hidden-xs hidden-sm">
+		<div class="col-md-10 list-profile col-xm-12">
+			<div class="col-md-1 image-container-list hidden-xs hidden-sm">
 				<%=	link_to image_tag(p.image_url(:thumb), :class => "profile_listing_image"), p  %>
 			</div>
-			<div class="col-lg-9 listing-profile-info">
+			<div class="col-md-9 listing-profile-info col-xm-11 ">
 				<h2><%= link_to p.first_name+" "+p.last_name, p %></h2>
 	            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
 	                <p><strong>Skills: </strong>
@@ -58,7 +58,23 @@
 	                </p>
 			</div>
 		</div>
-		<div class="col-lg-2">	
+		<div class="col-md-2">	
+		</div>
+	</div>
+	<div class="row well-sm visible-xs visible-sm listing-mobile">
+		<div>
+			<h3><%= link_to p.first_name+" "+p.last_name, p %></h2>
+            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
+            <p><strong>Skills: </strong>
+            	<% p.profession_list.each do |s| %>
+                    <span class="tags"><%= s %></span>
+                <% end %>
+         	</p>
+		</div>
+		<div class="separator">
+			<ul class="nav nav-list">
+			  <li class="divider"></li>
+			</ul>
 		</div>
 	</div>
 <% end %> 
