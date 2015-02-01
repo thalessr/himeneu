@@ -1,4 +1,4 @@
-<div ng-controller="SearchCtrl">
+<div ng-controller="SearchCtrl" class="filter-form">
 
 	<div class="row">
 		<div class="col-lg-8" style="margin:0 auto; float:none;">
@@ -43,12 +43,12 @@
 
 
 <% @providers.each do |p| %>
-	<div class="row hidden-xs hidden-sm">
-		<div class="col-md-10 list-profile col-xm-12">
-			<div class="col-md-1 image-container-list hidden-xs hidden-sm">
+	<div class="row hidden-xs">
+		<div class="col-md-12 col-sm-12 list-profile">
+			<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
 				<%=	link_to image_tag(p.image_url(:thumb), :class => "profile_listing_image"), p  %>
 			</div>
-			<div class="col-md-9 listing-profile-info col-xm-11 ">
+			<div class="col-md-10 col-sm-9 listing-profile-info ">
 				<h2><%= link_to p.first_name+" "+p.last_name, p %></h2>
 	            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
 	                <p><strong>Skills: </strong>
@@ -58,10 +58,13 @@
 	                </p>
 			</div>
 		</div>
-		<div class="col-md-2">	
+		<div class="separator">
+			<ul class="nav nav-list">
+			  <li class="divider"></li>
+			</ul>
 		</div>
 	</div>
-	<div class="row well-sm visible-xs visible-sm listing-mobile">
+	<div class="row well-sm visible-xs listing-mobile">
 		<div>
 			<h3><%= link_to p.first_name+" "+p.last_name, p %></h2>
             <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
@@ -71,7 +74,7 @@
                 <% end %>
          	</p>
 		</div>
-		<div class="separator">
+		<div class="separator visible-xs">
 			<ul class="nav nav-list">
 			  <li class="divider"></li>
 			</ul>
