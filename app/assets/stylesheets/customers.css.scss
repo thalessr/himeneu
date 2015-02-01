@@ -7,4 +7,99 @@
       margin-top:5px;
       margin-bottom:5px;
   }
+  #address_show {
+      height: 300px;
+      padding: 20px;
+      margin-bottom: 20px;
+  }
+  .profile{
+      min-height: 215px;
+      display: inline-block;
+  }
+  figcaption.ratings{
+      margin-top:20px;
+  }
+
+  .divider{
+      border-top:1px solid rgba(0,0,0,0.1);
+  }
+  .emphasis{
+      border-top: 4px solid transparent;
+  }
+  .emphasis:hover{
+      border-top: 4px solid #1abc9c;
+  }
+  .emphasis h2{
+      margin-bottom:0;
+  }
+
+
+    .media .media-object { max-width: 120px; }
+    .media-body { position: relative; }
+    .media-comment { margin-bottom: 20px; }
+    .media-date {
+        position: absolute;
+        right: 25px;
+        top: 25px;
+    }
+    .media-date li { padding: 0; }
+    .media-date li:first-child:before { content: ''; }
+    .media-date li:before {
+        content: '.';
+        margin-left: -2px;
+        margin-right: 2px;
+    }
+
+
+    .list-profile {
+        padding: 0;
+        height: 170px;
+        margin-top: 30px;
+        border: 1px solid #E8E8EE
+    }
+
+    .list-profile:hover {
+        border: 1px solid #B8B8B9;
+        background-color: #FCFCFC
+    }
+
+
+    .image-container-list {
+        padding: 0;
+        height: 170px
+    }
+
+    a:hover{
+        color: #23547E;
+        text-decoration: none
+    }
+
+
+    .listing-profile-info {
+        padding: 0;
+        height: 170px;
+        margin-left: 65px;
+    }
+
+    .profile_listing_image {
+        height: 110px;
+        width: 110px;
+        top: 50%;
+        margin-top: -60px;
+        position: absolute;
+        left: 50%;
+        margin-left: -22px;
+    }
+
+
+    .profile_image {
+        height: 130px;
+        width: 130px;
+
+    }
+    .datepicker{
+      border: 1px solid #ccc;
+    }
+
+
 }
