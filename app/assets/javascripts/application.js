@@ -18,7 +18,8 @@
 //= require jquery.autosize
 //= require jquery.stellar/jquery.stellar.min.js
 //= require moment
-//= require bootstrap/dist/js/bootstrap
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require wow/dist/wow.min.js
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require_tree .
@@ -29,6 +30,8 @@ $(document).ready(function(){
 	$.ajaxSetup({
 	  dataType: 'json'
 	})
+
+  new WOW().init();
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
@@ -56,7 +59,7 @@ $(document).ready(function(){
   });
   $.stellar({
     horizontalScrolling: false,
-    verticalOffset: 30
+    verticalOffset: 50
   });
 
 
