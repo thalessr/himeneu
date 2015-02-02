@@ -16,6 +16,7 @@
 //= require jquery.min.js
 //= require jquery_ujs
 //= require jquery.autosize
+//= require jquery.stellar/jquery.stellar.min.js
 //= require moment
 //= require bootstrap/dist/js/bootstrap
 //= require bootstrap-datetimepicker
@@ -43,6 +44,21 @@ $(document).ready(function(){
   $(function () {
     $('[data-toggle="popover"]').popover();
   });
+
+  $(window).scroll(function(){
+    "use strict";
+    var b = $(window).scrollTop();
+    if( b > 60 ){
+        $(".navbar").addClass("is-scrolling");
+    } else {
+        $(".navbar").removeClass("is-scrolling");
+    }
+  });
+  $.stellar({
+    horizontalScrolling: false,
+    verticalOffset: 30
+  });
+
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
