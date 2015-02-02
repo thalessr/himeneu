@@ -23,6 +23,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
+  pool: 10
   host: <%= ENV['RDS_HOST'] %>
   port: 5432
   database: <%= ENV['RDS_DB'] %>
