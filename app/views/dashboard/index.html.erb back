@@ -1,0 +1,179 @@
+    <!-- Header -->
+    <div class="intro-header" style="background: url(<%= image_path  "intro-bg.jpg"%>) no-repeat center center;">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="intro-message">
+                        <h1>Himeneu</h1>
+                        <h3>Agora casar ficou mais fácil</h3>
+                        <hr class="intro-divider">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.intro-header -->
+
+    <!-- Page Content -->
+
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Evite:<br>horas perdidas</h2>
+                    <p class="lead">Encontre tudo o que precisa para a realização do
+                        seu grande dia em um só lugar</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                     <%= image_tag('noiva.jpg', class: "img-responsive") %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+
+    <div class="content-section-b">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Realize<br></h2>
+                    <p class="lead">Seu sonho com conforto</p>
+                </div>
+                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
+                    <%= image_tag('bolo.jpg', class: "img-responsive") %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-b -->
+
+    <div class="content-section-a">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Não vacile<br></h2>
+                    <p class="lead">Blá, blá, blá.</p>
+                </div>
+                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                    <%= image_tag('alianca.jpg', class: "img-responsive") %>
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.content-section-a -->
+    <section id="quem-somos">
+        <div class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Quem somos<br></h2>
+                    <p class="lead">empresa que... para... entao....</p>
+                </div>
+                <!-- <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                 <%= image_tag('phones.jpg', class: "img-responsive") %>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <div class="content-section-a">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5 col-sm-6">
+                    <hr class="section-heading-spacer">
+                    <div class="clearfix"></div>
+                    <h2 class="section-heading">Contato<br></h2>
+                    <p class="lead">Email: nao@tenho.com.br</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <div class="banner" style=' background: url(<%= image_path  "banner-bg.jpg"%>) no-repeat center center;'>
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2>Faça o seu cadastro</h2>
+                </div>
+                <div class="col-lg-6">
+                 <!--    <ul class="list-inline banner-social-buttons">
+                        <li>
+                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        </li>
+                        <li>
+                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                        </li>
+                    </ul> -->
+                </div>
+            </div>
+
+        </div>
+        <!-- /.container -->
+
+    </div>
+    <!-- /.banner -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#home">Home</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#quem-somos">Quem somos</a>
+                        </li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li>
+                            <a href="#contato">Contato</a>
+                        </li>
+                    </ul>
+                    <p class="copyright text-muted small">Copyright &copy; Himeneu <%= Time.now.year %></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+
+</html>
