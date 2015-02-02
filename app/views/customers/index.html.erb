@@ -1,21 +1,45 @@
-<div ng-controller="CustomerCtrl">
+<% if can? :search, Customer %>
+  <div ng-controller="CustomerCtrl">
 
-  <div class="row">
-    <div class="col-lg-8" style="margin:0 auto; float:none;">
-      <div class="input-group search-form">
-        <input type="text" class="form-control" ng-model="q" placeholder="Pesquise noivas(os)">
-        <span class="input-group-btn">
-          <button class="btn btn-default" type="button" ng-click="search(q)">
-            <span class="glyphicon glyphicon-search"></span>
-          </button>
-        </span>
+    <div class="row">
+      <div class="col-lg-8" style="margin:0 auto; float:none;">
+        <div class="input-group search-form">
+          <input type="text" class="form-control" ng-model="q" placeholder="Pesquise noivas(os)">
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" ng-click="search(q)">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row hidden-xs" ng-repeat="c in customers">
+      <div class="col-md-12 col-sm-12 list-profile">
+        <div class="col-md-2 col-sm-3 image-container-list hidden-xs">
+          <img class="profile_listing_image" ng-src="{{c.image['thumb'].url}}"> </img>
+        </div>
+        <div class="col-md-10 col-sm-9 listing-profile-info ">
+          <h2><a href="customers/{{c.slug}}">{{c.first_name}} {{c.last_name}} </a></h2>
+          <p><strong><%= t(:city) %>: </strong> {{c.address.city}}  </p>
+          <p><strong><%= t(:wedding_date) %>: </strong> {{c.wedding_date | date:'dd/MM/yyyy'}} </p>
+        </div>
+      </div>
+      <div class="separator">
+        <ul class="nav nav-list">
+          <li class="divider"></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row well-sm visible-xs listing-mobile" ng-class="row well-sm visible-xs listing-mobile">
+      <h2><a href="customers/{{c.slug}}">{{c.first_name}} {{c.last_name}} </a></h2>
+      <p><strong><%= t(:city) %>: </strong> {{c.address.city}}  </p>
+      <p><strong><%= t(:wedding_date) %>: </strong> {{c.wedding_date | date:'dd/MM/yyyy'}} </p>
+      <div class="separator visible-xs">
+        <ul class="nav nav-list">
+          <li class="divider"></li>
+        </ul>
       </div>
     </div>
   </div>
-  <div>
-    <article class="search-result row" ng-repeat="c in customers | filter:q ">
-      {{c.first_name}}
-    </article>
-  </div>
-
-</div>
+<% end %>

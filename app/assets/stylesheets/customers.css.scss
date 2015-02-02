@@ -49,20 +49,15 @@
         margin-left: -2px;
         margin-right: 2px;
     }
-
-
-    .list-profile {
+     .list-profile {
         padding: 0;
-        height: 170px;
-        margin-top: 30px;
-        border: 1px solid #E8E8EE
+        height: 160px;
+
     }
 
     .list-profile:hover {
-        border: 1px solid #B8B8B9;
-        background-color: #FCFCFC
+      background-color: #e7e7e7;
     }
-
 
     .image-container-list {
         padding: 0;
@@ -75,10 +70,8 @@
     }
 
 
-    .listing-profile-info {
-        padding: 0;
-        height: 170px;
-        margin-left: 65px;
+   .listing-profile-info {
+        height: 160px;
     }
 
     .profile_listing_image {
@@ -99,6 +92,10 @@
     }
     .datepicker{
       border: 1px solid #ccc;
+    }
+     .listing-mobile p {
+        font-size: 12px;
+        margin-bottom: 10px;
     }
 
 

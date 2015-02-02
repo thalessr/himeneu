@@ -1,83 +1,60 @@
-<div ng-controller="SearchCtrl" class="filter-form">
+<% if can? :search, Provider %>
+	<div ng-controller="SearchCtrl" class="filter-form">
 
-	<div class="row">
-		<div class="col-lg-8" style="margin:0 auto; float:none;">
-			<div class="input-group search-form">
-				<input type="text" class="form-control" ng-model="q" placeholder="Pesquise fornecedores">
-				<span class="input-group-btn">
-					<button class="btn btn-default" type="button" ng-click="search(q)">
-						<span class="glyphicon glyphicon-search"></span>
-					</button>
-				</span>
+		<div class="row">
+			<div class="col-lg-8" style="margin:0 auto; float:none;">
+				<div class="input-group search-form">
+					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
+					<span class="input-group-btn">
+						<button class="btn btn-default" type="button" ng-click="search(q)">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+					</span>
+				</div>
 			</div>
 		</div>
-	</div>
 
-	<div class="row" ng-repeat="p in providers">
-		<div class="col-md-8 col-lg-6">
-	    	 <div class="well profile">
-	            <div class="col-sm-12">
-	                <div class="col-xs-12 col-sm-8">
-	                	  <h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
-	                    <p><strong><%= t(:experience) %>: </strong> {{p.experience}}  </p>
-	                    <p><strong>Serviços: </strong>
-                        <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
-                              {{s.name}}
-                        </span>
-	                    </p>
-	                </div>
-	                <div class="col-xs-12 col-sm-4 text-center">
-	                    <figure>
-	                    	  <img class="media-object img-responsive" ng-src="{{p.image['thumb'].url}}"> </img>
-
-	                        <figcaption class="ratings">
-	                           <div id="provider_rating" data-score="{{p.score}}" ></div>
-	                        </figcaption>
-	                    </figure>
-	                </div>
-	            </div>
-	    	 </div>
-		</div>
-	</div>
-</div>
-
-
-<% @providers.each do |p| %>
-	<div class="row hidden-xs">
-		<div class="col-md-12 col-sm-12 list-profile">
-			<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
-				<%=	link_to image_tag(p.image_url(:thumb), :class => "profile_listing_image"), p  %>
+		<div class="row hidden-xs" ng-repeat="p in providers">
+			<div class="col-md-12 col-sm-12 list-profile">
+				<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
+					<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
+				</div>
+				<div class="col-md-10 col-sm-9 listing-profile-info ">
+					<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
+	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
+	        <p><strong>Serviço(s) oferecido(s): </strong>
+	          <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
+	          	{{s.name}}
+	          </span>
+	        </p>
+				</div>
 			</div>
-			<div class="col-md-10 col-sm-9 listing-profile-info ">
-				<h2><%= link_to p.first_name+" "+p.last_name, p %></h2>
-	            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
-	                <p><strong>Skills: </strong>
-	                	<% p.profession_list.each do |s| %>
-	                        <span class="tags"><%= s %></span>
-	                    <% end %>
-	                </p>
+			<div class="separator">
+				<ul class="nav nav-list">
+				  <li class="divider"></li>
+				</ul>
 			</div>
 		</div>
-		<div class="separator">
-			<ul class="nav nav-list">
-			  <li class="divider"></li>
-			</ul>
+		<div class="row well-sm visible-xs listing-mobile">
+			<div>
+				<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
+	      <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
+	       <p><strong>Serviço(s) oferecido(s): </strong>
+	        <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
+	        	{{s.name}}
+	        </span>
+	      </p>
+			</div>
+			<div class="separator visible-xs">
+				<ul class="nav nav-list">
+				  <li class="divider"></li>
+				</ul>
+			</div>
 		</div>
+
 	</div>
-	<div class="row well-sm visible-xs listing-mobile">
-		<div>
-			<h3><%= link_to p.first_name+" "+p.last_name, p %></h2>
-            <p><strong><%= t(:experience) %>: </strong> <%= p.experience %> </p>
-            <p><strong>Skills: </strong>
-            	<% p.profession_list.each do |s| %>
-                    <span class="tags"><%= s %></span>
-                <% end %>
-         	</p>
-		</div>
-		<div class="separator visible-xs">
-			<ul class="nav nav-list">
-			  <li class="divider"></li>
-			</ul>
-		</div>
-	</div>
-<% end %> 
+<% end %>
+
+
+
+

@@ -39,6 +39,10 @@ class Customer < ActiveRecord::Base
     ]
   end
 
+  def as_json(options = {})
+    super(options.merge(include: {:address => {:only => [:city] }}))
+  end
+
   def self.search(query)
     if query.blank?
       where(nil)
