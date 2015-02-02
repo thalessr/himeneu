@@ -45,9 +45,11 @@
               <% end %>
               <span class="pull-right">
                 <% if can? :update, @provider %>
+                 <span data-toggle="tooltip" data-placement="right" title="Tooltip on right">
                   <%= link_to edit_provider_path(@provider.slug) ,class: "btn btn-sm btn-warning" do %>
-                    <i class="glyphicon glyphicon-edit" alt="t('links.edit')"></i>
+                    <i class="glyphicon glyphicon-edit" alt="<%= t('links.edit') %>"  ></i>
                   <% end %>
+                  </span>
                 <% end %>
                 <% if can? :destroy, @provider %>
                   <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
