@@ -5,10 +5,8 @@
   has_many :customers, through: :recommendations
 
 	validates_presence_of :first_name
-	validates_presence_of :last_name
-	validates_presence_of :age
 
-    delegate :email, to: :user
+  delegate :email, to: :user
 
 	accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
@@ -43,6 +41,14 @@
         else
             none
         end
+    end
+
+    def contact
+      phones = ""
+      if self.addresses.any?
+        phones = self.addresses.pluck(:phone).join(",")
+      end
+      phones
     end
 
     def self.search(query)

@@ -33,9 +33,10 @@
 
                   </tbody>
                 </table>
-
-                <a href="#" class="btn btn-primary">Me interessa!</a>
-                <a href="#" class="btn btn-primary">Pedir orçamento</a>
+                <% if 1 == 0 %>
+                  <a href="#" class="btn btn-primary">Me interessa!</a>
+                  <a href="#" class="btn btn-primary">Pedir orçamento</a>
+                <% end %>
               </div>
             </div>
           </div>
@@ -92,7 +93,7 @@
                   Assunto: <input type="text" ng-model="recommendation.title" name="title"/><br/>
                   Comentário: <textarea ng-model="recommendation.comment" /></textarea><br />
                   <div ng-model="recommendation.rating" id="rate"> </div>
-                  <input type="submit" class="btn btn-success btn-circle text-uppercase" ng-click="save(recommendation)" value="Save" />
+                  <input type="submit" class="btn btn-success btn-circle text-uppercase" ng-click="save(recommendation)" value="Salvar" />
               </form>
 
                 <ul class="media-list" ng-repeat="rec in recommendations">
