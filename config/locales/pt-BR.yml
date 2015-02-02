@@ -13,16 +13,22 @@ pt-BR:
   last_name: Sobrenome
   age: Idade
   image: Foto
+  image_provider: Foto ou logomarca
   wedding_date: Data do casamento
   error: Erro
-  profession: "Profissão"
+  profession: "Serviços oferecidos"
   profession_hint: "(separados por virgula Ex: Fotógrafo, Buffet)"
   experience: "Experiência"
   upload_image: "Enviar imagem"
   city: Cidade
+  city_hint: Himeneulândia
   zipcode: CEP
+  zipcode_hint: "99999-999"
   phone: Telefone
+  phone_hint: (99)8888-8888
   email: Email
+  email_hint: "exemple@himeneu.com"
+  years_experience: "Anos de experiência"
   address: Endereço
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   errors:
