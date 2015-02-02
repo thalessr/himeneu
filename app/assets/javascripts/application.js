@@ -41,22 +41,21 @@ $(document).ready(function(){
 
 	$('form').bind('ajax:complete', function(event, xhr, status) {
 		$("#load").remove();
-    alert("Done!");
 	});
 
   $(function () {
     $('[data-toggle="popover"]').popover();
   });
 
-  $(window).scroll(function(){
-    "use strict";
-    var b = $(window).scrollTop();
-    if( b > 60 ){
-        $(".navbar").addClass("is-scrolling");
-    } else {
-        $(".navbar").removeClass("is-scrolling");
-    }
-  });
+  // $(window).scroll(function(){
+  //   "use strict";
+  //   var b = $(window).scrollTop();
+  //   if( b > 60 ){
+  //       $(".navbar").addClass("is-scrolling");
+  //   } else {
+  //       $(".navbar").removeClass("is-scrolling");
+  //   }
+  // });
   $.stellar({
     horizontalScrolling: false,
     verticalOffset: 50

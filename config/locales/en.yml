@@ -34,6 +34,7 @@ en:
   last_name: "Last Name"
   age: Age
   image: Picture
+  image_provider: Picture
   wedding_date: Wedding Date
   error: Error
   profession: "Profession"
@@ -41,10 +42,15 @@ en:
   experience: "Experience"
   upload_image: "Upload image"
   city: City
+  city_hint: Himeneulândia
   zipcode: Zip code
+  zipcode_hint: "99999-999"
   phone: Phone number
+  phone_hint: (99)8888-8888
   email: Email
+  email_hint: "example@himeneu.com"
   address: Address
+  years_experience: ""
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   links:
       back: "Back"
