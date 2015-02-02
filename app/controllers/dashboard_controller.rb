@@ -4,13 +4,10 @@ class DashboardController < ApplicationController
 	def index
 		if current_user
 			@user = current_user
-		      customer_redirect(@user) if @user.is_customer?
-		      provider_redirect(@user) if @user.is_provider?
-      		redirect_to new_user_registration_path if @user.roles.empty?
+      customer_redirect(@user) if @user.is_customer?
+      provider_redirect(@user) if @user.is_provider?
+  		redirect_to new_user_registration_path if @user.roles.empty?
 		end
-
-	render :index, :layout => false
-
 	end
 
 	private
