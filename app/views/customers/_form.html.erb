@@ -41,25 +41,25 @@
 	   <div class="form-group">
 		    <%= a.label t(:phone), :class => 'control-label col-lg-2' %>
 		    <div class="col-lg-10">
-		      <%= a.telephone_field :phone, :class => 'form-control' %>
+		      <%= a.telephone_field :phone, :class => 'form-control', :placeholder => t(:phone_hint) %>
 		    </div>
 	  	</div>
 	  	<div class="form-group">
 		    <%= a.label t(:email), :class => 'control-label col-lg-2' %>
 		    <div class="col-lg-10">
-		      <%= a.email_field :email, :class => 'form-control' %>
+		      <%= a.email_field :email, :class => 'form-control', :placeholder => t(:email_hint) %>
 		    </div>
 	  	</div>
 	    <div class="form-group">
 		    <%= a.label t(:city), :class => 'control-label col-lg-2' %>
 		    <div class="col-lg-10">
-		      <%= a.text_field :city, :class => 'form-control' %>
+		      <%= a.text_field :city, :class => 'form-control', :placeholder => t(:city_hint) %>
 		    </div>
 	  	</div>
 	  	<div class="form-group">
 		    <%= a.label t(:zipcode), :class => 'control-label col-lg-2' %>
 		    <div class="col-lg-10">
-		      <%= a.text_field :zipcode, :class => 'form-control' %>
+		      <%= a.text_field :zipcode, :class => 'form-control', :placeholder => t(:zipcode_hint) %>
 		    </div>
 	  	</div>
    <% end %>
