@@ -1,177 +1,110 @@
-    <!-- Header -->
-    <div class="intro-header" style="background: url(<%= image_path  "intro-bg.jpg"%>) no-repeat center center;">
-
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Himeneu</title>
+	<%= stylesheet_link_tag    "application", media: "all" %>
+	<%= javascript_include_tag "application" %>
+	<%= csrf_meta_tags %>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="ONLab">
+    <meta name="description" content="Himeneu é a solução para facilitar o seu casamento">
+    <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
+	<%= favicon_link_tag 'favicon.ico' %>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+	<!--[if lt IE 9]>
+	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+</head>
+<body ng-app="App" class='<%= controller.controller_name %>'>
+	 <!-- Navigation -->
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="<%= root_path %>">Himeneu</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <% if user_signed_in? && current_user.is_completed %>
+                        <% if can? :search, Customer %>
+                          <li><%= link_to 'Noivas(os)', customers_path %></li>
+                        <% end %>
+                        <% if can? :search, Provider %>
+                          <li><%= link_to 'Profissionais', providers_path %></li>
+                        <% end %>
+            						<li><%= link_to "Meu Perfil", redirect_to_profile %></li>
+            						<li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
+				            <% else %>
+                        <li><%= link_to 'Quem somos', dashboard_path+"#quem-somos"%> </li>
+                        <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
+						        <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
+                    	<li><%= link_to 'Login', new_user_session_path %></li>
+                	<% end %>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
+
+	<div class="container-fluid jumbo">
+        <div class="container">
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1>Himeneu</h1>
-                        <h3>Agora casar ficou mais fácil</h3>
-                        <hr class="intro-divider">
+                <div class="col-md-12">
+                    <div class="col-md-6 jumbo-text">
+                        <h1>
+                            Case mais fácil com Himeneu
+                        </h1>
+                        <div class="row button-row">
+                            <button type="button" class="btn btn-primary btn-lg">Cadastre-se</button>
+                            <button type="button" class="btn btn-default btn-lg">Divulge seu trabalho</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        
                     </div>
                 </div>
             </div>
-
         </div>
-        <!-- /.container -->
+	</div>
 
+    <div class="row content-box">
+        <div class="row boxes col-md-12 box-left">
+            <div class="col-md-6">
+                <img src="/assets/wed-cake.png" class="img-responsive" alt="Responsive image">
+            </div>
+            <div class="col-md-6">
+                <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
+            </div>
+        </div>
+        <div class="row boxes col-md-12 box-right">
+            <div class="col-md-6">
+                <h2> Planeje com antecedência todos os detalhes da sua cerimônia  </h2>
+            </div>
+            <div class="col-md-6">
+                <img src="/assets/schedule-wed.png" class="img-responsive" alt="Responsive image">
+            </div>
+        </div>
+        <div class="row boxes col-md-12 box-left">
+            <div class="col-md-6">
+                <img src="/assets/ring-wed.png" class="img-responsive" alt="Responsive image">
+            </div>
+            <div class="col-md-6">
+                <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
+            </div>
+        </div>
     </div>
-    <!-- /.intro-header -->
-
-    <!-- Page Content -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Evite:<br>horas perdidas</h2>
-                    <p class="lead">Encontre tudo o que precisa para a realização do
-                        seu grande dia em um só lugar</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                     <%= image_tag('noiva.jpg', class: "img-responsive") %>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-
-    <div class="content-section-b">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-lg-offset-1 col-sm-push-6  col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Realize<br></h2>
-                    <p class="lead">Seu sonho com conforto</p>
-                </div>
-                <div class="col-lg-5 col-sm-pull-6  col-sm-6">
-                    <%= image_tag('bolo.jpg', class: "img-responsive") %>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-b -->
-
-    <div class="content-section-a">
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Não vacile<br></h2>
-                    <p class="lead">Blá, blá, blá.</p>
-                </div>
-                <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                    <%= image_tag('alianca.jpg', class: "img-responsive") %>
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.content-section-a -->
-    <section id="quem-somos">
-        <div class="content-section-a">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Quem somos<br></h2>
-                    <p class="lead">empresa que... para... entao....</p>
-                </div>
-                <!-- <div class="col-lg-5 col-lg-offset-2 col-sm-6">
-                 <%= image_tag('phones.jpg', class: "img-responsive") %>
-                </div> -->
-            </div>
-        </div>
-    </section>
-
-    <section id="contato">
-        <div class="content-section-a">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-5 col-sm-6">
-                    <hr class="section-heading-spacer">
-                    <div class="clearfix"></div>
-                    <h2 class="section-heading">Contato<br></h2>
-                    <p class="lead">Email: nao@tenho.com.br</p>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-
-    <div class="banner" style=' background: url(<%= image_path  "banner-bg.jpg"%>) no-repeat center center;'>
-
-        <div class="container">
-
-            <div class="row">
-                <div class="col-lg-6">
-                    <h2>Faça o seu cadastro</h2>
-                </div>
-                <div class="col-lg-6">
-                 <!--    <ul class="list-inline banner-social-buttons">
-                        <li>
-                            <a href="https://twitter.com/SBootstrap" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="https://github.com/IronSummitMedia/startbootstrap" class="btn btn-default btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>
-                    </ul> -->
-                </div>
-            </div>
-
-        </div>
-        <!-- /.container -->
-
-    </div>
-    <!-- /.banner -->
-
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ul class="list-inline">
-                        <li>
-                            <a href="#home">Home</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#quem-somos">Quem somos</a>
-                        </li>
-                        <li class="footer-menu-divider">&sdot;</li>
-                        <li>
-                            <a href="#contato">Contato</a>
-                        </li>
-                    </ul>
-                    <p class="copyright text-muted small">Copyright &copy; Himeneu <%= Time.now.year %></p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 </body>
