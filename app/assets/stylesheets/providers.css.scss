@@ -123,20 +123,19 @@
 
     .list-profile {
         padding: 0;
-        height: 170px;
-        margin-top: 30px;
-        border: 1px solid #E8E8EE
+        height: 160px;
+
     }
 
     .list-profile:hover {
-        border: 1px solid #B8B8B9;
-        background-color: #FCFCFC
+    background-color: #e7e7e7;
+
     }
 
 
     .image-container-list {
         padding: 0;
-        height: 170px
+        height: 160px
     }
 
     a:hover{
@@ -146,19 +145,16 @@
 
 
     .listing-profile-info {
-        padding: 0;
-        height: 170px;
-        margin-left: 65px;
+        height: 160px;
     }
 
     .profile_listing_image {
         height: 110px;
         width: 110px;
-        top: 50%;
-        margin-top: -60px;
-        position: absolute;
+        margin-top: 20px;
+        margin-left: -25px;
         left: 50%;
-        margin-left: -22px;
+        position: relative;
     }
 
 
@@ -168,6 +164,23 @@
 
     }
 
+    .listing-mobile {
+
+    }
+
+    .listing-mobile p {
+        font-size: 12px;
+        margin-bottom: 10px;
+    }
+
+    .separator li {
+        margin-top: 15px;
+        margin-bottom: 15px; 
+    }
+
+    .filter-form {
+        margin-bottom: 25px; 
+    }
 
 }
 
