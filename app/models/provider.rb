@@ -57,17 +57,18 @@
       else
         array = query.split(',')
         if array.length == 1
-          name = "#{array[0]}"
-          distinct.where("first_name like ?", name)
+          name = "%#{array[0]}%"
+          distinct.where("first_name like ? or last_name like ? ", name, name)
         elsif array.length == 2
-          name = "#{array[0]}"
+          name = "%#{array[0]}%"
           profession = "#{array[1]}"
-          distinct.where("first_name like ? ", name).tagged_with(profession)
+          distinct.where("first_name like ? or last_name like ? ", name, name) | self.tagged_with(profession , :any => true)
         elsif array.length == 3
-          name = "#{array[0]}"
+          name = "%#{array[0]}%"
           profession = "#{array[1]}"
           city = "#{array[2]}"
-          distinct.joins(:addresses).tagged_with(profession).where("first_name like ? or addresses.city like ? ", name, city)
+          distinct.joins(:addresses).tagged_with(profession).where("first_name like ? or last_name like ? or addresses.city like ?", name, name, city) |
+          self.tagged_with(profession, :any => true)
         end
       end
     end
