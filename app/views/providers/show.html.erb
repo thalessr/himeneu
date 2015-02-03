@@ -33,10 +33,9 @@
 
                   </tbody>
                 </table>
-                <% if 1 == 0 %>
-                  <a href="#" class="btn btn-primary">Me interessa!</a>
-                  <a href="#" class="btn btn-primary">Pedir orçamento</a>
-                <% end %>
+                <div class="row button-row">
+                    <a class="btn btn-primary wow fadeIn animated" data-wow-delay="0.3s" role="button" href="<%= interests_path(:provider_id => @provider.id, :customer_id => current_user.role_id), method: :post %>">Me Interessa</a>
+                </div>
               </div>
             </div>
           </div>
