@@ -18,7 +18,7 @@
 //= require jquery.autosize
 //= require jquery.stellar/jquery.stellar.min.js
 //= require moment
-//= require bootstrap/dist/js/bootstrap.js
+//= require bootstrap/dist/js/bootstrap.min.js
 //= require wow/dist/wow.min.js
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
