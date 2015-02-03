@@ -48,8 +48,16 @@ class Customer < ActiveRecord::Base
       where(nil)
     else
       q = "%#{query}%"
-      distinct.joins(:address).where("first_name like ? or addresses.city like ? ", q, q)
+      distinct.joins(:address).where("first_name like ? or last_name like ? or addresses.city like ? ", q, q, q)
     end
+  end
+
+  def self.recent(number)
+      if number
+          limit(number).reverse_order
+      else
+          none
+      end
   end
 
   private
