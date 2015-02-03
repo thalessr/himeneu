@@ -2,7 +2,9 @@
 	belongs_to :user
 	has_many :addresses, dependent: :destroy
   has_many :recommendations, dependent: :destroy
-  has_many :customers, through: :recommendations
+  has_many :customers, through: [:recommendations, :interests]
+  has_many :interests
+
 
 	validates_presence_of :first_name
 
