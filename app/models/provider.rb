@@ -57,17 +57,17 @@
       else
         array = query.split(',')
         if array.length == 1
-          name = "%#{array[0]}%"
-          distinct.where("first_name like ? or last_name like ? ", name, name)
+          name = "%#{array[0].downcase}%"
+          distinct.where("LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ? ", name, name)
         elsif array.length == 2
-          name = "%#{array[0]}%"
+          name = "%#{array[0].downcase}%"
           profession = "#{array[1]}"
-          distinct.where("first_name like ? or last_name like ? ", name, name) | self.tagged_with(profession , :any => true)
+          distinct.where(" LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ? ", name, name) | self.tagged_with(profession , :any => true)
         elsif array.length == 3
-          name = "%#{array[0]}%"
+          name = "%#{array[0].downcase}%"
           profession = "#{array[1]}"
-          city = "#{array[2]}"
-          distinct.joins(:addresses).tagged_with(profession).where("first_name like ? or last_name like ? or addresses.city like ?", name, name, city) |
+          city = "#{array[2].downcase}"
+          distinct.joins(:addresses).tagged_with(profession).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ? OR LOWER(addresses.city) LIKE ?", name, name, city) |
           self.tagged_with(profession, :any => true)
         end
       end
