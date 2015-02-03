@@ -46,7 +46,7 @@
               <% end %>
               <span class="pull-right">
                 <% if can? :update, @provider %>
-                 <span data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                 <span data-toggle="tooltip" data-placement="right" >
                   <%= link_to edit_provider_path(@provider.slug) ,class: "btn btn-sm btn-warning" do %>
                     <i class="glyphicon glyphicon-edit" alt="<%= t('links.edit') %>"  ></i>
                   <% end %>
@@ -62,7 +62,7 @@
               Endereços  <span class="badge"><%= @provider.addresses.count %></a>
             </li>
             <li>
-              <a data-toggle="tab" href="#comment">Recomedação <span class="badge">
+              <a data-toggle="tab" href="#comment">Recomendação <span class="badge">
                 <%= @provider.recommendations.count %></a>
             </li>
           </ul>
