@@ -153,9 +153,19 @@
     }
 
     .jumbo {
-        height: 630px;
+        min-height: 140%;
+        min-width: 100%;
         margin-top: -10px;
-        background: url("/assets/backhome.jpg") no-repeat center center;
+        background: url("/assets/backhome.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+        background-position:center;
     }
 
     .jumbo-text {
