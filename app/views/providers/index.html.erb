@@ -2,16 +2,16 @@
 	<div ng-controller="SearchCtrl" class="filter-form container">
 
 		<div class="row">
-			<div class="col-lg-8" style="margin:0 auto; float:none;">
+			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
 				<div class="input-group search-form">
 					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" ng-click="search(q)">
+						<button class="btn btn-default" type="button">
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 					</span>
 				</div>
-			</div>
+			</form>
 		</div>
 
 		<div class="row" ng-repeat="p in providers">
