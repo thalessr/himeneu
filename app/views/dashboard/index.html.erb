@@ -124,8 +124,8 @@
                 <span class="glyphicon glyphicon-chevron-right"></span>
             </a>
         </div>
-        <ol class="carousel-indicators" ng-repeat=" p in slides " >
-            <li data-target="#slider" data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
+        <ol class="carousel-indicators"  >
+            <li data-target="#slider" ng-repeat=" p in slides " data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
         </ol>
 
     </div>
