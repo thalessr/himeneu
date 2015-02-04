@@ -15,6 +15,9 @@ app.factory("Search", function($resource) {
 
 
 app.controller("CustomerCtrl", function($scope, CustomerSearch){
+  CustomerSearch.query({q: ""}, function(data){
+      $scope.customers = data;
+    });
 
   $scope.search = function(q){
     if (q === null || q === ""){
@@ -55,6 +58,10 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 });
 
 app.controller("SearchCtrl", function($scope, Search){
+
+  Search.query({q: ""}, function(data){
+      $scope.providers = data;
+    });
 
   $scope.search = function(q){
     if (q === null || q === ""){
