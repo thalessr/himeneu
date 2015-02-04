@@ -49,7 +49,7 @@
     						<li><%= link_to "Meu Perfil", redirect_to_profile %></li>
     						<li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
 				        <% else %>
-                        <li><%= link_to 'Quem somos', dashboard_path+"#quem-somos"%> </li>
+                        <li><%= link_to 'Nossos Clientes', "#clients"%> </li>
                         <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
 						        <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
                     	<li><%= link_to 'Login', new_user_session_path %></li>
@@ -108,6 +108,28 @@
         </div>
     </div>
 
+    <div id="slider" class="carousel slide" data-interval="2000" ng-controller="CarouselCtrl">
+        <div class="carousel-inner">
+             <div ng-class="{'item active': $first , 'item': !$first}" ng-repeat=" p in slides ">
+                <img ng-src="{{p.image['regular'].url}}">
+                 <div class="carousel-caption">
+                    <strong class="text">{{p.first_name}} {{p.last_name}}</strong>
+                 </div>
+            </div>
+
+            <a class="left carousel-control" href="#slider" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+            </a>
+            <a class="right carousel-control" href="#slider" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+            </a>
+        </div>
+        <ol class="carousel-indicators" ng-repeat=" p in slides " >
+            <li data-target="#slider" data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
+        </ol>
+
+    </div>
+    <section id="clients"></section>
 
 
 
