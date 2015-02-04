@@ -33,6 +33,7 @@ $(document).ready(function(){
 	})
 
   new WOW().init();
+  $('.carousel').carousel();
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 

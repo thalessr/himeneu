@@ -13,6 +13,9 @@ app.factory("Search", function($resource) {
   return $resource("/providers/search?q=");
 });
 
+app.factory("Carousel", function($resource) {
+  return $resource("/providers/carousel");
+});
 
 app.controller("CustomerCtrl", function($scope, CustomerSearch){
   CustomerSearch.query({q: ""}, function(data){
@@ -73,4 +76,10 @@ app.controller("SearchCtrl", function($scope, Search){
     });
   };
 
+});
+
+app.controller("CarouselCtrl",function($scope, Carousel){
+  Carousel.query(function(data){
+    $scope.slides = data;
+  });
 });

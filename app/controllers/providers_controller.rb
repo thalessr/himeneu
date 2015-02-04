@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:carousel]
   load_and_authorize_resource
 
   def index
@@ -60,6 +60,14 @@ class ProvidersController < ApplicationController
     @provider = Provider.friendly.find(params[:id])
     @provider.destroy
     redirect_to new_provider_path
+  end
+
+  def carousel
+    providers = Provider.recent(5)
+    respond_to do |format|
+      format.html{ providers}
+      format.json{ render json: providers}
+     end
   end
 
   private

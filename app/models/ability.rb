@@ -26,6 +26,7 @@ class Ability
         can :create, User
         cannot :manage, Customer
         can :read, Provider
+        can :carousel, Provider
       end
     #
     # The first argument to `can` is the action you are giving the user
