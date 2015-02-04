@@ -12,6 +12,8 @@
     <meta name="author" content="ONLab">
     <meta name="description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial.">
     <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
+    <meta property="og:image" content="/assets/backhome.jpg" />
+    <meta property="og:url" content="http://www.himeneu.com"/>
 	<%= favicon_link_tag 'favicon.ico' %>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -60,13 +62,13 @@
 
 	<div class="container-fluid jumbo" data-stellar-background-ratio="0.5">
 
-            <div class="row">
+            <div class="row-fluid">
                 <div class="col-md-12">
                     <div class="col-md-6 jumbo-text">
                         <h1>
                             Case mais fácil com Himeneu
                         </h1>
-                        <div class="row button-row">
+                        <div class="row-fluid button-row">
                             <a class="btn btn-primary btn-lg wow fadeIn animated" data-wow-delay="0.3s" role="button" href="<%= new_user_registration_path %>">Cadastre-se</a>
                             <a class="btn btn-default btn-lg wow fadeIn animated" data-wow-delay="0.3s" role="button" href="<%= new_user_registration_path %>">Divulgue seu trabalho</a>
                         </div>
@@ -79,8 +81,8 @@
 
 	</div>
 
-    <div class="row content-box wow"  >
-        <div class="row boxes col-md-12 box-left">
+    <div class="row-fluid content-box wow"  >
+        <div class="row-fluid boxes col-md-12 box-left">
             <div class="col-md-6 " data-stellar-background-ratio="0.5">
                 <%= image_tag('wed-cake.png', class: "img-responsive wow flip animated") %>
             </div>
@@ -88,7 +90,7 @@
                 <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
             </div>
         </div>
-        <div class="row boxes col-md-12 box-right" data-stellar-background-ratio="2.0">
+        <div class="row-fluid boxes col-md-12 box-right" data-stellar-background-ratio="2.0">
             <div class="col-md-6 wow bounceInLeft animated">
                 <h2> Planeje com antecedência todos os detalhes da sua cerimônia  </h2>
             </div>
@@ -96,7 +98,7 @@
                 <%= image_tag('schedule-wed.png', class: "img-responsive") %>
             </div>
         </div>
-        <div class="row boxes col-md-12 box-left wow bounceInRight animated"  data-stellar-background-ratio="0.5">
+        <div class="row-fluid boxes col-md-12 box-left wow bounceInRight animated"  data-stellar-background-ratio="0.5">
             <div class="col-md-6">
                 <%= image_tag('ring-wed.png', class: "img-responsive") %>
             </div>
@@ -158,7 +160,7 @@
     <!--/.footer-->
 
     <div class="footer-bottom">
-        <div class="container">
+        <div class="container-fluid">
             <p class="pull-left"> Copyright © Himeneu 2015. All right reserved. </p>
             <div class="pull-right">
                 <ul class="nav nav-pills payments ">
