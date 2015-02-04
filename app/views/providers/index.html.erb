@@ -14,16 +14,16 @@
 			</div>
 		</div>
 
-		<div class="row hidden-xs" ng-repeat="p in providers">
+		<div class="row" ng-repeat="p in providers">
 			<div class="col-md-12 col-sm-12 list-profile">
 				<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
 					<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
 				</div>
 				<div class="col-md-10 col-sm-9 listing-profile-info ">
 					<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
-	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
+	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
 	        <p><strong>Serviço(s) oferecido(s): </strong>
-	          <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
+	          <span class="tags" ng-repeat="s in p.profession | limitTo:6" ng-class"tags">
 	          	{{s.name}}
 	          </span>
 	        </p>
@@ -35,7 +35,7 @@
 				</ul>
 			</div>
 		</div>
-		<div class="row well-sm visible-xs listing-mobile">
+		<div class="row well-sm  listing-mobile">
 			<div>
 				<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
 	      <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
