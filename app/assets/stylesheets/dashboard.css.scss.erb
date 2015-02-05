@@ -153,9 +153,25 @@
     }
 
     .jumbo {
-        height: 630px;
+        min-height: 140%;
+        min-width: 100%;
         margin-top: -10px;
-        background: url("/assets/backhome.jpg") no-repeat center center;
+        background: url("/assets/backhome.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+        background-position:center;
+    }
+
+    @media only screen and (max-width: 767px) {
+      .jumbo {
+        background-image: url(/assets/backhome_mobile.jpg);
+      }
     }
 
     .jumbo-text {
@@ -349,5 +365,17 @@
     footer {
         padding: 0;
     }
-
+    .item {
+      border:1px solid #eee;
+      width: 20%;
+      height:15%;
+      margin:0 auto;
+      padding:10px;
+    }
+    .text{
+        background-color: grey;
+        width: 100%;
+        opacity: 0.9;
+        filter: alpha(opacity=90);
+     }
 }

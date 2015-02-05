@@ -27,11 +27,13 @@
 
 
 $(document).ready(function(){
+  'use strict';
 	$.ajaxSetup({
 	  dataType: 'json'
 	})
 
   new WOW().init();
+
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
@@ -45,6 +47,7 @@ $(document).ready(function(){
 
   $(function () {
     $('[data-toggle="popover"]').popover();
+    $('.carousel').carousel();
   });
 
   // $(window).scroll(function(){

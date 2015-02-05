@@ -21,6 +21,7 @@
 
 en:
   login: "login"
+  title: "Himeneu"
   forgot_password: "Forgot password?"
   sign_up: "Sign up"
   sign_in: "Please Sign In"

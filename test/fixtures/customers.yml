@@ -8,6 +8,7 @@ valid_customer:
   user: users(:bride_not_completed)
   image: MyString.jpg
   wedding_date: 2014-11-01 18:25:09
+  address: one
 
 two:
   first_name: MyString

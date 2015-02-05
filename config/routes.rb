@@ -32,6 +32,7 @@ resources :providers do
   resources :address, :except => [:index, :show, :edit]
   resources :recommendations
   get 'search', on: :collection
+  get 'carousel', on: :collection
 end
 
 resources :interests, :only => :create
