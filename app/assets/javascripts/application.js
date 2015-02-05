@@ -33,9 +33,7 @@ $(document).ready(function(){
 	})
 
   new WOW().init();
-  $('.carousel').carousel({
-        interval: 1000
-   });
+  $('.carousel').carousel();
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
