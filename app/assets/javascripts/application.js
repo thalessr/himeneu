@@ -33,7 +33,7 @@ $(document).ready(function(){
 	})
 
   new WOW().init();
-  $('.carousel').carousel();
+
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
@@ -47,6 +47,7 @@ $(document).ready(function(){
 
   $(function () {
     $('[data-toggle="popover"]').popover();
+    $('.carousel').carousel();
   });
 
   // $(window).scroll(function(){
