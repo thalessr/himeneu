@@ -49,9 +49,17 @@ class Customer < ActiveRecord::Base
     if query.blank?
       where(nil)
     else
-      q = "%#{query}%"
-      distinct.joins(:address).where("first_name like ? or addresses.city like ? ", q, q)
+      q = "%#{query.downcase}%"
+      distinct.joins(:address).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ? OR LOWER(addresses.city) LIKE ? ", q, q, q)
     end
+  end
+
+  def self.recent(number)
+      if number
+          limit(number).reverse_order
+      else
+          none
+      end
   end
 
   private

@@ -1,72 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Himeneu</title>
-	<%= stylesheet_link_tag    "application", media: "all" %>
-	<%= javascript_include_tag "application" %>
-	<%= csrf_meta_tags %>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="author" content="ONLab">
-    <meta name="description" content="Himeneu é a solução para facilitar o seu casamento">
-    <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
-	<%= favicon_link_tag 'favicon.ico' %>
-	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-	    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-	    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-	<![endif]-->
-</head>
-<body ng-app="App" class='<%= controller.controller_name %>'>
-	 <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="<%= root_path %>">Himeneu</a>
-            </div>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <% if user_signed_in? && current_user.is_completed %>
-                        <% if can? :search, Customer %>
-                          <li><%= link_to 'Noivas(os)', customers_path %></li>
-                        <% end %>
-                        <% if can? :search, Provider %>
-                          <li><%= link_to 'Profissionais', providers_path %></li>
-                        <% end %>
-    						<li><%= link_to "Meu Perfil", redirect_to_profile %></li>
-    						<li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
-				        <% else %>
-                        <li><%= link_to 'Quem somos', dashboard_path+"#quem-somos"%> </li>
-                        <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
-						        <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
-                    	<li><%= link_to 'Login', new_user_session_path %></li>
-                	<% end %>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-
 	<div class="container-fluid jumbo" data-stellar-background-ratio="0.5">
-        <div class="container">
-            <div class="row">
+
+            <div class="row-fluid">
                 <div class="col-md-12">
                     <div class="col-md-6 jumbo-text">
                         <h1>
                             Case mais fácil com Himeneu
                         </h1>
-                        <div class="row button-row">
+                        <div class="row-fluid button-row">
                             <a class="btn btn-primary btn-lg wow fadeIn animated" data-wow-delay="0.3s" role="button" href="<%= new_user_registration_path %>">Cadastre-se</a>
                             <a class="btn btn-default btn-lg wow fadeIn animated" data-wow-delay="0.3s" role="button" href="<%= new_user_registration_path %>">Divulgue seu trabalho</a>
                         </div>
@@ -76,11 +16,11 @@
                     </div>
                 </div>
             </div>
-        </div>
+
 	</div>
 
-    <div class="row content-box wow"  >
-        <div class="row boxes col-md-12 box-left">
+    <div class="row-fluid content-box wow"  >
+        <div class="row-fluid boxes col-md-12 box-left">
             <div class="col-md-6 " data-stellar-background-ratio="0.5">
                 <%= image_tag('wed-cake.png', class: "img-responsive wow flip animated") %>
             </div>
@@ -88,7 +28,7 @@
                 <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
             </div>
         </div>
-        <div class="row boxes col-md-12 box-right" data-stellar-background-ratio="2.0">
+        <div class="row-fluid boxes col-md-12 box-right" data-stellar-background-ratio="2.0">
             <div class="col-md-6 wow bounceInLeft animated">
                 <h2> Planeje com antecedência todos os detalhes da sua cerimônia  </h2>
             </div>
@@ -96,7 +36,7 @@
                 <%= image_tag('schedule-wed.png', class: "img-responsive") %>
             </div>
         </div>
-        <div class="row boxes col-md-12 box-left wow bounceInRight animated"  data-stellar-background-ratio="0.5">
+        <div class="row-fluid boxes col-md-12 box-left wow bounceInRight animated"  data-stellar-background-ratio="0.5">
             <div class="col-md-6">
                 <%= image_tag('ring-wed.png', class: "img-responsive") %>
             </div>
@@ -105,7 +45,29 @@
             </div>
         </div>
     </div>
+    <div ng-controller="CarouselCtrl">
+        <div id="slider5" class="carousel slide" data-ng-show="sliderReady"  data-interval="2000">
+            <div class="carousel-inner">
+                 <div ng-class="{'item active': $first , 'item': !$first}" ng-repeat=" p in slides ">
+                    <img ng-src="{{p.image['regular'].url}}">
+                     <div class="carousel-caption">
+                        <strong class="text">{{p.first_name}} {{p.last_name}}</strong>
+                     </div>
+                </div>
 
+                <a class="left carousel-control" href="#slider5" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#slider5" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+            <ol class="carousel-indicators"  >
+                <li data-target="#slider5" ng-repeat=" p in slides " data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
+            </ol>
+        </div>
+    </div>
+    <section id="clients"></section>
 
 
 
@@ -158,7 +120,7 @@
     <!--/.footer-->
 
     <div class="footer-bottom">
-        <div class="container">
+        <div class="container-fluid">
             <p class="pull-left"> Copyright © Himeneu 2015. All right reserved. </p>
             <div class="pull-right">
                 <ul class="nav nav-pills payments ">
