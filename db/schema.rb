@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150203011646) do
+ActiveRecord::Schema.define(version: 20150205141308) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -92,7 +92,7 @@ ActiveRecord::Schema.define(version: 20150203011646) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "interests", force: true do |t|
-    t.integer  "cutomer_id"
+    t.integer  "customer_id"
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
