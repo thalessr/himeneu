@@ -61,18 +61,20 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 });
 
 app.controller("SearchCtrl", function($scope, Search){
-
+  $scope.loading = true;
   Search.query({q: ""}, function(data){
       $scope.providers = data;
+      $scope.loading = false;
     });
 
   $scope.search = function(q){
     if (q === null || q === ""){
        q = "";
     }
-
+    $scope.loading = true;
     Search.query({q: $scope.q}, function(data){
       $scope.providers = data;
+      $scope.loading = false;
     });
   };
 
