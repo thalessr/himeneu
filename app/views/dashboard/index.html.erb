@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div id="slider" class="carousel slide" data-interval="2000" ng-controller="CarouselCtrl">
+    <div id="slider" class="carousel slide"  ng-controller="CarouselCtrl">
         <div class="carousel-inner">
              <div ng-class="{'item active': $first , 'item': !$first}" ng-repeat=" p in slides ">
                 <img ng-src="{{p.image['regular'].url}}">
