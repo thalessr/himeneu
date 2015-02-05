@@ -81,7 +81,9 @@ app.controller("SearchCtrl", function($scope, Search){
 });
 
 app.controller("CarouselCtrl",function($scope, Carousel){
+  $scope.sliderReady = false;
   Carousel.query(function(data){
     $scope.slides = data;
+    $scope.sliderReady = true;
   });
 });
