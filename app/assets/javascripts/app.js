@@ -1,3 +1,4 @@
+'use strict';
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
 app.factory("CustomerSearch", function($resource) {
@@ -12,8 +13,14 @@ app.factory("Search", function($resource) {
   return $resource("/providers/search?q=");
 });
 
+app.factory("Carousel", function($resource) {
+  return $resource("/providers/carousel");
+});
 
 app.controller("CustomerCtrl", function($scope, CustomerSearch){
+  CustomerSearch.query({q: ""}, function(data){
+      $scope.customers = data;
+    });
 
   $scope.search = function(q){
     if (q === null || q === ""){
@@ -54,15 +61,29 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 });
 
 app.controller("SearchCtrl", function($scope, Search){
+  $scope.loading = true;
+  Search.query({q: ""}, function(data){
+      $scope.providers = data;
+      $scope.loading = false;
+    });
 
   $scope.search = function(q){
     if (q === null || q === ""){
        q = "";
     }
-
+    $scope.loading = true;
     Search.query({q: $scope.q}, function(data){
       $scope.providers = data;
+      $scope.loading = false;
     });
   };
 
+});
+
+app.controller("CarouselCtrl",function($scope, Carousel){
+  $scope.sliderReady = false;
+  Carousel.query(function(data){
+    $scope.slides = data;
+    $scope.sliderReady = true;
+  });
 });

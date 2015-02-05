@@ -1,6 +1,8 @@
 <% if can? :update, @provider %>
-	<p>
-		<%= link_to t('links.back'), @provider %>
-	</p>
-	<%= render 'form' %>
+  <div class="container">
+  	<p>
+  		<%= link_to t('links.back'), @provider %>
+  	</p>
+  	<%= render 'form' %>
+  </div>
 <% end %>
