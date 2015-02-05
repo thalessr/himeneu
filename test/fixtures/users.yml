@@ -23,7 +23,7 @@ bride_not_completed:
 provider_completed:
   id: 3
   email: provider@himeneu.com
-  roles: roles(:fornecedor)
+  roles: fornecedor
   confirmed_at: 2014-12-04 01:59:05
   confirmation_sent_at: 2014-12-04 01:58:48
   is_completed: true

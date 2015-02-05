@@ -55,7 +55,6 @@ class DashboardControllerTest < ActionController::TestCase
 		set_ability(@user)
   	sign_in @user
 		get :index
-		assert_response :success
-		assert_template :index
+		assert_redirected_to(controller: "customers", action: "index")
 	end
 end

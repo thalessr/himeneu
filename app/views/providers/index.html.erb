@@ -1,29 +1,30 @@
 <% if can? :search, Provider %>
-	<div ng-controller="SearchCtrl" class="filter-form">
+	<div ng-controller="SearchCtrl" class="filter-form container">
 
 		<div class="row">
-			<div class="col-lg-8" style="margin:0 auto; float:none;">
+			<img data-ng-show="loading" ng-src="assets/loading.gif"></img>
+			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
 				<div class="input-group search-form">
 					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
 					<span class="input-group-btn">
-						<button class="btn btn-default" type="button" ng-click="search(q)">
+						<button class="btn btn-default" type="submit">
 							<span class="glyphicon glyphicon-search"></span>
 						</button>
 					</span>
 				</div>
-			</div>
+			</form>
 		</div>
 
-		<div class="row hidden-xs" ng-repeat="p in providers">
+		<div class="row" ng-repeat="p in providers">
 			<div class="col-md-12 col-sm-12 list-profile">
 				<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
 					<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
 				</div>
 				<div class="col-md-10 col-sm-9 listing-profile-info ">
 					<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
-	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
-	        <p><strong>Serviço(s) oferecido(s): </strong>
-	          <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
+	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
+	        <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
+	          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
 	          	{{s.name}}
 	          </span>
 	        </p>
@@ -35,23 +36,6 @@
 				</ul>
 			</div>
 		</div>
-		<div class="row well-sm visible-xs listing-mobile">
-			<div>
-				<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a></h2>
-	      <p><strong><%= t(:experience) %>: </strong> {{ p.experience }} </p>
-	       <p><strong>Serviço(s) oferecido(s): </strong>
-	        <span class="tags" ng-repeat="s in p.profession" ng-class"tags">
-	        	{{s.name}}
-	        </span>
-	      </p>
-			</div>
-			<div class="separator visible-xs">
-				<ul class="nav nav-list">
-				  <li class="divider"></li>
-				</ul>
-			</div>
-		</div>
-
 	</div>
 <% end %>
 
