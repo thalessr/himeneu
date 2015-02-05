@@ -3,10 +3,12 @@ require 'test_helper'
 class CustomersControllerTest < ActionController::TestCase
   fixtures :users
   fixtures :customers
+  fixtures :roles
   include Devise::TestHelpers
 
  def setup
     @user = users(:bride_not_completed)
+    @user.roles << roles(:noiva)
     @customer = customers(:valid_customer)
     @ability = Ability.new(@user)
     @ability.extend(CanCan::Ability)
@@ -34,7 +36,7 @@ class CustomersControllerTest < ActionController::TestCase
     assert_redirected_to assigns(:customer)
   end
 
-  test "Should read the custmer#show" do
+  test "Should read the customer#show" do
     @ability.can(:read, Customer)
     get :show, id: @customer
     assert_response :success

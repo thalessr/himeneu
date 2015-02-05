@@ -2,6 +2,7 @@
 	<div ng-controller="SearchCtrl" class="filter-form container">
 
 		<div class="row">
+			<img data-ng-show="loading" ng-src="assets/loading.gif"></img>
 			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
 				<div class="input-group search-form">
 					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
