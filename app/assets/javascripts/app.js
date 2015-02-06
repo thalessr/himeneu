@@ -67,6 +67,14 @@ app.controller("SearchCtrl", function($scope, Search){
       $scope.loading = false;
     });
 
+  $scope.hasScore = function(value) {
+    if (value > 0){
+      showScore();
+      return true;
+    }else
+      return false;
+  };
+
   $scope.search = function(q){
     if (q === null || q === ""){
        q = "";
