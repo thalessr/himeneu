@@ -5,7 +5,7 @@ class InterestsController < ApplicationController
       interest = current_user.customer.interests.build(interest_params)
       interest.provider = Provider.friendly.find(interest_params[:provider_id])
       if interest.save
-        #use mailer here
+        ProviderMailer.interested_email(interest.customer, interest.provider).deliver
         redirect_to provider_path(interest.provider)
         flash[:notice] = "Aguarde o contato deste prestador de serviço!"
       end
