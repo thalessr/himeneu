@@ -1,15 +1,20 @@
 class InterestsController < ApplicationController
 
 	def create
-	  @interest = Interest.new(interest_params)
-	  @interest.save
-	  redirect_to provider_path(interest_params[:provider_id])
-	  flash[:notice] = "Aguarde o contato deste prestadore de serviço!"
+    if current_user.is_customer?
+      interest = current_user.customer.interests.build(interest_params)
+      interest.provider = Provider.friendly.find(interest_params[:provider_id])
+      if interest.save
+        #use mailer here
+        redirect_to provider_path(interest.provider)
+        flash[:notice] = "Aguarde o contato deste prestador de serviço!"
+      end
+    end
 	end
 
 	private
-  		def interest_params
-    		params.permit(:customer_id, :provider_id)
-  		end
+		def interest_params
+  		params.permit(:customer_id, :provider_id)
+		end
 
 end

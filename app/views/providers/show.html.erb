@@ -33,7 +33,7 @@
 
                   </tbody>
                 </table>
-                <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.id.to_i, :customer_id => current_user.customer_id(current_user)}, :class => 'btn btn-small', :method=>:post  %>
+                <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-small', :method=>:post  %>
               </div>
             </div>
           </div>
