@@ -10,6 +10,17 @@ function add_fields(link, association, content) {
   $("#addresses").append(content.replace(regexp, new_id));
 }
 
+function showScore(){
+   $('div#provider_rating').raty({
+      readOnly: function() {
+        return true;
+      },
+      score: function() {
+        return $(this).attr('data-score');
+      },
+  });
+}
+
 $(document).ready(function(){
 
   $.fn.raty.defaults.path = "/assets";
@@ -59,14 +70,7 @@ $(document).ready(function(){
 
    });
   $('#rate').raty();
-  $('div#provider_rating').raty({
-      readOnly: function() {
-        return true;
-      },
-      score: function() {
-        return $(this).attr('data-score');
-      },
-  });
+  showScore();
 
 
 
