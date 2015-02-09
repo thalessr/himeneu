@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
 	skip_authorize_resource :only => [:new, :create]
 
 	def index
-		@customers = Customer.all.where(user_id: current_user.id)
+		# @customers = Customer.all.where(user_id: current_user.id)
 	end
 
 	def show_all
