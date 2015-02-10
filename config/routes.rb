@@ -34,6 +34,10 @@ resources :providers do
   get 'search', on: :collection
   get 'carousel', on: :collection
 end
+
+resources :interests, :only => :create
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
