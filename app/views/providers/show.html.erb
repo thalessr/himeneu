@@ -33,7 +33,9 @@
 
                   </tbody>
                 </table>
-                <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-small', :method=>:post  %>
+                <% if can? :create, Interest %>
+                  <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-small', :method=>:post  %>
+                <% end %>
               </div>
             </div>
           </div>
