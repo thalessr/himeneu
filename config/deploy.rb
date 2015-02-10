@@ -73,6 +73,8 @@ namespace :deploy do
 
 end
 
+after "deploy", "deploy:migrate"
+
 namespace :sidekiq do
   task :start do
     run "cd #{current_path} && bundle exec sidekiq -q mailer, -q default, -q carrierwave -c 10 -e production -L log/sidekiq.log -d"
