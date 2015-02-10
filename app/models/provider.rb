@@ -59,8 +59,9 @@
       else
         array = query.split(',')
         if array.length == 1
-          name = "%#{array[0].downcase}%"
-          distinct.joins(:addresses).where("LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ? OR LOWER(addresses.city) LIKE ? ", name, name, name)
+          name = "%#{array[0].downcase}"
+          distinct.joins(:addresses, :profession).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?
+                                                         OR LOWER(addresses.city) LIKE ? " , name, name, name) | self.tagged_with(name.remove('%'), :any => true)
         elsif array.length == 2
           name = "%#{array[0].downcase}%"
           profession = "#{array[1]}"
