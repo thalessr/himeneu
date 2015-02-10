@@ -1,4 +1,7 @@
 class Customer < ActiveRecord::Base
+  extend Extra::Selection
+  include Extra::Methods
+
 	belongs_to :user
 	belongs_to :address, dependent: :destroy
 	has_many :recommendations, dependent: :destroy
@@ -29,17 +32,6 @@ class Customer < ActiveRecord::Base
 		self.wedding_date = self.wedding_date.strftime('%d/%m/%Y') if self.wedding_date
 	end
 
-	def full_name
-		"#{self.first_name} #{self.last_name}"
-	end
-
-	def slug_options
-    [
-      :first_name,
-      [:first_name, :last_name],
-      [:first_name, :age, :last_name]
-    ]
-  end
 
   def as_json(options = {})
     super(options.merge(include: {:address => {:only => [:city] }}))
@@ -54,13 +46,6 @@ class Customer < ActiveRecord::Base
     end
   end
 
-  def self.recent(number)
-      if number
-          limit(number).reverse_order
-      else
-          none
-      end
-  end
 
   private
 	def set_wedding_date
