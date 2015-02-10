@@ -63,7 +63,7 @@ class ProvidersController < ApplicationController
   end
 
   def carousel
-    providers = Provider.includes(:profession).recent(5)
+    providers = Provider.includes(:addresses, :profession).recent(5)
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}
