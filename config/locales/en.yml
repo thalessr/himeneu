@@ -53,6 +53,7 @@ en:
   address: Address
   years_experience: ""
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
+  someone_interested: Someone is interested in your services
   links:
       back: "Back"
       cancel: "Cancel"

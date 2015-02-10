@@ -32,6 +32,7 @@ pt-BR:
   years_experience: "Anos de experiência"
   address: Endereço
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
+  someone_interested: Há interessados em seus serviços
   errors:
     messages:
       blank: "blank"

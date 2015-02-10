@@ -33,9 +33,8 @@
 
                   </tbody>
                 </table>
-                <% if 1 == 0 %>
-                  <a href="#" class="btn btn-primary">Me interessa!</a>
-                  <a href="#" class="btn btn-primary">Pedir orçamento</a>
+                <% if can? :create, Interest %>
+                  <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
                 <% end %>
               </div>
             </div>
