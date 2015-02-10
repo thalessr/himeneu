@@ -13,6 +13,7 @@ class Ability
         can :create, Customer, :user_id => nil
         can :read, Provider
         can :search, Provider
+        can :create, Interest
       elsif user.is_provider?
         can :read, Provider
         can :update, Provider, :user_id => user.id
