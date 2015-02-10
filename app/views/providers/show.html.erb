@@ -34,7 +34,7 @@
                   </tbody>
                 </table>
                 <% if can? :create, Interest %>
-                  <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-small', :method=>:post  %>
+                  <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
                 <% end %>
               </div>
             </div>
