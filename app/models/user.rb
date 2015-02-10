@@ -33,6 +33,11 @@ class User < ActiveRecord::Base
     self.roles.first.id
   end
 
+  def customer_id(user_id)
+    customer = Customer.find_by(user_id: user_id)
+    customer.id
+  end
+
   def is_customer_completed?
     if self
       self.is_completed && self.is_customer?

@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.search(params[:q])
+     @providers = Provider.includes(:addresses, :profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
       format.json{ render json: @providers}
@@ -63,7 +63,7 @@ class ProvidersController < ApplicationController
   end
 
   def carousel
-    providers = Provider.recent(5)
+    providers = Provider.includes(:addresses, :profession).recent(5)
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}
