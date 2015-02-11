@@ -30,49 +30,38 @@ $(document).ready(function(){
 
   $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
   	$('#error_msg').remove();
-	  $(this).before(
-        '<div class="alert alert-success alert-dismissable">'+
-            '<button type="button" class="close" ' +
-                    'data-dismiss="alert" aria-hidden="true">' +
-                '&times;' +
-            '</button>' +
-            xhr.responseJSON.first_name +" " + xhr.responseJSON.last_name  + ', '+ xhr.getResponseHeader("X-Flash-Notice")+
-         '</div>');
+     $('.bottom-right').notify({
+        message: { text: xhr.getResponseHeader("X-Flash-Notice") },
+        type: 'success'
+      }).show();
+
 
    });
    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
-      console.log(xhr);
+
       var errors, errorText;
 
-      $('#error_msg').remove();
-
       errors = $.parseJSON(xhr.responseText);
+
       for ( error in errors ) {
-        errorText += "<li>" + error + ': ' + errors[error] + "</li> ";
-        var field = error.replace(':', "");
-        $("#"+field).animate({
-          borderBottomColor: "red",
-          borderLeftColor: "red",
-          borderRightColor: "red",
-          borderTopColor: "red"
-        });
+        errorText = "";
+        if (typeof error !== "undefined" && typeof errors[error] !== "undefined"){
+           errorText += error + ': ' + errors[error];
+            var field = error.replace(':', "");
+            $("#"+field).closest('div').addClass('has-error');
+        }
+
       }
 
-      errorText += "</ul>";
-     $(this).before(
-        '<div id="error_msg" class="alert alert-danger alert-dismissable">'+
-            '<button type="button" class="close" data-dismiss="alert" aria-hidden="true">' +
-                '&times;' +
-            '</button>' +
-              errorText
-            +
-         '</div>');
+     $('.bottom-right').notify({
+        message: { text: errorText},
+        type: 'danger'
+      }).show();
 
    });
+
   $('#rate').raty();
   showScore();
-
-
 
 });
 

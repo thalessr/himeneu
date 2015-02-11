@@ -1,8 +1,6 @@
 <% if can? :update, @customer %>
   <div class="container">
-      <p>
-  		<%= link_to t('links.back'), @customer %>
-  	</p>
+    <%= render :partial => "shared/errors", :locals => {:errors => @customer.errors} %>
   	<%= render 'form' %>
   </div>
 <% end %>
