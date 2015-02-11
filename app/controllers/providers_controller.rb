@@ -51,7 +51,7 @@ class ProvidersController < ApplicationController
         format.json  { render :json => @provider, location: @provider }
       else
         format.html { render :edit }
-        format.json { render json: @provider.errors}
+        format.json { render json: @provider.errors,  status: :unprocessable_entry}
       end
     end
   end
