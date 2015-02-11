@@ -1,6 +1,3 @@
-<div class="page-header">
-  <h1><%= t(:sign_up) %></h1>
-</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), :html => { :class => "form-horizontal"}) do |f| %>
 
@@ -17,7 +14,11 @@
    <div class="form-group">
     <%= f.label "Tipo", :class => 'control-label col-lg-2' %>
     <div class="col-lg-10">
-        <%= f.collection_select :role_ids, Role.all, :id, :name, {prompt: "Selecione uma categoria"} ,{class: "form-control", :selected => @user.role_ids, :multiple => false} -%>
+      <%= f.collection_radio_buttons :role_ids, Role.all, :id, :name ,{:selected => @user.role_ids} do |r|
+        %>
+        <%= r.label(:class => 'radio-inline') %>
+        <%= r.radio_button %>
+      <% end %>
     </div>
   </div>
 
