@@ -21,6 +21,7 @@
 
 en:
   login: "login"
+  logout: "logout"
   title: "Himeneu"
   forgot_password: "Forgot password?"
   sign_up: "Sign up"
@@ -55,6 +56,8 @@ en:
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Someone is interested in your services
   my_profile: "My Profile"
+  bride: bride
+  workers: Professioanals
   links:
       back: "Back"
       cancel: "Cancel"

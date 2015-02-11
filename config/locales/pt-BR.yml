@@ -1,5 +1,6 @@
 pt-BR:
   login: "acessar"
+  logout: "sair"
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
   sign_up: "cadastrar"
@@ -34,6 +35,8 @@ pt-BR:
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Há interessados em seus serviços
   my_profile: "Meu Perfil"
+  bride: Noiva(o)
+  workers: 'Profissionais'
   errors:
     messages:
       blank: "blank"
