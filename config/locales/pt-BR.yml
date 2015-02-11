@@ -33,6 +33,7 @@ pt-BR:
   address: Endereço
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Há interessados em seus serviços
+  my_profile: "Meu Perfil"
   errors:
     messages:
       blank: "blank"
