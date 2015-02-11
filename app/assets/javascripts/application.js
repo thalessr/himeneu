@@ -23,6 +23,7 @@
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require fuelux/dist/js/fuelux.min.js
+//= require bootstrap-notify/js/bootstrap-notify.js
 //= require_tree .
 //= stub active_admin
 
