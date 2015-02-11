@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="App" class='<%= controller.controller_name %>'>
+<body ng-app="App" class='<%= controller.controller_name %> fuelux'>
      <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -34,7 +34,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="<%= root_path %>">Himeneu</a>
+                <%= link_to root_path, :class => "navbar-brand" do %>
+                    Himeneu
+                   <% if  user_signed_in?  %> <i class="fa fa-home"></i> <% end %>
+                <% end %>
+
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -42,14 +46,30 @@
                     <% if  user_signed_in?  %>
                         <% if current_user.is_completed %>
                             <% if can? :search, Customer %>
-                              <li><%= link_to 'Noivas(os)', customers_path %></li>
+                              <li><%= link_to customers_path do %>
+                                     <%= t(:bride) %>
+                                     <i class="fa fa-heart"></i>
+                                  <% end %>
+                              </li>
                             <% end %>
                             <% if can? :search, Provider %>
-                              <li><%= link_to 'Profissionais', providers_path %></li>
+                              <li><%= link_to providers_path do %>
+                                      <%= t(:workers) %>
+                                      <i class="fa fa-users"></i>
+                                  <% end %>
+                              </li>
                             <% end %>
                         <% end %>
-                        <li><%= link_to t(:my_profile), redirect_to_profile %></li>
-                        <li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
+                        <li><%= link_to redirect_to_profile do %>
+                                <%= t(:my_profile) %>
+                                <span class="glyphicon glyphicon-user"></span>
+                            <% end %>
+                        </li>
+                        <li><%= link_to destroy_user_session_path,  method: :delete do %>
+                                <%= t(:logout).capitalize %>
+                                <span class="glyphicon glyphicon-off"></span>
+                            <% end %>
+                        </li>
                     <% else %>
                         <li><%= link_to 'Nossos Clientes',  dashboard_path+"#clients"%> </li>
                         <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
