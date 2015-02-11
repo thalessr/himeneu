@@ -13,6 +13,7 @@
  *= require raty/lib/jquery.raty
  *= require bootstrap-datetimepicker
  *= require wow/css/libs/animate.css
+ *= require fuelux/dist/css/fuelux.min.css
  *= require_tree .
  *= require_self
  */

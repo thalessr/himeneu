@@ -13,7 +13,7 @@ To start redis: `redis-server`
 
 To install nodejs `brew install node`
 
-Run `bower install angular angular-ui-router angular-resource bootstrap raty wow --save `
+Run `bower install angular angular-ui-router angular-resource bootstrap raty wow fuelux --save `
 
 bundle exec rake assets:precompile
 
