@@ -39,20 +39,22 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <% if user_signed_in? && current_user.is_completed %>
-                        <% if can? :search, Customer %>
-                          <li><%= link_to 'Noivas(os)', customers_path %></li>
+                    <% if  user_signed_in?  %>
+                        <% if current_user.is_completed %>
+                            <% if can? :search, Customer %>
+                              <li><%= link_to 'Noivas(os)', customers_path %></li>
+                            <% end %>
+                            <% if can? :search, Provider %>
+                              <li><%= link_to 'Profissionais', providers_path %></li>
+                            <% end %>
                         <% end %>
-                        <% if can? :search, Provider %>
-                          <li><%= link_to 'Profissionais', providers_path %></li>
-                        <% end %>
-                            <li><%= link_to "Meu Perfil", redirect_to_profile %></li>
-                            <li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
-                        <% else %>
-                        <li><%= link_to 'Nossos Clientes', "#clients"%> </li>
+                        <li><%= link_to t(:my_profile), redirect_to_profile %></li>
+                        <li><%= link_to "Logout", destroy_user_session_path,  method: :delete %></li>
+                    <% else %>
+                        <li><%= link_to 'Nossos Clientes',  dashboard_path+"#clients"%> </li>
                         <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
-                                <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
-                        <li><%= link_to 'Login', new_user_session_path %></li>
+                        <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
+                        <li><%= link_to t(:login).capitalize, new_user_session_path %></li>
                     <% end %>
                 </ul>
             </div>
