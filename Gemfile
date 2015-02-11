@@ -25,7 +25,6 @@ group :assets  do
 end
 
 gem 'therubyracer'
-#gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -59,15 +58,10 @@ group :test do
   gem 'mocha'
 end
 
-# gem 'font-awesome-rails'
 gem 'bootstrap3-datetimepicker-rails'
-gem 'bootstrap-switch-rails'
-# gem 'bootstrap-wysihtml5-rails'
-# gem 'bootstrap-select-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
 gem 'carrierwave'
-# gem 'carrierwave_direct'
 gem 'carrierwave_backgrounder'
 gem 'mini_magick'
 gem 'fog', require: "fog/aws/storage"
