@@ -23,6 +23,7 @@
     "jquery.stellar": "~0.6.2",
     "wow": "~1.0.3",
     "fuelux": "~3.5.1",
-    "components-font-awesome": "~4.3.0"
+    "components-font-awesome": "~4.3.0",
+    "bootstrap-notify": "~0.2.0"
   }
 }
