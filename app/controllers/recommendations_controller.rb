@@ -1,4 +1,5 @@
 class RecommendationsController < ApplicationController
+	before_filter :authenticate_user!
 
 	def index
 		@recommendations = Recommendation.includes(:customer).where(provider_id: params[:provider_id])

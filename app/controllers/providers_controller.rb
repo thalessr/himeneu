@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.includes(:addresses, :profession).search(params[:q])
+     @providers = Provider.includes(:profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
       format.json{ render json: @providers}
