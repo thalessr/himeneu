@@ -74,3 +74,22 @@ body { padding-top: 60px; }
     line-height: 21px;
     color: #ffffff;
 }
+
+
+.flash-alert {
+  background-color: red;
+  text-align: center;
+  color: white;
+  height: 25px;
+  margin-top: -9px;
+  margin-bottom: 20px;
+}
+
+.flash-notice {
+  background-color: green;
+  text-align: center;
+  color: white;
+  height: 25px;
+  margin-top: -9px;
+  margin-bottom: 20px;
+}
