@@ -62,9 +62,24 @@
     </nav>
 
 
-    <div class="container-fluid">
-	    <div class="row"><%= notice %>  <%= alert %> </div>
+  <% if flash[:notice] %>
+    <div class="notice container-fluid flash-notice">
+        <div class="row">
+            <%= flash[:notice] %>
+        </div>
     </div>
+  <% end %>
+
+  <% if flash[:alert] %>
+    <div class="notice container-fluid flash-alert">
+        <div class="row">
+            <%= flash[:alert] %>
+        </div>
+    </div>
+  <% end %>
+
+
+
 	<%= yield %>
 
 
