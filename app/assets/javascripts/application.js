@@ -22,6 +22,7 @@
 //= require wow/dist/wow.min.js
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
+//= require fuelux/dist/js/fuelux.min.js
 //= require_tree .
 //= stub active_admin
 
