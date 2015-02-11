@@ -11,9 +11,10 @@
  * file per style scope.
  *= require bootstrap/dist/css/bootstrap.min.css
  *= require raty/lib/jquery.raty
- *= require bootstrap-datetimepicker
+ *= require bootstrap-datetimepicker.min.css
  *= require wow/css/libs/animate.css
  *= require fuelux/dist/css/fuelux.min.css
+ *= require components-font-awesome/css/font-awesome.min.css
  *= require_tree .
  *= require_self
  */
