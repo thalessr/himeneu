@@ -25,23 +25,31 @@
                       <td><%= t(:experience) %></td>
                       <td><%= @provider.experience %></td>
                     </tr>
-                    <tr>
-                      <td><%= t(:phone) %></td>
-                      <td><%= @provider.contact %><br><br>
-                      </td>
-                    </tr>
+                    <% if has_interest?(@provider) %>
+                      <tr>
+                        <td><%= t(:phone) %></td>
+                        <td><%= @provider.contact %><br><br>
+                        </td>
+                      </tr>
+                    <% end %>
 
                   </tbody>
                 </table>
                 <% if can? :create, Interest %>
-                  <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <% unless has_interest?(@provider) %>
+                    <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <% end %>
                 <% end %>
               </div>
             </div>
           </div>
           <div class="panel-footer">
-              <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
-                <i class="glyphicon glyphicon-envelope"></i>
+              <% if has_interest?(@provider) %>
+                <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
+                  <i class="glyphicon glyphicon-envelope"></i>
+                <% end %>
+              <% else %>
+                  <i class="glyphicon glyphicon-lock"></i>
               <% end %>
               <span class="pull-right">
                 <% if can? :update, @provider %>
@@ -74,9 +82,11 @@
                          <address>
                           <strong></strong><br>
                               <%= address.city %>, <%= address.zipcode %><br>
-                              <abbr title="telefone">Fone:</abbr> <%= address.phone %>
-                              <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
-                                <i class="glyphicon glyphicon-envelope"></i>
+                              <% if has_interest?(@provider) %>
+                                <abbr title="telefone">Fone:</abbr> <%= address.phone %>
+                                <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
+                                  <i class="glyphicon glyphicon-envelope"></i>
+                                <% end %>
                               <% end %>
                          </address>
                        </div>
