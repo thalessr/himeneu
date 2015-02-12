@@ -27,6 +27,13 @@
 //= require_tree .
 //= stub active_admin
 
+function showFlashMessage(msg, type){
+
+   $('.top-right').notify({
+        message: { text: msg},
+        type: type
+      }).show();
+}
 
 $(document).ready(function(){
   'use strict';
