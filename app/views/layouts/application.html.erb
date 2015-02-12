@@ -23,6 +23,7 @@
     <![endif]-->
 </head>
 <body ng-app="App" class='<%= controller.controller_name %> fuelux'>
+  <div class='notifications top-right'></div>
      <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
         <div class="container">
@@ -83,19 +84,17 @@
 
 
   <% if flash[:notice] %>
-    <div class="notice container-fluid flash-notice">
-        <div class="row">
-            <%= flash[:notice] %>
-        </div>
-    </div>
+     <%= content_tag "script", id: "msg",type: "text/javascript",data: flash[:notice] do %>
+       var msg = $('#msg').attr('data');
+       showFlashMessage(msg, 'bangTidy');
+     <% end %>
   <% end %>
 
   <% if flash[:alert] %>
-    <div class="notice container-fluid flash-alert">
-        <div class="row">
-            <%= flash[:alert] %>
-        </div>
-    </div>
+    <%= content_tag "script", id: "msg",type: "text/javascript",data: flash[:alert] do %>
+       var msg = $('#msg').attr('data');
+       showFlashMessage(msg, 'danger');
+     <% end %>
   <% end %>
 
 
