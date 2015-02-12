@@ -19,15 +19,11 @@ class User < ActiveRecord::Base
   end
 
   def is_customer?
-    unless self.roles.empty?
-      return role_id == 1
-    end
+    return self.roles.exists?(id: 1)
   end
 
   def is_provider?
-    unless self.roles.empty?
-      return role_id == 2
-    end
+    return self.roles.exists?(id: 2)
   end
 
   def role_id
@@ -35,7 +31,7 @@ class User < ActiveRecord::Base
   end
 
   def customer_id(user_id)
-    customer = Customer.find_by(user_id: user_id)
+    customer = Customer.select(:id).find_by(user_id: user_id)
     customer.id
   end
 
