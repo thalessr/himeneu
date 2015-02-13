@@ -93,6 +93,7 @@ gem 'capistrano-bundler'
 
 gem "sass_rails_patch"
 
+gem 'state_machine'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
