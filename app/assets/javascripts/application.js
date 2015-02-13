@@ -45,7 +45,7 @@ $(document).ready(function(){
 	})
 
   new WOW().init();
-
+  $('[data-toggle="tooltip"]').tooltip();
 
 	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
 

@@ -35,16 +35,15 @@
                     </div>
                 </div>
             </div>
-            <div class="panel-footer">
-
+            <div class="panel-footer" style="height:43px">
                 <span class="pull-right">
                     <% if can? :update, @customer %>
                       <%= link_to edit_customer_path(@customer.slug) ,class: "btn btn-sm btn-warning" do %>
-                        <i class="glyphicon glyphicon-edit" alt="t('links.edit')"></i>
+                        <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"  ></i>
                       <% end %>
                     <% end %>
                     <% if can? :destroy, @customer %>
-                      <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                      <a data-original-title="<%= t('links.destroy') %>" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                     <% end %>
                 </span>
             </div>
