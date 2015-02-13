@@ -1,8 +1,19 @@
 pt-BR:
   login: "acessar"
+  create_account: cadastrar
   logout: "sair"
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
+  resend_password: "Enviar instruções para mudar a senha"
+  reset_password_instrutions: Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo
+  change_password: 'Mudar minha senha'
+  alert_password: "Se você não solicitou essa alteração, por favor ignore esse email."
+  not_changing_password: "Sua senha não será alterada até você clicar no link acima"
+  resend_unlock_instructions: "Reenviar instruções para desbloqueio"
+  lock_reason: "Sua conta foi bloqueada após diversas tentativas, sem sucesso, de realizar o login"
+  unlock_instructions: "Clique no link abaixo para desbloquear sua conta:"
+  unlock_account: "desbloquear minha conta"
+   unlock_instructions_question: "Não recebeu as instruções para desbloquear sua conta?"
   sign_up: "cadastrar"
   sign_in: "Acessar o sistema"
   remember_me: "Lembrar"
@@ -11,6 +22,7 @@ pt-BR:
   welcome: "Bem-vindo"
   confirmation_text: "Para confirmar o seu cadastro clique no link abaixo:"
   confirmation_email: "Não recebeu o email de confirmação?"
+  resend_confirmation: "Reenviar confirmação"
   first_name: "Nome"
   last_name: Sobrenome
   age: Idade
@@ -29,7 +41,7 @@ pt-BR:
   phone: Telefone
   phone_hint: (99)8888-8888
   email: Email
-  email_hint: "exemple@himeneu.com"
+  email_hint: "exemplo@himeneu.com"
   years_experience: "Anos de experiência"
   address: Endereço
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
