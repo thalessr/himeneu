@@ -1,8 +1,20 @@
-<div class="jumbotron">
-	<h1>Himeneu</h1>
-	<p><%= t(:welcome) %> <%= @email %>!</p>
-	<p class="lead"><%= t(:confirmation_text) %></p>
-	<p><%= link_to t(:confirm_account), confirmation_url(@resource, confirmation_token: @token),
-	       :target => "_blank" %>
-	</p>
-</div>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <title>Himeneu.com</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+    	<h1>Himeneu</h1>
+    	<p><%= t(:welcome) %> <%= @email %>!</p>
+    	<p class="lead"><%= t(:confirmation_text) %></p>
+    	<p><%= link_to t(:confirm_account), confirmation_url(@resource, confirmation_token: @token),
+    	       :target => "_blank" %>
+    	</p>
+    </div>
+  </body>
+</html>
