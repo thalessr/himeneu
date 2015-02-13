@@ -36,9 +36,7 @@
                 </div>
             </div>
             <div class="panel-footer">
-                <%= mail_to @customer.email, { class: "btn btn-sm btn-primary" } do %>
-                    <i class="glyphicon glyphicon-envelope"></i>
-                <% end %>
+
                 <span class="pull-right">
                     <% if can? :update, @customer %>
                       <%= link_to edit_customer_path(@customer.slug) ,class: "btn btn-sm btn-warning" do %>
