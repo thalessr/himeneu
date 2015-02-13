@@ -22,8 +22,19 @@
 en:
   login: "login"
   logout: "logout"
+  create_account: 'create account'
   title: "Himeneu"
   forgot_password: "Forgot password?"
+  resend_password: "Send me reset password instructions"
+  reset_password_instrutions: Someone has requested a link to change your password. You can do this through the link below.
+  change_password: 'Change my password'
+  alert_password: "If you didn't request this, please ignore this email."
+  not_changing_password: "Your password won't change until you access the link above and create a new one"
+  resend_unlock_instructions: "Resend unlock instructions"
+  lock_reason: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  unlock_instructions: "Click the link below to unlock your account:"
+  unlock_account: "Unlock my account"
+  unlock_instructions_question: "Didn't receive unlock instructions?"
   sign_up: "Sign up"
   sign_in: "Please Sign In"
   remember_me: "Remember me"
@@ -31,6 +42,7 @@ en:
   confirm_account: "Confirm my account"
   confirmation_text: "You can confirm your account email through the link below:"
   confirmation_email: "Didn't receive confirmation instructions?"
+  resend_confirmation: "Resend confirmation instructions"
   welcome: "Welcome"
   first_name: "First Name"
   last_name: "Last Name"
