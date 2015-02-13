@@ -5,7 +5,7 @@ pt-BR:
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
   resend_password: "Enviar instruções para mudar a senha"
-  reset_password_instrutions: Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo
+  reset_password_instrutions: "Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo"
   change_password: 'Mudar minha senha'
   alert_password: "Se você não solicitou essa alteração, por favor ignore esse email."
   not_changing_password: "Sua senha não será alterada até você clicar no link acima"
@@ -13,7 +13,7 @@ pt-BR:
   lock_reason: "Sua conta foi bloqueada após diversas tentativas, sem sucesso, de realizar o login"
   unlock_instructions: "Clique no link abaixo para desbloquear sua conta:"
   unlock_account: "desbloquear minha conta"
-   unlock_instructions_question: "Não recebeu as instruções para desbloquear sua conta?"
+  unlock_instructions_question: "Não recebeu as instruções para desbloquear sua conta?"
   sign_up: "cadastrar"
   sign_in: "Acessar o sistema"
   remember_me: "Lembrar"
