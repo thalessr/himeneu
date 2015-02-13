@@ -15,16 +15,18 @@
     </div>
 
     <div class="row" ng-repeat="c in customers">
-      <div class="col-md-12 col-sm-12 list-profile">
-        <div class="col-md-2 col-sm-3 image-container-list hidden-xs">
-          <img class="profile_listing_image" ng-src="{{c.image['thumb'].url}}"> </img>
+      <a href="customers/{{c.slug}}">
+        <div class="col-md-12 col-sm-12 list-profile">
+          <div class="col-md-2 col-sm-3 image-container-list hidden-xs">
+            <img class="profile_listing_image" ng-src="{{c.image['thumb'].url}}"> </img>
+          </div>
+          <div class="col-md-10 col-sm-9 listing-profile-info ">
+            <h2>{{c.first_name}} {{c.last_name}}</h2>
+            <p><strong><%= t(:city) %>: </strong> {{c.address.city}}  </p>
+            <p><strong><%= t(:wedding_date) %>: </strong> {{c.wedding_date | date:'dd/MM/yyyy'}} </p>
+          </div>
         </div>
-        <div class="col-md-10 col-sm-9 listing-profile-info ">
-          <h2><a href="customers/{{c.slug}}">{{c.first_name}} {{c.last_name}} </a></h2>
-          <p><strong><%= t(:city) %>: </strong> {{c.address.city}}  </p>
-          <p><strong><%= t(:wedding_date) %>: </strong> {{c.wedding_date | date:'dd/MM/yyyy'}} </p>
-        </div>
-      </div>
+      </a>
       <div class="separator">
         <ul class="nav nav-list">
           <li class="divider"></li>
