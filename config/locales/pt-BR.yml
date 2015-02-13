@@ -49,6 +49,7 @@ pt-BR:
   my_profile: "Meu Perfil"
   bride: Noiva(o)
   workers: 'Profissionais'
+  completed_account_msg: "Complete o seu cadastro para poder pesquisar ou ser encontrado"
   errors:
     messages:
       blank: "blank"
