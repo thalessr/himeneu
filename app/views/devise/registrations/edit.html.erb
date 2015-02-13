@@ -5,8 +5,17 @@
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
-  <div><%= f.label :role %><br />
-    <%= f.collection_select :role_ids, Role.all, :id, :name, {prompt: "Selecione uma categoria"} ,{class: "form-control", :selected => @user.role_ids, :multiple => false} -%>
+
+  <div class="form-group" data-initialize="radio">
+    <%= f.label "Tipo", :class => 'control-label col-lg-2' %>
+    <div class="col-lg-10">
+      <%= f.collection_radio_buttons :role_ids, Role.all, :id, :name ,{:selected => @user.role_ids} do |r|
+        %>
+        <%= r.label(:class => 'radio-inline') %>
+        <%= r.radio_button %>
+      <% end %>
+    </div>
+  </div>
   </div>
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
