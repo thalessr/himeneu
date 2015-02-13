@@ -16,20 +16,22 @@
 		</div>
 
 		<div class="row" ng-repeat="p in providers">
-			<div class="col-md-12 col-sm-12 list-profile">
-				<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
-					<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
+			<a href="providers/{{p.slug}}">
+				<div class="col-md-12 col-sm-12 list-profile">
+					<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
+						<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
+					</div>
+					<div class="col-md-10 col-sm-9 listing-profile-info ">
+						<h2>{{p.first_name}} {{p.last_name}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h2>
+		        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
+		        <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
+		          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
+		          	{{s.name}}
+		          </span>
+		        </p>
+					</div>
 				</div>
-				<div class="col-md-10 col-sm-9 listing-profile-info ">
-					<h2><a href="providers/{{p.slug}}">{{p.first_name}} {{p.last_name}}</a><div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h2>
-	        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
-	        <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
-	          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
-	          	{{s.name}}
-	          </span>
-	        </p>
-				</div>
-			</div>
+		  </a>
 			<div class="separator">
 				<ul class="nav nav-list">
 				  <li class="divider"></li>
