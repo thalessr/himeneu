@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-	before_filter :authenticate_user!, :except => [:index]
+	before_filter :authenticate_user!, :except => [:index,:privacy]
 
 	def index
 		if current_user
@@ -8,6 +8,9 @@ class DashboardController < ApplicationController
       provider_redirect(@user) if @user.is_provider?
   		redirect_to new_user_registration_path if @user.roles.empty?
 		end
+	end
+
+	def privacy
 	end
 
 	private

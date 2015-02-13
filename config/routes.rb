@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
+  get 'privacy' => 'dashboard#privacy'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
