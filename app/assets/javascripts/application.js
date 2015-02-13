@@ -27,10 +27,13 @@
 //= require_tree .
 //= stub active_admin
 
-function showFlashMessage(msg, type){
+function showFlashMessage(msg, type, seconds){
 
    $('.top-right').notify({
         message: { text: msg},
+        fadeOut: {
+            delay: seconds
+        },
         type: type
       }).show();
 }

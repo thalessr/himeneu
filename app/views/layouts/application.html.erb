@@ -86,17 +86,23 @@
   <% if flash[:notice] %>
      <%= content_tag "script", id: "msg",type: "text/javascript",data: flash[:notice] do %>
        var msg = $('#msg').attr('data');
-       showFlashMessage(msg, 'bangTidy');
+       showFlashMessage(msg, 'bangTidy', 3000);
      <% end %>
   <% end %>
 
   <% if flash[:alert] %>
     <%= content_tag "script", id: "msg",type: "text/javascript",data: flash[:alert] do %>
        var msg = $('#msg').attr('data');
-       showFlashMessage(msg, 'danger');
+       showFlashMessage(msg, 'danger', 3000);
      <% end %>
   <% end %>
 
+  <% if user_signed_in? && !current_user.is_completed %>
+     <%= content_tag "script", id: "acc",type: "text/javascript",data: t(:completed_account_msg) do %>
+       var msg = $('#acc').attr('data');
+       showFlashMessage(msg, 'success', 5000);
+     <% end %>
+  <% end %>
 
 
 	<%= yield %>
