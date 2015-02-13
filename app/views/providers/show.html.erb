@@ -43,8 +43,8 @@
               </div>
             </div>
           </div>
-          <div class="panel-footer">
-              <% if has_interest?(@provider) %>
+          <div class="panel-footer" style="height:43px">
+              <% if has_interest?(@provider) || ( can? :update, @provider ) %>
                 <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
                   <i class="glyphicon glyphicon-envelope"></i>
                 <% end %>
@@ -55,12 +55,12 @@
                 <% if can? :update, @provider %>
                  <span data-toggle="tooltip" data-placement="right" >
                   <%= link_to edit_provider_path(@provider.slug) ,class: "btn btn-sm btn-warning" do %>
-                    <i class="glyphicon glyphicon-edit" alt="<%= t('links.edit') %>"  ></i>
+                    <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"   ></i>
                   <% end %>
                   </span>
                 <% end %>
                 <% if can? :destroy, @provider %>
-                  <a data-original-title="Remove this user" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                  <a data-original-title="<%= t('links.destroy') %>" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
                 <% end %>
               </span>
           </div>
