@@ -10,7 +10,7 @@ app.factory("Recommendation", function($resource) {
 });
 
 app.factory("Search", function($resource) {
-  return $resource("/providers/search?q=");
+  return $resource("/providers/search");
 });
 
 app.factory("Carousel", function($resource) {
@@ -19,7 +19,7 @@ app.factory("Carousel", function($resource) {
 
 app.controller("CustomerCtrl", function($scope, CustomerSearch){
   CustomerSearch.query({q: ""}, function(data){
-      $scope.customers = data;
+      $scope.customers = data ;
     });
 
   $scope.search = function(q){
@@ -60,12 +60,25 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 
 });
 
-app.controller("SearchCtrl", function($scope, Search){
+app.controller("SearchCtrl", function($scope, $http, Search){
   $scope.loading = true;
-  Search.query({q: ""}, function(data){
-      $scope.providers = data;
+  $scope.providers = [];
+  $scope.get = function(page){
+    if(page===null){
+      $scope.loading = false;
+      return;
+    }
+    Search.get({q: $scope.q, page: page}, function(data){
+      $scope.providers = data.items;
+      $scope.total_pages = data.total_pages;
+      $scope.current_page = data.current_page;
+      $scope.previous_page = data.previous_page;
+      $scope.next_page = data.next_page;
       $scope.loading = false;
     });
+  };
+
+  $scope.get(1);
 
   $scope.hasScore = function(value) {
     if (value > 0){
@@ -76,16 +89,41 @@ app.controller("SearchCtrl", function($scope, Search){
   };
 
   $scope.search = function(q){
-    if (q === null || q === ""){
-       q = "";
-    }
     $scope.loading = true;
-    Search.query({q: $scope.q}, function(data){
-      $scope.providers = data;
-      $scope.loading = false;
-    });
+    $scope.get(1);
   };
 
+  $scope.next = function(){
+    $scope.loading = true;
+    $scope.get($scope.next_page);
+  };
+
+   $scope.prev = function(){
+    $scope.loading = true;
+    $scope.get($scope.previous_page);
+   };
+
+  $scope.setPage = function(n) {
+    if (n > 0 && n <= $scope.total_pages) {
+      $scope.get(n);
+    }
+  };
+
+   $scope.range = function() {
+      var rangeSize = 5;
+      var ret = [];
+      var start;
+
+      start = $scope.current_page;
+      if ( start > $scope.total_pages-rangeSize ) {
+        start = $scope.total_pages - rangeSize;
+      }
+
+      for (var i = start; i < start + rangeSize; i++) {
+        ret.push(i);
+      }
+      return ret;
+   };
 });
 
 app.controller("CarouselCtrl",function($scope, Carousel){
@@ -95,3 +133,6 @@ app.controller("CarouselCtrl",function($scope, Carousel){
     $scope.sliderReady = true;
   });
 });
+
+
+
