@@ -92,6 +92,7 @@ gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 
 gem "sass_rails_patch"
+gem "will_paginate"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
