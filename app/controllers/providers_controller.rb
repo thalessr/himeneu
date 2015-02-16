@@ -8,10 +8,20 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.includes(:profession).search(params[:q])
+     @providers = Provider.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
-      format.json{ render json: @providers}
+      format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
+      format.json{render json:{
+        total_entries: @providers.total_entries,
+        current_page: @providers.current_page,
+        next_page: @providers.next_page,
+        previous_page: @providers.previous_page,
+        total_pages: @providers.total_pages,
+        per_page: @providers.per_page,
+        items: @providers
+        }
+      }
      end
   end
 
