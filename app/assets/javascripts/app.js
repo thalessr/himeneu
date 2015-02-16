@@ -93,8 +93,6 @@ app.controller("SearchCtrl", function($scope, $http, Search){
     $scope.get(1);
   };
 
-
-
   $scope.next = function(){
     $scope.loading = true;
     $scope.get($scope.next_page);
@@ -103,6 +101,28 @@ app.controller("SearchCtrl", function($scope, $http, Search){
    $scope.prev = function(){
     $scope.loading = true;
     $scope.get($scope.previous_page);
+   };
+
+  $scope.setPage = function(n) {
+    if (n > 0 && n <= $scope.total_pages) {
+      $scope.get(n);
+    }
+  };
+
+   $scope.range = function() {
+      var rangeSize = 5;
+      var ret = [];
+      var start;
+
+      start = $scope.current_page;
+      if ( start > $scope.total_pages-rangeSize ) {
+        start = $scope.total_pages - rangeSize;
+      }
+
+      for (var i = start; i < start + rangeSize; i++) {
+        ret.push(i);
+      }
+      return ret;
    };
 });
 
@@ -115,16 +135,4 @@ app.controller("CarouselCtrl",function($scope, Carousel){
 });
 
 
-
-app.directive('whenScrolled', function() {
-    return function(scope, elm, attr) {
-        var raw = elm[0];
-
-        elm.bind('scroll', function() {
-            if (raw.scrollTop + raw.offsetHeight >= raw.scrollHeight) {
-                scope.$apply(attr.whenScrolled);
-            }
-        });
-    };
-});
 
