@@ -93,6 +93,7 @@ gem 'capistrano-bundler'
 
 gem "sass_rails_patch"
 gem "will_paginate"
+gem "sitemap_generator"
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

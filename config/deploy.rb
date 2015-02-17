@@ -74,6 +74,7 @@ namespace :deploy do
 end
 
 after "deploy", "deploy:migrate"
+after :deploy, "deploy:sitemap:refresh"
 
 namespace :sidekiq do
   task :start do
