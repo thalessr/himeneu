@@ -221,6 +221,8 @@ GEM
     fog-xml (0.1.1)
       fog-core
       nokogiri (~> 1.5, >= 1.5.11)
+    font_assets (0.1.11)
+      rack
     formatador (0.2.5)
     formtastic (3.1.3)
       actionpack (>= 3.2.13)
@@ -475,6 +477,7 @@ DEPENDENCIES
   devise-async
   dotenv-rails
   fog
+  font_assets
   friendly_id (~> 5.1.0)
   geocoder
   guard-minitest
