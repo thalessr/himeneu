@@ -26,54 +26,55 @@
 
     <div class="row-fluid content-box wow"  >
         <div class="row-fluid boxes col-md-12 box-left">
-            <div class="col-md-6 " data-stellar-background-ratio="0.5">
+            <div class="col-md-7 col-xs-7" data-stellar-background-ratio="0.5">
                 <%= image_tag('wed-cake.png', class: "img-responsive wow flip animated") %>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
             </div>
         </div>
         <div class="row-fluid boxes col-md-12 box-right" data-stellar-background-ratio="2.0">
-            <div class="col-md-6 wow bounceInLeft animated">
+            <div class="col-md-5 wow bounceInLeft animated">
                 <h2> Planeje com antecedência todos os detalhes da sua cerimônia  </h2>
             </div>
-            <div class="col-md-6 wow bounceInRight animated">
+            <div class="col-md-7 col-xs-7 wow bounceInRight animated">
                 <%= image_tag('schedule-wed.png', class: "img-responsive") %>
             </div>
         </div>
         <div class="row-fluid boxes col-md-12 box-left wow bounceInRight animated"  data-stellar-background-ratio="0.5">
-            <div class="col-md-6">
+            <div class="col-md-7 col-xs-7">
                 <%= image_tag('ring-wed.png', class: "img-responsive") %>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <h2> Encontre os melhores profissionais para fazer seu casamento ainda mais especial </h2>
             </div>
         </div>
     </div>
-    <div ng-controller="CarouselCtrl">
-        <div id="slider5" class="carousel slide" data-ng-show="sliderReady"  data-interval="2000">
-            <div class="carousel-inner">
-                 <div ng-class="{'item active': $first , 'item': !$first}" ng-repeat=" p in slides ">
-                    <img ng-src="{{p.image['regular'].url}}">
-                     <div class="carousel-caption">
-                        <strong class="text">{{p.first_name}} {{p.last_name}}</strong>
-                     </div>
-                </div>
+    <section id="clients">
+        <div ng-controller="CarouselCtrl">
+            <div id="slider5" class="carousel slide" data-ng-show="sliderReady"  data-interval="2000">
+                <div class="carousel-inner">
+                     <div ng-class="{'item active': $first , 'item': !$first}" ng-repeat=" p in slides ">
+                        <img ng-src="{{p.image['regular'].url}}">
+                         <div class="carousel-caption">
+                            <strong class="text">{{p.first_name}} {{p.last_name}}</strong>
+                         </div>
+                    </div>
 
-                <a class="left carousel-control" href="#slider5" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                </a>
-                <a class="right carousel-control" href="#slider5" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                </a>
+                    <a class="left carousel-control" href="#slider5" role="button" data-slide="prev">
+                        <span class="glyphicon glyphicon-chevron-left"></span>
+                    </a>
+                    <a class="right carousel-control" href="#slider5" role="button" data-slide="next">
+                        <span class="glyphicon glyphicon-chevron-right"></span>
+                    </a>
+                </div>
+                <ol class="carousel-indicators"  >
+                    <li data-target="#slider5" ng-repeat=" p in slides " data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
+                </ol>
             </div>
-            <ol class="carousel-indicators"  >
-                <li data-target="#slider5" ng-repeat=" p in slides " data-slide-to="{{$index}}" ng-class="{'active': $first}"></li>
-            </ol>
         </div>
-    </div>
-    <section id="clients"></section>
-    <footer>
+    </section>
+    <footer id="contato">
         <div class="footer-bottom">
             <div class="container-fluid">
                 <div class="col-md-4">
