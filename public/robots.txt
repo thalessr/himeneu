@@ -3,4 +3,4 @@
 # To ban all spiders from the entire site uncomment the next two lines:
 # User-agent: *
 # Disallow: /
-Sitemap: http://www.himeneu.com/sitemaps/sitemap_index.xml.gz
+Sitemap: http://www.himeneu.com/sitemaps/sitemap.xml.gz
