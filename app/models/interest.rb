@@ -2,11 +2,7 @@ class Interest < ActiveRecord::Base
 	belongs_to :provider
   belongs_to :customer
 
-  state_machine :initial => :idle do
-
-    event :interest do
-      transition :idle => :interested
-    end
+  state_machine :initial => :interested do
 
     event :negotiate do
       transition :interested => :negotiating
