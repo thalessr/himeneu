@@ -41,7 +41,7 @@ class User < ActiveRecord::Base
     end
   end
 
-   def is_provider_completed?
+  def is_provider_completed?
     if self
       self.is_completed && self.is_provider?
     end

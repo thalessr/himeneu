@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
+     @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
@@ -68,8 +68,14 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider = Provider.friendly.find(params[:id])
-    @provider.destroy
-    redirect_to new_provider_path
+    @provider.delete
+    redirect_to provider_path(@provider)
+  end
+
+  def recover
+    @provider = Provider.friendly.find(params[:id])
+    @provider.recover
+    redirect_to provider_path(@provider)
   end
 
   def carousel
