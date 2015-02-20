@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
 	end
 
 	def search
-		@customers = Customer.search(params[:q])
+	 @customers = Customer.not_deleted.search(params[:q])
 	 respond_to do |format|
     format.html{ @customers}
     format.json{ render json: @customers}
@@ -54,10 +54,16 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		@customer = Customer.friendly.find(params[:id])
-		@customer.destroy
-		redirect_to new_customer_path
-	end
+    @customer = Customer.friendly.find(params[:id])
+    @customer.delete
+    redirect_to customer_path(@customer)
+  end
+
+  def recover
+    @customer = Customer.friendly.find(params[:id])
+    @customer.recover
+    redirect_to customer_path(@customer)
+  end
 
 	private
 	def customer_params
