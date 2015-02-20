@@ -1,4 +1,4 @@
- class Provider < ActiveRecord::Base
+class Provider < ActiveRecord::Base
   extend Extra::Selection
   include Extra::Methods
 
@@ -31,7 +31,6 @@
 
 
   def insert_contact
-    phones = ""
     if self.addresses.any? && self.contact.nil?
       phones = self.addresses.pluck(:phone).join(",")
       self.update_attribute(:contact, phones)
