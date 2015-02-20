@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150210021659) do
+ActiveRecord::Schema.define(version: 20150220030611) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -116,6 +116,7 @@ ActiveRecord::Schema.define(version: 20150210021659) do
     t.boolean  "image_processing",                         default: false, null: false
     t.decimal  "score",            precision: 3, scale: 2
     t.string   "slug"
+    t.boolean  "is_deleted"
   end
 
   add_index "providers", ["slug"], name: "index_providers_on_slug", unique: true
