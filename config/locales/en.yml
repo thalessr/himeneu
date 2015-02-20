@@ -71,6 +71,11 @@ en:
   bride: bride
   workers: Professioanals
   completed_account_msg: Complete your account to start searching for providers and getting reach by them
+  facebook_hint: "https://www.facebook.com/username"
+  instagram_hint: "https://instagram.com/username"
+  twitter_hint: "http://www.twitter.com/username"
+  website_hint: "http://www.himeneu.com"
+  video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
   links:
       back: "Back"
       cancel: "Cancel"
