@@ -1,4 +1,5 @@
 #Common methods for both providers and customers
+require 'active_support/concern'
 module Extra
 
   def self.included(including_class)
@@ -18,16 +19,39 @@ module Extra
         [:first_name, :age, :last_name]
       ]
     end
+
+    def delete
+       update_attribute(:is_deleted, true)
+    end
+
+    def recover
+      update_attribute(:is_deleted, false)
+    end
+
+    def is_deleted?
+      is_deleted
+    end
+
   end
 
   #when a method use active record
   module Selection
+     extend ActiveSupport::Concern
+
     def recent(number)
       if number
         limit(number).reverse_order
       else
         none
       end
+    end
+
+    def not_deleted
+      where(is_deleted: [false, nil] )
+    end
+
+    def deleted
+      where(is_deleted: true )
     end
   end
 
