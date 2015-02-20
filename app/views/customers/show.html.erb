@@ -43,7 +43,7 @@
                       <% end %>
                     <% end %>
                     <% if can? :destroy, @customer %>
-                      <a data-original-title="<%= t('links.destroy') %>" data-toggle="tooltip" type="button" class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                      <%= delete_or_recovery(@customer) %>
                     <% end %>
                 </span>
             </div>
