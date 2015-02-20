@@ -9,14 +9,44 @@
           <div class="row">
               <div class="col-md-3 col-lg-3 " align="center">
                 <% if @provider.image? %>
-                   <%= image_tag @provider.image_url(:thumb), :class => "profile_image" %>
+                   <%= image_tag @provider.image_url(:regular), :class => "profile_image" %>
                 <% else %>
                    <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
                 <% end %>
               </div>
               <div class=" col-md-9 col-lg-9 ">
+
                 <table class="table table-user-information">
                   <tbody>
+                    <tr>
+                      <td>
+
+                      </td>
+                      <td>
+                        <div class="row">
+                          <% unless @provider.facebook.empty? %>
+                            <%= link_to @provider.facebook , :target => "_blank", class: "" do %>
+                              <i class="fa fa-facebook-official fa-2x"></i>
+                            <% end %>
+                          <% end %>
+                          <% unless @provider.instagram.empty? %>
+                            <%= link_to @provider.instagram , :target => "_blank", class: "" do %>
+                              <i class="fa fa-instagram fa-2x"></i>
+                            <% end %>
+                          <% end %>
+                          <% unless @provider.twitter.empty? %>
+                            <%= link_to @provider.twitter , :target => "_blank", class: "" do %>
+                              <i class="fa fa-twitter fa-2x"></i>
+                            <% end %>
+                          <% end %>
+                          <% unless @provider.website.empty? %>
+                            <%= link_to @provider.website , :target => "_blank",class: "" do %>
+                              <i class="fa fa-external-link-square fa-2x"></i>
+                            <% end %>
+                          <% end %>
+                        </div>
+                      </td>
+                    </tr>
                     <tr>
                       <td><%= t(:profession) %></td>
                       <td><%= @provider.profession_list %></td>
@@ -25,6 +55,16 @@
                       <td><%= t(:experience) %></td>
                       <td><%= @provider.experience %></td>
                     </tr>
+                    <% unless @provider.video_url.empty? %>
+                      <tr>
+                        <td>Video</td>
+                        <td>
+                         <div class="embed-responsive embed-responsive-4by3">
+                          <iframe class="embed-responsive-item" src="<%= @provider.video_url %>"></iframe>
+                         </div>
+                        </td>
+                      </tr>
+                    <% end %>
                     <% if has_interest?(@provider) %>
                       <tr>
                         <td><%= t(:phone) %></td>
@@ -51,6 +91,7 @@
               <% else %>
                   <i class="glyphicon glyphicon-lock"></i>
               <% end %>
+
               <span class="pull-right">
                 <% if can? :update, @provider %>
                  <span data-toggle="tooltip" data-placement="right" >
