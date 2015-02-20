@@ -27,6 +27,7 @@ Rails.application.routes.draw do
 
 resources :customers do
   get 'search', on: :collection
+  get 'recover', on: :collection
 end
 
 resources :providers do
@@ -34,6 +35,7 @@ resources :providers do
   resources :recommendations
   get 'search', on: :collection
   get 'carousel', on: :collection
+  get 'recover', on: :collection
 end
 
 resources :interests, :only => :create
