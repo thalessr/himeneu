@@ -1,5 +1,5 @@
 class Interest < ActiveRecord::Base
-	belongs_to :provider
+  belongs_to :provider
   belongs_to :customer
 
   state_machine :initial => :interested do
@@ -19,8 +19,6 @@ class Interest < ActiveRecord::Base
     event :complete do
       transition :reviewing => :completed
     end
-
-
   end
 
   def self.has_interest?(user, provider)
