@@ -1,23 +1,23 @@
 'use strict';
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
-app.factory("CustomerSearch", function($resource) {
+app.factory("CustomerSearch", ["$resource", function($resource) {
   return $resource("/customers/search?q=");
-});
+}]);
 
-app.factory("Recommendation", function($resource) {
+app.factory("Recommendation", ["$resource", function($resource) {
   return $resource("/providers/:id/recommendations");
-});
+}]);
 
-app.factory("Search", function($resource) {
+app.factory("Search", ["$resource", function($resource) {
   return $resource("/providers/search");
-});
+}]);
 
-app.factory("Carousel", function($resource) {
+app.factory("Carousel", ["$resource", function($resource) {
   return $resource("/providers/carousel");
-});
+}]);
 
-app.controller("CustomerCtrl", function($scope, CustomerSearch){
+app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
   CustomerSearch.query({q: ""}, function(data){
       $scope.customers = data ;
     });
@@ -32,9 +32,9 @@ app.controller("CustomerCtrl", function($scope, CustomerSearch){
     });
   };
 
-});
+}]);
 
-app.controller("RecommendationCtrl", function($scope, Recommendation){
+app.controller("RecommendationCtrl", ["$scope","Recommendation", function($scope, Recommendation){
 
   var i = $('#comment').data("param");
   Recommendation.query({ id: i },function(data){
@@ -58,9 +58,9 @@ app.controller("RecommendationCtrl", function($scope, Recommendation){
 
   };
 
-});
+}]);
 
-app.controller("SearchCtrl", function($scope, $http, Search){
+app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
   $scope.loading = true;
   $scope.providers = [];
   $scope.get = function(page){
@@ -124,15 +124,15 @@ app.controller("SearchCtrl", function($scope, $http, Search){
       }
       return ret;
    };
-});
+}]);
 
-app.controller("CarouselCtrl",function($scope, Carousel){
+app.controller("CarouselCtrl", ["$scope","Carousel",function($scope, Carousel){
   $scope.sliderReady = false;
   Carousel.query(function(data){
     $scope.slides = data;
     $scope.sliderReady = true;
   });
-});
+}]);
 
 
 
