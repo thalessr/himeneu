@@ -8,6 +8,7 @@ class Provider < ActiveRecord::Base
   has_many :customers, through: [:recommendations, :interests]
   has_many :interests
 
+  before_save :set_video_url
   after_save :insert_contact
 
 
@@ -58,6 +59,11 @@ class Provider < ActiveRecord::Base
         self.tagged_with(profession, :any => true)
       end
     end
+  end
+
+  def set_video_url
+   result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
+   self.video_url = "http://www.youtube.com/v/#{result[5]}"
   end
 
   def self.autocomplete_seed
