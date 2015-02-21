@@ -24,22 +24,22 @@
                       </td>
                       <td>
                         <div class="row">
-                          <% unless @provider.facebook.empty? %>
+                          <% unless @provider.facebook.blank? %>
                             <%= link_to @provider.facebook , :target => "_blank", class: "" do %>
                               <i class="fa fa-facebook-official fa-2x"></i>
                             <% end %>
                           <% end %>
-                          <% unless @provider.instagram.empty? %>
+                          <% unless @provider.instagram.blank? %>
                             <%= link_to @provider.instagram , :target => "_blank", class: "" do %>
                               <i class="fa fa-instagram fa-2x"></i>
                             <% end %>
                           <% end %>
-                          <% unless @provider.twitter.empty? %>
+                          <% unless @provider.twitter.blank? %>
                             <%= link_to @provider.twitter , :target => "_blank", class: "" do %>
                               <i class="fa fa-twitter fa-2x"></i>
                             <% end %>
                           <% end %>
-                          <% unless @provider.website.empty? %>
+                          <% unless @provider.website.blank? %>
                             <%= link_to @provider.website , :target => "_blank",class: "" do %>
                               <i class="fa fa-external-link-square fa-2x"></i>
                             <% end %>
@@ -55,7 +55,7 @@
                       <td><%= t(:experience) %></td>
                       <td><%= @provider.experience %></td>
                     </tr>
-                    <% unless @provider.video_url.empty? %>
+                    <% unless @provider.video_url.blank? %>
                       <tr>
                         <td>Video</td>
                         <td>
