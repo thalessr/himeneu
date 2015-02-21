@@ -473,6 +473,7 @@ DEPENDENCIES
   carrierwave
   carrierwave_backgrounder
   coffee-rails (~> 4.0.0)
+  colored
   devise
   devise-async
   dotenv-rails
