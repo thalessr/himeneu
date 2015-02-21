@@ -15,6 +15,7 @@ group :development do
 	gem 'rb-readline'
 	gem 'mailcatcher'
 	gem "binding_of_caller"
+  gem 'colored'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
