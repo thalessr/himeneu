@@ -17,6 +17,8 @@
  *= require components-font-awesome/css/font-awesome.min.css
  *= require bootstrap-notify/css/bootstrap-notify.css
  *= require bootstrap-notify/css/styles/alert-bangtidy.css
+ *= require flat-ui/dist/css/flat-ui.min.css
+ *= require videojs/dist/video-js/video-js.min.css
  *= require_tree .
  *= require_self
  */
