@@ -114,6 +114,10 @@ app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
       var ret = [];
       var start;
 
+      if ( rangeSize > $scope.total_pages ){
+          rangeSize = $scope.total_pages;
+      }
+
       start = $scope.current_page;
       if ( start > $scope.total_pages-rangeSize ) {
         start = $scope.total_pages - rangeSize;
