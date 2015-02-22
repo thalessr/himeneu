@@ -2,6 +2,12 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
 
+  get 'static_pages/anuncie'
+
+  get 'static_pages/sobre'
+
+  get 'static_pages/contato'
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
