@@ -16,6 +16,7 @@ group :development do
 	gem 'mailcatcher'
 	gem "binding_of_caller"
   gem 'colored'
+  gem 'pry-byebug'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'

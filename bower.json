@@ -24,6 +24,7 @@
     "wow": "~1.0.3",
     "fuelux": "~3.5.1",
     "components-font-awesome": "~4.3.0",
-    "bootstrap-notify": "~0.2.0"
+    "bootstrap-notify": "~0.2.0",
+    "flat-ui": "~2.2.2"
   }
 }
