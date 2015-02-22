@@ -20,9 +20,25 @@
         background-position:center;
     }
 
+    .destaque1{
+        height: 300px;
+    }
+
+
+    .destaq-image {
+        background: url("/assets/camera_anuncie.jpg");
+        height: 300px;
+    }
+
+
     @media only screen and (max-width: 767px) {
       .jumbo {
-        background-image: url(/assets/backhome_mobile.jpg);
+        background-image: url(/assets/anuncieback_mobile.jpg);
+      }
+
+      .destaq-image {
+        background: url("/assets/camera_anuncie_mobile.jpg");
+        height: 150px;
       }
     }
 
@@ -237,12 +253,3 @@
     }
 }
 
-.destaque1{
-	height: 300px;
-}
-
-
-.destaq-image {
-	background: url("/assets/camera_anuncie.jpg");
-	height: 300px;
-}
