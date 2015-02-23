@@ -63,19 +63,22 @@ $(document).ready(function(){
     $('.carousel').carousel();
   });
 
-  // $(window).scroll(function(){
-  //   "use strict";
-  //   var b = $(window).scrollTop();
-  //   if( b > 60 ){
-  //       $(".navbar").addClass("is-scrolling");
-  //   } else {
-  //       $(".navbar").removeClass("is-scrolling");
-  //   }
-  // });
+  $(window).scroll(function(){
+    "use strict";
+    var b = $(window).scrollTop();
+    if( b > 60 ){
+        $(".navbar").addClass("is-scrolling");
+    } else {
+        $(".navbar").removeClass("is-scrolling");
+    }
+  });
   $.stellar({
     horizontalScrolling: false,
     verticalOffset: 50
   });
+
+  $(':checkbox').radiocheck();
+  $(':radio').radiocheck();
 
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
