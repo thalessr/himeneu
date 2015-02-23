@@ -38,29 +38,25 @@
 				</ul>
 			</div>
 		</div>
-		<div class="pagination" >
 
-
-		</div>
 		<center>
 			<nav ng-show="total_pages > 1">
-			  <ul class="pagination center">
-			    <li  ng-class="{'disabled': current_page == 1 }">
-			      <a href="#" aria-label="Previous" ng-click="prev()" >
-			        <span aria-hidden="true">&laquo;</span>
-			      </a>
-			    </li>
-			    <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
-	         <a href="#">{{n+1}}</a>
-	        </li>
-			    <li ng-class="{'disabled': current_page == total_pages }">
-			      <a href="#" aria-label="Next" ng-click="next()">
-			        <span aria-hidden="true">&raquo;</span>
-			      </a>
-			    </li>
-			  </ul>
+				<div class="pagination">
+				  <ul>
+				    <li  ng-class="{'disabled': current_page == 1 }" class="previous">
+				      <a href="#" class="fui-arrow-left" ng-click="prev()" ></a>
+				    </li>
+				    <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
+		         <a href="#">{{n+1}}</a>
+		        </li>
+				    <li ng-class="{'disabled': current_page == total_pages }" class="next">
+				      <a href="#" class="fui-arrow-right" ng-click="next()"></a>
+				    </li>
+			 	  </ul>
+			  </div>
 			</nav>
 		</center>
+
 	</div>
 <% end %>
 
