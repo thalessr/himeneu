@@ -124,12 +124,12 @@
     .list-profile {
         padding: 0;
         height: 160px;
+        overflow:hidden;
 
     }
 
     .list-profile:hover {
-    background-color: #e7e7e7;
-
+       background-color: #e7e7e7;
     }
 
 
@@ -175,11 +175,11 @@
 
     .separator li {
         margin-top: 15px;
-        margin-bottom: 15px; 
+        margin-bottom: 15px;
     }
 
     .filter-form {
-        margin-bottom: 25px; 
+        margin-bottom: 25px;
     }
 
 }

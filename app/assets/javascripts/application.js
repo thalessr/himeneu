@@ -22,7 +22,6 @@
 //= require wow/dist/wow.min.js
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
-//= require fuelux/dist/js/fuelux.min.js
 //= require bootstrap-notify/js/bootstrap-notify.js
 //= require flat-ui/dist/js/flat-ui.min.js
 //= require videojs/dist/video-js/video.js
