@@ -12,10 +12,20 @@ class CustomersController < ApplicationController
 	end
 
 	def search
-	 @customers = Customer.not_deleted.search(params[:q])
+	 @customers = Customer.not_deleted.paginate(:page => params[:page], :per_page => 5).search(params[:q])
 	 respond_to do |format|
     format.html{ @customers}
-    format.json{ render json: @customers}
+    format.json{ render json: {items: @customers}} unless @customers.try(:total_pages)
+      format.json{render json:{
+        total_entries: @customers.total_entries,
+        current_page: @customers.current_page,
+        next_page: @customers.next_page,
+        previous_page: @customers.previous_page,
+        total_pages: @customers.total_pages,
+        per_page: @customers.per_page,
+        items: @customers
+        }
+      }
    end
 	end
 
