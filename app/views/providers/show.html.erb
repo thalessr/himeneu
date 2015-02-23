@@ -139,12 +139,29 @@
               <% end %>
             </div>
             <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
-              <form novalidate  class="form-horizontal" role="form">
-                  Assunto: <input type="text" ng-model="recommendation.title" name="title"/><br/>
-                  Comentário: <textarea ng-model="recommendation.comment" /></textarea><br />
-                  <div ng-model="recommendation.rating" id="rate"> </div>
-                  <input type="submit" class="btn btn-success btn-circle text-uppercase" ng-click="save(recommendation)" value="Salvar" />
-              </form>
+              <% if current_user.is_customer? %>
+                <form novalidate  class="form-horizontal" role="form">
+                  <div class="col-md-12">
+                    <div class="col-md-5">
+                      <label>Assunto:</label>
+                      <input type="text" ng-model="recommendation.title" name="title"/>
+                    </div>
+                    <div class="col-md-5">
+                      <label>Pontuação:</label>
+                      <div ng-model="recommendation.rating" id="rate"> </div>
+                    </div>
+                    <div class="col-md-2">
+                      </br>
+                      <input type="submit" class="btn btn-success btn-circle" ng-click="save(recommendation)" value="Salvar" />
+                    </div>
+                  </div>
+                  <div class="col-md-12">
+                    <div> <div>
+                    <label>Comentário:</label>
+                    <textarea ng-model="recommendation.comment" style="width:100%" /></textarea>
+                  </div>
+                </form>
+              <% end %>
 
                 <ul class="media-list" ng-repeat="rec in recommendations">
                   <li class="media">
