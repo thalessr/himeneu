@@ -108,33 +108,37 @@
 	<%= yield %>
 
 
-  <footer id="contato">
+  <footer id="contato" class="footer clearfix">
       <div class="footer-bottom">
           <div class="container-fluid">
               <div class="col-md-4">
+                  <p class="muted credit">
                   Copyright © Himeneu <%= Time.now.year %>. All right reserved.
+                </p>
               </div>
               <div class="col-md-4 text-center">
                   <a href="/privacy">Politica de privacidade</a>
               </div>
-              <div class="col-md-4">
-                  <div class="pull-right">
-                      <span class="glyphicon glyphicon-envelope"></span>
-                        contato@himeneu.com
-                      <div>
-                          <span class="glyphicon glyphicon-phone"></span>
-                              +55 (62) 9931-2013
-                      </div>
-                      <div>
-                          <span class="glyphicon glyphicon-phone"></span>
-                          +55 (11) 99785-2285
-                      </div>
-                      <div>
-                          <span class="glyphicon glyphicon-phone"></span>
-                           +1 (801) 877-3719
-                      </div>
-                  </div>
-              </div>
+              <% if current_page?(root_path) %>
+                <div class="col-md-4">
+                    <div class="pull-right">
+                        <span class="glyphicon glyphicon-envelope"></span>
+                          contato@himeneu.com
+                        <div>
+                            <span class="glyphicon glyphicon-phone"></span>
+                                +55 (62) 9931-2013
+                        </div>
+                        <div>
+                            <span class="glyphicon glyphicon-phone"></span>
+                            +55 (11) 99785-2285
+                        </div>
+                        <div>
+                            <span class="glyphicon glyphicon-phone"></span>
+                             +1 (801) 877-3719
+                        </div>
+                    </div>
+                </div>
+              <% end %>
           </div>
       </div>
   </footer>
