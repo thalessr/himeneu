@@ -97,6 +97,7 @@ ActiveRecord::Schema.define(version: 20150220090900) do
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "state"
   end
 
   add_index "interests", ["customer_id"], name: "index_interests_on_customer_id"
