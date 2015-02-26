@@ -71,6 +71,7 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'redis'
+gem 'redis-rails'
 #Active Admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
