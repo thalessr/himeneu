@@ -98,6 +98,7 @@ gem "sass_rails_patch"
 gem "will_paginate"
 gem "sitemap_generator"
 
+gem 'state_machine'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 

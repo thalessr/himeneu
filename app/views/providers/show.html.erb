@@ -72,13 +72,20 @@
                         <td><%= @provider.contact %><br><br>
                         </td>
                       </tr>
+                      <tr>
+                        <td><%= t(:email) %></td>
+                        <td><%= @provider.email %><br><br>
+                        </td>
+                      </tr>
                     <% end %>
 
                   </tbody>
                 </table>
                 <% if can? :create, Interest %>
                   <% unless has_interest?(@provider) %>
-                    <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                    <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <% else %>
+                     <%= button_to 'Avalie', nil, :class => 'btn btn-primary' %>
                   <% end %>
                 <% end %>
               </div>
