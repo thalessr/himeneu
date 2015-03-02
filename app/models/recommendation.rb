@@ -2,8 +2,8 @@ class Recommendation < ActiveRecord::Base
 	belongs_to :customer
 	belongs_to :provider
 
-	validates :title, presence: true, length: { minimum: 1 }
-  validates :comment, presence: true, length: { minimum: 1 }
+	# validates :title, presence: true, length: { minimum: 1 }
+  # validates :comment, presence: true, length: { minimum: 1 }
   after_save :calculate_provider_score
 
 

@@ -15,6 +15,8 @@ group :development do
 	gem 'rb-readline'
 	gem 'mailcatcher'
 	gem "binding_of_caller"
+  gem 'colored'
+  gem 'pry-byebug'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
@@ -69,6 +71,7 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'dotenv-rails', :groups => [:development, :test]
 gem 'redis'
+gem 'redis-rails'
 #Active Admin
 gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
@@ -92,6 +95,8 @@ gem 'capistrano-rbenv'
 gem 'capistrano-bundler'
 
 gem "sass_rails_patch"
+gem "will_paginate"
+gem "sitemap_generator"
 
 gem 'state_machine'
 # Use debugger

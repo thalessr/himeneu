@@ -16,6 +16,7 @@
 /tmp
 /public/uploads/
 /public/assets
+/public/sitemaps/*
 /.env
 /dump.rdb
 node_modules

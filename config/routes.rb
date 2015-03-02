@@ -2,10 +2,15 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
 
 
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
   get 'privacy' => 'dashboard#privacy'
+  get '/anuncie' => 'static_pages#anuncie'
+  get '/sobre' => 'static_pages#sobre'
+  get '/contato' => 'static_pages#contato'
+
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
@@ -27,6 +32,7 @@ Rails.application.routes.draw do
 
 resources :customers do
   get 'search', on: :collection
+  get 'recover', on: :collection
 end
 
 resources :providers do
@@ -34,6 +40,7 @@ resources :providers do
   resources :recommendations
   get 'search', on: :collection
   get 'carousel', on: :collection
+  get 'recover', on: :collection
 end
 
 resources :interests, :only => :create
