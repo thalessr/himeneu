@@ -62,8 +62,10 @@ class Provider < ActiveRecord::Base
   end
 
   def set_video_url
-   result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
-   self.video_url = "http://www.youtube.com/v/#{result[5]}"
+   unless self.video_url.blank?
+     result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
+     self.video_url = "http://www.youtube.com/v/#{result[5]}"
+   end
   end
 
   def self.autocomplete_seed
