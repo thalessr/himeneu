@@ -451,6 +451,7 @@ GEM
       colorize (>= 0.7.0)
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    state_machine (1.2.0)
     therubyracer (0.12.1)
       libv8 (~> 3.16.14.0)
       ref
@@ -535,6 +536,7 @@ DEPENDENCIES
   sitemap_generator
   spring
   sqlite3
+  state_machine
   therubyracer
   turbolinks
   uglifier (>= 1.3.0)
