@@ -1,3 +1,44 @@
 // Place all the styles related to the registrations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.title-page{
+	text-align: center;
+	margin-bottom: -40px;
+}
+
+
+.jumbo-signup {
+	.jumbo-signup-image {
+		height: 535px;
+		background: url("/assets/signup_back.jpg");
+		background-position: center center;
+        background-repeat: no-repeat;
+	}
+
+	.form-signup {
+		margin-top: 80px;
+		padding-bottom: 32px;
+		padding-top: 50px;
+
+		label {
+			line-height: 18px;
+		}
+	}
+
+	span p {
+		font-size: 10px;
+		margin-bottom: -5px;
+	}
+
+	.bottom-links {
+
+		line-height: 15px;
+		margin-top: 50px;
+
+		a {
+			font-size: 12px;
+
+		}
+	}
+}
