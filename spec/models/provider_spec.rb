@@ -16,21 +16,29 @@ describe Provider do
    expect(provider.full_name).to eq "Alta Floresta"
   end
 
-  it "returns just non deleted Providers" do
-    Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: false)
-    Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: true)
-    expect(Provider.not_deleted.count).to eq(1)
-  end
-
-  it "returns just deleted Providers" do
-    Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: false)
-    Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: true)
-    expect(Provider.deleted.count).to eq(1)
-  end
-
   it "returns the correct video url format" do
     provider = Provider.create(first_name: "Alta", last_name: "Floresta", video_url: "https://www.youtube.com/watch?v=GoXv8ojxmGo")
     expect(provider.video_url).to eq("http://www.youtube.com/v/GoXv8ojxmGo")
+  end
+
+  describe "it select deleted and non-deleted Providers" do
+    before :each do
+      @not_deleted = Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: false)
+      @deleted = Provider.create(first_name: "Alta", last_name: "Floresta", is_deleted: true)
+    end
+
+    it "returns just non deleted Providers" do
+      filter = Provider.not_deleted
+      expect(filter).to include(@not_deleted)
+      expect(filter).to_not include(@deleted)
+    end
+
+    it "returns just deleted Providers" do
+      filter = Provider.deleted
+      expect(filter).to include @deleted
+      expect(filter).to_not include @not_deleted
+    end
+
   end
 
 end
