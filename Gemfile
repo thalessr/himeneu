@@ -60,6 +60,10 @@ group :test do
   gem 'mocha'
 end
 
+group :development, :test do
+  gem 'rspec-rails'
+end
+
 gem 'bootstrap3-datetimepicker-rails'
 gem 'autosize-rails'
 gem 'momentjs-rails'
