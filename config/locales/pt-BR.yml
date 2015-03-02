@@ -50,6 +50,11 @@ pt-BR:
   bride: Noiva(o)
   workers: 'Profissionais'
   completed_account_msg: "Complete o seu cadastro para poder pesquisar ou ser encontrado"
+  facebook_hint: "https://www.facebook.com/username"
+  instagram_hint: "https://instagram.com/username"
+  twitter_hint: "http://www.twitter.com/username"
+  website_hint: "http://www.himeneu.com"
+  video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
   errors:
     messages:
       blank: "blank"
@@ -63,7 +68,8 @@ pt-BR:
       back: "Voltar"
       cancel: "Cancelar"
       confirm: "Tem certeza?"
-      destroy: "Excluir"
+      destroy: "Desativar"
+      activate: "Ativar"
       new: "Novo"
       edit: "Editar"
       save: "Salvar"

@@ -1,0 +1,118 @@
+.static_pages {
+
+    .destaque{
+        height: 300px;
+        margin-top: 40px;
+    }
+
+
+    .destaq1-image {
+        background: url("/assets/camera_anuncie.jpg");
+        background-repeat: no-repeat;
+        height: 300px;
+    }
+
+    .destaq2-image {
+        background: url("/assets/playmo_anuncie.jpg");
+        background-repeat: no-repeat;
+        height: 300px;
+    }
+
+    .button-call {
+        height: 200px;
+        background-color: #1ABC9C;
+        margin-top: 20px;
+    }
+
+    .button-centralized {
+        text-align: center;
+        margin-top: 4%;
+    }
+
+    .jumbo {
+        min-height: 100%;
+        min-width: 100%;
+        margin-top: -10px;
+        background: url("/assets/anuncieback.jpg");
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        -webkit-background-size:cover;
+        -moz-background-size:cover;
+        -o-background-size:cover;
+        background-size:cover;
+        background-position:center;
+    }
+
+
+    @media only screen and (max-width: 965px) {
+
+        .jumbo {
+            background-image: url(/assets/anuncieback_mobile.jpg);
+            min-height: 70%;
+        }
+
+        .jumbo-text h1 {
+        font-size: 40px !important;
+        margin-top: 100px !important;
+        }
+
+        .lead {
+            color: black;
+            font-size: 20px !important;
+        }
+
+
+        .text-container-right{
+            width: 70% !important;
+            float: none !important;
+            margin-top: 60px !important;
+            margin: auto !important;
+        }
+
+        .text-container-left{
+            width: 70% !important;
+            float: none !important;
+            margin-top: 60px !important;
+            margin: auto !important;
+        }
+
+        .h6 { 
+            font-size: 15px !important;
+            text-align: center;
+        }
+
+        .destaque{
+            height: 100px !important;
+            margin-top: 30px !important;
+        }
+
+    }
+
+    .jumbo-text {
+        height: 400px;
+    }
+
+    .jumbo-text h1 {
+        font-size: 70px;
+        margin-top: 170px;
+    }
+
+    .lead {
+        color: black;
+        font-size: 25px;
+    }
+
+    .text-container-right{
+        width: 400px;
+        float: right;
+        margin-top: 80px;
+    }
+
+    .text-container-left{
+        width: 400px;
+        float: left;
+        margin-top: 80px;
+    }
+}

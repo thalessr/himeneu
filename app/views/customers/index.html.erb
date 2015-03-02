@@ -2,6 +2,9 @@
   <div ng-controller="CustomerCtrl" class="filter-form container" >
 
     <div class="row">
+      <div class="loader" data-initialize="loader" data-ng-show="loading">
+        <i class="fa fa-refresh fa-spin"></i>
+      </div>
       <form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
         <div class="input-group search-form">
           <input type="text" class="form-control" ng-model="q" placeholder="Pesquise noivas(os)">
@@ -21,7 +24,7 @@
             <img class="profile_listing_image" ng-src="{{c.image['thumb'].url}}"> </img>
           </div>
           <div class="col-md-10 col-sm-9 listing-profile-info ">
-            <h2>{{c.first_name}} {{c.last_name}}</h2>
+            <h4>{{c.first_name}} {{c.last_name}}</h4>
             <p><strong><%= t(:city) %>: </strong> {{c.address.city}}  </p>
             <p><strong><%= t(:wedding_date) %>: </strong> {{c.wedding_date | date:'dd/MM/yyyy'}} </p>
           </div>
@@ -33,5 +36,24 @@
         </ul>
       </div>
     </div>
+
+    <center>
+      <nav ng-show="total_pages > 1">
+        <div class="pagination">
+          <ul>
+            <li  ng-class="{'disabled': current_page == 1 }" class="previous">
+              <a href="#" class="fui-arrow-left" ng-click="prev()" ></a>
+            </li>
+            <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
+             <a href="#">{{n+1}}</a>
+            </li>
+            <li ng-class="{'disabled': current_page == total_pages }" class="next">
+              <a href="#" class="fui-arrow-right" ng-click="next()"></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </center>
+
   </div>
 <% end %>

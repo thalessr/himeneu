@@ -7,11 +7,11 @@ module ProvidersHelper
     link_to(name,'#', :onclick => h("add_fields(this, \"#{association}\", \"#{j(fields)}\")"))
   end
 
-  def self_profile?(current_profile)
-    unless current_user.is_customer?
-      current_user.provider_id == current_profile.id
-    end
-  end
+  # def self_profile?(current_profile)
+  #   unless current_user.is_customer?
+  #     current_user.provider_id == current_profile.id
+  #   end
+  # end
 
 end
 

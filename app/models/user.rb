@@ -11,19 +11,25 @@ class User < ActiveRecord::Base
   validates_presence_of :roles
 
   # ROLES = %w[fornecedor noiva(o)]
-
+  @is_provider = nil
+  @is_customer = nil
 
   def set_completed
-    self.is_completed = true
-    self.save
+    self.update_attribute(:is_completed, true)
   end
 
   def is_customer?
-    return self.roles.exists?(id: 1)
+    if @is_customer.nil?
+      @is_customer ||= self.roles.exists?(id: 1)
+    end
+    return @is_customer
   end
 
   def is_provider?
-    return self.roles.exists?(id: 2)
+    if @is_provider.nil?
+       @is_provider ||= self.roles.exists?(id: 2)
+    end
+    return @is_provider
   end
 
   def role_id
@@ -46,9 +52,10 @@ class User < ActiveRecord::Base
     end
   end
 
-   def is_provider_completed?
+  def is_provider_completed?
     if self
       self.is_completed && self.is_provider?
     end
   end
+
 end
