@@ -97,3 +97,23 @@ body { padding-top: 60px; }
   line-height: 1;
   color: #777;
 }
+
+.footer-bottom {
+    background: #E3E3E3;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+
+}
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
+.payments {
+    font-size: 1.5em;
+    padding-right: 30px;
+}
+
+footer {
+    padding: 0;
+}
