@@ -41,6 +41,11 @@ class User < ActiveRecord::Base
     customer.id
   end
 
+  def provider_id(user_id)
+    provider = Provider.select(:id).find_by(user_id: user_id)
+    provider.id
+  end
+
   def is_customer_completed?
     if self
       self.is_completed && self.is_customer?
