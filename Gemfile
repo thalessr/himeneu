@@ -52,16 +52,15 @@ end
 
 group :test do
 	gem 'selenium-webdriver'
-	gem 'minitest-reporters'
-	gem 'mini_backtrace'
-  gem 'minitest'
-  # gem 'minitest-rails'
-  gem 'guard-minitest'
   gem 'mocha'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'faker'
 end
 
 group :development, :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 gem 'bootstrap3-datetimepicker-rails'
