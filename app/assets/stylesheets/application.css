@@ -101,10 +101,8 @@ body { padding-top: 60px; }
 .footer-bottom {
     background: #E3E3E3;
     border-top: 1px solid #DDDDDD;
-    padding-top: 10px;
-    padding-bottom: 10px;
-
-
+    padding-top: 5px;
+    padding-bottom: 5px;
 }
 .footer-bottom p.pull-left {
     padding-top: 6px;
@@ -116,4 +114,8 @@ body { padding-top: 60px; }
 
 footer {
     padding: 0;
+}
+
+.footer-section{
+  padding-top:20px;
 }
