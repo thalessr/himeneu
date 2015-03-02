@@ -1,4 +1,4 @@
- class Provider < ActiveRecord::Base
+class Provider < ActiveRecord::Base
   extend Extra::Selection
   include Extra::Methods
 
@@ -8,6 +8,7 @@
   has_many :customers, through: [:recommendations, :interests]
   has_many :interests
 
+  before_save :set_video_url
   after_save :insert_contact
 
 
@@ -31,7 +32,6 @@
 
 
   def insert_contact
-    phones = ""
     if self.addresses.any? && self.contact.nil?
       phones = self.addresses.pluck(:phone).join(",")
       self.update_attribute(:contact, phones)
@@ -61,8 +61,17 @@
     end
   end
 
-  def self.autocomplet_seed
+  def set_video_url
+   result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
+   self.video_url = "http://www.youtube.com/v/#{result[5]}"
+  end
+
+  def self.autocomplete_seed
       $redis.set "autocomplete", ActsAsTaggableOn::Tag.most_used(10).pluck(:name).to_json
+  end
+
+  def self.get_autocomplete
+    JSON.parse($redis.get("autocomplete"))
   end
 
 end

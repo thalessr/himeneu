@@ -24,8 +24,8 @@ class Address < ActiveRecord::Base
 
     private
     def geocode_address
-		GeocodeWorker.perform_async(self.id)
-	end
+  		GeocodeWorker.perform_async(self.id)
+	  end
 
 	class GeocodeWorker
 	    include Sidekiq::Worker

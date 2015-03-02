@@ -1,122 +1,4 @@
-// Place all the styles related to the dashboard controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
-/*!
- *
- * Code licensed under the Apache License v2.0.
- * For details, see http://www.apache.org/licenses/LICENSE-2.0.
- */
-
-
 .dashboard{
-    .lead {
-        font-size: 18px;
-        font-weight: 400;
-    }
-
-    @media(max-width:767px) {
-        .intro-message {
-            padding-bottom: 15%;
-        }
-
-        .intro-message > h1 {
-            font-size: 3em;
-        }
-
-        ul.intro-social-buttons > li {
-            display: block;
-            margin-bottom: 20px;
-            padding: 0;
-        }
-
-        ul.intro-social-buttons > li:last-child {
-            margin-bottom: 0;
-        }
-
-        .intro-divider {
-            width: 100%;
-        }
-    }
-
-    .network-name {
-        text-transform: uppercase;
-        font-size: 14px;
-        font-weight: 400;
-        letter-spacing: 2px;
-    }
-
-    .content-section-a {
-        padding: 50px 0;
-        background-color: #f8f8f8;
-    }
-
-    .content-section-b {
-        padding: 50px 0;
-        border-top: 1px solid #e7e7e7;
-        border-bottom: 1px solid #e7e7e7;
-    }
-
-    .section-heading {
-        margin-bottom: 30px;
-    }
-
-    .section-heading-spacer {
-        float: left;
-        width: 200px;
-        border-top: 3px solid #e7e7e7;
-    }
-
-    .banner {
-        padding: 100px 0;
-        color: #f8f8f8;
-
-        background-size: cover;
-    }
-
-    .banner h2 {
-        margin: 0;
-        text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-        font-size: 3em;
-    }
-
-    .banner ul {
-        margin-bottom: 0;
-    }
-
-    .banner-social-buttons {
-        float: right;
-        margin-top: 0;
-    }
-
-    @media(max-width:1199px) {
-        ul.banner-social-buttons {
-            float: left;
-            margin-top: 15px;
-        }
-    }
-
-    @media(max-width:767px) {
-        .banner h2 {
-            margin: 0;
-            text-shadow: 2px 2px 3px rgba(0,0,0,0.6);
-            font-size: 3em;
-        }
-
-        ul.banner-social-buttons > li {
-            display: block;
-            margin-bottom: 20px;
-            padding: 0;
-        }
-
-        ul.banner-social-buttons > li:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    footer {
-        padding: 50px 0;
-        background-color: #f8f8f8;
-    }
 
     p.copyright {
         margin: 15px 0 0;
@@ -141,6 +23,13 @@
     @media only screen and (max-width: 767px) {
       .jumbo {
         background-image: url(/assets/backhome_mobile.jpg);
+      }
+      .jumbo-text h1 {
+        font-size: 6.0vw !important;
+        margin-top: 100px !important;
+      }
+      .jumbo-text h4 small{
+        font-size: 3.9vw;
       }
     }
 
@@ -207,7 +96,7 @@
     .footer {
         background: #EDEFF1;
         height: auto;
-        padding-bottom: 30px;
+        padding-bottom: 5px;
         position: relative;
         width: 100%;
         border-bottom: 1px solid #CCCCCC;
@@ -318,23 +207,7 @@
         margin: 0 0 0 5px;
         color: #EDEFF1 !important;
     }
-    .footer-bottom {
-        background: #E3E3E3;
-        border-top: 1px solid #DDDDDD;
-        padding-top: 10px;
-        padding-bottom: 10px;
-    }
-    .footer-bottom p.pull-left {
-        padding-top: 6px;
-    }
-    .payments {
-        font-size: 1.5em;
-        padding-right: 30px;
-    }
 
-    footer {
-        padding: 0;
-    }
     .item {
       border:1px solid #eee;
       width: 20%;
@@ -348,4 +221,13 @@
         opacity: 0.9;
         filter: alpha(opacity=90);
      }
+
+    .fill {
+        min-height: 100%;
+        height: 100%;
+    }
+
+    .footer-section{
+        padding-top:0px;
+    }
 }

@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!, :except => [:carousel]
+  before_filter :authenticate_user!, :except => [:carousel, :show]
   load_and_authorize_resource
 
   def index
@@ -8,10 +8,20 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.includes(:profession).search(params[:q])
+     @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
-      format.json{ render json: @providers}
+      format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
+      format.json{render json:{
+        total_entries: @providers.total_entries,
+        current_page: @providers.current_page,
+        next_page: @providers.next_page,
+        previous_page: @providers.previous_page,
+        total_pages: @providers.total_pages,
+        per_page: @providers.per_page,
+        items: @providers
+        }
+      }
      end
   end
 
@@ -35,7 +45,11 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.includes(:addresses).friendly.find(params[:id])
+    if current_user
+      @provider = Provider.includes(:addresses).friendly.find(params[:id])
+    else
+      @provider = Provider.friendly.find(params[:id])
+    end
   end
 
   def edit
@@ -58,8 +72,14 @@ class ProvidersController < ApplicationController
 
   def destroy
     @provider = Provider.friendly.find(params[:id])
-    @provider.destroy
-    redirect_to new_provider_path
+    @provider.delete
+    redirect_to provider_path(@provider)
+  end
+
+  def recover
+    @provider = Provider.friendly.find(params[:id])
+    @provider.recover
+    redirect_to provider_path(@provider)
   end
 
   def carousel
@@ -74,7 +94,8 @@ class ProvidersController < ApplicationController
   def provider_params
     params.require(:provider).permit(
                                       :first_name, :last_name, :age,
-                                      :image, :profession_list, :city, :experience, :tag_list,
+                                      :image, :profession_list, :instagram, :website, :twitter,
+                                      :video_url, :facebook,:city, :experience, :tag_list,
                                       addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
                                       )
   end

@@ -12,10 +12,20 @@ class CustomersController < ApplicationController
 	end
 
 	def search
-		@customers = Customer.search(params[:q])
+	 @customers = Customer.not_deleted.paginate(:page => params[:page], :per_page => 5).search(params[:q])
 	 respond_to do |format|
     format.html{ @customers}
-    format.json{ render json: @customers}
+    format.json{ render json: {items: @customers}} unless @customers.try(:total_pages)
+      format.json{render json:{
+        total_entries: @customers.total_entries,
+        current_page: @customers.current_page,
+        next_page: @customers.next_page,
+        previous_page: @customers.previous_page,
+        total_pages: @customers.total_pages,
+        per_page: @customers.per_page,
+        items: @customers
+        }
+      }
    end
 	end
 
@@ -54,10 +64,16 @@ class CustomersController < ApplicationController
 	end
 
 	def destroy
-		@customer = Customer.friendly.find(params[:id])
-		@customer.destroy
-		redirect_to new_customer_path
-	end
+    @customer = Customer.friendly.find(params[:id])
+    @customer.delete
+    redirect_to customer_path(@customer)
+  end
+
+  def recover
+    @customer = Customer.friendly.find(params[:id])
+    @customer.recover
+    redirect_to customer_path(@customer)
+  end
 
 	private
 	def customer_params

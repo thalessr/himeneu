@@ -2,7 +2,9 @@
 	<div ng-controller="SearchCtrl" class="filter-form container">
 
 		<div class="row">
-			<div class="loader" data-initialize="loader" data-ng-show="loading"> </div>
+			<div class="loader" data-initialize="loader" data-ng-show="loading">
+				<i class="fa fa-refresh fa-spin"></i>
+			</div>
 			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
 				<div class="input-group search-form">
 					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
@@ -22,7 +24,7 @@
 						<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
 					</div>
 					<div class="col-md-10 col-sm-9 listing-profile-info ">
-						<h2>{{p.first_name}} {{p.last_name}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h2>
+						<h4>{{p.first_name}} {{p.last_name | limitTo:30}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h4>
 		        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
 		        <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
 		          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
@@ -38,6 +40,25 @@
 				</ul>
 			</div>
 		</div>
+
+		<center>
+			<nav ng-show="total_pages > 1">
+				<div class="pagination">
+				  <ul>
+				    <li  ng-class="{'disabled': current_page == 1 }" class="previous">
+				      <a href="#" class="fui-arrow-left" ng-click="prev()" ></a>
+				    </li>
+				    <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
+		         <a href="#">{{n+1}}</a>
+		        </li>
+				    <li ng-class="{'disabled': current_page == total_pages }" class="next">
+				      <a href="#" class="fui-arrow-right" ng-click="next()"></a>
+				    </li>
+			 	  </ul>
+			  </div>
+			</nav>
+		</center>
+
 	</div>
 <% end %>
 

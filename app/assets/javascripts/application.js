@@ -22,8 +22,9 @@
 //= require wow/dist/wow.min.js
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
-//= require fuelux/dist/js/fuelux.min.js
 //= require bootstrap-notify/js/bootstrap-notify.js
+//= require flat-ui/dist/js/flat-ui.min.js
+//= require videojs/dist/video-js/video.js
 //= require_tree .
 //= stub active_admin
 
@@ -62,19 +63,22 @@ $(document).ready(function(){
     $('.carousel').carousel();
   });
 
-  // $(window).scroll(function(){
-  //   "use strict";
-  //   var b = $(window).scrollTop();
-  //   if( b > 60 ){
-  //       $(".navbar").addClass("is-scrolling");
-  //   } else {
-  //       $(".navbar").removeClass("is-scrolling");
-  //   }
-  // });
+  $(window).scroll(function(){
+    "use strict";
+    var b = $(window).scrollTop();
+    if( b > 60 ){
+        $(".navbar").addClass("is-scrolling");
+    } else {
+        $(".navbar").removeClass("is-scrolling");
+    }
+  });
   $.stellar({
     horizontalScrolling: false,
     verticalOffset: 50
   });
+
+  $(':checkbox').radiocheck();
+  $(':radio').radiocheck();
 
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);

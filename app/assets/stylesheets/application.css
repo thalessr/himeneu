@@ -13,20 +13,24 @@
  *= require raty/lib/jquery.raty
  *= require bootstrap-datetimepicker.min.css
  *= require wow/css/libs/animate.css
- *= require fuelux/dist/css/fuelux.min.css
  *= require components-font-awesome/css/font-awesome.min.css
  *= require bootstrap-notify/css/bootstrap-notify.css
  *= require bootstrap-notify/css/styles/alert-bangtidy.css
+ *= require flat-ui/dist/css/flat-ui.min.css
+ *= require videojs/dist/video-js/video-js.min.css
  *= require_tree .
  *= require_self
  */
 
  body,
 html {
-    width: 100%;
-    height: 100%;
+  height:100%;
+  width:100%;
+  margin:0;
+  padding:0;
 }
 body { padding-top: 60px; }
+
 
 .navbar-nav>li>a{
     letter-spacing: 1px;
@@ -38,12 +42,13 @@ body { padding-top: 60px; }
 
 
 .navbar-fixed-top.is-scrolling{
-    background: #323a45;
-    background: rgba(50,58,69,0.95);
-    border: 0;
+  background-color: #ECF0F1;
+  opacity:0.6;
+  filter: alpha(opacity=60);
+  border: 0;
 }
 .navbar-fixed-top.is-scrolling .navbar-brand{
-   color: #ffffff;
+   color: #7F8C8D;
 }
 
 .wow{
@@ -79,21 +84,38 @@ body { padding-top: 60px; }
     color: #ffffff;
 }
 
-
-.flash-alert {
-  background-color: red;
-  text-align: center;
-  color: white;
-  height: 25px;
-  margin-top: -9px;
-  margin-bottom: 20px;
+.footer {
+  position: fixed;
+  bottom: -10px;
+  width: 100%;
+  clear: both;
+}
+.h4 small{
+  font-size: 75%;
+  color: black;
+  font-weight: 400;
+  line-height: 1;
+  color: #777;
 }
 
-.flash-notice {
-  background-color: green;
-  text-align: center;
-  color: white;
-  height: 25px;
-  margin-top: -9px;
-  margin-bottom: 20px;
+.footer-bottom {
+    background: #E3E3E3;
+    border-top: 1px solid #DDDDDD;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+.footer-bottom p.pull-left {
+    padding-top: 6px;
+}
+.payments {
+    font-size: 1.5em;
+    padding-right: 30px;
+}
+
+footer {
+    padding: 0;
+}
+
+.footer-section{
+  padding-top:20px;
 }

@@ -10,6 +10,7 @@ class Ability
         can :read, Customer
         can :update, Customer, :user_id => user.id
         can :destroy, Customer, :user_id => user.id
+        can :recover, Customer, :user_id => user.id
         can :create, Customer, :user_id => nil
         can :read, Provider
         can :search, Provider
@@ -18,6 +19,7 @@ class Ability
         can :read, Provider
         can :update, Provider, :user_id => user.id
         can :destroy, Provider, :user_id => user.id
+        can :recover, Provider, :user_id => user.id
         can :create, Provider, :user_id => nil
         can :read, Customer
         can :search, Provider
