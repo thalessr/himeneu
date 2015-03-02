@@ -1,6 +1,6 @@
 class ProvidersController < ApplicationController
   skip_before_filter :verify_authenticity_token
-  before_filter :authenticate_user!, :except => [:carousel]
+  before_filter :authenticate_user!, :except => [:carousel, :show]
   load_and_authorize_resource
 
   def index
@@ -45,7 +45,11 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    @provider = Provider.includes(:addresses).friendly.find(params[:id])
+    if current_user
+      @provider = Provider.includes(:addresses).friendly.find(params[:id])
+    else
+      @provider = Provider.friendly.find(params[:id])
+    end
   end
 
   def edit
