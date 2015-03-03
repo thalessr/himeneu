@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/anuncie' => 'static_pages#anuncie'
   get '/sobre' => 'static_pages#sobre'
   get '/contato' => 'static_pages#contato'
+  get 'newpro' => 'static_pages#newpro'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
