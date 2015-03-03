@@ -1,17 +1,16 @@
 require 'rails_helper'
 
-RSpec.describe ProvidersController, type: :controller do
+describe ProvidersController, type: :controller do
  include Devise::TestHelpers
 
   before :each do
+    @request.env["devise.mapping"] = Devise.mappings[:user]
     @provider = create(:provider)
+    role = create(:role, id: 2, name: "fornecedor")
+    @provider.user.roles.delete_all
+    @provider.user.roles << role
   end
 
-  # it "redirects to the home page upon save" do
-  #   sign_in create(:provider).user
-  #   post :create, provider: FactoryGirl.attributes_for(:provider)
-  #   # expect(response).to
-  # end
   it "renders the :index template" do
     sign_in @provider.user
     get :index
@@ -20,10 +19,9 @@ RSpec.describe ProvidersController, type: :controller do
 
   describe "Providers' show page" do
     it "Display a specific provider information" do
-      provider = create(:provider)
-      sign_in provider.user
-      get :show, id: provider
-      expect(assigns(:provider)).to eq provider
+      sign_in @provider.user
+      get :show, id: @provider
+      expect(assigns(:provider)).to eq @provider
     end
 
     describe "Renders show page template with or without authentication" do
@@ -49,7 +47,7 @@ RSpec.describe ProvidersController, type: :controller do
     it "Renders new template" do
       sign_in @provider.user
       get :new
-      expect(response).to_not render_template :new
+      expect(response).to render_template :new
     end
 
    it "Assigns a new Provider" do
@@ -69,7 +67,75 @@ RSpec.describe ProvidersController, type: :controller do
 
     it "Renders edit page" do
       sign_in @provider.user
+      should be_able_to(:update, @provider)
+      get :edit, id: @provider.slug
       expect(response).to render_template :edit
+    end
+
+  end
+
+  describe "Provider#create" do
+
+    it "Create a new provider" do
+      sign_in @provider.user
+      @provider.user = nil
+      should be_able_to(:create, @provider)
+      post :create, provider: attributes_for(:provider)
+      expect(response).to redirect_to provider_path(assigns[:provider])
+    end
+
+  end
+
+  describe "Provider#update" do
+    it "Update a provider" do
+      sign_in @provider.user
+      should be_able_to(:update, @provider)
+      patch :update, id: @provider.slug ,provider: attributes_for(:provider)
+      expect(assigns(:provider)).to eq @provider
+    end
+
+    it "Changes provider's attributes" do
+      sign_in @provider.user
+      should be_able_to(:update, @provider)
+      patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: "Nunes", last_name:"Costa")
+      @provider.reload
+      expect(@provider.first_name).to eq ("Nunes")
+      expect(@provider.last_name).to eq ("Costa")
+    end
+
+    it "Should not change provider's attributes" do
+      sign_in @provider.user
+      should be_able_to(:update, @provider)
+      patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: nil, last_name:"Costa")
+      @provider.reload
+      expect(@provider.last_name).to_not eq ("Costa")
+    end
+
+     it "Should re-render edit page" do
+      sign_in @provider.user
+      should be_able_to(:update, @provider)
+      patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: nil, last_name:"Costa")
+      expect(response).to render_template :edit
+    end
+
+  end
+
+  describe "Provider#destroy" do
+
+    it "Delete a provider" do
+      sign_in @provider.user
+      should be_able_to(:destroy, @provider)
+      delete :destroy, id: @provider
+      @provider.reload
+      expect(@provider.is_deleted).to be true
+    end
+
+    it "Recover a provider" do
+      sign_in @provider.user
+      should be_able_to(:recover, @provider)
+      get :recover, id: @provider
+      @provider.reload
+      expect(@provider.is_deleted).to be false
     end
 
   end
