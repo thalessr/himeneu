@@ -28,7 +28,6 @@ class User < ActiveRecord::Base
   def is_provider?
     if @is_provider.nil?
        @is_provider ||= self.roles.exists?(id: 2)
-       puts "is_provider #{@is_provider}"
     end
     return @is_provider
   end
