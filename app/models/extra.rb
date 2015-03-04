@@ -53,6 +53,11 @@ module Extra
     def deleted
       where(is_deleted: true )
     end
+
+    def first_last_name_search(name)
+      where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?", name, name ) unless name.blank?
+    end
+
   end
 
 end

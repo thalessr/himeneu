@@ -140,5 +140,16 @@ describe ProvidersController, type: :controller do
 
   end
 
+  describe "Provider#search" do
+
+    it "Should find a provider" do
+      sign_in @provider.user
+      should be_able_to(:search, @provider)
+      get :search, q: @provider.first_name, page: 1, format: :json
+      expect(response.body).to have_content @provider.to_json
+    end
+
+  end
+
 
 end

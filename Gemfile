@@ -61,6 +61,8 @@ end
 group :development, :test do
   gem 'rspec-rails'
   gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 gem 'bootstrap3-datetimepicker-rails'
