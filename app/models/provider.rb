@@ -42,25 +42,29 @@ class Provider < ActiveRecord::Base
     if query.blank?
       where(nil)
     else
-      array = query.split(',')
-      if array.length == 1
-        name = "%#{array[0].downcase}%"
+      search_params = query_2_hash(query)
+
+      if search_params[:name] && search_params[:profession].blank?
+        name = search_params[:name]
         distinct.first_last_name_search(name) | city_name_search(name) | profession_search(name)
-      elsif array.length == 2
-        name = "%#{array[0].downcase}%"
-        profession = "#{array[1]}"
-        distinct.first_last_name_search(name)  | profession_search(profession)
-      elsif array.length == 3
-        name = "%#{array[0].downcase}%"
-        profession = "#{array[1]}"
-        city = "#{array[2].downcase}"
-        distinct.first_last_name_search(name) | city_name_search(city) | profession_search(profession)
+
+      elsif search_params[:profession] && search_params[:city].blank?
+        name = search_params[:name]
+        profession = search_params[:profession]
+        distinct.first_last_name_search(name).profession_search(profession)
+
+      elsif search_params[:city]
+        name = search_params[:name]
+        profession = search_params[:profession]
+        city = search_params[:city]
+        distinct.first_last_name_search(name).city_name_search(city).profession_search(profession)
       end
+
     end
   end
 
   def self.city_name_search(city)
-    joins(:addresses).where("LOWER(addresses.city) LIKE ? ", city) unless city.blank?
+    distinct.joins(:addresses).where("LOWER(addresses.city) LIKE ? ", city) unless city.blank?
   end
 
   def self.profession_search(profession)
@@ -81,5 +85,15 @@ class Provider < ActiveRecord::Base
   def self.get_autocomplete
     JSON.parse($redis.get("autocomplete"))
   end
+
+  private
+    def self.query_2_hash(query)
+      hash = Hash.new
+      array = query.split(',')
+      hash[:name] = "%#{array[0].strip.downcase}%" unless array[0].blank?
+      hash[:profession] = "#{array[1].strip}" unless array[1].blank?
+      hash[:city] = "#{array[2].strip.downcase}" unless array[2].blank?
+      hash
+    end
 
 end

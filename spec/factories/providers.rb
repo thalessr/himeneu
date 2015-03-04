@@ -6,6 +6,8 @@ FactoryGirl.define do
    last_name Faker::Name.last_name
    experience Faker::Lorem.paragraph
    is_deleted false
+   profession_list "dev"
    association :user
+   addresses {[build(:address)]}
  end
 end

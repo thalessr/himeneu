@@ -58,6 +58,25 @@ describe Provider do
       expect(search).to include @provider
     end
 
+    it "filter by first_name or last_name, and profession" do
+      parameter = "#{@provider.first_name}, dev"
+      search = Provider.search(parameter)
+      expect(search).to include @provider
+    end
+
+
+    it "filter by first_name or last_name, profession, and city" do
+      parameter = "#{@provider.first_name}, dev , #{@provider.addresses.first.city}"
+      search = Provider.search(parameter)
+      expect(search).to include @provider
+    end
+
+    it "filter by first_name or last_name, profession, and city - with invalid data" do
+      parameter = "#{@provider.first_name}, dev , himeneulândia"
+      search = Provider.search(parameter)
+      expect(search).to_not include @provider
+    end
+
   end
 
 end
