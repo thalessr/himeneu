@@ -43,4 +43,21 @@ describe Provider do
 
   end
 
+  describe "searching filter" do
+     before :each do
+      @provider = create(:provider)
+    end
+
+    it "filter without any param" do
+      search = Provider.search("")
+      expect(search).to include @provider
+    end
+
+    it "filter by first_name or last_name" do
+      search = Provider.search(@provider.first_name)
+      expect(search).to include @provider
+    end
+
+  end
+
 end
