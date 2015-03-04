@@ -45,20 +45,26 @@ class Provider < ActiveRecord::Base
       array = query.split(',')
       if array.length == 1
         name = "%#{array[0].downcase}%"
-        distinct.joins(:addresses, :profession).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?
-                                                       OR LOWER(addresses.city) LIKE ? " , name, name, name) | self.tagged_with(name.remove('%'), :any => true)
+        distinct.first_last_name_search(name) | city_name_search(name) | profession_search(name)
       elsif array.length == 2
         name = "%#{array[0].downcase}%"
         profession = "#{array[1]}"
-        distinct.where(" LOWER(first_name) LIKE ? or LOWER(last_name) LIKE ? ", name, name) | self.tagged_with(profession)
+        distinct.first_last_name_search(name)  | profession_search(profession)
       elsif array.length == 3
         name = "%#{array[0].downcase}%"
         profession = "#{array[1]}"
         city = "#{array[2].downcase}"
-        distinct.joins(:addresses).tagged_with(profession).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ? OR LOWER(addresses.city) LIKE ? ", name, name, city) |
-        self.tagged_with(profession, :any => true)
+        distinct.first_last_name_search(name) | city_name_search(city) | profession_search(profession)
       end
     end
+  end
+
+  def self.city_name_search(city)
+    joins(:addresses).where("LOWER(addresses.city) LIKE ? ", city) unless city.blank?
+  end
+
+  def self.profession_search(profession)
+    self.tagged_with(profession.remove('%'), :any => true)
   end
 
   def set_video_url
