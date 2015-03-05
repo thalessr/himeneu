@@ -46,7 +46,7 @@ class Provider < ActiveRecord::Base
 
       if search_params[:name] && search_params[:profession].blank?
         name = search_params[:name]
-        distinct.first_last_name_search(name) | city_name_search(name) | profession_search(name)
+        distinct.first_last_name_search(name) | city_name_search(:addresses, name) | profession_search(name)
 
       elsif search_params[:profession] && search_params[:city].blank?
         name = search_params[:name]
@@ -57,14 +57,10 @@ class Provider < ActiveRecord::Base
         name = search_params[:name]
         profession = search_params[:profession]
         city = search_params[:city]
-        distinct.first_last_name_search(name).city_name_search(city).profession_search(profession)
+        distinct.first_last_name_search(name).city_name_search(:addresses, city).profession_search(profession)
       end
 
     end
-  end
-
-  def self.city_name_search(city)
-    distinct.joins(:addresses).where("LOWER(addresses.city) LIKE ? ", city) unless city.blank?
   end
 
   def self.profession_search(profession)
