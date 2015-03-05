@@ -1,3 +1,16 @@
+<% content_for :meta_tag do %>
+  <title>Himeneu - <%= @provider.full_name %></title>
+  <meta name="description" content="<%= @provider.experience %>">
+  <meta name="keywords" content="<%= @provider.profession_list.join(' ,') %>">
+  <meta property="og:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta property="og:url" content="<%= provider_url(@provider) %>"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content='Himeneu - <%= @provider.full_name %>' />
+  <meta name="twitter:description" content="<%= @provider.experience %>" />
+  <meta name="twitter:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
+<% end %>
+
 <div class="container-fluid">
   <div class="col-lg-6 col-lg-offset-3">
     <div class="row">
