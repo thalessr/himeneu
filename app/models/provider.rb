@@ -46,18 +46,18 @@ class Provider < ActiveRecord::Base
 
       if search_params[:name] && search_params[:profession].blank?
         name = search_params[:name]
-        distinct.first_last_name_search(name) | city_name_search(:addresses, name) | profession_search(name)
+        distinct.not_deleted.first_last_name_search(name) | city_name_search(:addresses, name) | profession_search(name)
 
       elsif search_params[:profession] && search_params[:city].blank?
         name = search_params[:name]
         profession = search_params[:profession]
-        distinct.first_last_name_search(name).profession_search(profession)
+        distinct.not_deleted.first_last_name_search(name).profession_search(profession)
 
       elsif search_params[:city]
         name = search_params[:name]
         profession = search_params[:profession]
         city = search_params[:city]
-        distinct.first_last_name_search(name).city_name_search(:addresses, city).profession_search(profession)
+        distinct.not_deleted.first_last_name_search(name).city_name_search(:addresses, city).profession_search(profession)
       end
 
     end
