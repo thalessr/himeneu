@@ -85,6 +85,7 @@ GEM
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
       slop (~> 3.6)
+    callsite (0.0.11)
     cancancan (1.9.2)
     capistrano (3.3.5)
       capistrano-stats (~> 1.1.0)
@@ -303,6 +304,10 @@ GEM
       skinny (>= 0.1.2)
       sqlite3-ruby
       thin
+    meta_request (0.3.4)
+      callsite (~> 0.0, >= 0.0.11)
+      rack-contrib (~> 1.1)
+      railties (>= 3.0.0, < 5.0.0)
     metaclass (0.0.4)
     method_source (0.8.2)
     mime-types (1.25.1)
@@ -340,7 +345,11 @@ GEM
     pry-byebug (3.0.1)
       byebug (~> 3.4)
       pry (~> 0.10)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-contrib (1.2.0)
+      rack (>= 0.9.1)
     rack-protection (1.5.3)
       rack
     rack-test (0.6.3)
@@ -518,6 +527,7 @@ DEPENDENCIES
   activeadmin!
   acts-as-taggable-on (~> 3.4)
   autosize-rails
+  awesome_print
   better_errors
   binding_of_caller
   bootstrap3-datetimepicker-rails
@@ -547,6 +557,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   mailcatcher
+  meta_request
   mini_magick
   mocha
   momentjs-rails
@@ -555,6 +566,7 @@ DEPENDENCIES
   pg
   pry
   pry-byebug
+  quiet_assets
   rails (= 4.1.1)
   rails_best_practices
   rb-readline

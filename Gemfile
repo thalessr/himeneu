@@ -17,6 +17,9 @@ group :development do
 	gem "binding_of_caller"
   gem 'colored'
   gem 'pry-byebug'
+  gem "awesome_print", require:"ap"
+  gem 'quiet_assets'
+  gem 'meta_request'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
