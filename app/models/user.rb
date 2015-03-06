@@ -13,21 +13,24 @@ class User < ActiveRecord::Base
   # ROLES = %w[fornecedor noiva(o)]
   @is_provider = nil
   @is_customer = nil
+  @is_completed = nil
 
   def set_completed
     self.update_attribute(:is_completed, true)
   end
 
   def is_customer?
+    @is_customer = get_redis_value("is_customer_#{self.id}")
     if @is_customer.nil?
-      @is_customer ||= self.roles.exists?(id: 1)
+      set_redis_key("is_customer_#{self.id}", self.roles.exists?(id: 1).to_json)
     end
     return @is_customer
   end
 
   def is_provider?
+    @is_provider = get_redis_value("is_provider_#{self.id}")
     if @is_provider.nil?
-       @is_provider ||= self.roles.exists?(id: 2)
+       set_redis_key("is_provider_#{self.id}" ,self.roles.exists?(id: 2).to_json)
     end
     return @is_provider
   end
@@ -46,16 +49,33 @@ class User < ActiveRecord::Base
     provider.id
   end
 
+  def is_completed?
+     if @is_completed.nil?
+      @is_completed ||= self.is_completed
+    end
+    return @is_completed
+  end
+
   def is_customer_completed?
     if self
-      self.is_completed && self.is_customer?
+      is_completed? && self.is_customer?
     end
   end
 
   def is_provider_completed?
     if self
-      self.is_completed && self.is_provider?
+      is_completed? && self.is_provider?
     end
+  end
+
+  private
+  def set_redis_key(key, value)
+    $redis.set(key, value)
+    $redis.expire(key, 1.hour.to_i)
+  end
+
+  def get_redis_value(key)
+    JSON.load  $redis.get(key)
   end
 
 end
