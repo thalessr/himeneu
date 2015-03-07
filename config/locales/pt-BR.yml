@@ -55,6 +55,11 @@ pt-BR:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  interested: "Ver contato"
+  negotiate: "Negociar"
+  hire: "Contratar"
+  review: "Recommendar"
+  complete: "Obrigado pela preferência :D"
   errors:
     messages:
       blank: "blank"
