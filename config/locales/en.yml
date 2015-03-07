@@ -76,6 +76,11 @@ en:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  interested: "See contact"
+  negotiate: "Negotiate"
+  hire: "Hire"
+  review: "Write a review"
+  complete: "Complete"
   links:
       back: "Back"
       cancel: "Cancel"

@@ -13,6 +13,15 @@ class InterestsController < ApplicationController
     end
 	end
 
+  def change_state
+    provider = Provider.friendly.select(:id).find(params[:provider_id])
+    interest = Interest.find_by(customer_id: current_user.customer.id , provider_id: provider.id)
+    interest.send(params[:state])
+    flash[:notice] = "Aguarde o contato deste prestador de serviço!"
+    render :nothing => true
+    redirect_to provider_path(interest.provider)
+  end
+
 	private
 		def interest_params
   		params.permit(:customer_id, :provider_id)

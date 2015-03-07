@@ -85,7 +85,7 @@
                   <% unless has_interest?(@provider) %>
                     <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
                   <% else %>
-                     <%= button_to 'Avalie', nil, :class => 'btn btn-primary' %>
+                     <%= next_state_action(@provider) %>
                   <% end %>
                 <% end %>
               </div>
