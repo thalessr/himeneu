@@ -43,7 +43,9 @@ resources :providers do
   get 'recover', on: :collection
 end
 
-resources :interests, :only => :create
+resources :interests, :only => :create do
+  post 'change_state', on: :collection
+end
 
 
   # The priority is based upon order of creation: first created -> highest priority.
