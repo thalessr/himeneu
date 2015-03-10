@@ -7,6 +7,7 @@ class Provider < ActiveRecord::Base
   has_many :recommendations, dependent: :destroy
   has_many :customers, through: [:recommendations, :interests]
   has_many :interests
+  has_many :feature_images, inverse_of: :provider
 
   before_save :set_video_url
   after_save :insert_contact
