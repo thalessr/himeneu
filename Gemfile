@@ -17,6 +17,9 @@ group :development do
 	gem "binding_of_caller"
   gem 'colored'
   gem 'pry-byebug'
+  gem "awesome_print", require:"ap"
+  gem 'quiet_assets'
+  gem 'meta_request'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
@@ -52,12 +55,17 @@ end
 
 group :test do
 	gem 'selenium-webdriver'
-	gem 'minitest-reporters'
-	gem 'mini_backtrace'
-  gem 'minitest'
-  # gem 'minitest-rails'
-  gem 'guard-minitest'
   gem 'mocha'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'faker'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 gem 'bootstrap3-datetimepicker-rails'

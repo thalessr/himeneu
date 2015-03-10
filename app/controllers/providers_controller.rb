@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
+     @providers = Provider.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
      respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
@@ -83,7 +83,7 @@ class ProvidersController < ApplicationController
   end
 
   def carousel
-    providers = Provider.select(:first_name, :last_name, :image).recent(5)
+    providers = Provider.carousel
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}

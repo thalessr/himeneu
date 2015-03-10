@@ -2,8 +2,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the passed in user here. For example:
-    #
 
       user ||= User.new # guest user (not logged in)
       if user.is_customer?
@@ -16,20 +14,14 @@ class Ability
         can :search, Provider
         can :create, Interest
       elsif user.is_provider?
-        can :read, Provider
-        can :update, Provider, :user_id => user.id
-        can :destroy, Provider, :user_id => user.id
-        can :recover, Provider, :user_id => user.id
+        can [:read, :search], Provider
+        can [:update, :destroy, :recover], Provider, :user_id => user.id
         can :create, Provider, :user_id => nil
-        can :read, Customer
-        can :search, Provider
-        can :search, Customer
-        # cannot [:edit, :create, :destroy], Customer
+        can [:read, :search], Customer
       else
         can :create, User
         cannot :manage, Customer
-        can :read, Provider
-        can :carousel, Provider
+        can [:read, :carousel], Provider
       end
     #
     # The first argument to `can` is the action you are giving the user
