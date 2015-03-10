@@ -83,7 +83,7 @@ class ProvidersController < ApplicationController
   end
 
   def carousel
-    providers = Provider.select(:first_name, :last_name, :image).recent(5)
+    providers = Provider.carousel
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}

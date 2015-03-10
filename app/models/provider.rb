@@ -1,5 +1,6 @@
 class Provider < ActiveRecord::Base
   extend Extra::Selection
+  extend CacheRedis::Utils
   include Extra::Methods
 
 	belongs_to :user
@@ -9,6 +10,7 @@ class Provider < ActiveRecord::Base
   has_many :interests, dependent: :destroy
 
   before_save :set_video_url
+  before_save :verify_urls
   after_save :insert_contact
 
 
@@ -29,7 +31,6 @@ class Provider < ActiveRecord::Base
   #Friendly_id
   extend FriendlyId
   friendly_id :slug_options, use: :slugged
-
 
   def insert_contact
     if self.addresses.any? && self.contact.nil?
@@ -74,12 +75,35 @@ class Provider < ActiveRecord::Base
    end
   end
 
+  def verify_urls
+    self.facebook = add_url_protocol(facebook) if facebook_changed?
+    self.twitter = add_url_protocol(twitter)  if twitter_changed?
+    self.instagram = add_url_protocol(instagram)  if instagram_changed?
+    self.website = add_url_protocol(website)  if website_changed?
+  end
+
+  def add_url_protocol(url)
+     /^http/i.match(url) ? url : "http://#{url}"
+  end
+
   def self.autocomplete_seed
       $redis.set "autocomplete", ActsAsTaggableOn::Tag.most_used(10).pluck(:name).to_json
   end
 
   def self.get_autocomplete
     JSON.parse($redis.get("autocomplete"))
+  end
+
+  def self.carousel
+    carousel = get_redis_value("carousel")
+    if carousel.blank?
+      carousel = Provider.select(:first_name, :last_name, :image).where.not(image: nil).recent(5)
+      unless carousel.blank?
+        set_redis_key("carousel" , carousel.to_json, 8)
+        carousel = get_redis_value("carousel")
+      end
+    end
+    carousel
   end
 
   private
