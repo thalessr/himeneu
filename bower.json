@@ -25,6 +25,7 @@
     "fuelux": "~3.5.1",
     "components-font-awesome": "~4.3.0",
     "bootstrap-notify": "~0.2.0",
-    "flat-ui": "~2.2.2"
+    "flat-ui": "~2.2.2",
+    "jquery-file-upload": "~9.9.3"
   }
 }

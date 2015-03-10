@@ -25,6 +25,8 @@
 //= require bootstrap-notify/js/bootstrap-notify.js
 //= require flat-ui/dist/js/flat-ui.min.js
 //= require videojs/dist/video-js/video.js
+//= require jquery-file-upload/js/jquery.fileupload.js
+//= require fancybox/source/jquery.fancybox.js
 //= require_tree .
 //= stub active_admin
 
