@@ -18,6 +18,7 @@ require 'capistrano/deploy'
 # require 'capistrano/rvm'
 # require 'capistrano/rbenv'
 # require 'capistrano/chruby'
+require "whenever/capistrano"
 require 'capistrano/sitemap_generator'
 require 'capistrano/bundler'
 require 'capistrano/rails'
