@@ -34,6 +34,14 @@
             Faço cerimônias de casamentos há mais de 20 anos. Quer o melhor pra sua festa? Me contrate e terá omomentos inesquecíveis. Aqui é florista, mermão. Já fiz festas de atores da globo, de astros de rock e até de comediantes em stand up? Pensou festa, pensou Letícia.
           </p>
         </div>
+        <div>
+          <%= form_for FeatureImage.new do |f| %>
+            <%= f.label :image, "Insira imagens" %>
+            <%= f.file_field :image %>
+            <%= hidden_field_tag 'provider_id', '6' %>
+            <%= f.submit %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

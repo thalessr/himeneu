@@ -1,196 +1,58 @@
-<% if can? :read, @provider %>
-  <div class="row">
-    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title"><%= @provider.full_name %></h3>
+  <section>
+    <div class="container">
+      <div class="row header-profile">
+        <div class="col-md-3">
+          <div>
+            <% if @provider.image? %>
+               <%= image_tag @provider.image_url(:profile) %>
+            <% else %>
+               <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+            <% end %>
+          </div>
+          <div class='contact-info-box'>
+            <div class="contact-info-box-header">
+              <h2 class="h6">
+                Meus contatos
+              </h2>
+            </div>
+            <div class='contact-info-box-body'>
+              <ul class='list-unstyled'>
+                <li><i class='glyphicon glyphicon-phone'></i> <%= @provider.contact %></li>
+                <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="panel-body">
-          <div class="row">
-              <div class="col-md-3 col-lg-3 " align="center">
-                <% if @provider.image? %>
-                   <%= image_tag @provider.image_url(:thumb), :class => "profile_image" %>
-                <% else %>
-                   <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
-                <% end %>
-              </div>
-              <div class=" col-md-9 col-lg-9 ">
+        <div class="col-md-9">
+          <div class="profile-name">
+            <h1 class="h2"> <%= @provider.full_name %> </h1>
+          </div>
+          <div class="profile-tags">
+            <% @provider.profession.each do |p| %>
+              <%= content_tag :button , :class => "btn btn-info btn-embossed btn-sm" do %>
+                 <%= p.name %>
+              <% end %>
+            <% end %>
+          </div>
+          <div class="about-box">
+            <div class="col-md-8 text-about">
+              <p>
+                <%= @provider.experience %>
+              </p>
+            </div>
+            <div class="col-md-4">
 
-                <table class="table table-user-information">
-                  <tbody>
-                    <tr>
-                      <td>
-
-                      </td>
-                      <td>
-                        <div class="row">
-                          <% unless @provider.facebook.blank? %>
-                            <%= link_to @provider.facebook , :target => "_blank", class: "" do %>
-                              <i class="fa fa-facebook-official fa-2x"></i>
-                            <% end %>
-                          <% end %>
-                          <% unless @provider.instagram.blank? %>
-                            <%= link_to @provider.instagram , :target => "_blank", class: "" do %>
-                              <i class="fa fa-instagram fa-2x"></i>
-                            <% end %>
-                          <% end %>
-                          <% unless @provider.twitter.blank? %>
-                            <%= link_to @provider.twitter , :target => "_blank", class: "" do %>
-                              <i class="fa fa-twitter fa-2x"></i>
-                            <% end %>
-                          <% end %>
-                          <% unless @provider.website.blank? %>
-                            <%= link_to @provider.website , :target => "_blank",class: "" do %>
-                              <i class="fa fa-external-link-square fa-2x"></i>
-                            <% end %>
-                          <% end %>
-                        </div>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td><%= t(:profession) %></td>
-                      <td><%= @provider.profession_list %></td>
-                    </tr>
-                    <tr>
-                      <td><%= t(:experience) %></td>
-                      <td><%= @provider.experience %></td>
-                    </tr>
-                    <% unless @provider.video_url.blank? %>
-                      <tr>
-                        <td>Video</td>
-                        <td>
-                         <div class="embed-responsive embed-responsive-4by3">
-                          <iframe class="embed-responsive-item" src="<%= @provider.video_url %>"></iframe>
-                         </div>
-                        </td>
-                      </tr>
-                    <% end %>
-                    <% if has_interest?(@provider) %>
-                      <tr>
-                        <td><%= t(:phone) %></td>
-                        <td><%= @provider.contact %><br><br>
-                        </td>
-                      </tr>
-                    <% end %>
-
-                  </tbody>
-                </table>
-                <% if can? :create, Interest %>
-                  <% unless has_interest?(@provider) %>
-                    <%= button_to 'Me Interessa', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
-                  <% end %>
-                <% end %>
-              </div>
             </div>
           </div>
-          <div class="panel-footer" style="height:43px">
-              <% if has_interest?(@provider) || ( can? :update, @provider ) %>
-                <%= mail_to @provider.email, { class: "btn btn-sm btn-primary" } do %>
-                  <i class="glyphicon glyphicon-envelope"></i>
-                <% end %>
-              <% else %>
-                  <i class="glyphicon glyphicon-lock"></i>
-              <% end %>
-
-              <span class="pull-right">
-                <% if can? :update, @provider %>
-                 <span data-toggle="tooltip" data-placement="right" >
-                  <%= link_to edit_provider_path(@provider.slug) ,class: "btn btn-sm btn-warning" do %>
-                    <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"   ></i>
-                  <% end %>
-                  </span>
-                <% end %>
-                <% if can? :destroy, @provider %>
-                  <%= delete_or_recovery(@provider) %>
-                <% end %>
-              </span>
+          <div>
+            <%= form_for FeatureImage.new do |f| %>
+              <%= f.label :image, "Insira imagens" %>
+              <%= f.file_field :image %>
+              <%= hidden_field_tag 'provider_id', @provider.id %>
+              <%= f.submit %>
+            <% end %>
           </div>
-          <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#add">
-              Endereços  <span class="badge"><%= @provider.addresses.count %></a>
-            </li>
-            <li>
-              <a data-toggle="tab" href="#comment">Recomendação <span class="badge">
-                <%= @provider.recommendations.count %></a>
-            </li>
-          </ul>
-          <div class="tab-content">
-            <div id="add" class="tab-pane fade in active">
-              <% @provider.addresses.each do |address| %>
-                  <div class="row" id="address_show">
-                    <div class="col-md-12">
-                       <div class="col-md-4">
-                         <address>
-                          <strong></strong><br>
-                              <%= address.city %>, <%= address.zipcode %><br>
-                              <% if has_interest?(@provider) %>
-                                <abbr title="telefone">Fone:</abbr> <%= address.phone %>
-                                <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
-                                  <i class="glyphicon glyphicon-envelope"></i>
-                                <% end %>
-                              <% end %>
-                         </address>
-                       </div>
-                       <div id="map" class="col-md-8">
-                          <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}" %>
-                           </div>
-                        </div>
-                      </div>
-              <% end %>
-            </div>
-            <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
-              <% if current_user.is_customer? %>
-                <form novalidate  class="form-horizontal" role="form">
-                  <div class="col-md-12">
-                    <div class="col-md-5">
-                      <label>Assunto:</label>
-                      <input type="text" ng-model="recommendation.title" name="title"/>
-                    </div>
-                    <div class="col-md-5">
-                      <label>Pontuação:</label>
-                      <div ng-model="recommendation.rating" id="rate"> </div>
-                    </div>
-                    <div class="col-md-2">
-                      </br>
-                      <input type="submit" class="btn btn-success btn-circle" ng-click="save(recommendation)" value="Salvar" />
-                    </div>
-                  </div>
-                  <div class="col-md-12">
-                    <div> <div>
-                    <label>Comentário:</label>
-                    <textarea ng-model="recommendation.comment" style="width:100%" /></textarea>
-                  </div>
-                </form>
-              <% end %>
-
-                <ul class="media-list" ng-repeat="rec in recommendations">
-                  <li class="media">
-                    <a class="pull-left" href="#">
-                      <img class="media-object img-circle" ng-src="{{rec.customer.image['thumb'].url}}" alt="profile"></img>
-                    </a>
-                    <div class="media-body">
-                      <div class="well well-lg">
-                          <h6 class="media-heading text-uppercase reviews">{{rec.title }}
-                            <small> {{rec.customer.full_name }} </small> </h6>
-                          <ul class="media-date text-uppercase reviews list-inline">
-                             <div data-score="{{rec.rating}}" id="score"></div>
-                          </ul>
-
-                          <p class="media-comment">
-                            {{rec.comment}}
-                          </p>
-                      </div>
-                    </div>
-                 </li>
-               </ul>
-
-            </div>
-         </div>
-
+        </div>
       </div>
     </div>
-  </div>
-
-
-<% end %>
-
+  </section>
