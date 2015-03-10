@@ -1,4 +1,5 @@
 require 'faker'
+I18n.reload!
 
 FactoryGirl.define do
  factory :provider do
