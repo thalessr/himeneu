@@ -12,7 +12,7 @@
                 <% if @provider.image? %>
                    <%= image_tag @provider.image_url(:thumb), :class => "profile_image" %>
                 <% else %>
-                   <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+                   <img alt="User Picture" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
                 <% end %>
               </div>
               <div class=" col-md-9 col-lg-9 ">
@@ -147,7 +147,7 @@
               <% end %>
             </div>
             <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
-              <% if current_user.is_customer? %>
+              <% if current_user.is_customer? && get_interest(@provider) == "reviewing" %>
                 <form novalidate  class="form-horizontal" role="form">
                   <div class="col-md-12">
                     <div class="col-md-5">

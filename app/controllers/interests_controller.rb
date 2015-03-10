@@ -7,6 +7,7 @@ class InterestsController < ApplicationController
       interest.provider = Provider.friendly.find(interest_params[:provider_id])
       if interest.save
         send_email(interest)
+        interest.delete_cached_state
         redirect_to provider_path(interest.provider)
         flash[:notice] = "Aguarde o contato deste prestador de serviço!"
       end
@@ -17,8 +18,8 @@ class InterestsController < ApplicationController
     provider = Provider.friendly.select(:id).find(params[:provider_id])
     interest = Interest.find_by(customer_id: current_user.customer.id , provider_id: provider.id)
     interest.send(params[:state])
+    interest.delete_cached_state
     flash[:notice] = "Aguarde o contato deste prestador de serviço!"
-    render :nothing => true
     redirect_to provider_path(interest.provider)
   end
 

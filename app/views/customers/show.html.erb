@@ -25,11 +25,13 @@
                               <td><%= t(:wedding_date) %></td>
                               <td><%= distance_of_time_in_words(Time.now,@customer.wedding_date) %></td>
                             </tr>
-                            <tr>
-                              <td><%= t(:phone) %></td>
-                              <td><%= @customer.phone %><br><br>
-                              </td>
-                            </tr>
+                            <% if get_interest(@customer) == "negotiating" %>
+                              <tr>
+                                <td><%= t(:phone) %></td>
+                                <td><%= @customer.phone %><br><br>
+                                </td>
+                              </tr>
+                            <% end %>
                           </tbody>
                         </table>
                     </div>
