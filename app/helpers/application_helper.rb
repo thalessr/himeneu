@@ -25,4 +25,15 @@ module ApplicationHelper
     end
   end
 
+  # needs improvements
+  # def meta_tag(title, description, tags, image, url)
+  #   content_for :meta_tag do
+  #     content_tag :title, title
+  #     content_tag(:meta, "", name: :description, content: description)
+  #     content_tag(:meta, "", name: :keywords, content: tags)
+  #     content_tag(:meta, "", property: "og:image" , content: image)
+  #     content_tag(:meta, "", property: "og:url" , content: url)
+  #   end
+  # end
+
 end
