@@ -17,7 +17,7 @@ group :development do
 	gem "binding_of_caller"
   gem 'colored'
   gem 'pry-byebug'
-  gem "awesome_print", require:"ap"
+  gem "awesome_print"
   gem 'quiet_assets'
   gem 'meta_request'
 end
@@ -108,6 +108,7 @@ gem "sitemap_generator"
 
 gem 'state_machine'
 gem 'whenever', :require => false
+gem 'newrelic_rpm'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
