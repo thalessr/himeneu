@@ -44,13 +44,24 @@
 
             </div>
           </div>
+
           <div>
-            <%= form_for FeatureImage.new do |f| %>
-              <%= f.label :image, "Insira imagens" %>
-              <%= f.file_field :image %>
-              <%= hidden_field_tag 'provider_id', @provider.id %>
-              <%= f.submit %>
+            <% @provider.feature_images.each do |i| %>
+              <%= link_to image_tag(i.image_url(:thumb)),i.image_url, :id => 'single_image' %>
             <% end %>
+
+          </div>
+
+
+
+
+
+          <div>
+           <%= form_for FeatureImage.new do |f| %>
+             <%= f.file_field :image %>
+             <%= f.hidden_field :provider_id, :value => @provider.id %>
+             <%= f.submit %>
+           <% end %>
           </div>
         </div>
       </div>
