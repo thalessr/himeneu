@@ -41,27 +41,105 @@
               </p>
             </div>
             <div class="col-md-4">
-
             </div>
           </div>
-
-          <div>
-            <% @provider.feature_images.each do |i| %>
-              <%= link_to image_tag(i.image_url(:thumb)),i.image_url, :id => 'single_image' %>
-            <% end %>
-
+          <div class="images-profile">
+            <div>
+              <% @provider.feature_images.each do |i| %>
+                <%= link_to image_tag(i.image_url(:thumb)),i.image_url, :id => 'single_image' %>
+              <% end %>
+            </div>
+            <% if can? :update, @provider %>
+              <div>
+               <%= form_for FeatureImage.new do |f| %>
+                 <%= f.file_field :image %>
+                 <%= f.hidden_field :provider_id, :value => @provider.id %>
+                 <%= f.submit %>
+               <% end %>
+              </div>
+            <% end -%>
           </div>
+          <div class="tabs-profile">
+             <ul class="nav nav-tabs">
+               <li class="active"><a data-toggle="tab" href="#add">
+                 Endereços  <span class="badge"><%= @provider.addresses.count %></a>
+               </li>
+               <li>
+                 <a data-toggle="tab" href="#comment">Recomendação <span class="badge">
+                   <%= @provider.recommendations.count %></a>
+               </li>
+             </ul>
+             <div class="tab-content">
+               <div id="add" class="tab-pane fade in active">
+                 <% @provider.addresses.each do |address| %>
+                     <div class="row" id="address_show">
+                       <div class="col-md-12">
+                          <div class="col-md-4">
+                            <address>
+                             <strong></strong><br>
+                                 <%= address.city %>, <%= address.zipcode %><br>
+                                 <% if has_interest?(@provider) %>
+                                   <abbr title="telefone">Fone:</abbr> <%= address.phone %>
+                                   <%= mail_to address.email, { class: "btn btn-sm btn-primary" } do %>
+                                     <i class="glyphicon glyphicon-envelope"></i>
+                                   <% end %>
+                                 <% end %>
+                            </address>
+                          </div>
+                          <div id="map" class="col-md-8">
+                             <%= image_tag "http://maps.google.com/maps/api/staticmap?size=300x300&sensor=false&zoom=16&markers=#{address.latitude}%2C#{address.longitude}" %>
+                              </div>
+                           </div>
+                         </div>
+                 <% end %>
+               </div>
+               <div id="comment" ng-controller="RecommendationCtrl" data-param= <%=@provider.id  %> class="tab-pane fade">
+                 <% if current_user.is_customer? %>
+                   <form novalidate  class="form-horizontal" role="form">
+                     <div class="col-md-12">
+                       <div class="col-md-5">
+                         <label>Assunto:</label>
+                         <input type="text" ng-model="recommendation.title" name="title"/>
+                       </div>
+                       <div class="col-md-5">
+                         <label>Pontuação:</label>
+                         <div ng-model="recommendation.rating" id="rate"> </div>
+                       </div>
+                       <div class="col-md-2">
+                         </br>
+                         <input type="submit" class="btn btn-success btn-circle" ng-click="save(recommendation)" value="Salvar" />
+                       </div>
+                     </div>
+                     <div class="col-md-12">
+                       <div> <div>
+                       <label>Comentário:</label>
+                       <textarea ng-model="recommendation.comment" style="width:100%" /></textarea>
+                     </div>
+                   </form>
+                 <% end %>
 
+                   <ul class="media-list" ng-repeat="rec in recommendations">
+                     <li class="media">
+                       <a class="pull-left" href="#">
+                         <img class="media-object img-circle" ng-src="{{rec.customer.image['thumb'].url}}" alt="profile"></img>
+                       </a>
+                       <div class="media-body">
+                         <div class="well well-lg">
+                             <h6 class="media-heading text-uppercase reviews">{{rec.title }}
+                               <small> {{rec.customer.full_name }} </small> </h6>
+                             <ul class="media-date text-uppercase reviews list-inline">
+                                <div data-score="{{rec.rating}}" id="score"></div>
+                             </ul>
 
-
-
-
-          <div>
-           <%= form_for FeatureImage.new do |f| %>
-             <%= f.file_field :image %>
-             <%= f.hidden_field :provider_id, :value => @provider.id %>
-             <%= f.submit %>
-           <% end %>
+                             <p class="media-comment">
+                               {{rec.comment}}
+                             </p>
+                         </div>
+                       </div>
+                    </li>
+                  </ul>
+               </div>
+            </div>
           </div>
         </div>
       </div>
