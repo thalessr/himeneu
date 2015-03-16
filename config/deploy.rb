@@ -76,6 +76,7 @@ end
 
 after "deploy", "deploy:migrate"
 after :deploy, "deploy:sitemap:refresh"
+after "deploy:updated", "newrelic:notice_deployment"
 
 namespace :sidekiq do
   task :start do

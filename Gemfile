@@ -6,7 +6,6 @@ gem 'rails', '4.1.1'
 
 group :development do
 	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
 	gem 'spring'
 	gem 'better_errors'
 	gem 'rails_best_practices'
@@ -66,6 +65,7 @@ group :development, :test do
   gem 'factory_girl_rails'
   gem 'guard'
   gem 'guard-rspec'
+  gem 'sqlite3'
 end
 
 gem 'bootstrap3-datetimepicker-rails'
