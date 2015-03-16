@@ -45,8 +45,7 @@ class ProvidersController < ApplicationController
   end
 
   def show
-    # @provider = Provider.includes(:addresses).friendly.find(params[:id])
-    @provider = Provider.friendly.find(params[:id])
+    @provider = Provider.includes(:addresses).friendly.find(params[:id])
   end
 
   def edit

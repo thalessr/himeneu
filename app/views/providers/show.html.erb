@@ -22,10 +22,43 @@
               </ul>
             </div>
           </div>
+          <div class="social-info-box">
+            <div class="contact-info-box-header">
+              <h2 class="h6">
+                Meus Links
+              </h2>
+            </div>
+            <div class='contact-info-box-body'>
+              <ul class='list-unstyled'>
+                <% unless @provider.facebook.empty? %>
+                  <li><i class='fui-facebook'></i> <%= @provider.facebook %></li>
+                <% end %>
+                <% unless @provider.twitter.empty? %>
+                  <li><i class='fui-twitter'></i> <%= @provider.twitter %></li>
+                <% end %>
+                <% unless @provider.instagram.empty? %>
+                  <li><i class='fui-instagram'></i> <%= @provider.instagram %></li>
+                <% end %>
+                <% unless @provider.website.empty? %>
+                  <li><i class='fui-window'></i> <%= @provider.website %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
         </div>
         <div class="col-md-9">
           <div class="profile-name">
-            <h1 class="h2"> <%= @provider.full_name %> </h1>
+            <h1 class="h2"> <%= @provider.full_name %>
+              <span class="">
+                <% if can? :update, @provider %>
+                 <span data-toggle="tooltip" data-placement="right" >
+                  <%= link_to edit_provider_path(@provider.slug) do %>
+                    <i class="glyphicon glyphicon-edit edit-button" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"   ></i>
+                  <% end %>
+                </span>
+                <% end %>
+              </span>
+            </h1>
           </div>
           <div class="profile-tags">
             <% @provider.profession.each do |p| %>
@@ -44,7 +77,10 @@
             </div>
           </div>
           <div class="images-profile">
-            <div>
+            <h6 class="h6">
+              Minha Imagens
+            </h6>
+            <div class="images-container">
               <% @provider.feature_images.each do |i| %>
                 <%= link_to image_tag(i.image_url(:thumb)),i.image_url, :id => 'single_image' %>
               <% end %>
@@ -54,7 +90,7 @@
                <%= form_for FeatureImage.new do |f| %>
                  <%= f.file_field :image %>
                  <%= f.hidden_field :provider_id, :value => @provider.id %>
-                 <%= f.submit %>
+                 <%= f.submit "Postar imagem"%>
                <% end %>
               </div>
             <% end -%>
@@ -121,7 +157,7 @@
                    <ul class="media-list" ng-repeat="rec in recommendations">
                      <li class="media">
                        <a class="pull-left" href="#">
-                         <img class="media-object img-circle" ng-src="{{rec.customer.image['thumb'].url}}" alt="profile"></img>
+                         <img class="media-object" ng-src="{{rec.customer.image['thumb'].url}}" alt="profile"></img>
                        </a>
                        <div class="media-body">
                          <div class="well well-lg">
