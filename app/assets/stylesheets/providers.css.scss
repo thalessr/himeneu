@@ -39,7 +39,29 @@
       }
     }
 
+    .images-profile {
+        margin-bottom: 30px;
+
+        .images-container {
+            margin-bottom: 20px;
+        }
+    }
+
     .about-box {
-        height: 200px;
+        height: 230px;
+    }
+
+    .edit-button {
+        font-size: 20px;
+    }
+
+    .tab-content{
+        height: 450px;
+    }
+
+    .social-info-box {
+        background-color: #fff;
+        margin-top: 25px;
+        border: 1px solid #dce0e0;
     }
 }
