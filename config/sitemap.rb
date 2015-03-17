@@ -26,11 +26,12 @@ SitemapGenerator::Sitemap.create do
   #     add article_path(article), :lastmod => article.updated_at
   #   end
 
-  add providers_path, :changefreq => 'daily', :priority => 0.9
+  # add providers_path, :changefreq => 'daily', :priority => 0.9
+
   @providers = Provider.select(:slug, :updated_at)
   @providers.each do |provider|
-    add provider_path(provider), lastmod: provider.updated_at
+    add provider_path(provider), lastmod: provider.updated_at, :changefreq => 'daily'
   end
 
-# SitemapGenerator::Sitemap.ping_search_engines
+ SitemapGenerator::Sitemap.ping_search_engines
 end

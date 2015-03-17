@@ -1,0 +1,42 @@
+<% content_for :meta_tag do %>
+  <title>Himeneu - <%= @provider.full_name %></title>
+  <meta name="description" content="<%= @provider.experience %>">
+  <meta name="keywords" content="<%= @provider.profession_list.join(' ,') %>">
+  <meta property="og:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta property="og:url" content="<%= provider_url(@provider) %>"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content='Himeneu - <%= @provider.full_name %>' />
+  <meta name="twitter:description" content="<%= @provider.experience %>" />
+  <meta name="twitter:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
+<% end %>
+
+<div class="container-fluid">
+  <div class="col-lg-6 col-lg-offset-3">
+    <div class="row">
+      <div class="col-md-4">
+          <% if @provider.image? %>
+              <%= image_tag @provider.image_url(:regular), :class => "img-responsive" %>
+          <% else %>
+              <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-responsive">
+          <% end %>
+      </div>
+      <div class="col-md-8">
+        <div class="tab-content">
+          <div class="tab-pane active" id="about">
+              <h3><%= @provider.full_name %></h3>
+              <hr>
+              <p><%= @provider.experience %></p>
+              <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
+              <% @provider.profession_list.each do |p| %>
+               <span class="tags hidden-xs" ng-class"tags hidden-xs">
+                 <%= p %>
+               </span>
+              <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
