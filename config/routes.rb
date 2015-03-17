@@ -44,7 +44,9 @@ resources :providers do
   get 'recover', on: :collection
 end
 
-resources :interests, :only => :create
+resources :interests, :only => :create do
+  post 'change_state', on: :collection
+end
 
 resources :feature_images
 

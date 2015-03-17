@@ -2,9 +2,11 @@ class Recommendation < ActiveRecord::Base
 	belongs_to :customer
 	belongs_to :provider
 
-	# validates :title, presence: true, length: { minimum: 1 }
-  # validates :comment, presence: true, length: { minimum: 1 }
   after_save :calculate_provider_score
+
+  validates_presence_of :customer
+  validates_presence_of :provider
+  validates_presence_of :rating
 
 
 	def as_json(options = {})
@@ -18,8 +20,6 @@ class Recommendation < ActiveRecord::Base
       unless provider.recommendations.empty?
         score = provider.recommendations.average(:rating).to_f
       end
-      # total_rating = provider.recommendations.sum(:rating)
-      # score = total_rating.to_f/total_recommendations.to_f
       provider.update_attribute(:score, score.to_f)
     end
   end
