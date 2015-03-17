@@ -53,6 +53,15 @@ module Extra
     def deleted
       where(is_deleted: true )
     end
+
+    def first_last_name_search(name)
+      where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ?", name, name ) unless name.blank?
+    end
+
+    def city_name_search(association_name, city)
+      distinct.joins(association_name).where("LOWER(addresses.city) LIKE ? ", city) unless city.blank?
+    end
+
   end
 
 end

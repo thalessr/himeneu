@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= t(:title) %></title>
     <%= stylesheet_link_tag    "application", media: "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="ONLab">
-    <meta name="description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial.">
-    <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
-    <meta property="og:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
-    <meta property="og:url" content="http://www.himeneu.com"/>
+    <meta name="msvalidate.01" content="7E18800C43DF85C72AA2B64038A26451" />
+    <% if content_for?(:meta_tag) %>
+      <%= yield(:meta_tag) %>
+    <% end %>
     <%= favicon_link_tag 'favicon.ico' %>
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,7 +70,6 @@
                             <% end %>
                         </li>
                     <% else %>
-                        <li><%= link_to 'Nossos Clientes',  dashboard_path+"#clients"%> </li>
                         <li><%= link_to 'Contato', dashboard_path+"#contato"%></li>
                         <li><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
                         <li><%= link_to t(:login).capitalize, new_user_session_path %></li>
@@ -107,7 +104,7 @@
 
 	<%= yield %>
 
-  <section id="contato">
+  <section id="contato" class="footer-section">
     <footer  class="footer clearfix">
         <div class="footer-bottom">
             <div class="container-fluid">
@@ -144,7 +141,7 @@
                           <span class="glyphicon glyphicon-envelope"></span>
                             contato@himeneu.com
                       </div>
-                    </div>  
+                    </div>
                 <% end %>
             </div>
         </div>

@@ -1,11 +1,11 @@
 
-# H1 Himeneu  | https://himeneu.herokuapp.com/
+# H1 Himeneu  | https://www.himeneu.com/
 
 >Website para facilitar a comunicação entre provedores de serviços e as noivas
 >no estilo do easyroommate. http://www.easyroommate.com
 
 
-To start the sidekiq, type:  ` bundle exec sidekiq -q mailer, -q default, -q carrierwave `
+To start the sidekiq, type:  ` bundle exec sidekiq -C config/sidekiq.yml`
 
 To start the mailcatcher, type : ` bundle exec mailcatcher `
 
