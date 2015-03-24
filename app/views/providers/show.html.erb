@@ -16,10 +16,14 @@
               </h2>
             </div>
             <div class='contact-info-box-body'>
-              <ul class='list-unstyled'>
-                <li><i class='glyphicon glyphicon-phone'></i> <%= @provider.contact %></li>
-                <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
-              </ul>
+              <% if has_interest?(@provider) %>
+                <ul class='list-unstyled'>
+                  <li><i class='glyphicon glyphicon-phone'></i> <%= @provider.contact %></li>
+                  <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
+                </ul>
+              <% else %>
+                <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+              <% end %>
             </div>
           </div>
           <div class="social-info-box">
