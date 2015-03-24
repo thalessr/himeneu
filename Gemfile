@@ -6,7 +6,6 @@ gem 'rails', '4.1.1'
 
 group :development do
 	# Use sqlite3 as the database for Active Record
-	gem 'sqlite3'
 	gem 'spring'
 	gem 'better_errors'
 	gem 'rails_best_practices'
@@ -17,6 +16,9 @@ group :development do
 	gem "binding_of_caller"
   gem 'colored'
   gem 'pry-byebug'
+  gem "awesome_print"
+  gem 'quiet_assets'
+  gem 'meta_request'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
@@ -52,12 +54,18 @@ end
 
 group :test do
 	gem 'selenium-webdriver'
-	gem 'minitest-reporters'
-	gem 'mini_backtrace'
-  gem 'minitest'
-  # gem 'minitest-rails'
-  gem 'guard-minitest'
   gem 'mocha'
+  gem 'database_cleaner'
+  gem 'capybara'
+  gem 'faker'
+end
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'guard'
+  gem 'guard-rspec'
+  gem 'sqlite3'
 end
 
 gem 'bootstrap3-datetimepicker-rails'
@@ -98,6 +106,9 @@ gem "sass_rails_patch"
 gem "will_paginate"
 gem "sitemap_generator"
 
+gem 'state_machine'
+gem 'whenever', :require => false
+gem 'newrelic_rpm'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 

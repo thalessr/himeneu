@@ -4,9 +4,13 @@ class DashboardController < ApplicationController
 	def index
 		if current_user
 			@user = current_user
-      customer_redirect(@user) if @user.is_customer?
-      provider_redirect(@user) if @user.is_provider?
-  		redirect_to new_user_registration_path if @user.roles.empty?
+			if @user.is_customer?
+	      customer_redirect(@user)
+	    elsif @user.is_provider?
+	    	provider_redirect(@user)
+	    else
+	  		redirect_to new_user_registration_path
+  	  end
 		end
 	end
 
@@ -15,7 +19,7 @@ class DashboardController < ApplicationController
 
 	private
 	def customer_redirect(user)
-		if user.is_completed
+		if user.is_completed?
 			redirect_to providers_path
 		else
 			redirect_to new_customer_path
@@ -23,7 +27,7 @@ class DashboardController < ApplicationController
 	end
 
 	def provider_redirect(user)
-		if user.is_completed
+		if user.is_completed?
 			redirect_to customers_path
 		else
 			redirect_to new_provider_path

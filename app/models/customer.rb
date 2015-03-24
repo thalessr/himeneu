@@ -41,8 +41,8 @@ class Customer < ActiveRecord::Base
     if query.blank?
       where(nil)
     else
-      q = "%#{query.downcase}%"
-      distinct.joins(:address).where("LOWER(first_name) LIKE ? OR LOWER(last_name) LIKE ? OR LOWER(addresses.city) LIKE ? ", q, q, q)
+      name = "%#{query.downcase}%"
+      distinct.first_last_name_search(name) | city_name_search(:address, name)
     end
   end
 
