@@ -41,6 +41,9 @@ body { padding-top: 60px; }
     transition: all .5s ease;
 }
 
+.logo-navbar {
+  margin-top: -10px;
+}
 
 .navbar-fixed-top.is-scrolling{
   background-color: #ECF0F1;
