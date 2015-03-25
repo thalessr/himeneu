@@ -34,16 +34,16 @@
             </div>
             <div class='contact-info-box-body'>
               <ul class='list-unstyled'>
-                <% unless @provider.facebook.empty? %>
+                <% unless @provider.facebook.blank? %>
                   <li><i class='fui-facebook'></i> <%= @provider.facebook %></li>
                 <% end %>
-                <% unless @provider.twitter.empty? %>
+                <% unless @provider.twitter.blank? %>
                   <li><i class='fui-twitter'></i> <%= @provider.twitter %></li>
                 <% end %>
-                <% unless @provider.instagram.empty? %>
+                <% unless @provider.instagram.blank? %>
                   <li><i class='fui-instagram'></i> <%= @provider.instagram %></li>
                 <% end %>
-                <% unless @provider.website.empty? %>
+                <% unless @provider.website.blank? %>
                   <li><i class='fui-window'></i> <%= @provider.website %></li>
                 <% end %>
               </ul>
