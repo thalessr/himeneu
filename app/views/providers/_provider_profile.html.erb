@@ -4,7 +4,7 @@
         <div class="col-md-3">
           <div>
             <% if @provider.image? %>
-               <%= image_tag @provider.image_url(:profile) %>
+               <%= image_tag(@provider.image_url(:regular), class: :img_profile) %>
             <% else %>
                <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
             <% end %>
@@ -22,7 +22,13 @@
                   <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
                 </ul>
               <% else %>
-                <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                <% if can? :create, Interest %>
+                  <% unless has_interest?(@provider) %>
+                    <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <% else %>
+                     <%= next_state_action(@provider) %>
+                  <% end %>
+                <% end %>
               <% end %>
             </div>
           </div>
