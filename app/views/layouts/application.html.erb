@@ -34,8 +34,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <%= link_to root_path, :class => "navbar-brand" do %>
-                    Himeneu
-                   <% if  user_signed_in?  %> <i class="fa fa-home"></i> <% end %>
+                    <%= image_tag("logo_himeneu.png", class: "logo-navbar") %>
                 <% end %>
 
             </div>
