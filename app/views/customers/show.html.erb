@@ -9,7 +9,7 @@
               <div class="row">
                     <div class="col-md-3 col-lg-3 " align="center">
                         <% if @customer.image? %>
-                           <%= image_tag "loading.gif", :"data-src" => @customer.image_url(:thumb), :class => "profile_image" %>
+                           <%= image_tag @customer.image_url(:thumb), :class => "profile_image" %>
                         <% else %>
                            <img alt="image" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
                         <% end %>

@@ -39,15 +39,15 @@ function showFlashMessage(msg, type, seconds){
       }).show();
 }
 
-function loadImage(){
-  var elem = $();
-  $(elem).load(function() {
-      $(elem).attr('src', $(elem).attr('data-src'));
-  });
-  $(elem).attr('src', $(elem).attr('data-src'));
-}
+// function loadImage(){
+//   var elem = $();
+//   $(elem).load(function() {
+//       $(elem).attr('src', $(elem).attr('data-src'));
+//   });
+//   $(elem).attr('src', $(elem).attr('data-src'));
+// }
 
-loadImage();
+// loadImage();
 
 $(document).ready(function(){
   'use strict';
