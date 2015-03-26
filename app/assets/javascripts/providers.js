@@ -79,6 +79,8 @@ $(window).bind("load", function(){
       }
   });
 
+  loadImage();
+
 });
 
 
