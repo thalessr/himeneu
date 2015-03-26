@@ -61,10 +61,9 @@ class User < ActiveRecord::Base
   end
 
   def is_completed?
-     if @is_completed.nil?
-      @is_completed ||= self.is_completed
+    if self
+      self.is_completed
     end
-    return @is_completed
   end
 
   def is_customer_completed?
