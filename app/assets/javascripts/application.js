@@ -80,6 +80,13 @@ $(document).ready(function(){
   $(':checkbox').radiocheck();
   $(':radio').radiocheck();
 
+  $('img').load(function() {
+   var src = $(this).attr('data-src');
+   if(null != src){
+    $(this).attr('src', src);
+   }
+  });
+
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 

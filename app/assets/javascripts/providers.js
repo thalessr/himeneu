@@ -22,7 +22,6 @@ function showScore(){
 }
 
 $(document).ready(function(){
-
   $.fn.raty.defaults.path = "/assets";
   $.fn.raty.defaults.half_show = true;
 
@@ -35,6 +34,9 @@ $(document).ready(function(){
         type: 'success'
       }).show();
 
+      if (null != data.slug) {
+        window.location.href = "/providers/"+data.slug;
+      }
 
    });
    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
