@@ -22,7 +22,7 @@ ActiveAdmin.register_page "Dashboard" do
           column :created_at
         end
         strong { link_to "Visualizar todas noivas", admin_customers_path }
-   end
+    end
 
    section "Recentes provedores de serviços " do
         table_for Provider.order("created_at desc").limit(5) do
@@ -49,6 +49,18 @@ ActiveAdmin.register_page "Dashboard" do
         end
         # strong { link_to "Visualizar todos roles", admin_roles_path }
    end
+
+  section "Email confirmados e não completado" do
+    table_for User.where(is_completed: false ) do
+       column :email
+    end
+  end
+
+  section "Não confirmados" do
+    table_for User.where(confirmed_at: nil) do
+       column :email
+    end
+  end
 
     # Here is an example of a simple dashboard with columns and panels.
     #
