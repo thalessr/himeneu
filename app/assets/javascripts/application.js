@@ -41,11 +41,24 @@ function showFlashMessage(msg, type, seconds){
       }).show();
 }
 
+// function loadImage(){
+//   var elem = $();
+//   $(elem).load(function() {
+//       $(elem).attr('src', $(elem).attr('data-src'));
+//   });
+//   $(elem).attr('src', $(elem).attr('data-src'));
+// }
+
+// loadImage();
+
 $(document).ready(function(){
   'use strict';
+
 	$.ajaxSetup({
 	  dataType: 'json'
 	})
+
+
 
   new WOW().init();
   $('[data-toggle="tooltip"]').tooltip();
@@ -81,6 +94,8 @@ $(document).ready(function(){
 
   $(':checkbox').radiocheck();
   $(':radio').radiocheck();
+  loadImage();
+
 
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);

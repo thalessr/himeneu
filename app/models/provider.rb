@@ -77,10 +77,10 @@ class Provider < ActiveRecord::Base
   end
 
   def verify_urls
-    self.facebook = add_url_protocol(facebook) if (facebook_changed? && !facebook.blank?)
-    self.twitter = add_url_protocol(twitter)  if (twitter_changed? && !twitter.blank?)
-    self.instagram = add_url_protocol(instagram)  if (instagram_changed? && !instagram.blank?)
-    self.website = add_url_protocol(website)  if (website_changed? && !website.blank?)
+    self.facebook = add_url_protocol(facebook) if facebook_changed? && !facebook.blank?
+    self.twitter = add_url_protocol(twitter)  if twitter_changed? && !twitter.blank?
+    self.instagram = add_url_protocol(instagram)  if instagram_changed? && !instagram.blank?
+    self.website = add_url_protocol(website)  if website_changed? && !website.blank?
   end
 
   def add_url_protocol(url)
