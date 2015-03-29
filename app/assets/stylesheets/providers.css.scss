@@ -70,4 +70,98 @@
         margin-top: 25px;
         border: 1px solid #dce0e0;
     }
+
+/*---------------------*/
+
+    .divider{
+        border-top:1px solid rgba(0,0,0,0.1);
+    }
+    .emphasis{
+        border-top: 4px solid transparent;
+    }
+    .emphasis:hover{
+        border-top: 4px solid #1abc9c;
+    }
+    .emphasis h2{
+        margin-bottom:0;
+    }
+
+
+      .media .media-object { max-width: 120px; }
+      .media-body { position: relative; }
+      .media-comment { margin-bottom: 20px; }
+      .media-date {
+          position: absolute;
+          right: 25px;
+          top: 25px;
+      }
+      .media-date li { padding: 0; }
+      .media-date li:first-child:before { content: ''; }
+      .media-date li:before {
+          content: '.';
+          margin-left: -2px;
+          margin-right: 2px;
+      }
+       .list-profile {
+          padding: 0;
+          height: 160px;
+          overflow:hidden;
+      }
+
+      .list-profile:hover {
+        background-color: #e7e7e7;
+      }
+
+      .image-container-list {
+          padding: 0;
+          height: 170px
+      }
+
+      a:hover{
+          color: #23547E;
+          text-decoration: none
+      }
+
+
+     .listing-profile-info {
+          height: 120px;
+          margin-top: 20px;
+
+          .h6 {
+            font-size: 16px;
+            color: #34495E;
+          }
+
+          .h4 {
+            font-size: 14px;
+            color: #34495E;
+          }
+
+      }
+
+      .profile_listing_image {
+          height: 110px;
+          width: 110px;
+          top: 50%;
+          margin-top: -60px;
+          position: absolute;
+          left: 50%;
+          margin-left: -22px;
+      }
+
+
+      .profile_image {
+          height: 130px;
+          width: 130px;
+
+      }
+      .datepicker{
+        border: 1px solid #ccc;
+      }
+       .listing-mobile p {
+          font-size: 12px;
+          margin-bottom: 10px;
+      }
+
+
 }
