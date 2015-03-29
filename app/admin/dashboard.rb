@@ -51,7 +51,7 @@ ActiveAdmin.register_page "Dashboard" do
    end
 
   section "Email confirmados e não completado" do
-    table_for User.where(is_completed: false ) do
+    table_for User.where(is_completed: false).where.not(confirmed_at: nil) do
        column :email
     end
   end
