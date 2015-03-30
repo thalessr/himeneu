@@ -15,12 +15,12 @@ module ApplicationHelper
   def delete_or_recovery(object)
     name = object.class.to_s.underscore
     if object.is_deleted?
-      link_to send("recover_#{name.pluralize}_path",id: "#{object.slug}") ,class: "btn btn-sm btn-info" do
-         content_tag(:i, "", class: "glyphicon glyphicon-plus-sign", 'data-original-title'.to_sym => t('links.activate'), "data-toggle".to_sym => "tooltip" )
+      link_to send("recover_#{name.pluralize}_path",id: "#{object.slug}") ,class: "edit-button" do
+         content_tag(:i, "", class: "glyphicon glyphicon-plus-sign btn-info", 'data-original-title'.to_sym => t('links.activate'), "data-toggle".to_sym => "tooltip" )
       end
     else
-      link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "btn btn-sm btn-danger" do
-         content_tag(:i, "", class: "glyphicon glyphicon-minus-sign", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
+      link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "edit-button" do
+         content_tag(:i, "", class: "glyphicon glyphicon-minus-sign btn-danger", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
       end
     end
   end

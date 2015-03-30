@@ -1,0 +1,48 @@
+<section>
+  <div class="container">
+    <div class="row header-profile">
+      <div class="col-md-3">
+        <div>
+          <img src="assets/original.jpg" alt="Profile photo" height="255" width="255">
+        </div>
+        <div class='contact-info-box'>
+          <div class="contact-info-box-header">
+            <h2 class="h6">
+              Meus contatos
+            </h2>
+          </div>
+          <div class='contact-info-box-body'>
+            <ul class='list-unstyled'>
+              <li><i class='glyphicon glyphicon-phone'></i>+11 9978552285</li>
+              <li><i class='glyphicon glyphicon-envelope'></i>leticia@nativio.com</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-9">
+        <div class="profile-name">
+          <h1 class="h2"> Letícia Natívio </h1>
+        </div>
+        <div class="profile-tags">
+          <button class="btn btn-info btn-embossed btn-sm">Fotógrafa</button>
+          <button class="btn btn-info btn-embossed btn-sm">Florista</button>
+          <button class="btn btn-info btn-embossed btn-sm">Mestre de Cerimônias</button>
+          <button class="btn btn-info btn-embossed btn-sm">Buffet</button>
+        </div>
+        <div class="col-md-8 text-about">
+          <p>
+            Faço cerimônias de casamentos há mais de 20 anos. Quer o melhor pra sua festa? Me contrate e terá omomentos inesquecíveis. Aqui é florista, mermão. Já fiz festas de atores da globo, de astros de rock e até de comediantes em stand up? Pensou festa, pensou Letícia.
+          </p>
+        </div>
+        <div>
+          <%= form_for FeatureImage.new do |f| %>
+            <%= f.label :image, "Insira imagens" %>
+            <%= f.file_field :image %>
+            <%= hidden_field_tag 'provider_id', '6' %>
+            <%= f.submit %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

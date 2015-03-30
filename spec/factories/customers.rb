@@ -1,3 +1,6 @@
+require 'faker'
+I18n.reload!
+
 FactoryGirl.define do
   factory :customer do
     first_name Faker::Name.first_name

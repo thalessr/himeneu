@@ -17,7 +17,7 @@
  *= require bootstrap-notify/css/bootstrap-notify.css
  *= require bootstrap-notify/css/styles/alert-bangtidy.css
  *= require flat-ui/dist/css/flat-ui.min.css
- *= require videojs/dist/video-js/video-js.min.css
+ *= require fancybox/source/jquery.fancybox.css
  *= require_tree .
  *= require_self
  */
@@ -40,6 +40,9 @@ body { padding-top: 60px; }
     transition: all .5s ease;
 }
 
+.logo-navbar {
+  margin-top: -10px;
+}
 
 .navbar-fixed-top.is-scrolling{
   background-color: #ECF0F1;
