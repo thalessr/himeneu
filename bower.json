@@ -26,6 +26,7 @@
     "components-font-awesome": "~4.3.0",
     "bootstrap-notify": "~0.2.0",
     "flat-ui": "~2.2.2",
-    "jquery-file-upload": "~9.9.3"
+    "jquery-file-upload": "~9.9.3",
+    "jquery.lazyload": "~1.9.4"
   }
 }
