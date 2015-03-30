@@ -26,6 +26,7 @@
 //= require flat-ui/dist/js/flat-ui.min.js
 //= require jquery-file-upload/js/jquery.fileupload.js
 //= require fancybox/source/jquery.fancybox.js
+//= require jquery.lazyload/jquery.lazyload.js
 //= require_tree .
 //= stub active_admin
 
@@ -93,6 +94,9 @@ $(document).ready(function(){
 
   $(':checkbox').radiocheck();
   $(':radio').radiocheck();
+  $("img.lazy").show().lazyload({
+    effect : "fadeIn"
+  });
 
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);

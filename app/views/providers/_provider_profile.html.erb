@@ -4,9 +4,13 @@
         <div class="col-md-3">
           <div>
             <% if @provider.image? %>
-               <%= image_tag(@provider.image_url(:regular), class: :img_profile) %>
+               <img class="img_profile lazy" data-original="<%= @provider.image_url(:regular) %>" width="300" heigh="300"> </img>
+               <noscript>
+                 <%= image_tag(@provider.image_url(:regular), class: :img_profile) %>
+               </noscript>
             <% else %>
                <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+             </img>
             <% end %>
           </div>
           <div class='contact-info-box'>
@@ -16,18 +20,19 @@
               </h2>
             </div>
             <div class='contact-info-box-body'>
-              <% if has_interest?(@provider) %>
+              <% if has_interest?(@provider) || (can? :update, @provider) %>
                 <ul class='list-unstyled'>
                   <li><i class='glyphicon glyphicon-phone'></i> <%= @provider.contact %></li>
                   <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
                 </ul>
-              <% else %>
-                <% if can? :create, Interest %>
-                  <% unless has_interest?(@provider) %>
-                    <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
-                  <% else %>
-                     <%= next_state_action(@provider) %>
-                  <% end %>
+               <% else %>
+                  <i class="glyphicon glyphicon-lock"></i>
+              <% end %>
+              <% if can? :create, Interest %>
+                <% unless has_interest?(@provider) %>
+                  <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                <% else %>
+                   <%= next_state_action(@provider) %>
                 <% end %>
               <% end %>
             </div>
