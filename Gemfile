@@ -82,7 +82,7 @@ gem 'redis'
 gem 'redis-rails'
 #Active Admin
 gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+# gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 
 gem 'geocoder'
 
