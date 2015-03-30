@@ -18,7 +18,6 @@
  *= require bootstrap-notify/css/styles/alert-bangtidy.css
  *= require flat-ui/dist/css/flat-ui.min.css
  *= require fancybox/source/jquery.fancybox.css
- *= require videojs/dist/video-js/video-js.min.css
  *= require_tree .
  *= require_self
  */
