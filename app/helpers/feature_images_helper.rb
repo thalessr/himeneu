@@ -1,0 +1,2 @@
+module FeatureImagesHelper
+end

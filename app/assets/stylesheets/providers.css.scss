@@ -1,185 +1,170 @@
-.providers{
-
-   body
-    {
-    font-family: "Lucida Sans Unicode", "Lucida Grande", "sans-serif";
+.providers {
+    .header-profile {
+      margin-top: 30px;
     }
 
-    #address_show {
-        height: 300px;
-        padding: 20px;
-        margin-bottom: 20px;
-    }
-    .search-form{
-        margin-top:5px;
-        margin-bottom:5px;
+    .img_profile {
+      width: 255px;
+      height: 255px;
     }
 
-    .profile
-    {
-        min-height: 215px;
-        display: inline-block;
+    .lazy {
+      display: none;
+    }
+
+    .contact-info-box {
+      background-color: #fff;
+      margin-top: 25px;
+      border: 1px solid #dce0e0;
+    }
+
+    .contact-info-box-body {
+      text-align: center;
+      padding-top: 10px;
+      padding-bottom: 10px;
+
+      li {
+      font-size: 15px;
+      }
+    }
+
+    .contact-info-box-header {
+      background-color: #edefed;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      text-align: center;
+
+      .h6 {
+        font-size: 16px;
+      }
+    }
+
+    .text-about {
+      padding-top: 20px;
+      padding-left: 0px;
+
+      p {
+        font-size: 17px;
+      }
+    }
+
+    .images-profile {
+        margin-bottom: 30px;
+
+        .images-container {
+            margin-bottom: 20px;
         }
-    figcaption.ratings
-    {
-        margin-top:20px;
-        }
-    figcaption.ratings a
-    {
-        color:#f1c40f;
-        font-size:11px;
-        }
-    figcaption.ratings a:hover
-    {
-        color:#f39c12;
-        text-decoration:none;
-        }
-    .divider
-    {
+    }
+
+    .about-box {
+        height: 230px;
+    }
+
+    .edit-button {
+        font-size: 20px;
+    }
+
+    .tab-content{
+        height: 450px;
+    }
+
+    .social-info-box {
+        background-color: #fff;
+        margin-top: 25px;
+        border: 1px solid #dce0e0;
+    }
+
+/*---------------------*/
+
+    .divider{
         border-top:1px solid rgba(0,0,0,0.1);
-        }
-    .emphasis
-    {
+    }
+    .emphasis{
         border-top: 4px solid transparent;
-        }
-    .emphasis:hover
-    {
+    }
+    .emphasis:hover{
         border-top: 4px solid #1abc9c;
-        }
-    .emphasis h2
-    {
+    }
+    .emphasis h2{
         margin-bottom:0;
-        }
-    span.tags
-    {
-        background: #1abc9c;
-        border-radius: 2px;
-        color: #f5f5f5;
-        font-weight: bold;
-        padding: 2px 4px;
-        margin-right: 1px;
-        }
-    .dropdown-menu
-    {
-        background-color: #34495e;
-        box-shadow: none;
-        -webkit-box-shadow: none;
-        width: 250px;
-        margin-left: -125px;
-        left: 50%;
-        }
-    .dropdown-menu .divider
-    {
-        background:none;
-        }
-    .dropdown-menu>li>a
-    {
-        color:#f5f5f5;
-        }
-    .dropup .dropdown-menu
-    {
-        margin-bottom:10px;
-        }
-    .dropup .dropdown-menu:before
-    {
-        content: "";
-        border-top: 10px solid #34495e;
-        border-right: 10px solid transparent;
-        border-left: 10px solid transparent;
-        position: absolute;
-        bottom: -10px;
-        left: 50%;
-        margin-left: -10px;
-        z-index: 10;
-        }
-
-    .boxhead a {
-        color: #FFFFFF;
-        text-decoration: none;
     }
 
 
-    .media .media-object { max-width: 120px; }
-    .media-body { position: relative; }
-    .media-comment { margin-bottom: 20px; }
-    .media-date {
-        position: absolute;
-        right: 25px;
-        top: 25px;
-    }
-    .media-date li { padding: 0; }
-    .media-date li:first-child:before { content: ''; }
-    .media-date li:before {
-        content: '.';
-        margin-left: -2px;
-        margin-right: 2px;
-    }
+      .media .media-object { max-width: 120px; }
+      .media-body { position: relative; }
+      .media-comment { margin-bottom: 20px; }
+      .media-date {
+          position: absolute;
+          right: 25px;
+          top: 25px;
+      }
+      .media-date li { padding: 0; }
+      .media-date li:first-child:before { content: ''; }
+      .media-date li:before {
+          content: '.';
+          margin-left: -2px;
+          margin-right: 2px;
+      }
+       .list-profile {
+          padding: 0;
+          height: 160px;
+          overflow:hidden;
+      }
 
-    .reviews {
-        color: #555;
-        font-weight: bold;
-        margin: 10px auto 20px;
-    }
+      .list-profile:hover {
+        background-color: #e7e7e7;
+      }
 
-    .list-profile {
-        padding: 0;
-        height: 160px;
-        overflow:hidden;
-    }
+      .image-container-list {
+          padding: 0;
+          height: 170px
+      }
 
-    .list-profile:hover {
-       background-color: #e7e7e7;
-    }
-
-
-    .image-container-list {
-        padding: 0;
-        height: 160px
-    }
-
-    a:hover{
-        color: #23547E;
-        text-decoration: none
-    }
+      a:hover{
+          color: #23547E;
+          text-decoration: none
+      }
 
 
-    .listing-profile-info {
-        height: 160px;
-    }
+     .listing-profile-info {
+          height: 120px;
+          margin-top: 20px;
 
-    .profile_listing_image {
-        height: 110px;
-        width: 110px;
-        margin-top: 20px;
-        margin-left: -25px;
-        left: 50%;
-        position: relative;
-    }
+          .h6 {
+            font-size: 16px;
+            color: #34495E;
+          }
+
+          .h4 {
+            font-size: 14px;
+            color: #34495E;
+          }
+
+      }
+
+      .profile_listing_image {
+          height: 110px;
+          width: 110px;
+          top: 50%;
+          margin-top: -60px;
+          position: absolute;
+          left: 50%;
+          margin-left: -22px;
+      }
 
 
-    .profile_image {
-        height: 130px;
-        width: 130px;
+      .profile_image {
+          height: 130px;
+          width: 130px;
 
-    }
+      }
+      .datepicker{
+        border: 1px solid #ccc;
+      }
+       .listing-mobile p {
+          font-size: 12px;
+          margin-bottom: 10px;
+      }
 
-    .listing-mobile {
-
-    }
-
-    .listing-mobile p {
-        font-size: 12px;
-        margin-bottom: 10px;
-    }
-
-    .separator li {
-        margin-top: 15px;
-        margin-bottom: 15px;
-    }
-
-    .filter-form {
-        margin-bottom: 25px;
-    }
 
 }
-
