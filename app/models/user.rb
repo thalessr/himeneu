@@ -14,7 +14,6 @@ class User < ActiveRecord::Base
   # ROLES = %w[fornecedor noiva(o)]
   @is_provider = nil
   @is_customer = nil
-  @is_completed = nil
 
   def set_completed
     self.update_attribute(:is_completed, true)

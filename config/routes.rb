@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get '/anuncie' => 'static_pages#anuncie'
   get '/sobre' => 'static_pages#sobre'
   get '/contato' => 'static_pages#contato'
+  get 'newpro' => 'static_pages#newpro'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -47,6 +48,7 @@ resources :interests, :only => :create do
   post 'change_state', on: :collection
 end
 
+resources :feature_images
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -24,11 +24,12 @@
 						<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
 					</div>
 					<div class="col-md-10 col-sm-9 listing-profile-info ">
-						<h4>{{p.first_name}} {{p.last_name | limitTo:30}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h4>
-		        <p><strong><%= t(:experience) %>: </strong> {{ p.experience | limitTo:200 }} </p>
-		        <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
+						<h4 class="h6">{{p.first_name}} {{p.last_name | limitTo:30}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h4>
+		        <h4 class="h4"><%= t(:experience) %>: {{ p.experience | limitTo:200 }} </h4>
 		          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
-		          	{{s.name}}
+		          	<%= content_tag :button , :class => "btn btn-info btn-embossed btn-sm" do %>
+		          	   {{s.name}}
+		          	<% end %>
 		          </span>
 		        </p>
 					</div>
