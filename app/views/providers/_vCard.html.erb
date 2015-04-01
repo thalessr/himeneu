@@ -11,37 +11,33 @@
   <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
 <% end %>
 
-<div class="container-fluid">
-  <div class="col-lg-6 col-lg-offset-3">
-    <div class="row">
-      <div class="col-md-4">
-          <% if @provider.image? %>
-              <%= image_tag @provider.image_url(:regular), :class => "img-responsive" %>
-          <% else %>
-              <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-responsive">
-          <% end %>
+<div class="container vCard">
+  <div class="row">
+    <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 data">
+      <div class="text-center">
+        <% if @provider.image? %>
+          <%= image_tag @provider.image_url(:thumb), :class => "img-circle" %>
+        <% else %>
+          <img alt="User Pic" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
+        <% end %>
       </div>
-      <div class="col-md-8">
-        <div class="tab-content">
-          <div class="tab-pane active" id="about">
-              <h3><%= @provider.full_name %></h3>
-              <hr>
-              <p><%= @provider.experience %></p>
-              <p class"hidden-xs"><strong class="hidden-xs">Serviço(s) oferecido(s): </strong>
-              <% @provider.profession_list.each do |p| %>
-               <span class="tags hidden-xs" ng-class"tags hidden-xs">
-                 <%= p %>
-               </span>
-              <% end %>
-            </p>
-          </div>
-        </div>
+      <div class="user-head">
+        <h3><%= @provider.first_name %></h3>
+        <div class="hr-center"></div>
+        <h5><%= @provider.last_name %></h5>
       </div>
-      <div class="col-md-1">
-        <div class="row">
-          <div id="socialMedia"></div>
-        </div>
-      </div>
+    </div>
+    <div class="col-lg-9 col-md-9 col-sm-8 col-xs-12 content">
+      <%= @provider.experience %>
+      <p><strong>Serviço(s) oferecido(s): </strong>
+        <% @provider.profession_list.each do |p| %>
+         <span class="tags" ng-class"tags">
+           <%= p %>
+         </span>
+        <% end %>
+      </p>
+      <p id="socialMedia"></p>
+    </br>
     </div>
   </div>
 </div>
