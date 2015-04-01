@@ -107,16 +107,16 @@
     <footer  class="footer clearfix">
         <div class="footer-bottom">
             <div class="container-fluid">
-                <div class="col-md-4">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
                     <p class="muted credit">
                     Copyright © Himeneu <%= Time.now.year %>. All right reserved.
                   </p>
                 </div>
-                <div class="col-md-4 text-center">
+                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 text-center hidden-xs">
                     <a href="/privacy">Politica de privacidade</a>
                 </div>
                 <% if current_page?(root_path) %>
-                  <div class="col-md-4">
+                  <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 pull-right">
                       <div class="pull-right">
                           <span class="glyphicon glyphicon-envelope"></span>
                             contato@himeneu.com
@@ -135,7 +135,7 @@
                       </div>
                   </div>
                 <% else %>
-                   <div class="col-md-4">
+                   <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12 pull-right">
                       <div class="pull-right">
                           <span class="glyphicon glyphicon-envelope"></span>
                             contato@himeneu.com

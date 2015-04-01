@@ -166,5 +166,29 @@
           margin-bottom: 10px;
       }
 
+      /* vCard */
+
+      .vCard .img-circle{
+        margin-top: 5px;
+        border-radius: 50%;
+      }
+
+      .vCard .data{
+        margin-bottom: 30px;
+        background-color: #ecf0f1;
+      }
+
+      .vCard .data img{
+        border: 10px solid #bdc3c7;
+        vertical-align: middle;
+      }
+
+      .vCard .content{
+        border:1px solid #d4d4d4;
+        border-radius: 2px;
+        padding: 20px; box-shadow: 0 1px 6px rgba(0, 0, 0, 0.175);
+      }
+
+
 
 }
