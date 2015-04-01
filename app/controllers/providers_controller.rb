@@ -46,7 +46,7 @@ class ProvidersController < ApplicationController
 
   def show
     if current_user
-      @provider = Provider.includes(:addresses).friendly.find(params[:id])
+      @provider = Provider.includes(:addresses, :feature_images).friendly.find(params[:id])
     else
       @provider = Provider.friendly.find(params[:id])
     end

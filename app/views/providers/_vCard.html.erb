@@ -6,7 +6,7 @@
   <meta property="og:url" content="<%= provider_url(@provider) %>"/>
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content='Himeneu - <%= @provider.full_name %>' />
-  <meta name="twitter:description" content="<%= @provider.experience %>" />
+  <meta name="twitter:description" content="Himeneu | <%= @provider.full_name %>" />
   <meta name="twitter:image" content="<%= @provider.image_url(:regular) %>" />
   <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
 <% end %>
@@ -35,6 +35,11 @@
               <% end %>
             </p>
           </div>
+        </div>
+      </div>
+      <div class="col-md-1">
+        <div class="row">
+          <div id="socialMedia"></div>
         </div>
       </div>
     </div>

@@ -101,6 +101,17 @@ $(document).ready(function(){
 
 var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
+var config = {
+    ui: {
+        flyout: 'top center',
+        button_text: '',
+        button_font: true,
+        icon_font: true
+      }
+}
+
+var share = new Share("#socialMedia", config);
+
 });
 
 
