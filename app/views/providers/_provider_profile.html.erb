@@ -1,5 +1,20 @@
-  <section>
+ <% content_for :meta_tag do %>
+  <title>Himeneu - <%= @provider.full_name %></title>
+  <meta name="description" content="<%= @provider.experience %>">
+  <meta name="keywords" content="<%= @provider.profession_list.join(' ,') %>">
+  <meta property="og:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta property="og:url" content="<%= provider_url(@provider) %>"/>
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@_himeneu" />
+  <meta name="twitter:title" content='Himeneu - <%= @provider.full_name %>' />
+  <meta name="twitter:description" content="<%= @provider.full_name %>" />
+  <meta name="twitter:image" content="<%= @provider.image_url(:regular) %>" />
+  <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
+<% end %>
+
+ <section>
     <div class="container">
+
       <div class="row header-profile">
         <div class="col-md-3">
           <div>
@@ -37,18 +52,20 @@
               <% end %>
             </div>
           </div>
-          <div class='contact-info-box'>
-            <div class="contact-info-box-header">
-              <h2 class="h6">
-                Meu video
-              </h2>
-            </div>
-            <div class='contact-info-box-body'>
-              <div class="embed-responsive embed-responsive-4by3">
-                <iframe class="embed-responsive-item" src="<%= @provider.video_url %>"></iframe>
+          <% unless @provider.video_url.blank? %>
+            <div class='contact-info-box'>
+              <div class="contact-info-box-header">
+                <h2 class="h6">
+                  Meu video
+                </h2>
+              </div>
+              <div class='contact-info-box-body'>
+                <div class="embed-responsive embed-responsive-4by3">
+                  <iframe class="embed-responsive-item" src="<%= @provider.video_url %>"></iframe>
+                </div>
               </div>
             </div>
-          </div>
+          <% end %>
           <div class="social-info-box">
             <div class="contact-info-box-header">
               <h2 class="h6">
@@ -81,6 +98,7 @@
             </div>
           </div>
         </div>
+
         <div class="col-md-9">
           <div class="profile-name">
             <h1 class="h2"> <%= @provider.full_name %>
@@ -106,12 +124,15 @@
             <% end %>
           </div>
           <div class="about-box">
-            <div class="col-md-8 text-about">
+            <div class="col-md-10 text-about">
               <p>
                 <%= @provider.experience %>
               </p>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-2">
+              <div class="row">
+                <div id="socialMedia"></div>
+              </div>
             </div>
           </div>
           <div class="images-profile">
@@ -218,4 +239,5 @@
         </div>
       </div>
     </div>
-  </section>
+</section>
+
