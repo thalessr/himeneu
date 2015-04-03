@@ -1,23 +1,25 @@
 $(document).ready(function() {
 
-  /* This is basic - uses default settings */
+$(".fancybox")
+ .attr('rel', 'gallery')
+ .attr('data-fancybox-width', "300")
+ .attr('data-fancybox-height', "300")
+ .fancybox({
+    openEffect  : 'none',
+    closeEffect : 'none',
+    autosize: false,
+    beforeLoad : function() {
+      this.width  = parseInt(this.element.data('fancybox-width'));
+      this.height = parseInt(this.element.data('fancybox-height'));
+    },
+    beforeShow: function () {
 
-  $("a#single_image").fancybox();
+      $('<div class="watermark"></div>')
+          .bind("contextmenu", function (e) {
+              return false;
+          })
+          .prependTo( $.fancybox.inner );
+         }
+     });
 
-  /* Using custom settings */
-
-  $("a#inline").fancybox({
-    'hideOnContentClick': true
-  });
-
-  /* Apply fancybox to multiple items */
-
-  $("a.group").fancybox({
-    'transitionIn'  : 'elastic',
-    'transitionOut' : 'elastic',
-    'speedIn'   : 600,
-    'speedOut'    : 200,
-    'overlayShow' : false
-  });
-
-});
+ });
