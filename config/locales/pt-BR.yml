@@ -83,6 +83,7 @@ pt-BR:
       confirm: "Tem certeza?"
       destroy: "Desativar"
       activate: "Ativar"
+      exlude: "Excluir"
       new: "Novo"
       edit: "Editar"
       save: "Salvar"

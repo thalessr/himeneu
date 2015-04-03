@@ -95,6 +95,7 @@ en:
       confirm: "Are you sure?"
       destroy: "Delete"
       activate: "Activate"
+      exlude: "exlude"
       new: "New"
       edit: "Edit"
       save: "Save"
