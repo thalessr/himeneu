@@ -99,18 +99,20 @@ $(document).ready(function(){
   });
 
 
-var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
+ var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
 
-var config = {
-    ui: {
-        flyout: 'top center',
-        button_text: '',
-        button_font: true,
-        icon_font: true
-      }
-}
+ var config = {
+      ui: {
+          flyout: 'top center',
+          button_text: '',
+          button_font: true,
+          icon_font: true
+        }
+  }
+  if($('#socialMedia').length){
+     new Share("#socialMedia", config);
+  }
 
-var share = new Share("#socialMedia", config);
 
 });
 

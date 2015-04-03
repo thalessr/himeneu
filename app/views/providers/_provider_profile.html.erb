@@ -141,7 +141,7 @@
             </h6>
             <div class="images-container">
               <% @provider.feature_images.each do |i| %>
-                <%= link_to image_tag(i.image_url(:thumb)),i.image_url, :id => 'single_image' %>
+                <%= link_to image_tag(i.image_url(:thumb)), i.image_url,:class => 'fancybox' %>
               <% end %>
             </div>
             <% if can? :update, @provider %>
