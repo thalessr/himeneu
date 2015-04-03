@@ -48,7 +48,7 @@ resources :interests, :only => :create do
   post 'change_state', on: :collection
 end
 
-resources :feature_images
+resources :feature_images, :except => [:index, :show, :edit]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

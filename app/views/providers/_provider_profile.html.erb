@@ -141,7 +141,12 @@
             </h6>
             <div class="images-container">
               <% @provider.feature_images.each do |i| %>
-                <%= link_to image_tag(i.image_url(:thumb)), i.image_url,:class => 'fancybox' %>
+                <% if can? :update, @provider %>
+                  <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
+                     <i class="glyphicon glyphicon-remove" data-original-title="<%= t('links.exlude') %>" data-toggle="tooltip"   ></i>
+                  <% end %>
+                <% end %>
+                <%= link_to image_tag(i.image_url(:thumb)), i.image_url, :class => 'fancybox' %>
               <% end %>
             </div>
             <% if can? :update, @provider %>

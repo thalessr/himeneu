@@ -6,8 +6,11 @@ $(".fancybox")
  .attr('data-fancybox-height', "300")
  .fancybox({
     openEffect  : 'none',
+    nextEffect  : 'fade',
+    prevEffect  : 'fade',
     closeEffect : 'none',
-    autosize: false,
+    margin      : [15, 15, 40, 15],
+    autosize : false,
     beforeLoad : function() {
       this.width  = parseInt(this.element.data('fancybox-width'));
       this.height = parseInt(this.element.data('fancybox-height'));
