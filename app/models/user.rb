@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :async,:trackable, :validatable,
-         :confirmable
+    :recoverable, :rememberable, :async,:trackable, :validatable,
+    :confirmable
 
   has_one :customer, dependent: :destroy
   has_one :provider, dependent: :destroy
@@ -23,8 +23,8 @@ class User < ActiveRecord::Base
     if Rails.env.production?
       @is_customer = get_redis_value("is_customer_#{self.id}")
       if @is_customer.nil?
-         set_redis_key("is_customer_#{self.id}", self.roles.exists?(id: 1).to_json)
-         @is_customer = get_redis_value("is_customer_#{self.id}")
+        set_redis_key("is_customer_#{self.id}", self.roles.exists?(id: 1).to_json)
+        @is_customer = get_redis_value("is_customer_#{self.id}")
       end
       return @is_customer
     else
