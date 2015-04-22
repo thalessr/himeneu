@@ -4,7 +4,7 @@ lock '3.4.0'
 set :application, 'himeneu'
 set :repo_url, 'git@github.com:thalessr/himeneu.git'
 # set :rbenv_ruby, '2.1.5'
-# set :rbenv_ruby, File.read('.ruby-version').strip
+set :rbenv_ruby, File.read('.ruby-version').strip
 set :rbenv_type, :user # or :system, depends on your rbenv setup
 set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
 set :rbenv_map_bins, %w{rake gem bundle ruby rails}
@@ -15,13 +15,13 @@ set :whenever_identifier, ->{ "#{fetch(:application)}_#{fetch(:stage)}" }
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }.call
 
 # Default deploy_to directory is /var/www/my_app_name
- set :deploy_to, '/home/deployer/apps/himeneu'
+set :deploy_to, '/home/deployer/apps/himeneu'
 
 
 
 # Default value for :scm is :git
- set :scm, :git
- set :user, "deployer"
+set :scm, :git
+set :user, "deployer"
 
 # Default value for :format is :pretty
 set :format, :pretty
@@ -67,9 +67,9 @@ namespace :deploy do
   after :restart, :clear_cache do
     on roles(:web), in: :groups, limit: 3, wait: 10 do
       # Here we can do anything such as:
-       # within release_path do
-       #  execute :rake, 'cache:clear'
-       # end
+      # within release_path do
+      #  execute :rake, 'cache:clear'
+      # end
     end
   end
 

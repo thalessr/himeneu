@@ -8,21 +8,21 @@ class ProvidersController < ApplicationController
   end
 
   def search
-     @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
-     respond_to do |format|
+    @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
+    respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
       format.json{render json:{
-        total_entries: @providers.total_entries,
-        current_page: @providers.current_page,
-        next_page: @providers.next_page,
-        previous_page: @providers.previous_page,
-        total_pages: @providers.total_pages,
-        per_page: @providers.per_page,
-        items: @providers
-        }
-      }
-     end
+                    total_entries: @providers.total_entries,
+                    current_page: @providers.current_page,
+                    next_page: @providers.next_page,
+                    previous_page: @providers.previous_page,
+                    total_pages: @providers.total_pages,
+                    per_page: @providers.per_page,
+                    items: @providers
+                  }
+                  }
+    end
   end
 
   def new
@@ -87,16 +87,16 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}
-     end
+    end
   end
 
   private
   def provider_params
     params.require(:provider).permit(
-                                      :first_name, :last_name, :age,
-                                      :image, :profession_list, :instagram, :website, :twitter,
-                                      :video_url, :facebook,:city, :experience, :tag_list,
-                                      addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
-                                      )
+      :first_name, :last_name, :age,
+      :image, :profession_list, :instagram, :website, :twitter,
+      :video_url, :facebook,:city, :experience, :tag_list,
+      addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
+    )
   end
 end
