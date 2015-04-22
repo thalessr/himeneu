@@ -29,7 +29,7 @@ $(document).ready(function(){
 
 
 $( "#toggleb" ).click(function() {
-  $('#myModal').modal('toggle');
+  $('#estimatesModal').modal('toggle');
 });
 
   $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
