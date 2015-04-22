@@ -6,7 +6,7 @@ $( document ).ready(function() {
 
        $("[data-behaviour~='datepicker']").focus(function() {
          $(this).datetimepicker({
-            pickTime: false
+
 
           });
       });
