@@ -21,7 +21,7 @@ module Extra
     end
 
     def delete
-       update_attribute(:is_deleted, true)
+      update_attribute(:is_deleted, true)
     end
 
     def recover
@@ -36,7 +36,15 @@ module Extra
 
   #when a method use active record
   module Selection
-     extend ActiveSupport::Concern
+    extend ActiveSupport::Concern
+
+    def self.extended(base)
+      base.class_eval do
+        has_many :recommendations, dependent: :destroy
+        has_many :interests, dependent: :destroy
+        has_many :estimates, dependent: :destroy
+      end
+    end
 
     def recent(number)
       if number

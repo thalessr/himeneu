@@ -3,23 +3,22 @@ class Provider < ActiveRecord::Base
   extend CacheRedis::Utils
   include Extra::Methods
 
-	belongs_to :user
-	has_many :addresses, dependent: :destroy
-  has_many :recommendations, dependent: :destroy
-  has_many :customers, through: [:recommendations, :interests]
+  belongs_to :user
+  has_many :addresses, dependent: :destroy
+
+  has_many :customers, through: [:recommendations, :interests, :estimates]
   has_many :feature_images, inverse_of: :provider, dependent: :destroy
-  has_many :interests, dependent: :destroy
 
   before_save :set_video_url
   before_save :verify_urls
   after_save :insert_contact
 
 
-	validates_presence_of :first_name
+  validates_presence_of :first_name
 
   delegate :email, to: :user
 
-	accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
+  accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   #CarrierWave
   mount_uploader :image, ImageUploader
@@ -70,10 +69,10 @@ class Provider < ActiveRecord::Base
   end
 
   def set_video_url
-   unless self.video_url.blank?
-     result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
-     self.video_url = "http://www.youtube.com/v/#{result[5]}"
-   end
+    unless self.video_url.blank?
+      result = /(youtu\.be\/|youtube\.com\/(watch\?(.*&)?v=|(embed|v)\/))([^\?&"'>]+)/.match(self.video_url)
+      self.video_url = "http://www.youtube.com/v/#{result[5]}"
+    end
   end
 
   def verify_urls
@@ -84,11 +83,11 @@ class Provider < ActiveRecord::Base
   end
 
   def add_url_protocol(url)
-     /^http/i.match(url) ? url : "http://#{url}"
+    /^http/i.match(url) ? url : "http://#{url}"
   end
 
   def self.autocomplete_seed
-      $redis.set "autocomplete", ActsAsTaggableOn::Tag.most_used(10).pluck(:name).to_json
+    $redis.set "autocomplete", ActsAsTaggableOn::Tag.most_used(10).pluck(:name).to_json
   end
 
   def self.get_autocomplete
@@ -108,13 +107,13 @@ class Provider < ActiveRecord::Base
   end
 
   private
-    def self.query_2_hash(query)
-      hash = Hash.new
-      array = query.split(',')
-      hash[:name] = "%#{array[0].strip.downcase}%" unless array[0].blank?
-      hash[:profession] = "#{array[1].strip}" unless array[1].blank?
-      hash[:city] = "#{array[2].strip.downcase}" unless array[2].blank?
-      hash
-    end
+  def self.query_2_hash(query)
+    hash = Hash.new
+    array = query.split(',')
+    hash[:name] = "%#{array[0].strip.downcase}%" unless array[0].blank?
+    hash[:profession] = "#{array[1].strip}" unless array[1].blank?
+    hash[:city] = "#{array[2].strip.downcase}" unless array[2].blank?
+    hash
+  end
 
 end

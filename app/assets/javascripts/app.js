@@ -17,6 +17,10 @@ app.factory("Carousel", ["$resource", function($resource) {
   return $resource("/providers/carousel");
 }]);
 
+app.factory("Estimate", ["$resource", function($resource) {
+  return $resource("/estimates");
+}]);
+
 app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
   $scope.loading = true;
   $scope.customers = [];
@@ -182,6 +186,22 @@ app.controller("CarouselCtrl", ["$scope","Carousel",function($scope, Carousel){
     $scope.slides = data;
     $scope.sliderReady = true;
   });
+}]);
+
+/**
+ * Estimate Controller
+ */
+app.controller("EstimateCtrl", ["$scope","Estimate",function($scope, Estimate){
+
+  $scope.save = function() {
+    $scope.estimate.provider_id = $('#estimatesModal').data("param");
+    Estimate.save(angular.copy($scope.estimate),function(data){
+      console.log(data);
+    }, function(error) {
+       console.log(error);
+    });
+  };
+
 }]);
 
 
