@@ -94,7 +94,7 @@ class ProvidersController < ApplicationController
   def provider_params
     params.require(:provider).permit(
       :first_name, :last_name, :age,
-      :image, :profession_list, :instagram, :website, :twitter,
+      :image, :image_cache,:profession_list, :instagram, :website, :twitter,
       :video_url, :facebook,:city, :experience, :tag_list,
       addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
     )
