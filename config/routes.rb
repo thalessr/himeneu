@@ -3,6 +3,12 @@ Rails.application.routes.draw do
 
 
 
+  get 'estimates/new'
+
+  get 'estimates/create'
+
+  get 'estimates/destroy'
+
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
@@ -49,6 +55,7 @@ resources :interests, :only => :create do
 end
 
 resources :feature_images, :except => [:index, :show, :edit]
+resources :estimates, :except => [:index, :edit]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

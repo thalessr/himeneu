@@ -14,20 +14,29 @@
 
 
 <!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade"
+     id="estimatesModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="estimatesModalLabel"
+     data-param= <%=@provider.slug  %>
+     aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="estimatesModalLabel"></h4>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+      <form ng-controller="EstimateCtrl" ng-submit="save()">
+        <div class="modal-body">
+          <label>Descrição</label>
+          <textarea ng-model="estimate.description" ngTrim="true"></textarea>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <input type="submit" id="submit" class="btn btn-primary" value="Submit" />
+        </div>
+       </form>
     </div>
   </div>
 </div>
@@ -63,11 +72,12 @@
                <% else %>
                   <i class="glyphicon glyphicon-lock"></i>
               <% end %>
+
               <% if can? :create, Interest %>
                 <% unless has_interest?(@provider) %>
                   <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
                 <% else %>
-                   <%= link_to "Pedir Orçamento","#myModal", :class=>"btn btn-primary", :id => 'toggleb' %>
+                   <%= next_state_action(@provider) %>
                 <% end %>
               <% end %>
             </div>
