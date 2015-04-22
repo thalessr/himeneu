@@ -153,6 +153,7 @@
               <div>
                <%= form_for FeatureImage.new do |f| %>
                  <%= f.file_field :image %>
+                 <%= f.hidden_field :image_cache %>
                  <%= f.hidden_field :provider_id, :value => @provider.id %>
                  <%= f.submit "Postar imagem"%>
                <% end %>

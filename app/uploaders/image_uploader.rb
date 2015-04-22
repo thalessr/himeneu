@@ -30,11 +30,23 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fill => [140, 140]
+    process :resize_and_pad => [140, 140]
+    process :lower_quality
   end
 
   version :regular do
-    process :resize_to_fill => [300, 300]
+    process :resize_and_pad => [300, 300]
+    process :lower_quality
+  end
+
+
+  def lower_quality(quality=70)
+    manipulate! do |img|
+      img.auto_orient
+      img.strip
+      img.quality "#{quality}"
+      img
+    end
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
