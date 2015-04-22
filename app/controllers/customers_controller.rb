@@ -78,7 +78,7 @@ class CustomersController < ApplicationController
 	private
 	def customer_params
 		params.require(:customer).permit(
-				                             :first_name, :last_name,
+				                             :first_name, :last_name, :image_cache
 				                             :age, :key, :wedding_date, :image,
 				                             address_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
 				                        )

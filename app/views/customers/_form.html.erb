@@ -24,6 +24,7 @@
 	    <%= f.label t(:image), :class => 'control-label col-lg-2' %>
 	    <div class="col-lg-10">
 	      <%= f.file_field :image, :class => 'form-control' %>
+        <%= f.hidden_field :image_cache %>
 	    </div>
   	</div>
   	<div class="form-group" id:"datetimepicker5">
