@@ -16,12 +16,12 @@ require 'capistrano/deploy'
 #   https://github.com/capistrano/passenger
 #
 # require 'capistrano/rvm'
-# require 'capistrano/rbenv'
+require 'capistrano/rbenv'
 # require 'capistrano/chruby'
 require "whenever/capistrano"
 require 'capistrano/sitemap_generator'
 require 'capistrano/bundler'
-# require 'capistrano/rbenv_install'
+require 'capistrano/rbenv_install'
 require 'capistrano/rails'
 require 'capistrano/rails/assets'
 require 'capistrano/faster_assets'
