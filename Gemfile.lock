@@ -83,7 +83,7 @@ GEM
       sshkit (~> 1.2)
     capistrano-faster-assets (1.0.2)
       capistrano (>= 3.1)
-    capistrano-passenger (0.0.4)
+    capistrano-passenger (0.0.5)
       capistrano (~> 3.0)
     capistrano-rails (1.1.2)
       capistrano (~> 3.1)
@@ -529,7 +529,7 @@ DEPENDENCIES
   cancancan (~> 1.9.2)
   capistrano-bundler
   capistrano-faster-assets
-  capistrano-passenger
+  capistrano-passenger (~> 0.0.5)
   capistrano-rails
   capistrano-rbenv
   capistrano-rbenv-install
