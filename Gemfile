@@ -101,7 +101,7 @@ gem 'friendly_id', '~> 5.1.0'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails'
-gem 'capistrano-passenger'
+gem 'capistrano-passenger', '~> 0.0.5'
 gem 'capistrano-bundler'
 
 gem "sass_rails_patch"
