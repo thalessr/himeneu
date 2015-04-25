@@ -81,7 +81,12 @@
 
               <% if can? :create, Interest %>
                 <% unless has_interest?(@provider) %>
-                  <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <%= button_to t("state_machine.interested"),
+                    {:controller => "interests", :action => "create", :provider_id => @provider.slug },
+                    :class => 'btn btn-primary',
+                    :method=>:post,
+                    'data-original-title'.to_sym => t("state_machine.interested_hint"),
+                    "data-toggle".to_sym => "tooltip"  %>
                 <% else %>
                    <%= next_state_action(@provider) %>
                 <% end %>
