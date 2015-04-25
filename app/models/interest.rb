@@ -10,12 +10,12 @@ class Interest < ActiveRecord::Base
       transition :interested => :negotiating
     end
 
-    event :hire do
-      transition :negotiating => :hired
-    end
+    # event :hire do
+    #   transition :negotiating => :hired
+    # end
 
     event :review do
-      transition :hired => :reviewing
+      transition :negotiating => :reviewing
     end
 
     event :complete do
@@ -55,6 +55,10 @@ class Interest < ActiveRecord::Base
       end
     end
     interest
+  end
+
+  def move_2_next()
+    self.send(self.state_paths.events[0])
   end
 
   def delete_cached_state
