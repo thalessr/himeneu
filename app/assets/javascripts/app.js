@@ -197,8 +197,8 @@ app.controller("EstimateCtrl", ["$scope","Estimate",function($scope, Estimate){
   $scope.save = function() {
     $scope.estimate.provider_id = $('#estimatesModal').data("param");
     Estimate.save(angular.copy($scope.estimate),function(data){
-      console.log(data);
       $('#estimatesModal').modal('hide');
+      location.reload();
     }, function(error) {
        console.log(error);
     });
