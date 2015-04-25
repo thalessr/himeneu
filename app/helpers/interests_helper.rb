@@ -6,7 +6,7 @@ module InterestsHelper
   def next_state_action(provider)
     state = Interest.next_state(current_user, provider)
     if state == "negotiate".to_sym
-      link_to "Pedir Orçamento", "#estimatesModal", :class=>"btn btn-primary", :id => 'toggleb'
+      link_to "Pedir Orçamento", "#estimatesModal", :class=>"btn btn-primary", :id => 'interest'
     else
       button_to I18n.t("state_machine.#{state}"),
       {
@@ -15,7 +15,7 @@ module InterestsHelper
         :provider_id => @provider.slug,
         :user_id => current_user.id,
         :state => state
-      }, :class => 'btn btn-primary', :method=> :post,  :disabled => (state == "completed"),
+      }, :class => 'btn btn-primary', :id => 'interest' ,:method=> :post,  :disabled => (state == "completed"),
         'data-original-title'.to_sym => t("state_machine.#{state}_hint"), "data-toggle".to_sym => "tooltip"
     end
   end
