@@ -37,7 +37,7 @@ resources :customers do
 end
 
 resources :providers do
-  resources :address, :except => [:index, :show, :edit]
+  resources :address, only: [:create, :index]
   resources :recommendations
   get 'search', on: :collection
   get 'carousel', on: :collection
@@ -48,7 +48,7 @@ resources :interests, :only => :create do
   post 'change_state', on: :collection
 end
 
-resources :feature_images, :except => [:index, :show, :edit]
+resources :feature_images, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
