@@ -21,20 +21,26 @@
      aria-labelledby="estimatesModalLabel"
      data-param= <%=@provider.slug  %>
      aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="estimatesModalLabel"></h4>
+        <h4 class="modal-title" id="estimatesModalLabel">Descrição Orçamento</h4>
       </div>
       <form ng-controller="EstimateCtrl" ng-submit="save()">
         <div class="modal-body">
-          <label>Descrição</label>
-          <textarea ng-model="estimate.description" ngTrim="true"></textarea>
+         <wysiwyg textarea-id="description"
+                  textarea-class="form-control"
+                  textarea-height="80%"
+                  textarea-name="textareaDescription"
+                  textarea-required
+                  ng-model="estimate.description"
+                  enable-bootstrap-title="true" >
+         </wysiwyg>
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <input type="submit" id="submit" class="btn btn-primary" value="Submit" />
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
+          <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
         </div>
        </form>
     </div>

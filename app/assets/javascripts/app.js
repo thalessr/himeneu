@@ -1,5 +1,5 @@
 'use strict';
-var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
+var app = angular.module('App', ['ng-rails-csrf', 'ngResource', 'colorpicker.module', 'wysiwyg.module']);
 
 app.factory("CustomerSearch", ["$resource", function($resource) {
   return $resource("/customers/search?q=");
@@ -193,14 +193,20 @@ app.controller("CarouselCtrl", ["$scope","Carousel",function($scope, Carousel){
  */
 app.controller("EstimateCtrl", ["$scope","Estimate",function($scope, Estimate){
 
+
   $scope.save = function() {
     $scope.estimate.provider_id = $('#estimatesModal').data("param");
     Estimate.save(angular.copy($scope.estimate),function(data){
       console.log(data);
+      $('#estimatesModal').modal('hide');
     }, function(error) {
        console.log(error);
     });
   };
+
+    $scope.menu = [
+        ['bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript']
+    ];
 
 }]);
 
