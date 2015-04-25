@@ -89,6 +89,7 @@ pt-BR:
       save: "Salvar"
       new_address: "Novo endereço"
       remove_address: "Excluir endereço"
+      close: "Fechar"
   date:
     abbr_day_names:
     - Dom
