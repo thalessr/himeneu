@@ -6,7 +6,7 @@ function remove_address(link){
 }
 function add_fields(link, association, content) {
   var new_id = new Date().getTime();
-  var regexp = new RegExp("new_" + association, "g")
+  var regexp = new RegExp("new_" + association, "g");
   $("#addresses").append(content.replace(regexp, new_id));
 }
 
@@ -34,7 +34,7 @@ $(document).ready(function(){
         type: 'success'
       }).show();
 
-      if (null != data.slug) {
+      if (null !== data.slug) {
         window.location.href = "/providers/"+data.slug;
       }
 
@@ -45,7 +45,7 @@ $(document).ready(function(){
 
       errors = $.parseJSON(xhr.responseText);
 
-      for ( error in errors ) {
+      for ( var error in errors ) {
         errorText = "";
         if (typeof error !== "undefined" && typeof errors[error] !== "undefined"){
            errorText += error + ': ' + errors[error];
