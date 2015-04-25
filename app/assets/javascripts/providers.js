@@ -28,7 +28,7 @@ $(document).ready(function(){
   $('textarea').autosize();
 
 
-$( "#interest" ).click(function() {
+$( "#estimate" ).click(function() {
   $('#estimatesModal').modal('toggle');
 });
 

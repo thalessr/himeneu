@@ -11,6 +11,7 @@ class EstimatesController < ApplicationController
       respond_to do |format|
         if estimate.save
           next_state(estimate)
+          send_email(estimate)
           # TODO: send email to provider and change the state to the next
           format.html { redirect_to provider_path(estimate.provider_id)}
           format.json { render :json => estimate, status: :created}
@@ -35,5 +36,13 @@ class EstimatesController < ApplicationController
     interest.move_2_next
     interest.delete_cached_state
   end
+
+  def send_email(estimate)
+     if Rails.env.production?
+        ProviderMailer.delay.estimate_email(estimate)
+      else
+        ProviderMailer.estimate_email(estimate).deliver
+      end
+    end
 
 end
