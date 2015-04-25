@@ -12,7 +12,7 @@ class CustomersController < ApplicationController
   end
 
   def search
-    @customers = Customer.not_deleted.paginate(:page => params[:page], :per_page => 5).search(params[:q])
+    @customers = Customer.not_deleted.order(wedding_date: :asc).paginate(:page => params[:page], :per_page => 5).search(params[:q])
     respond_to do |format|
       format.html{ @customers}
       format.json{ render json: {items: @customers}} unless @customers.try(:total_pages)
