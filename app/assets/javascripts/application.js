@@ -58,7 +58,7 @@ $(document).ready(function(){
 
 	$.ajaxSetup({
 	  dataType: 'json'
-	})
+	});
 
 
 
@@ -81,7 +81,6 @@ $(document).ready(function(){
   });
 
   $(window).scroll(function(){
-    "use strict";
     var b = $(window).scrollTop();
     if( b > 60 ){
         $(".navbar").addClass("is-scrolling");
@@ -110,7 +109,7 @@ $(document).ready(function(){
           button_font: true,
           icon_font: true
         }
-  }
+  };
   if($('#socialMedia').length){
      new Share("#socialMedia", config);
   }
