@@ -12,7 +12,6 @@ class EstimatesController < ApplicationController
         if estimate.save
           next_state(estimate)
           send_email(estimate)
-          # TODO: send email to provider and change the state to the next
           format.html { redirect_to provider_path(estimate.provider_id)}
           format.json { render :json => estimate, status: :created}
         else
@@ -21,6 +20,22 @@ class EstimatesController < ApplicationController
       end
     end
 
+  end
+
+  def update
+    if current_user.is_provider?
+      customer = Customer.friendly.find(estimate_params[:customer_id])
+      estimate = Estimate.get_estimate(customer, current_user.provider)
+      respond_to do |format|
+        if estimate.update_attribute(:response, estimate_params[:response])
+
+          format.html { redirect_to provider_path(estimate.provider_id)}
+          format.json { render :json => estimate, status: :created}
+        else
+          format.json { render json: estimate.errors, status: :unprocessable_entry}
+        end
+      end
+    end
   end
 
   def destroy
@@ -38,11 +53,11 @@ class EstimatesController < ApplicationController
   end
 
   def send_email(estimate)
-     if Rails.env.production?
-        ProviderMailer.delay.estimate_email(estimate)
-      else
-        ProviderMailer.estimate_email(estimate).deliver
-      end
+    if Rails.env.production?
+      ProviderMailer.delay.estimate_email(estimate)
+    else
+      ProviderMailer.estimate_email(estimate).deliver
     end
+  end
 
 end

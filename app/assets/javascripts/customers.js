@@ -12,6 +12,9 @@ $( document ).ready(function() {
       });
 
 		});
+  $( "#resposta" ).click(function() {
+    $('#responseModal').modal('show');
+  });
 });
 
 
