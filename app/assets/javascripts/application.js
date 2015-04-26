@@ -25,7 +25,6 @@
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require bootstrap-notify/js/bootstrap-notify.js
-//= require flat-ui/dist/js/flat-ui.min.js
 //= require jquery-file-upload/js/jquery.fileupload.js
 //= require fancybox/source/jquery.fancybox.js
 //= require jquery.lazyload/jquery.lazyload.js
