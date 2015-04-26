@@ -6,16 +6,13 @@ gem 'rails', '4.1.1'
 
 group :development do
 	# Use sqlite3 as the database for Active Record
-	gem 'spring'
 	gem 'better_errors'
 	gem 'rails_best_practices'
-	gem 'pry'
 	gem 'bullet'
 	gem 'rb-readline'
 	gem 'mailcatcher'
 	gem "binding_of_caller"
   gem 'colored'
-  gem 'pry-byebug'
   gem "awesome_print"
   gem 'quiet_assets'
   gem 'meta_request'
@@ -56,8 +53,11 @@ group :test do
 	gem 'selenium-webdriver'
   gem 'mocha'
   gem 'database_cleaner'
-  gem 'capybara'
   gem 'faker'
+  gem 'minitest'
+  gem 'email_spec'
+  gem 'vcr'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development, :test do
@@ -66,6 +66,16 @@ group :development, :test do
   gem 'guard'
   gem 'guard-rspec'
   gem 'sqlite3'
+  gem 'pry'
+  gem 'pry-rails'
+  gem 'pry-rescue'
+  gem 'pry-byebug'
+  gem 'pry-stack_explorer'
+  gem 'dotenv-rails'
+  gem 'byebug'
+  gem 'capybara'
+  gem 'spring'
+  gem 'spring-commands-rspec'
 end
 
 gem 'bootstrap3-datetimepicker-rails'
@@ -77,7 +87,6 @@ gem 'mini_magick'
 gem 'fog', require: "fog/aws/storage"
 gem 'sidekiq'
 gem 'sinatra'
-gem 'dotenv-rails', :groups => [:development, :test]
 gem 'redis'
 gem 'redis-rails'
 #Active Admin
