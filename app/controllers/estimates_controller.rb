@@ -28,7 +28,7 @@ class EstimatesController < ApplicationController
       estimate = Estimate.get_estimate(customer, current_user.provider)
       respond_to do |format|
         if estimate.update_attribute(:response, estimate_params[:response])
-
+          send_response_email(estimate)
           format.html { redirect_to provider_path(estimate.provider_id)}
           format.json { render :json => estimate, status: :created}
         else
@@ -57,6 +57,14 @@ class EstimatesController < ApplicationController
       ProviderMailer.delay.estimate_email(estimate)
     else
       ProviderMailer.estimate_email(estimate).deliver
+    end
+  end
+
+  def send_response_email(estimate)
+    if Rails.env.production?
+      ProviderMailer.delay.estimate_response_email(estimate)
+    else
+      ProviderMailer.estimate_response_email(estimate).deliver
     end
   end
 
