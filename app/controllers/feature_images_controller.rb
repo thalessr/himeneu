@@ -17,7 +17,7 @@ class FeatureImagesController < ApplicationController
   private
 
   def feature_image_params
-    params.require(:feature_image).permit(:image, :provider_id)
+    params.require(:feature_image).permit(:image, :image_cache,:provider_id)
   end
 
 

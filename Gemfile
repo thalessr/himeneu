@@ -16,6 +16,9 @@ group :development do
   gem "awesome_print"
   gem 'quiet_assets'
   gem 'meta_request'
+  gem 'capistrano-faster-assets'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-rbenv-install'
 end
 group :assets  do
 	gem 'sass-rails', '~> 4.0.3'
@@ -107,8 +110,7 @@ gem 'friendly_id', '~> 5.1.0'
 
 # Use Capistrano for deployment
 gem 'capistrano-rails'
-gem 'capistrano-passenger'
-gem 'capistrano-rbenv'
+gem 'capistrano-passenger', '~> 0.0.5'
 gem 'capistrano-bundler'
 
 gem "sass_rails_patch"

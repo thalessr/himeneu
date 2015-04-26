@@ -1,10 +1,3 @@
-/*!
- * Bootstrap v3.3.2 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
- * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
- */
-
-/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;
@@ -267,8 +260,8 @@ th {
 @font-face {
   font-family: 'Glyphicons Halflings';
 
-  src: url('/assets/bootstrap/fonts/glyphicons-halflings-regular.eot');
-  src: url('/assets/bootstrap/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/assets/bootstrap/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/assets/bootstrap/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/assets/bootstrap/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/assets/bootstrap/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+  src: url(font-path('glyphicons-halflings-regular.eot'));
+  src: url(font-path('glyphicons-halflings-regular.eot?#iefix')) format('embedded-opentype'), url(font-path('glyphicons-halflings-regular.woff2')) format('woff2'), url(font-path('glyphicons-halflings-regular.woff')) format('woff'), url(font-path('glyphicons-halflings-regular.ttf')) format('truetype'), url(font-path('glyphicons-halflings-regular.svg#glyphicons_halflingsregular')) format('svg');
 }
 .glyphicon {
   position: relative;

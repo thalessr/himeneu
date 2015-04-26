@@ -1,14 +1,6 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
 
-
-
-  get 'estimates/new'
-
-  get 'estimates/create'
-
-  get 'estimates/destroy'
-
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
   get 'dashboard' => 'dashboard#index'
@@ -16,7 +8,7 @@ Rails.application.routes.draw do
   get '/anuncie' => 'static_pages#anuncie'
   get '/sobre' => 'static_pages#sobre'
   get '/contato' => 'static_pages#contato'
-  get 'newpro' => 'static_pages#newpro'
+  # get 'newpro' => 'static_pages#newpro'
 
 
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -43,7 +35,7 @@ resources :customers do
 end
 
 resources :providers do
-  resources :address, :except => [:index, :show, :edit]
+  resources :address, only: [:create, :index]
   resources :recommendations
   get 'search', on: :collection
   get 'carousel', on: :collection
@@ -54,8 +46,9 @@ resources :interests, :only => :create do
   post 'change_state', on: :collection
 end
 
-resources :feature_images, :except => [:index, :show, :edit]
-resources :estimates, :except => [:index, :edit]
+resources :feature_images, only: [:create, :destroy]
+resources :estimates, :except => [:index, :new, :destroy]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
