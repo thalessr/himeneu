@@ -1,0 +1,13 @@
+development:
+    host: 'localhost'
+    port: '6379'
+
+# local testing environment
+test:
+    host: 'localhost'
+    port: '6379'
+
+# production environment
+production:
+    host: 'himeneu-001.8wfbqn.0001.usw2.cache.amazonaws.com'
+    port: '6379'
