@@ -18,7 +18,12 @@ app.factory("Carousel", ["$resource", function($resource) {
 }]);
 
 app.factory("Estimate", ["$resource", function($resource) {
-  return $resource("/estimates");
+
+  return $resource('/estimates/:id', null,
+    {
+        'update': { method:'PUT' }
+    });
+
 }]);
 
 app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
@@ -204,9 +209,15 @@ app.controller("EstimateCtrl", ["$scope","Estimate",function($scope, Estimate){
     });
   };
 
-    $scope.menu = [
-        ['bold', 'italic', 'underline', 'strikethrough', 'subscript', 'superscript']
-    ];
+  $scope.update = function() {
+    $scope.estimate.customer_id = $('#responseModal').data("param");
+    Estimate.update({ id: $scope.estimate.customer_id },angular.copy($scope.estimate),function(data){
+      $('#responseModal').modal('hide');
+      location.reload();
+    }, function(error) {
+       console.log(error);
+    });
+  };
 
 }]);
 

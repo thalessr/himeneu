@@ -1,4 +1,41 @@
 <% if can? :read, @customer %>
+
+<!-- Modal -->
+<div class="modal fade"
+     id="responseModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="responseModalLabel"
+     data-param= <%=@customer.slug  %>
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="responseModalLabel">Resposta Orçamento</h4>
+      </div>
+      <form ng-controller="EstimateCtrl" ng-submit="update()">
+        <div class="modal-body">
+         <wysiwyg textarea-id="description"
+                  textarea-class="form-control"
+                  textarea-height="150px"
+                  textarea-name="textareaDescription"
+                  textarea-required
+                  ng-model="estimate.response"
+                  enable-bootstrap-title="true" >
+         </wysiwyg>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
+          <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+
+
+
 <div class="row">
      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
          <div class="panel panel-info">
@@ -32,6 +69,13 @@
                               <tr>
                                 <td><%= t(:phone) %></td>
                                 <td><%= @customer.phone %><br><br>
+                                </td>
+                              </tr>
+                            <% end %>
+                            <% if verify_estimate(@customer, current_user) %>
+                              <tr>
+                                <td>
+                                  <%= link_to "Resposta Orçamento", "",:class=>"btn btn-primary", :id => 'resposta' %>
                                 </td>
                               </tr>
                             <% end %>

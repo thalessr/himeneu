@@ -1,0 +1,39 @@
+branch-defaults:
+  master:
+    environment: himeneu-env
+global:
+  application_name: himeneu
+  default_ec2_keyname: himeneu
+  default_platform: Ruby 2.2 (Passenger Standalone)
+  default_region: sa-east-1
+  profile: eb-cli
+  sc: git
+container_commands:
+  01_bundle:
+    command: "bundle install"
+files:
+  "/opt/elasticbeanstalk/hooks/appdeploy/post/50_restart_sidekiq":
+    mode: "000777"
+    content: |
+      cd /var/app/current
+
+      if [ -f /var/app/support/pids/sidekiq.pid ]
+      then
+        kill -TERM `cat /var/app/support/pids/sidekiq.pid`
+        rm -rf /var/app/support/pids/sidekiq.pid
+      fi
+
+      . /opt/elasticbeanstalk/support/envvars.d/sysenv
+
+      bundle exec sidekiq \
+        -e production \
+        -C /var/app/current/config/sidekiq.yml \
+        -d
+
+  "/opt/elasticbeanstalk/hooks/appdeploy/pre/03_mute_sidekiq":
+    mode: "000777"
+    content: |
+      if [ -f /var/app/support/pids/sidekiq.pid ]
+      then
+        kill -USR1 `cat /var/app/support/pids/sidekiq.pid`
+      fi
