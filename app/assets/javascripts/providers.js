@@ -27,6 +27,11 @@ $(document).ready(function(){
 
   $('textarea').autosize();
 
+
+$( "#estimate" ).click(function() {
+  $('#estimatesModal').modal('toggle');
+});
+
   $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
   	$('#error_msg').remove();
      $('.bottom-right').notify({

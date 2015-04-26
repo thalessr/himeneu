@@ -46,7 +46,9 @@ pt-BR:
   address: Endereço
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Há interessados em seus serviços
+  estimate_reponse: Orçamento
   my_profile: "Meu Perfil"
+  estimate: "Orçamento"
   bride: Noiva(o)
   workers: 'Profissionais'
   completed_account_msg: "Complete o seu cadastro para poder pesquisar ou ser encontrado"
@@ -57,7 +59,7 @@ pt-BR:
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
   state_machine:
     interested: "Ver contato"
-    interested_hint: "O contato do fornecedor passará a ser visivel"
+    interested_hint: "O contato do fornecedor passará a ser visivel e você poderá solicitar um orçamento"
     negotiate: "Negociar"
     negotiate_hint: "O seu contato passará a ser visivel para este fornecedor"
     hire: "Contratar"
@@ -89,6 +91,7 @@ pt-BR:
       save: "Salvar"
       new_address: "Novo endereço"
       remove_address: "Excluir endereço"
+      close: "Fechar"
   date:
     abbr_day_names:
     - Dom

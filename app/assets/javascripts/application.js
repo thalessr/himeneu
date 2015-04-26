@@ -10,10 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require jquery.min.js
 //= require angular/angular.min.js
 //= require angular-resource
+//= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js
+//= require angular-wysiwyg/dist/angular-wysiwyg.min.js
 //= require ng-rails-csrf
-//= require jquery.min.js
 //= require jquery_ujs
 //= require jquery.autosize
 //= require jquery.stellar/jquery.stellar.min.js
@@ -98,7 +100,7 @@ $(document).ready(function(){
   });
 
 
- var app = angular.module('App', ['ng-rails-csrf', 'ngResource']);
+ var app = angular.module('App', ['ng-rails-csrf', 'ngResource', 'colorpicker.module', 'wysiwyg.module']);
 
  var config = {
       ui: {
