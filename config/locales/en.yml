@@ -67,7 +67,9 @@ en:
   years_experience: ""
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Someone is interested in your services
+  estimate_reponse: Here is your estimate
   my_profile: "My Profile"
+  estimate: "Estimate"
   bride: bride
   workers: Professioanals
   completed_account_msg: Complete your account to start searching for providers and getting reach by them
@@ -78,7 +80,7 @@ en:
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
   state_machine:
     interested: "Ver contato"
-    interested_hint: "O contato do fornecedor passará a ser visivel"
+    interested_hint: "O contato do fornecedor passará a ser visivel e você poderá solicitar um orçamento"
     negotiate: "Negociar"
     negotiate_hint: "O seu contato passará a ser visivel para este fornecedor"
     hire: "Contratar"
@@ -101,6 +103,7 @@ en:
       save: "Save"
       new_address: "New address"
       remove_address: "Remove address"
+      close: "Close"
   errors:
     messages:
       blank: "blank"
