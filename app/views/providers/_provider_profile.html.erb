@@ -12,6 +12,41 @@
   <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
 <% end %>
 
+
+<!-- Modal -->
+<div class="modal fade"
+     id="estimatesModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="estimatesModalLabel"
+     data-param= <%=@provider.slug  %>
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="estimatesModalLabel">Descrição Orçamento</h4>
+      </div>
+      <form ng-controller="EstimateCtrl" ng-submit="save()">
+        <div class="modal-body">
+         <wysiwyg textarea-id="description"
+                  textarea-class="form-control"
+                  textarea-height="150px"
+                  textarea-name="textareaDescription"
+                  textarea-required
+                  ng-model="estimate.description"
+                  enable-bootstrap-title="true" >
+         </wysiwyg>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
+          <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+
  <section>
     <div class="container">
 
@@ -43,15 +78,22 @@
                <% else %>
                   <i class="glyphicon glyphicon-lock"></i>
               <% end %>
+
               <% if can? :create, Interest %>
                 <% unless has_interest?(@provider) %>
-                  <%= button_to 'Ver contato', {:controller => "interests", :action => "create", :provider_id => @provider.slug }, :class => 'btn btn-primary', :method=>:post  %>
+                  <%= button_to t("state_machine.interested"),
+                    {:controller => "interests", :action => "create", :provider_id => @provider.slug },
+                    :class => 'btn btn-primary',
+                    :method=>:post,
+                    'data-original-title'.to_sym => t("state_machine.interested_hint"),
+                    "data-toggle".to_sym => "tooltip"  %>
                 <% else %>
                    <%= next_state_action(@provider) %>
                 <% end %>
               <% end %>
             </div>
           </div>
+
           <% unless @provider.video_url.blank? %>
             <div class='contact-info-box'>
               <div class="contact-info-box-header">

@@ -6,12 +6,15 @@ $( document ).ready(function() {
 
        $("[data-behaviour~='datepicker']").focus(function() {
          $(this).datetimepicker({
-            pickTime: false
+
 
           });
       });
 
 		});
+  $( "#resposta" ).click(function() {
+    $('#responseModal').modal('show');
+  });
 });
 
 
