@@ -26,16 +26,17 @@ app.factory("Estimate", ["$resource", function($resource) {
 
 }]);
 
-app.factory('CustomerShow', ['$resource', ($resource) {
-  $resource ('/customers/:id'), id: '@id'
-}]);
+app.factory("CustomerShow", function($resource) {
+  return $resource("/customers/:id", { id: '@id'}, {
+    show: { method: 'GET', responseType: 'json' },
+  });
+})
 
+app.controller ('CostumerShowCtrl', function($scope, CustomerShow){
+  $scope.customer = CustomerShow.show();
+  $scope.teste = "teste";
+})
 
-
-app.controller ('CostumerShowCtrl', ['$scope', 'CustomerShow', function($scope, CustomerShow){
-  $scope.customer = CustomerShow.query();
-}
-]
 
 app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
   $scope.loading = true;
