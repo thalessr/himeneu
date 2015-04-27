@@ -13,161 +13,17 @@
  *= require raty/lib/jquery.raty
  *= require bootstrap-datetimepicker.min.css
  *= require wow/css/libs/animate.css
+ *= require style.css
+ *= require flexslider.css
+ *= require settings.css.scss
+ *= require rev-style.css
+ *= require owl.carousel.css.scss
+ *= require owl.theme.css.scss
+ *= require yamm.css
+ *= require magnific-popup.css
  *= require components-font-awesome/css/font-awesome.css.scss
  *= require bootstrap-notify/css/bootstrap-notify.css
  *= require bootstrap-notify/css/styles/alert-bangtidy.css
- *= require flat-ui/dist/css/flat-ui.css.scss
  *= require fancybox/source/jquery.fancybox.css
  *= require angular-bootstrap-colorpicker/css/colorpicker.css.scss
- *= require_tree .
- *= require_self
  */
-
- body,
-html {
-  height:100%;
-  width:100%;
-  margin:0;
-  padding:0;
-}
-body { padding-top: 60px; }
-
-
-.navbar-nav>li>a{
-    letter-spacing: 1px;
-    -webkit-transition: all .5s ease;
-    -o-transition: all .5s ease;
-    -moz-transition: all .5s ease;
-    transition: all .5s ease;
-}
-
-.logo-navbar {
-  margin-top: -10px;
-}
-
-.navbar-fixed-top.is-scrolling{
-  background-color: #ECF0F1;
-  opacity:0.6;
-  filter: alpha(opacity=60);
-  border: 0;
-}
-.navbar-fixed-top.is-scrolling .navbar-brand{
-   color: #7F8C8D;
-}
-
-.wow{
-  visibility: hidden;
-}
-@-webkit-viewport {
-  width: device-width;
-}
-
-@-moz-viewport {
-  width: device-width;
-}
-
-@-ms-viewport {
-  width: device-width;
-}
-
-@-o-viewport {
-  width: device-width;
-}
-
-@viewport {
-  width: device-width;
-}
-.text-logo{
-    font-family: 'Raleway','Open Sans',Helvetica,Arial,sans-serif;
-    font-style: normal;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    font-size: 19px;
-    line-height: 21px;
-    color: #ffffff;
-}
-
-.footer {
-  position: fixed;
-  bottom: -10px;
-  width: 100%;
-  clear: both;
-}
-.h4 small{
-  font-size: 75%;
-  color: black;
-  font-weight: 400;
-  line-height: 1;
-  color: #777;
-}
-
-.footer-bottom {
-    background: #E3E3E3;
-    border-top: 1px solid #DDDDDD;
-    padding-top: 5px;
-    padding-bottom: 5px;
-}
-.footer-bottom p.pull-left {
-    padding-top: 6px;
-}
-.payments {
-    font-size: 1.5em;
-    padding-right: 30px;
-}
-
-footer {
-    padding: 0;
-}
-
-.footer-section{
-  padding-top:20px;
-}
-
-.sharrre .box{
-  float:left;
-}
-.sharrre .count {
-  color:#444444;
-  display:block;
-  font-size:17px;
-  line-height:34px;
-  height:34px;
-  padding:4px 0;
-  position:relative;
-  text-align:center;
-  text-decoration:none;
-  width:65px;
-  background-color:#eee;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
-}
-.sharrre .share {
-  color:#FFFFFF;
-  display:block;
-  font-size:11px;
-  height:16px;
-  line-height:16px;
-  margin-top:3px;
-  padding:0;
-  text-align:center;
-  text-decoration:none;
-  width:65px;
-  background-color:#9CCE39;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
-}
-.sharrre .buttons {
-  display:none;
-  position:absolute;
-  margin-left:50px;
-  z-index:10;
-  background-color:#fff;
-}
-.sharrre .button {
-  float:left;
-  max-width:50px;
-  margin-left:10px;
-}

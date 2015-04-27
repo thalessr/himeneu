@@ -84,6 +84,14 @@
                     </div>
                 </div>
             </div>
+            <div ng-controller="CustumerCtrl" data-param= <%=@customer.slug  %> id="showCustomer">
+                <ul>
+                <li>
+                  {{teste}}
+                  {{customer.first_name}}
+                </li>
+              </ul>
+            </div>
             <div class="panel-footer" style="height:43px">
                 <span class="pull-right">
                     <% if can? :update, @customer %>

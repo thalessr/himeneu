@@ -26,7 +26,22 @@ app.factory("Estimate", ["$resource", function($resource) {
 
 }]);
 
-app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
+app.factory("Customer", function($resource) {
+  return $resource("/customers/:id");
+});
+
+
+app.controller("CustumerCtrl", ["$scope","Customer",function($scope, Customer){
+   //slug = customer.slug
+  var slug = $('#showCustomer').data("param");
+  Customer.get({ id: slug },function(data){
+     $scope.customer = data;
+  });
+  $scope.teste = "teste";
+}]);
+
+
+app.controller("CustomerSearch", ["$scope","CustomerSearch", function($scope, CustomerSearch){
   $scope.loading = true;
   $scope.customers = [];
   $scope.get = function(page){
@@ -56,10 +71,10 @@ app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, Cust
     $scope.get($scope.next_page);
   };
 
-   $scope.prev = function(){
-    $scope.loading = true;
-    $scope.get($scope.previous_page);
-   };
+  $scope.prev = function(){
+  $scope.loading = true;
+  $scope.get($scope.previous_page);
+  };
 
   $scope.setPage = function(n) {
     if (n > 0 && n <= $scope.total_pages) {
@@ -67,27 +82,28 @@ app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, Cust
     }
   };
 
-   $scope.range = function() {
-      var rangeSize = 5;
-      var ret = [];
-      var start;
+  $scope.range = function() {
+    var rangeSize = 5;
+    var ret = [];
+    var start;
 
-      if ( rangeSize > $scope.total_pages ){
-          rangeSize = $scope.total_pages;
-      }
+    if ( rangeSize > $scope.total_pages ){
+        rangeSize = $scope.total_pages;
+    }
 
-      start = $scope.current_page;
-      if ( start > $scope.total_pages-rangeSize ) {
-        start = $scope.total_pages - rangeSize;
-      }
+    start = $scope.current_page;
+    if ( start > $scope.total_pages-rangeSize ) {
+      start = $scope.total_pages - rangeSize;
+    }
 
-      for (var i = start; i < start + rangeSize; i++) {
-        ret.push(i);
-      }
-      return ret;
-   };
+    for (var i = start; i < start + rangeSize; i++) {
+      ret.push(i);
+    }
+    return ret;
+  };
 
 }]);
+
 
 app.controller("RecommendationCtrl", ["$scope","Recommendation", function($scope, Recommendation){
 
