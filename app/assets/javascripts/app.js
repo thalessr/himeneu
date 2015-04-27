@@ -26,9 +26,11 @@ app.factory("Estimate", ["$resource", function($resource) {
 
 }]);
 
-app.factory 'CustomerShow', ['$resource', ($resource) ->
-  $resource '/customers/:id', id: '@id'
-]
+app.factory('CustomerShow', ['$resource', ($resource) {
+  $resource ('/customers/:id'), id: '@id'
+}]);
+
+
 
 app.controller ('CostumerShowCtrl', ['$scope', 'CustomerShow', function($scope, CustomerShow){
   $scope.customer = CustomerShow.query();
