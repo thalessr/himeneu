@@ -26,6 +26,15 @@ app.factory("Estimate", ["$resource", function($resource) {
 
 }]);
 
+app.factory 'CustomerShow', ['$resource', ($resource) ->
+  $resource '/customers/:id', id: '@id'
+]
+
+app.controller ('CostumerShowCtrl', ['$scope', 'CustomerShow', function($scope, CustomerShow){
+  $scope.customer = CustomerShow.query();
+}
+]
+
 app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, CustomerSearch){
   $scope.loading = true;
   $scope.customers = [];
@@ -56,10 +65,10 @@ app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, Cust
     $scope.get($scope.next_page);
   };
 
-   $scope.prev = function(){
-    $scope.loading = true;
-    $scope.get($scope.previous_page);
-   };
+  $scope.prev = function(){
+  $scope.loading = true;
+  $scope.get($scope.previous_page);
+  };
 
   $scope.setPage = function(n) {
     if (n > 0 && n <= $scope.total_pages) {
@@ -67,27 +76,28 @@ app.controller("CustomerCtrl", ["$scope","CustomerSearch", function($scope, Cust
     }
   };
 
-   $scope.range = function() {
-      var rangeSize = 5;
-      var ret = [];
-      var start;
+  $scope.range = function() {
+    var rangeSize = 5;
+    var ret = [];
+    var start;
 
-      if ( rangeSize > $scope.total_pages ){
-          rangeSize = $scope.total_pages;
-      }
+    if ( rangeSize > $scope.total_pages ){
+        rangeSize = $scope.total_pages;
+    }
 
-      start = $scope.current_page;
-      if ( start > $scope.total_pages-rangeSize ) {
-        start = $scope.total_pages - rangeSize;
-      }
+    start = $scope.current_page;
+    if ( start > $scope.total_pages-rangeSize ) {
+      start = $scope.total_pages - rangeSize;
+    }
 
-      for (var i = start; i < start + rangeSize; i++) {
-        ret.push(i);
-      }
-      return ret;
-   };
+    for (var i = start; i < start + rangeSize; i++) {
+      ret.push(i);
+    }
+    return ret;
+  };
 
 }]);
+
 
 app.controller("RecommendationCtrl", ["$scope","Recommendation", function($scope, Recommendation){
 
