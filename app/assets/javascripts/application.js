@@ -25,10 +25,24 @@
 //= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require bootstrap-notify/js/bootstrap-notify.js
-//= require flat-ui/dist/js/flat-ui.min.js
 //= require jquery-file-upload/js/jquery.fileupload.js
 //= require fancybox/source/jquery.fancybox.js
 //= require jquery.lazyload/jquery.lazyload.js
+//= require jquery-migrate.min.js
+//= require jquery.easing.1.3.min.js
+//= require jquery.sticky.js
+//= require jquery.flexslider-min.js
+//= require jquery.counterup.min.js
+//= require jquery.isotope.min.js
+//= require jquery.imagesloaded.min.js
+//= require owl.carousel.min.js
+//= require jquery.magnific-popup.min.js
+//= require jquery.mb.YTPlayer.min.js
+//= require custom.js
+//= require jquery.themepunch.tools.min.js
+//= require jquery.themepunch.revolution.min.js
+//= require revolution-custom.js
+//= require isotope-custom.js
 //= require_tree .
 //= stub active_admin
 
@@ -43,15 +57,6 @@ function showFlashMessage(msg, type, seconds){
       }).show();
 }
 
-// function loadImage(){
-//   var elem = $();
-//   $(elem).load(function() {
-//       $(elem).attr('src', $(elem).attr('data-src'));
-//   });
-//   $(elem).attr('src', $(elem).attr('data-src'));
-// }
-
-// loadImage();
 
 $(document).ready(function(){
   'use strict';
@@ -62,39 +67,39 @@ $(document).ready(function(){
 
 
 
-  new WOW().init();
+  // new WOW().init();
   $('[data-toggle="tooltip"]').tooltip();
 
-	$('form').bind('ajax:beforeSend', function(event, xhr, status) {
+	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
-		$(this).before('<img alt="Loading" id="load" class="img-responsive" src="/assets/loading.gif">');
+	// 	$(this).before('<img alt="Loading" id="load" class="img-responsive" src="/assets/loading.gif">');
 
-	});
+	// });
 
-	$('form').bind('ajax:complete', function(event, xhr, status) {
-		$("#load").remove();
-	});
+	// $('form').bind('ajax:complete', function(event, xhr, status) {
+	// 	$("#load").remove();
+	// });
 
-  $(function () {
-    $('[data-toggle="popover"]').popover();
-    $('.carousel').carousel();
-  });
+  // $(function () {
+  //   $('[data-toggle="popover"]').popover();
+  //   $('.carousel').carousel();
+  // });
 
-  $(window).scroll(function(){
-    var b = $(window).scrollTop();
-    if( b > 60 ){
-        $(".navbar").addClass("is-scrolling");
-    } else {
-        $(".navbar").removeClass("is-scrolling");
-    }
-  });
-  $.stellar({
-    horizontalScrolling: false,
-    verticalOffset: 50
-  });
+  // $(window).scroll(function(){
+  //   var b = $(window).scrollTop();
+  //   if( b > 60 ){
+  //       $(".navbar").addClass("is-scrolling");
+  //   } else {
+  //       $(".navbar").removeClass("is-scrolling");
+  //   }
+  // });
+  // $.stellar({
+  //   horizontalScrolling: false,
+  //   verticalOffset: 50
+  // });
 
-  $(':checkbox').radiocheck();
-  $(':radio').radiocheck();
+  // $(':checkbox').radiocheck();
+  // $(':radio').radiocheck();
   $("img.lazy").show().lazyload({
     effect : "fadeIn"
   });

@@ -37,6 +37,9 @@ en:
   unlock_instructions_question: "Didn't receive unlock instructions?"
   sign_up: "Sign up"
   sign_in: "Please Sign In"
+  about_us: About us
+  follow_us: Follow us
+  contact: Contact
   remember_me: "Remember me"
   password: "password"
   confirm_account: "Confirm my account"

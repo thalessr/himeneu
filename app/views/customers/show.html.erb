@@ -84,6 +84,13 @@
                     </div>
                 </div>
             </div>
+            <div ng-controller="CostumerShowCtrl">
+                <ul>
+                <li>
+                  {{customer.name}}
+                </li>
+              </ul>
+            </div>
             <div class="panel-footer" style="height:43px">
                 <span class="pull-right">
                     <% if can? :update, @customer %>
