@@ -2,6 +2,7 @@ class CustomersController < ApplicationController
   before_filter :authenticate_user!
   load_and_authorize_resource
   skip_authorize_resource :only => [:new, :create]
+  respond_to :json
 
   def index
     # @customers = Customer.all.where(user_id: current_user.id)
@@ -47,6 +48,10 @@ class CustomersController < ApplicationController
   def show
     @customer = Customer.includes(:address).friendly.find(params[:id])
     @customer.get_wedding_date
+    respond_to do |format|
+      format.json { render json: @customer }
+      format.html
+    end
   end
 
   def edit
