@@ -8,7 +8,7 @@ class ProvidersController < ApplicationController
   end
 
   def search
-    @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
+    @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 6).includes(:profession).search(params[:q])
     respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
@@ -87,6 +87,14 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       format.html{ providers}
       format.json{ render json: providers}
+    end
+  end
+
+  def cloud
+    tags = Provider.cloud
+    respond_to do |format|
+      format.html{ tags}
+      format.json{ render json: tags}
     end
   end
 
