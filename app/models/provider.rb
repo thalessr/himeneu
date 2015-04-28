@@ -21,7 +21,7 @@ class Provider < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   #CarrierWave
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, ProviderUploader
   process_in_background :image if Rails.env.production?
 
   #Tags
@@ -104,6 +104,18 @@ class Provider < ActiveRecord::Base
       end
     end
     carousel
+  end
+
+  def self.cloud
+    cloud = get_redis_value("cloud")
+    if cloud.blank?
+      cloud = ActsAsTaggableOn::Tag.most_used(10).pluck(:name)
+      unless cloud.blank? && Rails.env.production?
+        set_redis_key("cloud" , cloud.to_json, 3)
+        cloud = get_redis_value("cloud")
+      end
+    end
+    cloud
   end
 
   private
