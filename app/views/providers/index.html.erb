@@ -1,10 +1,51 @@
 <% if can? :search, Provider %>
-	<div ng-controller="SearchCtrl" class="filter-form container">
+<div class="divide40"></div>
+<div class="container" ng-controller="SearchCtrl" class="filter-form container">
+    <div class="row">
+        <div class="col-md-8 margin30">
+          <div class="row margin30">
+              <div class="col-md-4">
+                  <form method="post" action="#">
+                      <select class="form-control">
+                          <option>Sorting by Price</option>
+                          <option>Sort by price: low to high</option>
+                          <option>Sort by price: high to low</option>
+                      </select>
+                  </form><!--shorting form end-->
+              </div>
+          </div>
+          <div class="loader" data-initialize="loader" data-ng-show="loading">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
 
+            <div class="row items-list" ng-repeat="p in providers">
+              <div class="col-sm-5">
+                <img class="img-responsive" ng-src="{{p.image['list'].url}}"> </img>
+              </div>
+              <div class="col-sm-7">
+                  <h3><a href="/providers/{{p.slug}}">{{p.first_name}} {{p.last_name | limitTo:30}}</a></h3>
+                 <ul class="list-inline rating-list">
+                          <li><i class="fa fa-star yellow"></i></li>
+                          <li><i class="fa fa-star yellow"></i></li>
+                          <li><i class="fa fa-star yellow"></i></li>
+                          <li><i class="fa fa-star gray"></i></li>
+                          <li><i class="fa fa-star gray"></i></li>
+
+                          <li class="review"><a href="#">(1 Review)</a></li>
+                          <li><a href="#">Add your review</a></li>
+                      </ul>
+                  <p>
+                      {{ p.experience | limitTo:168 }}
+                  </p>
+                  <p>
+                      <a href="#" class="btn btn-theme-dark">View detail</a>
+                       <a href="#" class="btn btn-theme-bg">Add cart</a>
+                  </p>
+              </div>
+            </div>
+<!--
 		<div class="row">
-			<div class="loader" data-initialize="loader" data-ng-show="loading">
-				<i class="fa fa-refresh fa-spin"></i>
-			</div>
+
 			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
 				<div class="input-group search-form">
 					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
@@ -42,26 +83,99 @@
 			</div>
 		</div>
 
-		<center>
-			<nav ng-show="total_pages > 1">
-				<div class="pagination">
-				  <ul>
-				    <li  ng-class="{'disabled': current_page == 1 }" class="previous">
-				      <a href="#" class="fui-arrow-left" ng-click="prev()" ></a>
-				    </li>
-				    <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
-		         <a href="#">{{n+1}}</a>
-		        </li>
-				    <li ng-class="{'disabled': current_page == total_pages }" class="next">
-				      <a href="#" class="fui-arrow-right" ng-click="next()"></a>
-				    </li>
-			 	  </ul>
-			  </div>
-			</nav>
-		</center>
-
-	</div>
+	</div> -->
+        <ul class="pagination" ng-show="total_pages > 1">
+          <li  ng-class="{'disabled': current_page == 1 }" class="previous" aria-label="Previous">
+            <a href="#" ng-click="prev()" >
+              <span aria-hidden="true">«</span>
+            </a>
+          </li>
+          <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
+            <a href="#">{{n+1}}</a>
+          </li>
+          <li ng-class="{'disabled': current_page == total_pages }" class="next">
+            <a href="#" ng-click="next()" aria-label="Next">
+              <span aria-hidden="true">»</span>
+            </a>
+          </li>
+        </ul>
+    </div>
+    <div class="col-md-3 col-md-offset-1 shop-sidebar">
+      <div class="sidebar-box margin40">
+        <h4>Search</h4>
+        <form role="form" class="search-widget" ng-submit="search(q)">
+          <input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
+          <i class="fa fa-search"></i>
+        </form>
+      </div>
+    </div>
 <% end %>
+
+
+
+
+                <div class="col-md-3 col-md-offset-1 shop-sidebar">
+
+
+                    <div class="sidebar-box margin40">
+                        <h4>Shop by brands</h4>
+                        <ul class="list-unstyled cat-list">
+                            <li> <a href="#">Us polo</a> <i class="fa fa-angle-right"></i></li>
+                            <li> <a href="#">Levis</a> <i class="fa fa-angle-right"></i></li>
+                            <li> <a href="#">Wrangler</a> <i class="fa fa-angle-right"></i></li>
+                            <li> <a href="#">Reebok</a> <i class="fa fa-angle-right"></i></li>
+                            <li> <a href="#">Adidas</a> <i class="fa fa-angle-right"></i></li>
+                        </ul>
+                    </div><!--sidebar-box-->
+                    <div class="sidebar-box margin40">
+                        <h4>Best sellers</h4>
+                        <ul class="list-unstyled popular-post">
+                            <li>
+                                <div class="popular-img">
+                                    <a href="#"> <img src="shop-img/p-1.jpg" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="popular-desc">
+                                    <h5> <a href="#">lady topa</a></h5>
+                                    <h6><del>$230</del> $150</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="popular-img">
+                                    <a href="#"> <img src="shop-img/p-2.jpg" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="popular-desc">
+                                    <h5> <a href="#">Gold bangles</a></h5>
+                                    <h6> $250</h6>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="popular-img">
+                                    <a href="#"> <img src="shop-img/p-3.jpg" class="img-responsive" alt=""></a>
+                                </div>
+                                <div class="popular-desc">
+                                    <h5> <a href="#">White blazer </a></h5>
+                                    <h6>$99</h6>
+                                </div>
+                            </li>
+                        </ul>
+                    </div><!--sidebar-box-->
+                    <div class="sidebar-box margin40">
+                        <h4>Tag Cloud</h4>
+                        <div class="tag-list">
+                            <a href="#">Mens</a>
+                            <a href="#">Womens</a>
+                            <a href="#">jeans</a>
+                            <a href="#">T-shirts</a>
+                            <a href="#">Kids</a>
+                            <a href="#">Offers</a>
+                            <a href="#">Shoes</a>
+                            <a href="#">Shirts</a>
+
+                        </div>
+                    </div>
+                </div><!--sidebar-->
+            </div>
+        </div>
 
 
 
