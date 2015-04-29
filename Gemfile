@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.1'
+gem 'rails', '4.2.1'
 
 
 group :production do
@@ -87,7 +87,7 @@ gem 'carrierwave_backgrounder'
 gem 'mini_magick'
 gem 'fog', require: "fog/aws/storage"
 gem 'sidekiq'
-gem 'sinatra'
+gem 'sinatra', :require => nil
 gem 'redis'
 gem 'redis-rails'
 #Active Admin

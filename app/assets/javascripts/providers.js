@@ -25,7 +25,6 @@ $(document).ready(function(){
   $.fn.raty.defaults.path = "/assets";
   $.fn.raty.defaults.half_show = true;
 
-  $('textarea').autosize();
 
 
 $( "#estimate" ).click(function() {
