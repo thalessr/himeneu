@@ -16,7 +16,8 @@ class ApplicationController < ActionController::Base
   end
 
   def current_ability
-  	@current_ability ||= Ability.new(current_user)
+  	@current_ability ||= Ability.new(current_user) unless current_user.nil?
   end
+
 
 end
