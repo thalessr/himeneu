@@ -20,13 +20,13 @@ module Himeneu
     config.i18n.default_locale = :"pt-BR"
     config.assets.paths << Rails.root.join("vendor","assets", "bower_components")
 
-    # if Rails.env.production?
-    #   config.cache_store = :redis_store, 'redis://himeneu-001.8wfbqn.0001.usw2.cache.amazonaws.com/0/cache', { expires_in: 180.minutes }
-    # else
-    #   config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
-    # end
+    if Rails.env.production?
+      config.cache_store = :redis_store, 'redis://104.236.232.221:6379/0/cache', { expires_in: 180.minutes }
+    else
+      config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
+    end
 
-    config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
+    # config.cache_store = :redis_store, 'redis://localhost:6379/0/cache', { expires_in: 90.minutes }
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
