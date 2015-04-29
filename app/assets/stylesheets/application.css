@@ -11,7 +11,6 @@
  * file per style scope.
  *= require bootstrap/dist/css/bootstrap.css.scss
  *= require raty/lib/jquery.raty
- *= require bootstrap-datetimepicker.min.css
  *= require wow/css/libs/animate.css
  *= require style.css
  *= require flexslider.css.scss

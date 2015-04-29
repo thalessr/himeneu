@@ -17,15 +17,11 @@
 //= require angular-wysiwyg/dist/angular-wysiwyg.min.js
 //= require ng-rails-csrf
 //= require jquery_ujs
-//= require jquery.autosize
 //= require jquery.stellar/jquery.stellar.min.js
-//= require moment
 //= require bootstrap/dist/js/bootstrap.min.js
 //= require wow/dist/wow.min.js
-//= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require bootstrap-notify/js/bootstrap-notify.js
-//= require jquery-file-upload/js/jquery.fileupload.js
 //= require fancybox/source/jquery.fancybox.js
 //= require jquery.lazyload/jquery.lazyload.js
 //= require jquery-migrate.min.js
