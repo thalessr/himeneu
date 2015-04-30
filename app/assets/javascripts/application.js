@@ -15,6 +15,13 @@
 //= require angular-resource
 //= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js
 //= require angular-wysiwyg/dist/angular-wysiwyg.min.js
+//= require app/app.js
+//= require app/app.services.js
+//= require app/app.routes.js
+//= require app/controllers/customersController.js
+//= require app/controllers/providersController.js
+//= require app/controllers/estimatesController.js
+//= require app/controllers/recommendationsController.js
 //= require ng-rails-csrf
 //= require jquery_ujs
 //= require jquery.stellar/jquery.stellar.min.js
@@ -40,7 +47,6 @@
 //= require jquery.themepunch.revolution.min.js
 //= require revolution-custom.js
 //= require isotope-custom.js
-//= require_tree .
 //= stub active_admin
 
 function showFlashMessage(msg, type, seconds){
