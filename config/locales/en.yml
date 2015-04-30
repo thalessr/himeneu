@@ -23,6 +23,11 @@ en:
   login: "login"
   logout: "logout"
   create_account: 'create account'
+  create_account_himeneu: Create new account with Himeneu
+  create_account_text: ""
+  create_account_agree: I agree with the Terms and Conditions
+  repeat_password: Repeat the password
+  welcome: Welcome
   title: "Himeneu"
   forgot_password: "Forgot password?"
   resend_password: "Send me reset password instructions"
@@ -45,6 +50,7 @@ en:
   confirm_account: "Confirm my account"
   confirmation_text: "You can confirm your account email through the link below:"
   confirmation_email: "Didn't receive confirmation instructions?"
+  reason_email: Needed to verify your account
   resend_confirmation: "Resend confirmation instructions"
   welcome: "Welcome"
   first_name: "First Name"
