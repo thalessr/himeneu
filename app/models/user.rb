@@ -2,9 +2,14 @@ class User < ActiveRecord::Base
   include CacheRedis::Utils
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :async,:trackable, :validatable,
-    :confirmable
+  if Rails.env.production?
+    devise :database_authenticatable, :registerable,
+      :recoverable, :rememberable, :async,:trackable, :validatable,
+      :confirmable
+  else
+    devise :database_authenticatable, :registerable,
+      :recoverable, :rememberable, :trackable, :validatable
+  end
 
   has_one :customer, dependent: :destroy
   has_one :provider, dependent: :destroy
