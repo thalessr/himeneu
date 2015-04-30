@@ -2,16 +2,16 @@ class DashboardController < ApplicationController
 	before_filter :authenticate_user!, :except => [:index,:privacy]
 
 	def index
-		if current_user
-			@user = current_user
-			if @user.is_customer?
-	      customer_redirect(@user)
-	    elsif @user.is_provider?
-	    	provider_redirect(@user)
-	    else
-	  		redirect_to new_user_registration_path
-  	  end
-		end
+		# if current_user
+		# 	@user = current_user
+		# 	if @user.is_customer?
+	 #      customer_redirect(@user)
+	 #    elsif @user.is_provider?
+	 #    	provider_redirect(@user)
+	 #    else
+	 #  		redirect_to new_user_registration_path
+  # 	  end
+		# end
 	end
 
 	def privacy

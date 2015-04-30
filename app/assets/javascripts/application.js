@@ -31,6 +31,7 @@
 //= require jquery.counterup.min.js
 //= require jquery.isotope.min.js
 //= require jquery.imagesloaded.min.js
+//= require jquery.modal.js
 //= require owl.carousel.min.js
 //= require jquery.magnific-popup.min.js
 //= require jquery.mb.YTPlayer.min.js

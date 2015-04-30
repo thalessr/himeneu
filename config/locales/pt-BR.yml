@@ -1,5 +1,6 @@
 pt-BR:
   login: "acessar"
+  login_account: Acessar a sua conta
   create_account: cadastrar
   create_account_himeneu: Criar uma nova conta no Himeneu
   create_account_text: "Para ajudar você a curtir só o melhor do casamento, apresentamos o Himeneu, o aplicativo que vai ajudá-lo a encontrar os melhores profissionais e fornecedores do mercado, para que sua festa seja ainda mais inesquecível"
@@ -8,7 +9,7 @@ pt-BR:
   logout: "sair"
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
-  resend_password: "Enviar instruções para mudar a senha"
+  resend_password: "Enviar"
   reset_password_instrutions: "Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo"
   change_password: 'Mudar minha senha'
   alert_password: "Se você não solicitou essa alteração, por favor ignore esse email."
