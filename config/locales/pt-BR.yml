@@ -1,6 +1,10 @@
 pt-BR:
   login: "acessar"
   create_account: cadastrar
+  create_account_himeneu: Criar uma nova conta no Himeneu
+  create_account_text: "Para ajudar você a curtir só o melhor do casamento, apresentamos o Himeneu, o aplicativo que vai ajudá-lo a encontrar os melhores profissionais e fornecedores do mercado, para que sua festa seja ainda mais inesquecível"
+  create_account_agree: Concordo com os Termos e Condições
+  repeat_password: Repita a senha
   logout: "sair"
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
@@ -20,11 +24,12 @@ pt-BR:
   follow_us: Nos siga
   contact: Contato
   remember_me: "Lembrar"
-  password: "senha"
+  password: "Senha"
   confirm_account: "Confirmar minha conta"
   welcome: "Bem-vindo"
   confirmation_text: "Para confirmar o seu cadastro clique no link abaixo:"
   confirmation_email: "Não recebeu o email de confirmação?"
+  reason_email: Necessário para verificar a conta
   resend_confirmation: "Reenviar confirmação"
   first_name: "Nome"
   last_name: Sobrenome

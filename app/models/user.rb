@@ -9,9 +9,8 @@ class User < ActiveRecord::Base
   has_one :customer, dependent: :destroy
   has_one :provider, dependent: :destroy
   has_and_belongs_to_many :roles
-  validates_presence_of :roles
+  # validates_presence_of :roles
 
-  # ROLES = %w[fornecedor noiva(o)]
   @is_provider = nil
   @is_customer = nil
 
