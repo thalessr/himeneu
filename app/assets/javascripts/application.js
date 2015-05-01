@@ -12,7 +12,8 @@
 //
 //= require jquery.min.js
 //= require angular/angular.min.js
-//= require angular-resource
+//= require angular-resource/angular-resource.min.js
+//= require angular-ui-router/release/angular-ui-router.min.js
 //= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js
 //= require angular-wysiwyg/dist/angular-wysiwyg.min.js
 //= require app/app.js
@@ -20,6 +21,7 @@
 //= require app/app.routes.js
 //= require app/controllers/customersController.js
 //= require app/controllers/providersController.js
+//= require app/controllers/providerSearchController.js
 //= require app/controllers/estimatesController.js
 //= require app/controllers/recommendationsController.js
 //= require ng-rails-csrf

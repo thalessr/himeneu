@@ -11,6 +11,10 @@ app.factory("Search", ["$resource", function($resource) {
   return $resource("/providers/search");
 }]);
 
+app.factory("Provider", ["$resource", function($resource) {
+  return $resource("/providers/:id");
+}]);
+
 app.factory("Carousel", ["$resource", function($resource) {
   return $resource("/providers/carousel");
 }]);
