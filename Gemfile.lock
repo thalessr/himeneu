@@ -79,7 +79,6 @@ GEM
     byebug (4.0.5)
       columnize (= 0.9.0)
     callsite (0.0.11)
-    cancancan (1.9.2)
     capistrano (3.4.0)
       i18n
       rake (>= 10.0.0)
@@ -560,7 +559,6 @@ DEPENDENCIES
   binding_of_caller
   bullet
   byebug
-  cancancan (~> 1.9.2)
   capistrano-bundler
   capistrano-faster-assets
   capistrano-passenger (~> 0.0.5)
