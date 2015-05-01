@@ -13,8 +13,10 @@ class Ability
         can :read, Provider
         can :search, Provider
         can :create, Interest
+        can :cloud, Provider
       elsif user.is_provider?
         can [:read, :search], Provider
+        can :cloud, Provider
         can [:update, :destroy, :recover], Provider, :user_id => user.id
         can :create, Provider, :user_id => nil
         can [:read, :search], Customer
@@ -22,6 +24,7 @@ class Ability
         can :create, User
         cannot :manage, Customer
         can [:read, :carousel], Provider
+        can :cloud, User
       end
     #
     # The first argument to `can` is the action you are giving the user

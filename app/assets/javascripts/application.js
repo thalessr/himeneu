@@ -24,6 +24,7 @@
 //= require app/controllers/providerSearchController.js
 //= require app/controllers/estimatesController.js
 //= require app/controllers/recommendationsController.js
+//= require app/controllers/tagCloudController.js
 //= require ng-rails-csrf
 //= require jquery_ujs
 //= require jquery.stellar/jquery.stellar.min.js
