@@ -70,7 +70,7 @@
               </h2>
             </div>
             <div class='contact-info-box-body'>
-              <% if has_interest?(@provider) || (can? :update, @provider) %>
+              <% if has_interest?(@provider) || (can_manage_provider?(@provider) ) %>
                 <ul class='list-unstyled'>
                   <li><i class='glyphicon glyphicon-phone'></i> <%= @provider.contact %></li>
                   <li><i class='glyphicon glyphicon-envelope'></i> <%= @provider.email %></li>
@@ -79,7 +79,7 @@
                   <i class="glyphicon glyphicon-lock"></i>
               <% end %>
 
-              <% if can? :create, Interest %>
+              <% if can_read_providers? %>
                 <% unless has_interest?(@provider) %>
                   <%= button_to t("state_machine.interested"),
                     {:controller => "interests", :action => "create", :provider_id => @provider.slug },
@@ -145,15 +145,13 @@
           <div class="profile-name">
             <h1 class="h2"> <%= @provider.full_name %>
               <span class="">
-                 <% if can? :destroy, @provider %>
+                <% if can_manage_provider? @provider %>
                   <%= delete_or_recovery(@provider) %>
-                <% end %>
-                <% if can? :update, @provider %>
-                 <span data-toggle="tooltip" data-placement="right" >
+                  <span data-toggle="tooltip" data-placement="right" >
                   <%= link_to edit_provider_path(@provider.slug) do %>
                     <i class="glyphicon glyphicon-edit edit-button" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"   ></i>
                   <% end %>
-                </span>
+                 </span>
                 <% end %>
               </span>
             </h1>
@@ -183,7 +181,7 @@
             </h6>
             <div class="images-container">
               <% @provider.feature_images.each do |i| %>
-                <% if can? :update, @provider %>
+                <% if can_manage_provider? @provider %>
                   <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
                      <i class="glyphicon glyphicon-remove" data-original-title="<%= t('links.exlude') %>" data-toggle="tooltip"   ></i>
                   <% end %>
@@ -191,7 +189,7 @@
                 <%= link_to image_tag(i.image_url(:thumb)), i.image_url, :class => 'fancybox' %>
               <% end %>
             </div>
-            <% if can? :update, @provider %>
+            <% if can_manage_provider? @provider %>
               <div>
                <%= form_for FeatureImage.new do |f| %>
                  <%= f.file_field :image %>

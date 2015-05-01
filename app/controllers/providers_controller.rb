@@ -1,7 +1,6 @@
 class ProvidersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :authenticate_user!, :except => [:carousel, :show]
-  load_and_authorize_resource
 
   def index
     # @providers = Provider.recent(5)

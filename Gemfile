@@ -80,7 +80,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem "devise-async"
-gem 'cancancan', '~> 1.9.2'
+# gem 'cancancan', '~> 1.9.2'
 
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
