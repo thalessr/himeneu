@@ -1,4 +1,4 @@
-<% if can? :read, @customer %>
+<% if can_read_customers? || can_manage_customer?(@customer) %>
 
 <!-- Modal -->
 <div class="modal fade"
@@ -86,12 +86,10 @@
             </div>
             <div class="panel-footer" style="height:43px">
                 <span class="pull-right">
-                    <% if can? :update, @customer %>
+                    <% if can_manage_customer? @customer %>
                       <%= link_to edit_customer_path(@customer.slug) ,class: "btn btn-sm btn-warning" do %>
                         <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"  ></i>
                       <% end %>
-                    <% end %>
-                    <% if can? :destroy, @customer %>
                       <%= delete_or_recovery(@customer) %>
                     <% end %>
                 </span>
