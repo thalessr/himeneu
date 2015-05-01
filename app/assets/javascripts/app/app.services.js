@@ -11,6 +11,10 @@ app.factory("Search", ["$resource", function($resource) {
   return $resource("/providers/search");
 }]);
 
+app.factory("TagCloud", ["$resource", function($resource) {
+  return $resource("/providers/cloud");
+}]);
+
 app.factory("Provider", ["$resource", function($resource) {
   return $resource("/providers/:id");
 }]);
