@@ -80,14 +80,14 @@
               <ul class="nav navbar-nav navbar-right">
                   <% if  user_signed_in?  %>
                       <% if current_user.is_completed %>
-                        <% if can? :search, Customer %>
+                        <% if can_read_customers? %>
                             <li><%= link_to customers_path do %>
                                    <%= t(:bride) %>
                                    <i class="fa fa-heart"></i>
                                 <% end %>
                             </li>
                         <% end %>
-                        <% if can? :search, Provider %>
+                        <% if can_read_providers? %>
                             <li><%= link_to providers_path do %>
                                     <%= t(:workers) %>
                                     <i class="fa fa-users"></i>

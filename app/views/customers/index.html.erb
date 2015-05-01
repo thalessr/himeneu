@@ -1,4 +1,4 @@
-<% if can? :search, Customer %>
+<% if can_read_customers? %>
   <div ng-controller="CustomerCtrl" class="filter-form container" >
 
     <div class="row">
