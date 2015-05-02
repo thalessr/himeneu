@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501233501) do
+ActiveRecord::Schema.define(version: 20150502034621) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150501233501) do
     t.string   "phone",       limit: 255
     t.string   "state"
     t.string   "country"
+    t.string   "address"
   end
 
   add_index "addresses", ["city"], name: "index_addresses_on_city"
