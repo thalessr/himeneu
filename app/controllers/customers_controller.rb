@@ -45,8 +45,19 @@ class CustomersController < ApplicationController
     end
   end
 
+  # def show
+  #   @customer = Customer.includes(:address).friendly.find(params[:id])
+  #   @customer.get_wedding_date
+  #   respond_to do |format|
+  #     format.json { render json: @customer }
+  #     format.html
+  #   end
+  # end
+
+  ### SUBSTITUIR ANTES DE PUSHAR
+
   def show
-    @customer = Customer.includes(:address).friendly.find(params[:id])
+    @customer = Customer.friendly.find(params[:id])
     @customer.get_wedding_date
     respond_to do |format|
       format.json { render json: @customer }
