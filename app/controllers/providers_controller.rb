@@ -7,7 +7,12 @@ class ProvidersController < ApplicationController
   end
 
   def search
-    @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 6).includes(:profession).search(params[:q])
+    @providers = Provider.not_deleted
+                         .paginate(:page => params[:page], :per_page => 6)
+                         .includes(:profession)
+                         .search(params[:q])
+                         .order(order_param)
+
     respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
@@ -105,5 +110,20 @@ class ProvidersController < ApplicationController
       :video_url, :facebook,:city, :experience, :tag_list,
       addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
     )
+  end
+
+  def order_param
+    order = params[:sort]
+    unless order.blank?
+      if order.include? "Asc"
+        order = "first_name ASC"
+      elsif order.include? "Desc"
+        order = "first_name DESC"
+      else
+        order = "score DESC"
+      end
+    else
+      order = "id"
+    end
   end
 end

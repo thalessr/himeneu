@@ -53,6 +53,8 @@ pt-BR:
   email_hint: "exemplo@himeneu.com"
   years_experience: "Anos de experiência"
   address: Endereço
+  search: Pesquisa
+  view_detail: Ver detalhes
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Há interessados em seus serviços
   estimate_reponse: Orçamento
@@ -101,6 +103,9 @@ pt-BR:
       new_address: "Novo endereço"
       remove_address: "Excluir endereço"
       close: "Fechar"
+  sorting:
+    name: Nome
+    rating: Pontuação
   date:
     abbr_day_names:
     - Dom
