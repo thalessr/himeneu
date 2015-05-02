@@ -2,7 +2,7 @@
 
 class ProviderUploader < CarrierWave::Uploader::Base
 
-include CarrierWave::MiniMagick
+  include CarrierWave::MiniMagick
   include CarrierWave::MimeTypes
 
   process :set_content_type
@@ -28,7 +28,7 @@ include CarrierWave::MiniMagick
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_and_pad => [140, 140]
+    process :resize_and_pad => [60, 60]
     process :lower_quality
   end
 

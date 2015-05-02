@@ -31,3 +31,7 @@ app.factory("Estimate", ["$resource", function($resource) {
     });
 
 }]);
+
+app.factory("BestSeller", ["$resource", function($resource) {
+  return $resource("/providers/bestSeller");
+}]);
