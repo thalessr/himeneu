@@ -43,8 +43,7 @@ class CustomersController < ApplicationController
   end
 
   def show
-    @customer = Customer.includes(:address).friendly.find(params[:id])
-    @customer.get_wedding_date
+    @customer = Customer.friendly.find(params[:id])
   end
 
   def edit
@@ -78,7 +77,7 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(
       :first_name, :last_name,
       :age, :key, :wedding_date, :image, :image_cache,
-      address_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
+      address_attributes: [:id, :city, :zipcode, :state, :country, :email, :phone, :_destroy]
     )
   end
 end

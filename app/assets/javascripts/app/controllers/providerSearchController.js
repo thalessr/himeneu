@@ -6,7 +6,7 @@ app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
       $scope.loading = false;
       return;
     }
-    Search.get({q: $scope.q, page: page}, function(data){
+    Search.get({q: $scope.q, page: page, sort: $scope.order}, function(data){
       $scope.providers = data.items;
       $scope.total_pages = data.total_pages;
       $scope.current_page = data.current_page;
@@ -40,6 +40,11 @@ app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
     $scope.loading = true;
     $scope.get($scope.previous_page);
    };
+
+  $scope.sort = function(q){
+    $scope.loading = true;
+    $scope.get(1);
+  };
 
   $scope.setPage = function(n) {
     if (n > 0 && n <= $scope.total_pages) {

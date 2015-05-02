@@ -75,6 +75,8 @@ en:
   email_hint: "example@himeneu.com"
   address: Address
   years_experience: ""
+  search: Search
+  view_detail: View Detail
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Someone is interested in your services
   estimate_reponse: Here is your estimate
@@ -114,6 +116,9 @@ en:
       new_address: "New address"
       remove_address: "Remove address"
       close: "Close"
+  sorting:
+    name: Name
+    rating: Rating
   errors:
     messages:
       blank: "blank"
