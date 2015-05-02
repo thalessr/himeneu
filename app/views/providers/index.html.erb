@@ -84,31 +84,15 @@
         <div class="sidebar-box margin40">
           <h4>Best sellers</h4>
           <ul class="list-unstyled popular-post">
-            <li>
+            <li ng-repeat="best in bestSellers">
               <div class="popular-img">
-                <a href="#"> <img src="shop-img/p-1.jpg" class="img-responsive" alt=""></a>
+                <a href="/providers/{{best.slug}}">
+                  <img ng-src="{{best.image['thumb'].url}}" class="img-responsive" alt="">
+                </a>
               </div>
               <div class="popular-desc">
-                <h5> <a href="#">lady topa</a></h5>
+                <h5> <a href="#">{{best.first_name}}</a></h5>
                 <h6><del>$230</del> $150</h6>
-              </div>
-            </li>
-            <li>
-              <div class="popular-img">
-                <a href="#"> <img src="shop-img/p-2.jpg" class="img-responsive" alt=""></a>
-              </div>
-              <div class="popular-desc">
-                <h5> <a href="#">Gold bangles</a></h5>
-                <h6> $250</h6>
-              </div>
-            </li>
-            <li>
-              <div class="popular-img">
-                <a href="#"> <img src="shop-img/p-3.jpg" class="img-responsive" alt=""></a>
-              </div>
-              <div class="popular-desc">
-                <h5> <a href="#">White blazer </a></h5>
-                <h6>$99</h6>
               </div>
             </li>
           </ul>

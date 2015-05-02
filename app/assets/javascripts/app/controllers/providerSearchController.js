@@ -1,4 +1,4 @@
-app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
+app.controller("SearchCtrl", ["$scope","Search","BestSeller", function($scope, Search, BestSeller){
   $scope.loading = true;
   $scope.providers = [];
   $scope.get = function(page){
@@ -51,6 +51,10 @@ app.controller("SearchCtrl", ["$scope","Search", function($scope, Search){
       $scope.get(n);
     }
   };
+
+  BestSeller.query(function(data){
+    $scope.bestSellers = data;
+  });
 
    $scope.range = function() {
       var rangeSize = 5;
