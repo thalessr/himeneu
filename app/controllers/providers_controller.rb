@@ -8,10 +8,10 @@ class ProvidersController < ApplicationController
 
   def search
     @providers = Provider.not_deleted
-                         .paginate(:page => params[:page], :per_page => 6)
-                         .includes(:profession)
-                         .search(params[:q])
-                         .order(order_param)
+    .paginate(:page => params[:page], :per_page => 6)
+    .includes(:profession)
+    .search(params[:q])
+    .order(order_param)
 
     respond_to do |format|
       format.html{ @providers}
@@ -61,7 +61,7 @@ class ProvidersController < ApplicationController
   end
 
   def update
-    @provider = Provider.friendly.find(params[:id])
+    @provider = Provider.includes(:tag).friendly.find(params[:id])
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
@@ -99,6 +99,14 @@ class ProvidersController < ApplicationController
     respond_to do |format|
       format.html{ tags}
       format.json{ render json: tags}
+    end
+  end
+
+  def bestSeller
+    providers = Provider.best_sellers
+    respond_to do |format|
+      format.html{ providers }
+      format.json{ render json: providers}
     end
   end
 

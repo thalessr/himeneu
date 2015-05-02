@@ -41,6 +41,7 @@ resources :providers do
   get 'carousel', on: :collection
   get 'recover', on: :collection
   get 'cloud', on: :collection
+  get 'bestSeller', on: :collection
 end
 
 resources :interests, :only => :create do
