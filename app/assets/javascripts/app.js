@@ -36,8 +36,8 @@ app.controller("CustumerCtrl", ["$scope","Customer",function($scope, Customer){
   var slug = $('#showCustomer').data("param");
   Customer.get({ id: slug },function(data){
      $scope.customer = data;
+     $scope.full_name = data.first_name + " " + data.last_name
   });
-  $scope.teste = "teste";
 }]);
 
 
