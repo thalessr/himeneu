@@ -111,8 +111,6 @@ $(document).ready(function(){
   });
 
 
- var app = angular.module('App', ['ng-rails-csrf', 'ngResource', 'colorpicker.module', 'wysiwyg.module']);
-
  var config = {
       ui: {
           flyout: 'top center',
