@@ -36,6 +36,6 @@ app.factory("BestSeller", ["$resource", function($resource) {
   return $resource("/providers/bestSeller");
 }]);
 
-app.factory("Customer", function($resource) {
+app.factory("Customer", ["$resource", function($resource) {
   return $resource("/customers/:id");
-});
+}]);

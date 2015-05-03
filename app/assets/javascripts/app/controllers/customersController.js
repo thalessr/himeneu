@@ -1,4 +1,4 @@
-app.controller("CustomerCtrl", ["$scope","CustomerSearch", "Customer",function($scope, CustomerSearch, Customer){
+app.controller("CustomerCtrl", ["$scope","CustomerSearch", "Customer", function($scope, CustomerSearch, Customer){
   $scope.loading = true;
   $scope.customers = [];
   $scope.get = function(page){
