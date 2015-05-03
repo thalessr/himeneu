@@ -38,7 +38,7 @@ class ProviderUploader < CarrierWave::Uploader::Base
   end
 
   version :regular do
-    process :resize_and_pad => [300, 300]
+    process :resize_and_pad => [286, 400]
     process :lower_quality
   end
 

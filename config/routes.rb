@@ -51,5 +51,19 @@ end
 resources :feature_images, only: [:create, :destroy]
 resources :estimates, :except => [:index, :new, :destroy]
 
+# scope '/api' do
+#   scope '/v1' do
+#     resources :providers do
+#       resources :address, only: [:create, :index]
+#       resources :recommendations
+#       get 'search', on: :collection
+#       get 'carousel', on: :collection
+#       get 'recover', on: :collection
+#       get 'cloud', on: :collection
+#       get 'bestSeller', on: :collection
+#     end
+#   end
+# end
+
 
 end
