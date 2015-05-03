@@ -11,16 +11,17 @@
  * file per style scope.
  *= require bootstrap/dist/css/bootstrap.css.scss
  *= require raty/lib/jquery.raty
- *= require bootstrap-datetimepicker.min.css
  *= require wow/css/libs/animate.css
  *= require style.css
- *= require flexslider.css
+ *= require flexslider.css.scss
  *= require settings.css.scss
  *= require rev-style.css
  *= require owl.carousel.css.scss
  *= require owl.theme.css.scss
  *= require yamm.css
+ *= require YTPlayer.css.scss
  *= require magnific-popup.css
+ *= require sky-forms.css
  *= require components-font-awesome/css/font-awesome.css.scss
  *= require bootstrap-notify/css/bootstrap-notify.css
  *= require bootstrap-notify/css/styles/alert-bangtidy.css

@@ -12,20 +12,26 @@
 //
 //= require jquery.min.js
 //= require angular/angular.min.js
-//= require angular-resource
+//= require angular-resource/angular-resource.min.js
+//= require angular-ui-router/release/angular-ui-router.min.js
 //= require angular-bootstrap-colorpicker/js/bootstrap-colorpicker-module.min.js
 //= require angular-wysiwyg/dist/angular-wysiwyg.min.js
+//= require app/app.js
+//= require app/app.services.js
+//= require app/app.routes.js
+//= require app/controllers/customersController.js
+//= require app/controllers/providersController.js
+//= require app/controllers/providerSearchController.js
+//= require app/controllers/estimatesController.js
+//= require app/controllers/recommendationsController.js
+//= require app/controllers/tagCloudController.js
 //= require ng-rails-csrf
 //= require jquery_ujs
-//= require jquery.autosize
 //= require jquery.stellar/jquery.stellar.min.js
-//= require moment
 //= require bootstrap/dist/js/bootstrap.min.js
 //= require wow/dist/wow.min.js
-//= require bootstrap-datetimepicker
 //= require raty/lib/jquery.raty
 //= require bootstrap-notify/js/bootstrap-notify.js
-//= require jquery-file-upload/js/jquery.fileupload.js
 //= require fancybox/source/jquery.fancybox.js
 //= require jquery.lazyload/jquery.lazyload.js
 //= require jquery-migrate.min.js
@@ -35,6 +41,7 @@
 //= require jquery.counterup.min.js
 //= require jquery.isotope.min.js
 //= require jquery.imagesloaded.min.js
+//= require jquery.modal.js
 //= require owl.carousel.min.js
 //= require jquery.magnific-popup.min.js
 //= require jquery.mb.YTPlayer.min.js
@@ -43,7 +50,6 @@
 //= require jquery.themepunch.revolution.min.js
 //= require revolution-custom.js
 //= require isotope-custom.js
-//= require_tree .
 //= stub active_admin
 
 function showFlashMessage(msg, type, seconds){

@@ -1,68 +1,100 @@
-<% if can? :search, Provider %>
-	<div ng-controller="SearchCtrl" class="filter-form container">
+<% if can_read_providers? %>
+  <div class="divide40"></div>
+  <div class="container" ng-controller="SearchCtrl">
+    <div class="row">
+      <div class="col-md-8 margin30">
+        <div class="row margin30">
+          <div class="col-md-4">
+            <form method="post" action="#">
+              <select class="form-control" ng-model="order" ng-change="sort()">
+                <option value="nameAsc"><%= t('sorting.name') %>(A-Z)</option>
+                <option value="nameDesc"><%= t('sorting.name') %>(Z-A)</option>
+                <option value="rating"><%= t('sorting.rating') %></option>
+              </select>
+            </form>
+          </div>
+        </div>
+        <div class="loader" data-initialize="loader" data-ng-show="loading">
+          <div class="divide60">
+            <i class="fa fa-refresh fa-spin"></i>
+          </div>
+        </div>
+        <div class="row items-list" ng-repeat="p in providers">
+          <div class="col-sm-5">
+            <img class="img-responsive" ng-src="{{p.image['list'].url}}"> </img>
+          </div>
+          <div class="col-sm-7">
+            <h3><a href="/providers/{{p.slug}}">{{p.first_name}} {{p.last_name | limitTo:30}}</a></h3>
+             <ul class="list-inline rating-list">
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star gray"></i></li>
+                <li><i class="fa fa-star gray"></i></li>
 
-		<div class="row">
-			<div class="loader" data-initialize="loader" data-ng-show="loading">
-				<i class="fa fa-refresh fa-spin"></i>
-			</div>
-			<form class="col-lg-8" style="margin:0 auto; float:none;" ng-submit="search(q)">
-				<div class="input-group search-form">
-					<input type="text" class="form-control" ng-model="q" placeholder="<%= t(:hint_pesquisa_providers) %>">
-					<span class="input-group-btn">
-						<button class="btn btn-default" type="submit">
-							<span class="glyphicon glyphicon-search"></span>
-						</button>
-					</span>
-				</div>
-			</form>
-		</div>
+                <li class="review"><a href="#">(1 Review)</a></li>
+                <li><a href="#">Add your review</a></li>
+              </ul>
+              <p>
+                  {{ p.experience | limitTo:168 }}
+              </p>
+              <p>
+                <a href="/providers/{{p.slug}}" class="btn btn-theme-dark"><%= t(:view_detail) %></a>
+                <a href="#" class="btn btn-theme-bg">Fazer Orçamento</a>
+              </p>
+          </div>
+        </div>
+        <ul class="pagination" ng-show="total_pages > 1">
+          <li  ng-class="{'disabled': current_page == 1 }" class="previous" aria-label="Previous">
+            <a href="#" ng-click="prev()" >
+              <span aria-hidden="true">«</span>
+            </a>
+          </li>
+          <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
+            <a href="#">{{n+1}}</a>
+          </li>
+          <li ng-class="{'disabled': current_page == total_pages }" class="next">
+            <a href="#" ng-click="next()" aria-label="Next">
+              <span aria-hidden="true">»</span>
+            </a>
+          </li>
+        </ul>
 
-		<div class="row" ng-repeat="p in providers">
-			<a href="providers/{{p.slug}}">
-				<div class="col-md-12 col-sm-12 list-profile">
-					<div class="col-md-2 col-sm-3 image-container-list hidden-xs">
-						<img class="profile_listing_image" ng-src="{{p.image['thumb'].url}}"> </img>
-					</div>
-					<div class="col-md-10 col-sm-9 listing-profile-info ">
-						<h4 class="h6">{{p.first_name}} {{p.last_name | limitTo:30}}<div id="provider_rating" ng-show="hasScore(p.score, this)" data-score={{p.score}} style="float:right">  </div></h4>
-		        <h4 class="h4"><%= t(:experience) %>: {{ p.experience | limitTo:200 }} </h4>
-		          <span class="tags hidden-xs" ng-repeat="s in p.profession | limitTo:6" ng-class"tags hidden-xs">
-		          	<%= content_tag :button , :class => "btn btn-info btn-embossed btn-sm" do %>
-		          	   {{s.name}}
-		          	<% end %>
-		          </span>
-		        </p>
-					</div>
-				</div>
-		  </a>
-			<div class="separator">
-				<ul class="nav nav-list">
-				  <li class="divider"></li>
-				</ul>
-			</div>
-		</div>
+      </div>
+      <div class="col-md-3 col-md-offset-1 shop-sidebar">
+        <div class="sidebar-box margin40">
+          <h4><%= t(:search) %></h4>
+          <form role="form" class="search-widget" ng-submit="search(q)">
+            <input type="text" class="form-control" ng-model="q"
+                   placeholder="<%= t(:hint_pesquisa_providers) %>">
+            <i class="fa fa-search"></i>
+          </form>
+        </div><!--sidebar-box-->
 
-		<center>
-			<nav ng-show="total_pages > 1">
-				<div class="pagination">
-				  <ul>
-				    <li  ng-class="{'disabled': current_page == 1 }" class="previous">
-				      <a href="#" class="fui-arrow-left" ng-click="prev()" ></a>
-				    </li>
-				    <li ng-repeat="n in range()" ng-click="setPage(n+1)" ng-class="{active: n+1 == current_page}">
-		         <a href="#">{{n+1}}</a>
-		        </li>
-				    <li ng-class="{'disabled': current_page == total_pages }" class="next">
-				      <a href="#" class="fui-arrow-right" ng-click="next()"></a>
-				    </li>
-			 	  </ul>
-			  </div>
-			</nav>
-		</center>
 
-	</div>
+        <div class="sidebar-box margin40">
+          <h4>Best sellers</h4>
+          <ul class="list-unstyled popular-post">
+            <li ng-repeat="best in bestSellers">
+              <div class="popular-img">
+                <a href="/providers/{{best.slug}}">
+                  <img ng-src="{{best.image['thumb'].url}}" class="img-responsive" alt="">
+                </a>
+              </div>
+              <div class="popular-desc">
+                <h5> <a href="#">{{best.first_name}}</a></h5>
+                <h6><del>$230</del> $150</h6>
+              </div>
+            </li>
+          </ul>
+        </div><!--sidebar-box-->
+        <div class="sidebar-box margin40" ng-controller="TagCloudCtrl">
+          <h4>Tag Cloud</h4>
+          <div class="tag-list">
+            <a href="#" ng-repeat="tag in tags">{{tag}}</a>
+          </div>
+        </div>
+      </div><!--sidebar-->
+    </div>
+  </div>
 <% end %>
-
-
-
-
