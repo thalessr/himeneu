@@ -21,7 +21,7 @@ class Provider < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, :reject_if => :all_blank, :allow_destroy => true
 
   #CarrierWave
-  mount_uploader :image, ImageUploader
+  mount_uploader :image, ProviderUploader
   process_in_background :image if Rails.env.production?
 
   #Tags
@@ -97,13 +97,37 @@ class Provider < ActiveRecord::Base
   def self.carousel
     carousel = get_redis_value("carousel")
     if carousel.blank?
-      carousel = Provider.select(:first_name, :last_name, :image).where.not(image: nil).recent(5)
-      unless carousel.blank?
+      carousel = Provider.select(:first_name, :last_name, :experience, :image).where.not(image: nil).recent(3)
+      unless carousel.blank? && Rails.env.production?
         set_redis_key("carousel" , carousel.to_json, 8)
         carousel = get_redis_value("carousel")
       end
     end
     carousel
+  end
+
+  def self.cloud
+    cloud = get_redis_value("cloud")
+    if cloud.blank?
+      cloud = ActsAsTaggableOn::Tag.most_used(10).pluck(:name)
+      unless cloud.blank? && Rails.env.production?
+        set_redis_key("cloud" , cloud.to_json, 3)
+        cloud = get_redis_value("cloud")
+      end
+    end
+    cloud
+  end
+
+   def self.best_sellers
+    best_sellers = get_redis_value("best_sellers")
+    if best_sellers.blank?
+      best_sellers = order("score DESC").limit(3)
+      unless best_sellers.blank? && Rails.env.production?
+        set_redis_key("best_sellers" , best_sellers.to_json, 3)
+        best_sellers = get_redis_value("best_sellers")
+      end
+    end
+    best_sellers
   end
 
   private

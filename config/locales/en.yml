@@ -21,11 +21,17 @@
 
 en:
   login: "login"
+  login_account: Log in to your account
   logout: "logout"
   create_account: 'create account'
+  create_account_himeneu: Create new account with Himeneu
+  create_account_text: ""
+  create_account_agree: I agree with the Terms and Conditions
+  repeat_password: Repeat the password
+  welcome: Welcome
   title: "Himeneu"
   forgot_password: "Forgot password?"
-  resend_password: "Send me reset password instructions"
+  resend_password: "Send"
   reset_password_instrutions: Someone has requested a link to change your password. You can do this through the link below.
   change_password: 'Change my password'
   alert_password: "If you didn't request this, please ignore this email."
@@ -45,6 +51,7 @@ en:
   confirm_account: "Confirm my account"
   confirmation_text: "You can confirm your account email through the link below:"
   confirmation_email: "Didn't receive confirmation instructions?"
+  reason_email: Needed to verify your account
   resend_confirmation: "Resend confirmation instructions"
   welcome: "Welcome"
   first_name: "First Name"
@@ -68,6 +75,8 @@ en:
   email_hint: "example@himeneu.com"
   address: Address
   years_experience: ""
+  search: Search
+  view_detail: View Detail
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Someone is interested in your services
   estimate_reponse: Here is your estimate
@@ -107,6 +116,9 @@ en:
       new_address: "New address"
       remove_address: "Remove address"
       close: "Close"
+  sorting:
+    name: Name
+    rating: Rating
   errors:
     messages:
       blank: "blank"

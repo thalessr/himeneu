@@ -1,14 +1,19 @@
 class ProvidersController < ApplicationController
   skip_before_filter :verify_authenticity_token
   before_filter :authenticate_user!, :except => [:carousel, :show]
-  load_and_authorize_resource
 
   def index
     # @providers = Provider.recent(5)
   end
 
   def search
-    @providers = Provider.not_deleted.paginate(:page => params[:page], :per_page => 5).includes(:profession).search(params[:q])
+    @providers = Provider.not_deleted
+    .order(order_param)
+    .paginate(:page => params[:page], :per_page => 6)
+    .includes(:profession)
+    .search(params[:q])
+
+
     respond_to do |format|
       format.html{ @providers}
       format.json{ render json: {items: @providers}} unless @providers.try(:total_pages)
@@ -57,7 +62,7 @@ class ProvidersController < ApplicationController
   end
 
   def update
-    @provider = Provider.friendly.find(params[:id])
+    @provider = Provider.includes(:tag).friendly.find(params[:id])
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'
@@ -90,6 +95,22 @@ class ProvidersController < ApplicationController
     end
   end
 
+  def cloud
+    tags = Provider.cloud
+    respond_to do |format|
+      format.html{ tags}
+      format.json{ render json: tags}
+    end
+  end
+
+  def bestSeller
+    providers = Provider.best_sellers
+    respond_to do |format|
+      format.html{ providers }
+      format.json{ render json: providers}
+    end
+  end
+
   private
   def provider_params
     params.require(:provider).permit(
@@ -98,5 +119,20 @@ class ProvidersController < ApplicationController
       :video_url, :facebook,:city, :experience, :tag_list,
       addresses_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
     )
+  end
+
+  def order_param
+    order = params[:sort]
+    unless order.blank?
+      if order.include? "Asc"
+        order = "first_name ASC"
+      elsif order.include? "Desc"
+        order = "first_name DESC"
+      else
+        order = "score DESC"
+      end
+    else
+      order = "id"
+    end
   end
 end
