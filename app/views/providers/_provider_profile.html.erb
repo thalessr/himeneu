@@ -186,7 +186,7 @@
                      <i class="glyphicon glyphicon-remove" data-original-title="<%= t('links.exlude') %>" data-toggle="tooltip"   ></i>
                   <% end %>
                 <% end %>
-                <%= link_to image_tag(i.image_url(:thumb)), i.image_url, :class => 'fancybox' %>
+                <%= link_to image_tag(i.image_url(:regular)), i.image_url, :class => 'fancybox' %>
               <% end %>
             </div>
             <% if can_manage_provider? @provider %>
