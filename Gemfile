@@ -25,7 +25,7 @@ group :test do
   gem 'minitest'
   gem 'email_spec'
   gem 'vcr'
-  gem 'shoulda-matchers', require: false
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
 end
 
 group :development do
