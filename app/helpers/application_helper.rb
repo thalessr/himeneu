@@ -20,7 +20,7 @@ module ApplicationHelper
       end
     else
       link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "edit-button" do
-         content_tag(:i, "", class: "glyphicon glyphicon-minus-sign btn-danger", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
+         content_tag(:i, "", class: "glyphicon glyphicon-trash", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
       end
     end
   end
