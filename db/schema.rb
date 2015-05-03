@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20150502034621) do
   create_table "estimates", force: :cascade do |t|
     t.integer  "provider_id"
     t.integer  "customer_id"
-    t.text     "description", limit: 255
-    t.text     "response",    limit: 255
+    t.text     "description"
+    t.text     "response"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -8,10 +8,11 @@ class ProvidersController < ApplicationController
 
   def search
     @providers = Provider.not_deleted
+    .order(order_param)
     .paginate(:page => params[:page], :per_page => 6)
     .includes(:profession)
     .search(params[:q])
-    .order(order_param)
+
 
     respond_to do |format|
       format.html{ @providers}
