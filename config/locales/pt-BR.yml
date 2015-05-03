@@ -1,10 +1,15 @@
 pt-BR:
   login: "acessar"
+  login_account: Acessar a sua conta
   create_account: cadastrar
+  create_account_himeneu: Criar uma nova conta no Himeneu
+  create_account_text: "Para ajudar você a curtir só o melhor do casamento, apresentamos o Himeneu, o aplicativo que vai ajudá-lo a encontrar os melhores profissionais e fornecedores do mercado, para que sua festa seja ainda mais inesquecível"
+  create_account_agree: Concordo com os Termos e Condições
+  repeat_password: Repita a senha
   logout: "sair"
   title: "Himeneu - O melhor do casamento"
   forgot_password: "Esqueceu a senha?"
-  resend_password: "Enviar instruções para mudar a senha"
+  resend_password: "Enviar"
   reset_password_instrutions: "Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo"
   change_password: 'Mudar minha senha'
   alert_password: "Se você não solicitou essa alteração, por favor ignore esse email."
@@ -20,11 +25,12 @@ pt-BR:
   follow_us: Nos siga
   contact: Contato
   remember_me: "Lembrar"
-  password: "senha"
+  password: "Senha"
   confirm_account: "Confirmar minha conta"
   welcome: "Bem-vindo"
   confirmation_text: "Para confirmar o seu cadastro clique no link abaixo:"
   confirmation_email: "Não recebeu o email de confirmação?"
+  reason_email: Necessário para verificar a conta
   resend_confirmation: "Reenviar confirmação"
   first_name: "Nome"
   last_name: Sobrenome
@@ -47,6 +53,8 @@ pt-BR:
   email_hint: "exemplo@himeneu.com"
   years_experience: "Anos de experiência"
   address: Endereço
+  search: Pesquisa
+  view_detail: Ver detalhes
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
   someone_interested: Há interessados em seus serviços
   estimate_reponse: Orçamento
@@ -95,6 +103,9 @@ pt-BR:
       new_address: "Novo endereço"
       remove_address: "Excluir endereço"
       close: "Fechar"
+  sorting:
+    name: Nome
+    rating: Pontuação
   date:
     abbr_day_names:
     - Dom

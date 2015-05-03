@@ -1,4 +1,4 @@
-<% if can? :read, @customer %>
+<% if can_read_customers? || can_manage_customer?(@customer) %>
 
   <div id="header-top" class="hidden-xs">
     <div class="container">
@@ -9,7 +9,7 @@
 
 <div class="divide60"></div>
 
-<div class="container" ng-controller="CustumerCtrl" data-param= <%=@customer.slug  %> id="showCustomer">
+<div class="container" ng-controller="CustumerCtrl" data-param= <%=@customer.slug %> id="showCustomer">
     <div class="row">
         <div class="col-md-9 margin30">
             <div class="row">
@@ -63,6 +63,22 @@
         </div><!--products list columns end-->
         <div class="col-md-3">
 
+            </div>
+            <div class="panel-footer" style="height:43px">
+                <span class="pull-right">
+                    <% if can_manage_customer? @customer %>
+                      <%= link_to edit_customer_path(@customer.slug) ,class: "btn btn-sm btn-warning" do %>
+                        <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"  ></i>
+                      <% end %>
+                      <%= delete_or_recovery(@customer) %>
+                    <% end %>
+                </span>
+            </div>
+            <div class="row" id="address_show">
+                <div class="col-md-12">
+                      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
+                </div>
+            </div>
         </div>
     </div>
     <div class="divide50"></div>

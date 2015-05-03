@@ -1,4 +1,4 @@
-<% if can? :update, @provider %>
+<% if can_manage_provider? @provider %>
   <div class="container">
   	<%= render 'form' %>
   </div>

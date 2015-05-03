@@ -1,15 +1,15 @@
-    <% content_for :meta_tag do %>
-        <title><%= t(:title) %></title>
-        <meta name="description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial.">
-        <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
-        <meta property="og:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
-        <meta property="og:url" content="http://www.himeneu.com"/>
-        <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content='<%= t(:title) %>' />
-        <meta name="twitter:description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial." />
-        <meta name="twitter:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
-        <meta name="twitter:url" content="http://www.himeneu.com" />
-    <% end %>
+<% content_for :meta_tag do %>
+    <title><%= t(:title) %></title>
+    <meta name="description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial.">
+    <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
+    <meta property="og:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
+    <meta property="og:url" content="http://www.himeneu.com"/>
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content='<%= t(:title) %>' />
+    <meta name="twitter:description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial." />
+    <meta name="twitter:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
+    <meta name="twitter:url" content="http://www.himeneu.com" />
+<% end %>
 
 
         <div class="fullwidthbanner">
@@ -263,40 +263,25 @@
 
                 <div class="row">
 
-                    <div class="col-sm-8 col-sm-offset-2">
-                        <div class="testi-slide">
-                            <ul class="slides">
-                                <li>
-                                    <img src="img/customer-1.jpg" alt="">
-                                    <p>
-                                        <i class="ion-quote"></i>
-                                        It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters.
-                                    </p>
-                                    <h4 class="test-author">
-                                        Rick man - <em>rock inc</em>
-                                    </h4>
-                                </li><!--testi item-->
-                                <li>
-                                    <img src="img/customer-2.jpg" alt="">
-                                    <p>
-                                        <i class="ion-quote"></i>
-                                        Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years </p>
-                                    <h4 class="test-author">
-                                        Jellia - <em>Founder of tinka inc</em>
-                                    </h4>
-                                </li><!--testi item-->
-                                <li>
-                                    <img src="img/customer-3.jpg" alt="">
-                                    <p>
-                                        <i class="ion-quote"></i>
-                                        Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor.</p>
-                                    <h4 class="test-author">
-                                        Smith - <em>Ceo, company inc.</em>
-                                    </h4>
-                                </li><!--testi item-->
-                            </ul>
-                        </div><!--flex slider testimonials end here-->
-                    </div>
+                  <div class="col-sm-8 col-sm-offset-2">
+                    <div class="testi-slide" ng-controller="CarouselCtrl">
+                      <ul class="slides">
+                        <li ng-repeat=" p in slides " ng-show="sliderReady">
+                          <img ng-src="{{p.image['list'].url}}" alt="{{p.first_name}}"
+                               class="lazy"
+                               ng-bind-html-unsafe="p.image">
+                          </img>
+                          <p>
+                            <i class="ion-quote"></i>
+                            {{p.experience | limitTo:230 }}
+                          </p>
+                          <h4 class="test-author">
+                            {{p.first_name}} - <em>{{p.last_name}}</em>
+                          </h4>
+                        </li><!--testi item-->
+                      </ul>
+                    </div><!--flex slider testimonials end here-->
+                  </div>
                 </div><!--testi slider row end-->
                 <div class="divide70"></div>
                 <div class="row">

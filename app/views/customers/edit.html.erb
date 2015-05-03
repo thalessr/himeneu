@@ -1,4 +1,4 @@
-<% if can? :update, @customer %>
+<% if can_manage_customer?(@customer) %>
   <div class="container">
     <%= render :partial => "shared/errors", :locals => {:errors => @customer.errors} %>
   	<%= render 'form' %>
