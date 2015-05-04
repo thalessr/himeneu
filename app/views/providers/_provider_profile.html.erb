@@ -222,8 +222,31 @@
 
             </div>
         </div>
-
         <!--review and details end-->
+        <div class="divide40"></div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <% @provider.feature_images.each do |i| %>
+
+                <div id="grid" class="row">
+                  <div class="mix col-sm-3 page1 page4 margin30">
+                    <div class="item-img-wrap ">
+                      <img src="<%= i.image_url(:regular) %>" class="img-responsive" alt="workimg">
+                      <div class="item-img-overlay">
+                        <a href="<%= i.image_url(:regular) %>" class="show-image">
+                            <span></span>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+
 
     </div><!--products list columns end-->
     <div class="col-md-3">

@@ -28,7 +28,7 @@ class DashboardController < ApplicationController
 
 	def provider_redirect(user)
 		if user.is_completed?
-			redirect_to customers_path
+			redirect_to providers_path
 		else
 			redirect_to new_provider_path
 		end
