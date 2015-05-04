@@ -696,7 +696,7 @@ right: 13px;
     position: absolute;
     top: 0;
     left: 0;
-    background: url(../img/plus.png) no-repeat center center rgba(108, 168, 255, 0.7);
+    background: image-url("plus.png") no-repeat center center rgba(108, 168, 255, 0.7);
     -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
     filter: alpha(opacity=0);
     opacity: 0;
@@ -787,7 +787,7 @@ input[type="color"]:focus,
 
 /*carousel slider*/
 #myCarousel{
-    background: url(../img/showcase-1.jpg) no-repeat;
+    background: image-url("showcase-1.jpg") no-repeat;
 }
 .item-c-slide{
     height: 480px;
@@ -886,7 +886,7 @@ input[type="color"]:focus,
 }
 .slider-overlay{
     background: rgba(0,0,0,.2);
-    background-image: url('../img/pattern.png');
+    background-image: image-url('pattern.png');
     background-repeat: repeat;
     position: absolute;
     top: 0;
@@ -999,7 +999,7 @@ input[type="color"]:focus,
 }
 /*******************home parallax-bg----***********************/
 #home-parallax{
-    background: url('../img/showcase-4.jpg') no-repeat;
+    background: image-url('showcase-4.jpg') no-repeat;
     padding: 190px 0;
 }
 .typed-cursor{
@@ -1345,7 +1345,7 @@ h1.typed-text{
 /**************work and portfolio whole*******/
 /* mouse grab icon */
 .grabbing {
-    cursor:url(../img/grabbing.png) 8 8, move !important;
+    cursor:image-url("grabbing.png") 8 8, move !important;
 }
 
 .portfolio{
@@ -1806,7 +1806,7 @@ ul.post-desc li + li{
 }
 /*testimonials parallax*/
 .testimonials{
-    background:url(../img/bg-1.jpg) no-repeat;
+    background:image-url("bg-1.jpg") no-repeat;
     padding: 80px 0;
 }
 .testimonials .center-heading h2{

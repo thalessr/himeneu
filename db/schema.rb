@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150502034621) do
+ActiveRecord::Schema.define(version: 20150504034024) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20150502034621) do
   create_table "estimates", force: :cascade do |t|
     t.integer  "provider_id"
     t.integer  "customer_id"
-    t.text     "description"
-    t.text     "response"
+    t.text     "description", limit: 2000
+    t.text     "response",    limit: 2000
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -118,17 +118,6 @@ ActiveRecord::Schema.define(version: 20150502034621) do
   add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id"
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
-
-  create_table "interests", force: :cascade do |t|
-    t.integer  "customer_id"
-    t.integer  "provider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "state",       limit: 255
-  end
-
-  add_index "interests", ["customer_id"], name: "index_interests_on_customer_id"
-  add_index "interests", ["provider_id"], name: "index_interests_on_provider_id"
 
   create_table "providers", force: :cascade do |t|
     t.string   "first_name",       limit: 255
