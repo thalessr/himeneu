@@ -67,14 +67,11 @@ function showFlashMessage(msg, type, seconds){
 $(document).ready(function(){
   'use strict';
 
-	$.ajaxSetup({
-	  dataType: 'json'
-	});
-
-
-
   // new WOW().init();
   $('[data-toggle="tooltip"]').tooltip();
+  $( "#estimate" ).click(function() {
+    $('#estimatesModal').modal('toggle');
+  });
 
 	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 

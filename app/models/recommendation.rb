@@ -6,7 +6,7 @@ class Recommendation < ActiveRecord::Base
 
   validates_presence_of :customer
   validates_presence_of :provider
-  validates_presence_of :rating
+  # validates_presence_of :rating
 
 
 	def as_json(options = {})
@@ -17,6 +17,7 @@ class Recommendation < ActiveRecord::Base
     provider = self.provider
     if provider
       score = 0.0
+      provider = Provider.includes(:recommendations).find(provider.id)
       unless provider.recommendations.empty?
         score = provider.recommendations.average(:rating).to_f
       end
