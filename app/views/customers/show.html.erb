@@ -1,5 +1,39 @@
 <% if can_read_customers? || can_manage_customer?(@customer) && !@customer.is_deleted %>
 
+<!-- Modal -->
+<div class="modal fade"
+     id="responseModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="responseModalLabel"
+     data-param= <%=@customer.slug  %>
+     aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="responseModalLabel">Resposta Orçamento</h4>
+      </div>
+      <form ng-controller="EstimateCtrl" ng-submit="update()">
+        <div class="modal-body">
+         <wysiwyg textarea-id="description"
+                  textarea-class="form-control"
+                  textarea-height="150px"
+                  textarea-name="textareaDescription"
+                  textarea-required
+                  ng-model="estimate.response"
+                  enable-bootstrap-title="true" >
+         </wysiwyg>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
+          <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+
   <div id="header-top" class="hidden-xs">
     <div class="container">
     </div>
