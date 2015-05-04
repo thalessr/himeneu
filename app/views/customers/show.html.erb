@@ -1,4 +1,4 @@
-<% if can_read_customers? || can_manage_customer?(@customer) %>
+<% if can_read_customers? || can_manage_customer?(@customer) && !@customer.is_deleted %>
 
   <div id="header-top" class="hidden-xs">
     <div class="container">
@@ -15,9 +15,7 @@
             <div class="row">
                 <div class="col-sm-5 margin30">
                     <div class="detail-img-col">
-                        <a href="" class="show-image">
                             <img src="{{customer.image.regular.url}}" alt="">
-                        </a>
                         <div class="divide15"></div>
 
                     </div>
@@ -27,13 +25,15 @@
                     <div class="detail-content-right">
                         <h3 class="title">
                             {{full_name}}
-                            <% if can_manage_customer? @customer %>
-                              <%= link_to edit_customer_path(@customer.slug) do %>
-                                <i class="glyphicon glyphicon-pencil profile-glyphicon" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip" ></i>
-                              <% end %>
-                              <%= delete_or_recovery(@customer) %>
-                        <% end %>
+                            <span>
+                                <% if can_manage_customer? @customer %>
+                                  <%= link_to edit_customer_path(@customer.slug) do %>
+                                    <span class="h6">EDITAR</span>
+                                  <% end %>
+                                <% end %>
+                            </span>
                         </h3>
+
                         <h4>Sobre meu casamento:</h4>
                         <table class="table table-user-information">
                           <tbody>
@@ -76,4 +76,11 @@
 
 <div class="divide30"></div>
 
+<% else %>
+    <div class="row voffset6 margin40">
+        <div class="text-center">
+            <h3>Este perfil está desativado. Clique aqui para ativar:</h3>
+            <%= delete_or_recovery(@customer) %>
+        </div>
+    </div>
 <% end %>
