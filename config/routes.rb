@@ -29,14 +29,13 @@ Rails.application.routes.draw do
 #   end
 # end
 
-resources :customers do
+resources :customers, except: [:index]  do
   get 'search', on: :collection
   get 'recover', on: :collection
 end
 
 resources :providers do
   resources :address, only: [:create, :index]
-  resources :recommendations
   get 'search', on: :collection
   get 'carousel', on: :collection
   get 'recover', on: :collection
@@ -48,6 +47,7 @@ resources :interests, :only => :create do
   post 'change_state', on: :collection
 end
 
+resources :recommendations, only: [:create, :index]
 resources :feature_images, only: [:create, :destroy]
 resources :estimates, :except => [:index, :new, :destroy]
 

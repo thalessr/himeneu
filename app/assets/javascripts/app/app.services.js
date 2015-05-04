@@ -4,7 +4,7 @@ app.factory("CustomerSearch", ["$resource", function($resource) {
 }]);
 
 app.factory("Recommendation", ["$resource", function($resource) {
-  return $resource("/providers/:id/recommendations");
+  return $resource("/recommendations");
 }]);
 
 app.factory("Search", ["$resource", function($resource) {
