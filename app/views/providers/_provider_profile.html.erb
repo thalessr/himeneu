@@ -231,8 +231,16 @@
 
                 <div id="grid" class="row">
                   <div class="mix col-sm-3 page1 page4 margin30">
+                    <% if can_manage_provider? @provider %>
+                      <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
+                        <i class="glyphicon glyphicon-remove"
+                           data-original-title="<%= t('links.exlude') %>"
+                           data-toggle="tooltip">
+                         </i>
+                      <% end %>
+                    <% end %>
                     <div class="item-img-wrap ">
-                      <img src="<%= i.image_url(:regular) %>" class="img-responsive" alt="workimg">
+                      <img src="<%= i.image_url(:regular) %>" class="img-responsive" alt="">
                       <div class="item-img-overlay">
                         <a href="<%= i.image_url(:regular) %>" class="show-image">
                             <span></span>
