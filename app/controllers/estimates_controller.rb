@@ -10,7 +10,6 @@ class EstimatesController < ApplicationController
       estimate.provider = Provider.friendly.find(estimate_params[:provider_id])
       respond_to do |format|
         if estimate.save
-          next_state(estimate)
           send_email(estimate)
           format.html { redirect_to provider_path(estimate.provider_id)}
           format.json { render :json => estimate, status: :created}
@@ -46,11 +45,11 @@ class EstimatesController < ApplicationController
     params.require(:estimate).permit(:description, :response, :provider_id, :customer_id)
   end
 
-  def next_state(estimate)
-    interest = Interest.find_by(customer_id: estimate.customer, provider_id: estimate.provider)
-    interest.move_2_next
-    interest.delete_cached_state
-  end
+  # def next_state(estimate)
+  #   interest = Interest.find_by(customer_id: estimate.customer, provider_id: estimate.provider)
+  #   interest.move_2_next
+  #   interest.delete_cached_state
+  # end
 
   def send_email(estimate)
     if Rails.env.production?

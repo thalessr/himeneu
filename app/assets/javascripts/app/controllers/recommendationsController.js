@@ -1,7 +1,7 @@
 
 app.controller("RecommendationCtrl", ["$scope","Recommendation", function($scope, Recommendation){
 
-  var i = $('#comment').data("param");
+  var i = $('#profile').data("param");
   Recommendation.query({ id: i },function(data){
     $scope.recommendations = data;
 

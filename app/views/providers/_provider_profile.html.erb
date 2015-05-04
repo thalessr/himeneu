@@ -116,13 +116,11 @@
                 <li><i class="fa fa-check"></i> 30 day Money back</li>
               </ul>
               <hr>
-
-              <div class="add-cart">
-                  <div class="input-group bootstrap-touchspin" style="">
-                      <div class="input-group bootstrap-touchspin" style=""><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-down" type="button">-</button></span><span class="input-group-addon bootstrap-touchspin-prefix"></span><input type="text" class="form-control input-qty text-center" value="1"><span class="input-group-addon bootstrap-touchspin-postfix"></span><span class="input-group-btn"><button class="btn btn-default bootstrap-touchspin-up" type="button">+</button></span></div>
-                  </div><!--bootstrap touchspin end-->
-                  <button class="btn btn-theme-bg"><%= t(:estimate) %></button>
-              </div>
+              <% if is_customer? %>
+                <div class="add-cart">
+                  <%= link_to t(:estimate), "", :class=>"btn btn-theme-bg", :id => 'estimate' %>
+                </div>
+              <% end %>
           </div>
         </div>
       </div><!--product details up end-->
@@ -138,18 +136,20 @@
               </div>
             </div>
             <div class="embed-responsive embed-responsive-16by9">
-              <iframe src="<%= @provider.video_url %>"></iframe>
+              <iframe src="<%= @provider.video_url %>" type='application/x-shockwave-flash'></iframe>
             </div>
           </div>
         </div>
       <% end %>
 
         <!--review and details-->
-        <div class="tabs" id="review">
-          <ul class="nav nav-tabs">
-            <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Description</a></li>
-            <li class=""><a href="#profile" data-toggle="tab" aria-expanded="false">Reviews (1)</a></li>
-          </ul>
+      <div class="tabs" id="review">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Description</a></li>
+          <li class="">
+            <a href="#profile" data-toggle="tab" aria-expanded="false">Reviews (<%= @provider.recommendations.count %>)</a>
+          </li>
+        </ul>
 
             <!-- Tab panes -->
             <div class="tab-content">
@@ -163,52 +163,62 @@
                     </div>
 
                 </div>
-                <div class="tab-pane" id="profile">
-                    <div class="tab-desc animated fadeIn">
+                <div class="tab-pane" id="profile"
+                     data-param="<%=@provider.id  %>"
+                     ng-controller="RecommendationCtrl">
+                  <div class="tab-desc animated fadeIn">
 
-                        <div class="margin40">
-                            <h5>1 review for Men's Check shirt</h5>
-                            <div class="review-box">
-                                <img src="img/team-1.jpg" alt="" class="img-responsive">
-                                <div class="review-content">
+                    <div class="margin40" ng-repeat="rec in recommendations">
+                      <h5>{{rec.title}}</h5>
+                      <div class="review-box">
+                        <img ng-src="{{rec.customer.image['thumb'].url}}" alt="" class="img-responsive">
+                        <div class="review-content">
 
-                                    <ul class="list-inline rating-list">
-                                        <li class="admin-detail"><span><strong>Admin</strong> - March 10, 2015</span></li>
-                                        <li><i class="fa fa-star yellow"></i></li>
-                                        <li><i class="fa fa-star yellow"></i></li>
-                                        <li><i class="fa fa-star yellow"></i></li>
-                                        <li><i class="fa fa-star yellow"></i></li>
-                                        <li><i class="fa fa-star-half-empty gray"></i></li>
+                            <ul class="list-inline rating-list">
+                                <li class="admin-detail">
+                                  <span><strong>{{rec.customer.full_name }}</strong>
+                                        {{rec.customer.created_at}}
+                                  </span>
+                                </li>
+                                <li><i class="fa fa-star yellow"></i></li>
+                                <li><i class="fa fa-star yellow"></i></li>
+                                <li><i class="fa fa-star yellow"></i></li>
+                                <li><i class="fa fa-star yellow"></i></li>
+                                <li><i class="fa fa-star-half-empty gray"></i></li>
 
-                                    </ul>
-                                    <p>
-                                        Great service, i love this product.
-                                    </p>
+                            </ul>
+                            <p>
+                              {{rec.comment}}
+                            </p>
+                        </div>
+                      </div><!--review box end-->
+                    </div><!--div-->
+                    <% if is_customer? %>
+                      <div class="comment-form">
+                        <h3 class="heading">Add Review</h3>
+
+                          <div class="form-contact">
+                            <form role="form" ng-submit="save(recommendation)">
+                                <div class="form-group">
+                                  <label>Assunto:</label>
+                                  <input type="text" ng-model="recommendation.title" name="title"/>
                                 </div>
-                            </div><!--review box end-->
-                        </div><!--div-->
-                        <div class="comment-form">
-                            <h3 class="heading">Add Review</h3>
-                            <div class="form-contact">
-                                <form role="form">
-                                    <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="email" class="form-control" id="name" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="email">Email</label>
-                                        <input type="password" class="form-control" id="email" required="">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="message">Comment</label>
-                                        <textarea class="form-control" rows="7" id="message" required=""></textarea>
-                                    </div>
-                                    <button type="submit" class="btn btn-theme-bg btn-lg pull-right">Comment</button>
-                                </form>
-                            </div>
-                        </div><!--comment form end-->
-                    </div>
-                </div>
+                                <div class="form-group">
+                                  <label for="message">Comment</label>
+                                  <textarea class="form-control"
+                                            rows="7"
+                                            ng-model="recommendation.comment"
+                                            id="message"
+                                            required="">
+                                  </textarea>
+                                </div>
+                              <button type="submit" class="btn btn-theme-bg btn-lg pull-right">Comment</button>
+                            </form>
+                          </div>
+                      </div><!--comment form end-->
+                    <% end %>
+                  </div>
+              </div>
 
             </div>
         </div>
