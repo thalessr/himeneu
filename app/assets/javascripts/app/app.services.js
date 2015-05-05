@@ -35,3 +35,10 @@ app.factory("Estimate", ["$resource", function($resource) {
 app.factory("BestSeller", ["$resource", function($resource) {
   return $resource("/providers/bestSeller");
 }]);
+/**
+ * Use it to upload and delete those adicional images
+ * located at providers' gallery
+ */
+app.factory("FeatureImage", ["$resource", function($resource) {
+  return $resource("/feature_images/:id");
+}]);

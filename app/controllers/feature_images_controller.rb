@@ -1,5 +1,18 @@
 class FeatureImagesController < ApplicationController
 
+  def new
+    @feature_image = FeatureImage.new
+  end
+
+  def index
+    provider = Provider.select(:id).find_by(slug: params[:provider] )
+    @feature_image = FeatureImage.where(provider_id: provider.id)
+    respond_to do |format|
+      format.html { @feature_image.provider }
+      format.json { render json: @feature_image}
+    end
+  end
+
   def create
     @feature_image = FeatureImage.new(feature_image_params)
     @feature_image.save
@@ -7,11 +20,14 @@ class FeatureImagesController < ApplicationController
   end
 
   def destroy
-     feature_image = FeatureImage.find(params[:id])
-     unless feature_image.blank?
+    feature_image = FeatureImage.find(params[:id])
+    unless feature_image.blank?
       feature_image.destroy
-      redirect_to provider_path(feature_image.provider)
-     end
+      respond_to do |format|
+        format.html
+        format.json { head :no_content }
+      end
+    end
   end
 
   private

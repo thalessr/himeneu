@@ -48,7 +48,7 @@ resources :interests, :only => :create do
 end
 
 resources :recommendations, only: [:create, :index]
-resources :feature_images, only: [:create, :destroy]
+resources :feature_images, only: [:create, :destroy, :index]
 resources :estimates, :except => [:index, :new, :destroy]
 
 # scope '/api' do
