@@ -227,9 +227,9 @@
         <div class="container">
           <div class="row">
             <div class="col-md-12">
-              <% @provider.feature_images.each do |i| %>
 
-                <div id="grid" class="row">
+              <div id="grid" class="row">
+                <% @provider.feature_images.each do |i| %>
                   <div class="mix col-sm-3 page1 page4 margin30">
                     <% if can_manage_provider? @provider %>
                       <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
@@ -248,9 +248,9 @@
                       </div>
                     </div>
                   </div>
+                 <% end %>
+              </div>
 
-                </div>
-              <% end %>
             </div>
           </div>
         </div>
