@@ -64,14 +64,17 @@
     <div class="navbar navbar-default navbar-static-top yamm sticky" role="navigation">
       <div class="container">
           <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <button type="button"
+                      class="navbar-toggle"
+                      data-toggle="collapse"
+                      data-target=".navbar-collapse">
                   <span class="sr-only">Toggle navigation</span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
               <%= link_to root_path, :class => "navbar-brand" do %>
-                  <%= image_tag("logo_himeneu.png", class: "logo-navbar") %>
+                  <%= image_tag("logo_himeneu.png", alt: "Himeneu casamentos", class: "logo-navbar") %>
               <% end %>
 
           </div>
