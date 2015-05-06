@@ -27,6 +27,7 @@ class DashboardController < ApplicationController
 
   def decision
    @customer = Customer.new
+   @customer.build_address
    @provider = Provider.new
    @provider.addresses.build
   end
