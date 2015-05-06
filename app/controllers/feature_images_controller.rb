@@ -1,4 +1,5 @@
 class FeatureImagesController < ApplicationController
+  before_filter :authenticate_user!
 
   def new
     @feature_image = FeatureImage.new

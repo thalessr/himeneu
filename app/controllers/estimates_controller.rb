@@ -1,4 +1,5 @@
 class EstimatesController < ApplicationController
+  before_filter :authenticate_user!
 
   def new
     @estimate = Estimate.new
