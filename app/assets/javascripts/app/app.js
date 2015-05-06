@@ -1,4 +1,4 @@
-var app = angular.module('App', ['ng-rails-csrf', 'ngResource', 'colorpicker.module', 'wysiwyg.module', 'ui.router']);
+var app = angular.module('App', ['ng-rails-csrf', 'ngResource', 'colorpicker.module', 'wysiwyg.module']);
 
 app.controller("CarouselCtrl", ["$scope","Carousel",function($scope, Carousel){
   $scope.sliderReady = false;

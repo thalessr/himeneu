@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   @is_provider = nil
   @is_customer = nil
 
-  def set_completed
-    self.update_attribute(:is_completed, true)
+  def set_completed(role)
+    update_attributes(is_completed: true, role_ids: [role])
   end
 
   def is_customer?
@@ -47,20 +47,6 @@ class User < ActiveRecord::Base
     else
       self.roles.exists?(id: 2)
     end
-  end
-
-  def role_id
-    self.roles.first.id
-  end
-
-  def customer_id(user_id)
-    customer = Customer.select(:id).find_by(user_id: user_id)
-    customer.id
-  end
-
-  def provider_id(user_id)
-    provider = Provider.select(:id).find_by(user_id: user_id)
-    provider.id
   end
 
   def is_completed?

@@ -267,7 +267,7 @@
                     <div class="testi-slide" ng-controller="CarouselCtrl">
                       <ul class="slides">
                         <li ng-repeat=" p in slides " ng-show="sliderReady">
-                          <img ng-src="{{p.image['list'].url}}" alt="{{p.first_name}}"
+                          <img ng-src="{{p.image['list'].url}}" data-original="{{p.image['list'].url}}" alt="{{p.first_name}}"
                                class="lazy"
                                ng-bind-html-unsafe="p.image">
                           </img>

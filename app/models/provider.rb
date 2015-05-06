@@ -6,7 +6,7 @@ class Provider < ActiveRecord::Base
   belongs_to :user
   has_many :addresses, dependent: :destroy
 
-  has_many :customers, through: [:recommendations, :interests, :estimates]
+  has_many :customers, through: [:recommendations, :estimates]
   has_many :feature_images, inverse_of: :provider, dependent: :destroy
 
   before_save :set_video_url
