@@ -5,7 +5,7 @@ class Customer < ActiveRecord::Base
   belongs_to :user
   belongs_to :address, dependent: :destroy
 
-  has_many :providers, through: [:interests, :estimates]
+  has_many :providers, through: [:estimates]
 
   delegate :city, :state, :zipcode, :email, :phone, :longitude, :latitude, to: :address
   delegate :email, to: :user

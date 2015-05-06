@@ -38,7 +38,7 @@ class ProvidersController < ApplicationController
     @provider = current_user.build_provider(provider_params)
     respond_to do |format|
       if @provider.save
-        current_user.set_completed
+        current_user.set_completed(2)
         response.headers['X-Flash-Notice'] = 'Criado com sucesso.'
         format.html { redirect_to @provider}
         format.json { render :json => @provider, status: :created, location: @provider }

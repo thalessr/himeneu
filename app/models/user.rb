@@ -19,8 +19,8 @@ class User < ActiveRecord::Base
   @is_provider = nil
   @is_customer = nil
 
-  def set_completed
-    self.update_attribute(:is_completed, true)
+  def set_completed(role)
+    update_attributes(is_completed: true, role_ids: [role])
   end
 
   def is_customer?

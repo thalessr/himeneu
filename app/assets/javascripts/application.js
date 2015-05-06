@@ -79,6 +79,12 @@ $(document).ready(function(){
     dataType: 'json'
   });
 
+  $("input[name=type]:radio").change(function(){
+    $('.magic').hide();
+    var form = $( this ).val();
+    $("#"+form).show();
+  });
+
 	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
 	// 	$(this).before('<img alt="Loading" id="load" class="img-responsive" src="/assets/loading.gif">');
