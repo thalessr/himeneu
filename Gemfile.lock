@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/activeadmin/activeadmin.git
-  revision: 4baf474177fb6c4e2638d103dfb28c576b3084df
+  revision: 7e72b7881eb6f19ca58b7f4467c8874a43115426
   specs:
     activeadmin (1.0.0.pre1)
       arbre (~> 1.0, >= 1.0.2)
@@ -80,7 +80,7 @@ GEM
       sass (~> 3.2)
       thor
     builder (3.2.2)
-    bullet (4.14.5)
+    bullet (4.14.6)
       activesupport (>= 3.0.0)
       uniform_notifier (~> 1.9.0)
     byebug (4.0.5)
@@ -314,7 +314,7 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    loofah (2.0.1)
+    loofah (2.0.2)
       nokogiri (>= 1.5.9)
     lumberjack (1.0.9)
     mail (2.6.3)
@@ -367,7 +367,7 @@ GEM
       pry (~> 0.10)
     pry-rails (0.3.4)
       pry (>= 0.9.10)
-    pry-rescue (1.4.1)
+    pry-rescue (1.4.2)
       interception (>= 0.5)
       pry
     pry-stack_explorer (0.4.9.2)

@@ -3,7 +3,6 @@ Rails.application.routes.draw do
 
   devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
   root to: 'dashboard#index'
-  get 'dashboard' => 'dashboard#index'
   get 'privacy' => 'dashboard#privacy'
   get '/anuncie' => 'static_pages#anuncie'
   get '/sobre' => 'static_pages#sobre'
@@ -45,6 +44,12 @@ end
 
 resources :interests, :only => :create do
   post 'change_state', on: :collection
+end
+
+resources :dashboard, only: :index do
+  collection do
+    get 'decision'
+  end
 end
 
 resources :recommendations, only: [:create, :index]
