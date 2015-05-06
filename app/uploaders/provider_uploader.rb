@@ -37,6 +37,11 @@ class ProviderUploader < CarrierWave::Uploader::Base
     process :lower_quality
   end
 
+  version :carousel do
+    process :resize_and_pad => [128, 128]
+    process :lower_quality
+  end
+
   version :regular do
     process :resize_and_pad => [286, 400]
     process :lower_quality

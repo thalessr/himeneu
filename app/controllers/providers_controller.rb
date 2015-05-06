@@ -104,7 +104,7 @@ class ProvidersController < ApplicationController
   end
 
   def bestSeller
-    providers = Provider.best_sellers
+    providers = Provider.includes(:profession).best_sellers
     respond_to do |format|
       format.html{ providers }
       format.json{ render json: providers}
