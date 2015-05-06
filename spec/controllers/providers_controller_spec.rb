@@ -33,7 +33,6 @@ describe ProvidersController, type: :controller do
       end
 
       it "Without authentication" do
-        should be_able_to(:read, @provider)
         get :show, id: @provider.slug
         expect(response).to render_template :show
       end
@@ -67,7 +66,6 @@ describe ProvidersController, type: :controller do
 
     it "Renders edit page" do
       sign_in @provider.user
-      should be_able_to(:update, @provider)
       get :edit, id: @provider.slug
       expect(response).to render_template :edit
     end
@@ -79,8 +77,6 @@ describe ProvidersController, type: :controller do
     it "Create a new provider" do
       sign_in @provider.user
       @provider.user = nil
-      should be_able_to(:create, @provider)
-      post :create, provider: attributes_for(:provider)
       expect(response).to redirect_to provider_path(assigns[:provider])
     end
 
@@ -89,14 +85,12 @@ describe ProvidersController, type: :controller do
   describe "Provider#update" do
     it "Update a provider" do
       sign_in @provider.user
-      should be_able_to(:update, @provider)
       patch :update, id: @provider.slug ,provider: attributes_for(:provider)
       expect(assigns(:provider)).to eq @provider
     end
 
     it "Changes provider's attributes" do
       sign_in @provider.user
-      should be_able_to(:update, @provider)
       patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: "Nunes", last_name:"Costa")
       @provider.reload
       expect(@provider.first_name).to eq ("Nunes")
@@ -105,7 +99,6 @@ describe ProvidersController, type: :controller do
 
     it "Should not change provider's attributes" do
       sign_in @provider.user
-      should be_able_to(:update, @provider)
       patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: nil, last_name:"Costa")
       @provider.reload
       expect(@provider.last_name).to_not eq ("Costa")
@@ -113,7 +106,6 @@ describe ProvidersController, type: :controller do
 
      it "Should re-render edit page" do
       sign_in @provider.user
-      should be_able_to(:update, @provider)
       patch :update, id: @provider.slug ,provider: attributes_for(:provider, first_name: nil, last_name:"Costa")
       expect(response).to render_template :edit
     end
@@ -124,7 +116,6 @@ describe ProvidersController, type: :controller do
 
     it "Delete a provider" do
       sign_in @provider.user
-      should be_able_to(:destroy, @provider)
       delete :destroy, id: @provider
       @provider.reload
       expect(@provider.is_deleted).to be true
@@ -132,7 +123,6 @@ describe ProvidersController, type: :controller do
 
     it "Recover a provider" do
       sign_in @provider.user
-      should be_able_to(:recover, @provider)
       get :recover, id: @provider
       @provider.reload
       expect(@provider.is_deleted).to be false
@@ -144,7 +134,6 @@ describe ProvidersController, type: :controller do
 
     it "Should find a provider" do
       sign_in @provider.user
-      should be_able_to(:search, @provider)
       get :search, q: @provider.first_name, page: 1, format: :json
       expect(response.body).to have_content @provider.to_json
     end

@@ -49,20 +49,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  def role_id
-    self.roles.first.id
-  end
-
-  def customer_id(user_id)
-    customer = Customer.select(:id).find_by(user_id: user_id)
-    customer.id
-  end
-
-  def provider_id(user_id)
-    provider = Provider.select(:id).find_by(user_id: user_id)
-    provider.id
-  end
-
   def is_completed?
     if self
       self.is_completed

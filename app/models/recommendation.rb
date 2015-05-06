@@ -6,7 +6,7 @@ class Recommendation < ActiveRecord::Base
 
   validates_presence_of :customer
   validates_presence_of :provider
-  # validates_presence_of :rating
+  validates_presence_of :rating
 
 
 	def as_json(options = {})
