@@ -40,13 +40,11 @@
                               <td><%= t(:wedding_date) %></td>
                               <td>{{customer.wedding_date | date : format : timezone}}</td>
                             </tr>
-                            <% if get_interest(@customer) == "negotiating" %>
                               <tr>
                                 <td><%= t(:phone) %></td>
                                 <td>{{customer.phone}}<br><br>
                                 </td>
                               </tr>
-                            <% end %>
                             <% if verify_estimate(@customer, current_user) %>
                               <tr>
                                 <td>

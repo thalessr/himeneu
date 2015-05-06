@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class ProviderUploader < CarrierWave::Uploader::Base
+class FeatureImageUploader < CarrierWave::Uploader::Base
 
   include CarrierWave::MiniMagick
   include CarrierWave::MimeTypes
@@ -26,20 +26,9 @@ class ProviderUploader < CarrierWave::Uploader::Base
     end
   end
 
-  # Create different versions of your uploaded files:
-  version :thumb do
-    process :resize_and_pad => [60, 60]
-    process :lower_quality
-  end
-
-  version :list do
-    process :resize_and_pad => [370, 270]
-    process :lower_quality
-  end
-
   version :regular do
-    process :resize_and_pad => [286, 400]
-    process :lower_quality
+    process :resize_and_pad => [768, 533]
+    process :lower_quality => 90
   end
 
 

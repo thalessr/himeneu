@@ -22,8 +22,10 @@ require 'shoulda/matchers'
 RSpec.configure do |config|
 
   config.include FactoryGirl::Syntax::Methods
-  config.include Devise::TestHelpers, :type => :controller
+  config.include Devise::TestHelpers, type: :controller
+  config.include Devise::TestHelpers, type: :helper
   config.include Shoulda::Matchers::ActionController, type: :controller
+
 
   Shoulda::Matchers.configure do |config|
     config.integrate do |with|
