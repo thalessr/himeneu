@@ -25,7 +25,9 @@
 //= require app/controllers/estimatesController.js
 //= require app/controllers/recommendationsController.js
 //= require app/controllers/tagCloudController.js
+//= require app/controllers/featureImageController.js
 //= require ng-rails-csrf
+//= require providers.js
 //= require jquery_ujs
 //= require jquery.stellar/jquery.stellar.min.js
 //= require bootstrap/dist/js/bootstrap.min.js
@@ -67,14 +69,21 @@ function showFlashMessage(msg, type, seconds){
 $(document).ready(function(){
   'use strict';
 
-	$.ajaxSetup({
-	  dataType: 'json'
-	});
-
-
-
   // new WOW().init();
   $('[data-toggle="tooltip"]').tooltip();
+  $( "#estimate" ).click(function() {
+    $('#estimatesModal').modal('toggle');
+  });
+
+  $.ajaxSetup({
+    dataType: 'json'
+  });
+
+  $("input[name=type]:radio").change(function(){
+    $('.magic').hide();
+    var form = $( this ).val();
+    $("#"+form).show();
+  });
 
 	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
@@ -109,8 +118,6 @@ $(document).ready(function(){
   $("img.lazy").show().lazyload({
     effect : "fadeIn"
   });
-
-
 
  var config = {
       ui: {

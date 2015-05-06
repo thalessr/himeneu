@@ -38,7 +38,7 @@ class ProvidersController < ApplicationController
     @provider = current_user.build_provider(provider_params)
     respond_to do |format|
       if @provider.save
-        current_user.set_completed
+        current_user.set_completed(2)
         response.headers['X-Flash-Notice'] = 'Criado com sucesso.'
         format.html { redirect_to @provider}
         format.json { render :json => @provider, status: :created, location: @provider }
@@ -51,7 +51,7 @@ class ProvidersController < ApplicationController
 
   def show
     if current_user
-      @provider = Provider.includes(:addresses, :feature_images).friendly.find(params[:id])
+      @provider = Provider.friendly.find(params[:id])
     else
       @provider = Provider.friendly.find(params[:id])
     end
@@ -62,7 +62,7 @@ class ProvidersController < ApplicationController
   end
 
   def update
-    @provider = Provider.includes(:tag).friendly.find(params[:id])
+    @provider = Provider.friendly.find(params[:id])
     respond_to do |format|
       if @provider.update_attributes(provider_params)
         response.headers['X-Flash-Notice'] = 'Atualizado com sucesso.'

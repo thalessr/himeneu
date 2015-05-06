@@ -22,7 +22,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="App" class='<%= controller.controller_name %> '>
+<body ng-app="App" class='<%= controller.controller_name %> ' ui-view>
   <div class='notifications top-right'></div>
 
   <div id="header-top" class="hidden-xs">
@@ -106,7 +106,9 @@
                           <% end %>
                       </li>
                   <% else %>
-                      <li class="dropdown active "><%= link_to 'Contato', dashboard_path+"#contato" %></li>
+                      <li class="dropdown active ">
+                        <%= link_to 'Contato', dashboard_index_path+"#contato" %>
+                      </li>
                       <li class="dropdown"><%= link_to t(:sign_up).capitalize, new_user_registration_path %></li>
                       <li class="dropdown">
                           <a href="#" class=" dropdown-toggle" data-toggle="dropdown">

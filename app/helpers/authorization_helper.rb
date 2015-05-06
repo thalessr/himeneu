@@ -12,6 +12,10 @@ module AuthorizationHelper
     end
   end
 
+  def is_provider?
+    current_user.is_provider?
+  end
+
   def can_read_customers?
     unless current_user.nil?
       can_read? && current_user.is_provider?
@@ -22,6 +26,10 @@ module AuthorizationHelper
     if current_user.is_customer?
       current_user.customer.id = customer.id
     end
+  end
+
+  def is_customer?
+    current_user.is_customer?
   end
 
   private
