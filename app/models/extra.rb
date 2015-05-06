@@ -41,7 +41,6 @@ module Extra
     def self.extended(base)
       base.class_eval do
         has_many :recommendations, dependent: :destroy
-        has_many :interests, dependent: :destroy
         has_many :estimates, dependent: :destroy
       end
     end
