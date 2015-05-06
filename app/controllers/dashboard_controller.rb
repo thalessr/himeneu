@@ -6,26 +6,16 @@ class DashboardController < ApplicationController
       @user = current_user
       unless @user.is_completed?
         redirect_to decision_dashboard_index_path
+      else
+        redirect_to providers_path
       end
-    else
-      redirect_to new_user_registration_path
     end
-		# if current_user
-		# 	@user = current_user
-		# 	if @user.is_customer?
-	 #      customer_redirect(@user)
-	 #    elsif @user.is_provider?
-	 #    	provider_redirect(@user)
-	 #    else
-
-  # 	  end
-		# end
 	end
 
 	def privacy
 	end
 
-  def decision
+  def decision3
    @customer = Customer.new
    @customer.build_address
    @provider = Provider.new
