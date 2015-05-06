@@ -9,5 +9,5 @@ test:
 
 # production environment
 production:
-    host: 'himeneu-001.8wfbqn.0001.usw2.cache.amazonaws.com'
+    host: '104.236.232.221'
     port: '6379'
