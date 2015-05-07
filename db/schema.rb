@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507075107) do
+ActiveRecord::Schema.define(version: 20150507075932) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -78,7 +78,6 @@ ActiveRecord::Schema.define(version: 20150507075107) do
     t.integer  "address_id"
     t.boolean  "image_processing",             default: false, null: false
     t.string   "slug",             limit: 255
-    t.boolean  "is_deleted"
   end
 
   add_index "customers", ["address_id"], name: "index_customers_on_address_id"
@@ -134,7 +133,6 @@ ActiveRecord::Schema.define(version: 20150507075107) do
     t.boolean  "image_processing",                                     default: false, null: false
     t.decimal  "score",                        precision: 3, scale: 2
     t.string   "slug",             limit: 255
-    t.boolean  "is_deleted"
     t.string   "video_url",        limit: 255
     t.string   "facebook",         limit: 255
     t.string   "twitter",          limit: 100
