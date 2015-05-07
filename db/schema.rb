@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150504034024) do
+ActiveRecord::Schema.define(version: 20150507074709) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -88,8 +88,8 @@ ActiveRecord::Schema.define(version: 20150504034024) do
   create_table "estimates", force: :cascade do |t|
     t.integer  "provider_id"
     t.integer  "customer_id"
-    t.text     "description", limit: 2000
-    t.text     "response",    limit: 2000
+    t.text     "description", limit: 255
+    t.text     "response",    limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -211,6 +211,7 @@ ActiveRecord::Schema.define(version: 20150504034024) do
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
     t.boolean  "is_completed",                       default: false
+    t.boolean  "is_deleted"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
