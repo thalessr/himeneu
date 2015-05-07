@@ -52,6 +52,7 @@
 //= require jquery.themepunch.revolution.min.js
 //= require revolution-custom.js
 //= require isotope-custom.js
+//= require bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js
 //= stub active_admin
 
 function showFlashMessage(msg, type, seconds){
@@ -84,6 +85,15 @@ $(document).ready(function(){
     var form = $( this ).val();
     $("#"+form).show();
   });
+  $("#customer_wedding_date").datepicker({
+          format: 'dd/mm/yyyy'
+        });
+
+   // $("[data-behaviour~='datepicker']").focus(function() {
+   //    $(this).datepicker({
+   //        format: 'dd/mm/yyyy'
+   //      });
+   //    });
 
 	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 

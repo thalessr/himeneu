@@ -1,4 +1,4 @@
-<% if can_read_customers? || can_manage_customer?(@customer) && !@customer.is_deleted %>
+<% if can_read_customers? || ( can_manage_customer?(@customer) && !is_deleted? )%>
 
 <!-- Modal -->
 <div class="modal fade"
@@ -43,7 +43,7 @@
 
 <div class="divide60"></div>
 
-<div class="container" ng-controller="CustomerCtrl" data-param= <%=@customer.slug %> id="showCustomer">
+<div class="container" ng-controller="CustomerCtrl" data-param= "<%=@customer.slug %>" id="showCustomer">
     <div class="row">
         <div class="col-md-9 margin30">
             <div class="row">
@@ -79,12 +79,13 @@
                               <td><%= t(:wedding_date) %></td>
                               <td>{{customer.wedding_date | date : format : timezone}}</td>
                             </tr>
-                              <tr>
-                                <td><%= t(:phone) %></td>
-                                <td>{{customer.phone}}<br><br>
-                                </td>
-                              </tr>
+
                             <% if verify_estimate(@customer, current_user) %>
+                            <tr>
+                              <td><%= t(:phone) %></td>
+                              <td>{{customer.phone}}<br><br>
+                              </td>
+                            </tr>
                               <tr>
                                 <td>
                                   <%= link_to "Resposta Orçamento", "",:class=>"btn btn-primary", :id => 'resposta' %>
