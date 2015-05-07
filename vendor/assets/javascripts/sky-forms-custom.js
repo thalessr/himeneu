@@ -1,13 +1,9 @@
-/* 
- Assan v1.3
- Sky forms custom js
- */
 
 $(function()
 			{
 				// Validation
 				$("#sky-form").validate(
-				{					
+				{
 					// Rules for form validation
 					rules:
 					{
@@ -31,7 +27,7 @@ $(function()
 							remote: 'sky-form/captcha/process.php'
 						}
 					},
-										
+
 					// Messages for form validation
 					messages:
 					{
@@ -54,8 +50,8 @@ $(function()
 							remote: 'Correct captcha is required'
 						}
 					},
-										
-					// Ajax form submition					
+
+					// Ajax form submition
 					submitHandler: function(form)
 					{
 						$(form).ajaxSubmit(
@@ -70,7 +66,7 @@ $(function()
 							}
 						});
 					},
-					
+
 					// Do not change code below
 					errorPlacement: function(error, element)
 					{
@@ -78,9 +74,9 @@ $(function()
 					}
 				});
 			});
-                        
-                        
-                        
-                        
-                        
-                        
+
+
+
+
+
+

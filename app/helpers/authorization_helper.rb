@@ -17,9 +17,7 @@ module AuthorizationHelper
   end
 
   def can_read_customers?
-    unless current_user.nil?
-      can_read? && current_user.is_provider?
-    end
+    can_read? && current_user.is_provider?
   end
 
   def can_manage_customer?(customer)
@@ -32,12 +30,18 @@ module AuthorizationHelper
     current_user.is_customer?
   end
 
+  def is_deleted?
+    unless current_user.nil?
+      current_user.is_deleted?
+    end
+  end
+
   private
   # The requirements to display the pages are:
   #  - the user must have an active session;
   #  - should completed their account;
   #  - shoud not desactiveted their profile;
   def can_read?
-    !current_user.nil? && current_user.is_completed?
+    (!current_user.nil? && current_user.is_completed? && !is_deleted?)
   end
 end
