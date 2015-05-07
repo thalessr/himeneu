@@ -55,7 +55,7 @@ class CustomersController < ApplicationController
 
   def show
     @customer = Customer.friendly.find(params[:id])
-    @customer.get_wedding_date
+    # @customer.get_wedding_date
     respond_to do |format|
       format.json { render json: @customer }
       format.html

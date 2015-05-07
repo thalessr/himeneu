@@ -55,6 +55,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def is_deleted?
+    self.is_deleted if self
+  end
+
   def is_customer_completed?
     if self
       is_completed? && self.is_customer?
