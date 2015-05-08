@@ -117,7 +117,7 @@
                 </li>
               </ul>
               <p>
-                <%= @provider.experience %>
+                <%= truncate(@provider.experience, length: 250) %>
               </p>
                 <hr>
                 <ul class="list-unstyled product-feautres-list">
@@ -162,17 +162,15 @@
               </a>
             </li>
           </ul>
-
               <!-- Tab panes -->
               <div class="tab-content">
                   <div class="tab-pane active" id="home">
-                      <div class="tab-desc animated fadeInDown">
-
-                          <h4>Product Description</h4>
-
-                          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-                          </p>
-                      </div>
+                    <div class="tab-desc animated fadeInDown">
+                      <h4>Product Description</h4>
+                      <p>
+                        <%= @provider.experience %>
+                      </p>
+                     </div>
 
                   </div>
                   <div class="tab-pane" id="profile"
@@ -183,7 +181,7 @@
                       <div class="margin40" ng-repeat="rec in recommendations">
                         <h5>{{rec.title}}</h5>
                         <div class="review-box">
-                          <img ng-src="{{rec.customer.image['thumb'].url}}" alt="" class="img-responsive">
+                          <img ng-src="{{rec.customer.image.thumb.url}}" alt="" class="img-responsive">
                           <div class="review-content">
 
                               <ul class="list-inline rating-list">

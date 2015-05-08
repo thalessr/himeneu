@@ -67,6 +67,41 @@ function showFlashMessage(msg, type, seconds){
 }
 
 
+   //  var myLatlng;
+   //  var map;
+   //  var marker;
+
+   // function initialize(latitude, longitude, elemID, providerName) {
+   //    myLatlng = new google.maps.LatLng(latitude, longitude);
+
+   //    var mapOptions = {
+   //        zoom: 13,
+   //        center: myLatlng,
+   //        mapTypeId: google.maps.MapTypeId.ROADMAP,
+   //        scrollwheel: false,
+   //        draggable: false
+   //    };
+   //    map = new google.maps.Map(document.getElementById('maps'), mapOptions);
+
+   //    var contentString = '<p style="line-height: 20px;"><strong>'+providerName+'</strong></p><p></p>';
+
+   //    var infowindow = new google.maps.InfoWindow({
+   //        content: contentString
+   //    });
+
+   //    marker = new google.maps.Marker({
+   //        position: myLatlng,
+   //        map: map,
+   //        title: 'Marker'
+   //    });
+   //     $("#maps").remove();
+
+   //    google.maps.event.addListener(marker, 'click', function() {
+   //        infowindow.open(map, marker);
+   //    });
+   // }
+
+
 $(document).ready(function(){
   'use strict';
 
@@ -86,14 +121,11 @@ $(document).ready(function(){
     $("#"+form).show();
   });
   $("#customer_wedding_date").datepicker({
-          format: 'dd/mm/yyyy'
-        });
+      format: 'dd/mm/yyyy'
+    });
 
-   // $("[data-behaviour~='datepicker']").focus(function() {
-   //    $(this).datepicker({
-   //        format: 'dd/mm/yyyy'
-   //      });
-   //    });
+  // google.maps.event.addDomListener(window, 'load', initialize);
+
 
 	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
 
@@ -122,9 +154,6 @@ $(document).ready(function(){
   //   horizontalScrolling: false,
   //   verticalOffset: 50
   // });
-
-  // $(':checkbox').radiocheck();
-  // $(':radio').radiocheck();
   $("img.lazy").show().lazyload({
     effect : "fadeIn"
   });
