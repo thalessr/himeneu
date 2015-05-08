@@ -7,7 +7,19 @@ class ApplicationController < ActionController::Base
 
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
+    I18n.locale = locale_from_http_header || I18n.default_locale
+  end
+
+  ##
+  # Getting default locale from web browser
+  ##
+  def locale_from_http_header
+     http_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}-[A-Z]{2}/)
+     unless http_locale.blank?
+      http_locale = http_locale.first
+     else
+      http_locale = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+     end
   end
 
 end

@@ -71,4 +71,13 @@ class User < ActiveRecord::Base
     end
   end
 
+  def address
+    if is_customer?
+      self.customer.city
+    else
+      self.provider.addresses.map(&city)
+    end
+
+  end
+
 end
