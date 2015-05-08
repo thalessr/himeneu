@@ -1,7 +1,16 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
 
-  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"}, :controllers => { registrations: 'registrations', confirmations: 'confirmations'  }
+  devise_for :users, path_names: {sign_in: "login", sign_out: "logout"},
+  :controllers => {
+    registrations: 'registrations', confirmations: 'confirmations',
+    :omniauth_callbacks => "users/omniauth_callbacks"
+  }
+
+  devise_scope :user do
+    get 'sign_out', :to => 'devise/sessions#destroy'
+  end
+
   root to: 'dashboard#index'
   get 'privacy' => 'dashboard#privacy'
   get '/anuncie' => 'static_pages#anuncie'
@@ -18,57 +27,57 @@ Rails.application.routes.draw do
     end
   end
 
-# devise_scope :user do
-#   authenticated :user do
-#     root 'dashboard#index', as: :authenticated_root
-#   end
+  # devise_scope :user do
+  #   authenticated :user do
+  #     root 'dashboard#index', as: :authenticated_root
+  #   end
 
-#   unauthenticated do
-#     root 'devise/sessions#new', as: :unauthenticated_root
-#   end
-# end
+  #   unauthenticated do
+  #     root 'devise/sessions#new', as: :unauthenticated_root
+  #   end
+  # end
 
-resources :customers, except: [:index]  do
-  get 'search', on: :collection
-  get 'recover', on: :collection
-end
-
-resources :providers do
-  resources :address, only: [:create, :index]
-  get 'search', on: :collection
-  get 'carousel', on: :collection
-  get 'recover', on: :collection
-  get 'cloud', on: :collection
-  get 'bestSeller', on: :collection
-end
-
-resources :interests, :only => :create do
-  post 'change_state', on: :collection
-end
-
-resources :dashboard, only: :index do
-  collection do
-    get 'decision'
+  resources :customers, except: [:index]  do
+    get 'search', on: :collection
+    get 'recover', on: :collection
   end
-end
 
-resources :recommendations, only: [:create, :index]
-resources :feature_images, only: [:create, :destroy, :index]
-resources :estimates, :except => [:index, :new, :destroy]
+  resources :providers do
+    resources :address, only: [:create, :index]
+    get 'search', on: :collection
+    get 'carousel', on: :collection
+    get 'recover', on: :collection
+    get 'cloud', on: :collection
+    get 'bestSeller', on: :collection
+  end
 
-# scope '/api' do
-#   scope '/v1' do
-#     resources :providers do
-#       resources :address, only: [:create, :index]
-#       resources :recommendations
-#       get 'search', on: :collection
-#       get 'carousel', on: :collection
-#       get 'recover', on: :collection
-#       get 'cloud', on: :collection
-#       get 'bestSeller', on: :collection
-#     end
-#   end
-# end
+  resources :interests, :only => :create do
+    post 'change_state', on: :collection
+  end
+
+  resources :dashboard, only: :index do
+    collection do
+      get 'decision'
+    end
+  end
+
+  resources :recommendations, only: [:create, :index]
+  resources :feature_images, only: [:create, :destroy, :index]
+  resources :estimates, :except => [:index, :new, :destroy]
+
+  # scope '/api' do
+  #   scope '/v1' do
+  #     resources :providers do
+  #       resources :address, only: [:create, :index]
+  #       resources :recommendations
+  #       get 'search', on: :collection
+  #       get 'carousel', on: :collection
+  #       get 'recover', on: :collection
+  #       get 'cloud', on: :collection
+  #       get 'bestSeller', on: :collection
+  #     end
+  #   end
+  # end
 
 
 end

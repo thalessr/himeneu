@@ -29,7 +29,9 @@ module Extra
     end
 
     def is_deleted?
-      user.is_deleted
+      if user
+        user.is_deleted
+      end
     end
 
   end
