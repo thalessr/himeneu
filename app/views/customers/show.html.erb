@@ -34,12 +34,6 @@
   </div>
 </div>
 
-  <div id="header-top" class="hidden-xs">
-    <div class="container">
-    </div>
-</div><!--top bar end hidden in small devices-->
-<!--navigation -->
-<!-- Static navbar -->
 
 <div class="divide60"></div>
 
@@ -68,7 +62,7 @@
                             </span>
                         </h3>
 
-                        <h4>Sobre meu casamento:</h4>
+                        <h4><%= t('customers.about_my_wedding') %></h4>
                         <table class="table table-user-information">
                           <tbody>
                             <tr>
@@ -109,10 +103,10 @@
 
 <div class="divide30"></div>
 
-<% else %>
+<% elsif can_manage_customer(@customer) %> %>
     <div class="row voffset6 margin40">
         <div class="text-center">
-            <h3>Este perfil está desativado. Clique aqui para ativar:</h3>
+            <h3><%= t(:deactivated_profile_message) %></h3>
             <%= delete_or_recovery(@customer) %>
         </div>
     </div>

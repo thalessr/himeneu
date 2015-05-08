@@ -12,308 +12,327 @@
   <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
 <% end %>
 
+<% if can_read_providers? || ( can_manage_provider?(@provider) && !is_deleted? )%>
 
-<!-- Modal -->
-<div class="modal fade"
-     id="estimatesModal"
-     tabindex="-1"
-     role="dialog"
-     aria-labelledby="estimatesModalLabel"
-     data-param= <%=@provider.slug  %>
-     aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="estimatesModalLabel">Descrição Orçamento</h4>
+  <!-- Modal -->
+  <div class="modal fade"
+       id="estimatesModal"
+       tabindex="-1"
+       role="dialog"
+       aria-labelledby="estimatesModalLabel"
+       data-param= <%=@provider.slug  %>
+       aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="estimatesModalLabel">Descrição Orçamento</h4>
+        </div>
+        <form ng-controller="EstimateCtrl" ng-submit="save()">
+          <div class="modal-body">
+           <wysiwyg textarea-id="description"
+                    textarea-class="form-control"
+                    textarea-height="150px"
+                    textarea-name="textareaDescription"
+                    textarea-required
+                    ng-model="estimate.description"
+                    enable-bootstrap-title="true" >
+           </wysiwyg>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
+            <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
+          </div>
+         </form>
       </div>
-      <form ng-controller="EstimateCtrl" ng-submit="save()">
-        <div class="modal-body">
-         <wysiwyg textarea-id="description"
-                  textarea-class="form-control"
-                  textarea-height="150px"
-                  textarea-name="textareaDescription"
-                  textarea-required
-                  ng-model="estimate.description"
-                  enable-bootstrap-title="true" >
-         </wysiwyg>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('links.close') %></button>
-          <input type="submit" id="submit" class="btn btn-primary" value="<%= t('links.save') %>" />
-        </div>
-       </form>
     </div>
   </div>
-</div>
-<div class="divide60"></div>
-<div class="container">
-  <div class="row">
-    <div class="col-md-9 margin30">
-      <div class="row">
-        <div class="col-sm-5 margin30">
-          <div class="detail-img-col">
-            <a href="<%= @provider.image_url(:regular) %>" class="show-image lazy" data-original="<%= @provider.image_url(:regular) %>">
-              <%= image_tag(@provider.image_url(:regular)) %>
-            </a>
-            <div class="divide15"></div>
-            <ul class="list-inline top-social">
-              <% unless @provider.facebook.blank? %>
-                <li>
-                  <%= link_to @provider.facebook , :target => "_blank", class: "" do %>
-                    <i class="fa fa-facebook"></i>
-                  <% end %>
-                </li>
-              <% end %>
-              <% unless @provider.instagram.blank? %>
-                <li>
-                  <%= link_to @provider.instagram , :target => "_blank", class: "" do %>
-                    <i class="fa fa-instagram"></i>
-                  <% end %>
-                </li>
-              <% end %>
-              <% unless @provider.twitter.blank? %>
-                <li>
-                  <%= link_to @provider.twitter , :target => "_blank", class: "" do %>
-                    <i class="fa fa-twitter"></i>
-                  <% end %>
-                </li>
-              <% end %>
-              <% unless @provider.website.blank? %>
-               <li>
-                  <%= link_to @provider.website , :target => "_blank",class: "" do %>
-                    <i class="fa fa-external-link"></i>
-                  <% end %>
-               </li>
-              <% end %>
-            </ul>
-          </div>
-        </div><!--product detail img col end-->
-
-        <div class="col-sm-7">
-          <div class="detail-content-right">
-            <h3 class="title">
-                <%= @provider.full_name %>
-            </h3>
-
-            <ul class="list-inline rating-list">
-              <li><i class="fa fa-star yellow"></i></li>
-              <li><i class="fa fa-star yellow"></i></li>
-              <li><i class="fa fa-star yellow"></i></li>
-              <li><i class="fa fa-star gray"></i></li>
-              <li><i class="fa fa-star gray"></i></li>
-              <li class="review">
-                <a href="#review">(<%= @provider.recommendations.count %> Recomendação)</a>
-              </li>
-            </ul>
-            <p>
-              <%= @provider.experience %>
-            </p>
-              <hr>
-              <ul class="list-unstyled product-feautres-list">
-                <li><i class="fa fa-check"></i> <%= @provider.age %> Anos de experiência</li>
-                <li><i class="fa fa-check"></i> made in Usa</li>
-                <li><i class="fa fa-check"></i> 30 day Money back</li>
-              </ul>
-              <hr>
-              <% if is_customer? %>
-                <div class="add-cart">
-                  <%= link_to t(:estimate), "", :class=>"btn btn-theme-bg", :id => 'estimate' %>
-                </div>
-              <% end %>
-          </div>
-        </div>
-      </div><!--product details up end-->
-      <hr>
-      <% unless @provider.video_url.blank? %>
+  <div class="divide60"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9 margin30">
         <div class="row">
-          <div class="col-md-12 margin30">
+          <div class="col-sm-5 margin30">
+            <div class="detail-img-col">
+              <a href="<%= @provider.image_url(:regular) %>" class="show-image lazy" data-original="<%= @provider.image_url(:regular) %>">
+                <%= image_tag(@provider.image_url(:regular)) %>
+              </a>
+              <div class="divide15"></div>
+              <ul class="list-inline top-social">
+                <% unless @provider.facebook.blank? %>
+                  <li>
+                    <%= link_to @provider.facebook , :target => "_blank", class: "" do %>
+                      <i class="fa fa-facebook"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% unless @provider.instagram.blank? %>
+                  <li>
+                    <%= link_to @provider.instagram , :target => "_blank", class: "" do %>
+                      <i class="fa fa-instagram"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% unless @provider.twitter.blank? %>
+                  <li>
+                    <%= link_to @provider.twitter , :target => "_blank", class: "" do %>
+                      <i class="fa fa-twitter"></i>
+                    <% end %>
+                  </li>
+                <% end %>
+                <% unless @provider.website.blank? %>
+                 <li>
+                    <%= link_to @provider.website , :target => "_blank",class: "" do %>
+                      <i class="fa fa-external-link"></i>
+                    <% end %>
+                 </li>
+                <% end %>
+              </ul>
+            </div>
+          </div><!--product detail img col end-->
+
+          <div class="col-sm-7">
+            <div class="detail-content-right">
+              <h3 class="title">
+                <%= @provider.full_name %>
+                <span>
+                  <% if can_manage_provider? @provider %>
+                    <%= link_to edit_provider_path(@provider.slug) do %>
+                      <span class="h6"><%= t('links.edit') %></span>
+                    <% end %>
+                  <% end %>
+                </span>
+              </h3>
+
+              <ul class="list-inline rating-list">
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star yellow"></i></li>
+                <li><i class="fa fa-star gray"></i></li>
+                <li><i class="fa fa-star gray"></i></li>
+                <li class="review">
+                  <a href="#review">(
+                    <%= t('providers.review', count:  @provider.recommendations.count ) %>)
+                  </a>
+                </li>
+              </ul>
+              <p>
+                <%= @provider.experience %>
+              </p>
+                <hr>
+                <ul class="list-unstyled product-feautres-list">
+                  <li><i class="fa fa-check"></i> <%= @provider.age %> Anos de experiência</li>
+                  <li><i class="fa fa-check"></i> made in Usa</li>
+                  <li><i class="fa fa-check"></i> 30 day Money back</li>
+                </ul>
+                <hr>
+                <% if is_customer? %>
+                  <div class="add-cart">
+                    <%= link_to t(:estimate), "", :class=>"btn btn-theme-bg", :id => 'estimate' %>
+                  </div>
+                <% end %>
+            </div>
+          </div>
+        </div><!--product details up end-->
+        <hr>
+        <% unless @provider.video_url.blank? %>
+          <div class="row">
+            <div class="col-md-12 margin30">
+              <div class="row">
+                <div class="col-md-12">
+                  <h3 class="heading">
+                     <%= t('providers.video') %>
+                  </h3>
+                </div>
+              </div>
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="<%= @provider.video_url %>" type='application/x-shockwave-flash'></iframe>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+          <!--review and details-->
+        <div class="tabs" id="review">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Description</a></li>
+            <li class="">
+              <a href="#profile" data-toggle="tab" aria-expanded="false">
+                <%= t('providers.review_tab', count:  @provider.recommendations.count ) %>
+              </a>
+            </li>
+          </ul>
+
+              <!-- Tab panes -->
+              <div class="tab-content">
+                  <div class="tab-pane active" id="home">
+                      <div class="tab-desc animated fadeInDown">
+
+                          <h4>Product Description</h4>
+
+                          <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
+                          </p>
+                      </div>
+
+                  </div>
+                  <div class="tab-pane" id="profile"
+                       data-param="<%=@provider.id  %>"
+                       ng-controller="RecommendationCtrl">
+                    <div class="tab-desc animated fadeIn">
+
+                      <div class="margin40" ng-repeat="rec in recommendations">
+                        <h5>{{rec.title}}</h5>
+                        <div class="review-box">
+                          <img ng-src="{{rec.customer.image['thumb'].url}}" alt="" class="img-responsive">
+                          <div class="review-content">
+
+                              <ul class="list-inline rating-list">
+                                  <li class="admin-detail">
+                                    <span><strong>{{rec.customer.full_name }}</strong>
+                                          {{rec.customer.created_at}}
+                                    </span>
+                                  </li>
+                                  <li><i class="fa fa-star yellow"></i></li>
+                                  <li><i class="fa fa-star yellow"></i></li>
+                                  <li><i class="fa fa-star yellow"></i></li>
+                                  <li><i class="fa fa-star yellow"></i></li>
+                                  <li><i class="fa fa-star-half-empty gray"></i></li>
+
+                              </ul>
+                              <p>
+                                {{rec.comment}}
+                              </p>
+                          </div>
+                        </div><!--review box end-->
+                      </div><!--div-->
+                      <% if is_customer? %>
+                        <div class="comment-form">
+                          <h3 class="heading">Add Review</h3>
+
+                            <div class="form-contact">
+                              <form role="form" ng-submit="save(recommendation)">
+                                  <div class="form-group">
+                                    <label>Assunto:</label>
+                                    <input type="text" ng-model="recommendation.title" name="title"/>
+                                  </div>
+                                  <div class="form-group">
+                                    <label for="message">Comment</label>
+                                    <textarea class="form-control"
+                                              rows="7"
+                                              ng-model="recommendation.comment"
+                                              id="message"
+                                              required="">
+                                    </textarea>
+                                  </div>
+                                <button type="submit" class="btn btn-theme-bg btn-lg pull-right">Comment</button>
+                              </form>
+                            </div>
+                        </div><!--comment form end-->
+                      <% end %>
+                    </div>
+                </div>
+
+              </div>
+          </div>
+          <div class="divide40"></div>
+          <% if can_manage_provider? @provider %>
+            <div>
+             <%= form_for FeatureImage.new do |f| %>
+               <%= f.file_field :image %>
+               <%= f.hidden_field :image_cache %>
+               <%= f.hidden_field :provider_id, :value => @provider.id %>
+               <%= f.submit "Postar imagem"%>
+             <% end %>
+            </div>
+          <% end -%>
+      <!--review and details end-->
+          <div class="divide40"></div>
+          <div class="container">
             <div class="row">
               <div class="col-md-12">
-                <h3 class="heading">
-                    Video Promocional
-                </h3>
-              </div>
-            </div>
-            <div class="embed-responsive embed-responsive-16by9">
-              <iframe src="<%= @provider.video_url %>" type='application/x-shockwave-flash'></iframe>
-            </div>
-          </div>
-        </div>
-      <% end %>
 
-        <!--review and details-->
-      <div class="tabs" id="review">
-        <ul class="nav nav-tabs">
-          <li class="active"><a href="#home" data-toggle="tab" aria-expanded="true">Description</a></li>
-          <li class="">
-            <a href="#profile" data-toggle="tab" aria-expanded="false">Reviews (<%= @provider.recommendations.count %>)</a>
-          </li>
-        </ul>
-
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <div class="tab-pane active" id="home">
-                    <div class="tab-desc animated fadeInDown">
-
-                        <h4>Product Description</h4>
-
-                        <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus
-                        </p>
-                    </div>
-
-                </div>
-                <div class="tab-pane" id="profile"
-                     data-param="<%=@provider.id  %>"
-                     ng-controller="RecommendationCtrl">
-                  <div class="tab-desc animated fadeIn">
-
-                    <div class="margin40" ng-repeat="rec in recommendations">
-                      <h5>{{rec.title}}</h5>
-                      <div class="review-box">
-                        <img ng-src="{{rec.customer.image['thumb'].url}}" alt="" class="img-responsive">
-                        <div class="review-content">
-
-                            <ul class="list-inline rating-list">
-                                <li class="admin-detail">
-                                  <span><strong>{{rec.customer.full_name }}</strong>
-                                        {{rec.customer.created_at}}
-                                  </span>
-                                </li>
-                                <li><i class="fa fa-star yellow"></i></li>
-                                <li><i class="fa fa-star yellow"></i></li>
-                                <li><i class="fa fa-star yellow"></i></li>
-                                <li><i class="fa fa-star yellow"></i></li>
-                                <li><i class="fa fa-star-half-empty gray"></i></li>
-
-                            </ul>
-                            <p>
-                              {{rec.comment}}
-                            </p>
-                        </div>
-                      </div><!--review box end-->
-                    </div><!--div-->
-                    <% if is_customer? %>
-                      <div class="comment-form">
-                        <h3 class="heading">Add Review</h3>
-
-                          <div class="form-contact">
-                            <form role="form" ng-submit="save(recommendation)">
-                                <div class="form-group">
-                                  <label>Assunto:</label>
-                                  <input type="text" ng-model="recommendation.title" name="title"/>
-                                </div>
-                                <div class="form-group">
-                                  <label for="message">Comment</label>
-                                  <textarea class="form-control"
-                                            rows="7"
-                                            ng-model="recommendation.comment"
-                                            id="message"
-                                            required="">
-                                  </textarea>
-                                </div>
-                              <button type="submit" class="btn btn-theme-bg btn-lg pull-right">Comment</button>
-                            </form>
-                          </div>
-                      </div><!--comment form end-->
-                    <% end %>
-                  </div>
-              </div>
-
-            </div>
-        </div>
-        <div class="divide40"></div>
-        <% if can_manage_provider? @provider %>
-          <div>
-           <%= form_for FeatureImage.new do |f| %>
-             <%= f.file_field :image %>
-             <%= f.hidden_field :image_cache %>
-             <%= f.hidden_field :provider_id, :value => @provider.id %>
-             <%= f.submit "Postar imagem"%>
-           <% end %>
-          </div>
-        <% end -%>
-    <!--review and details end-->
-        <div class="divide40"></div>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-
-              <div id="grid" class="row">
-                <% @provider.feature_images.each do |i| %>
-                  <div class="mix col-sm-3 page1 page4 margin30">
-                    <% if can_manage_provider? @provider %>
-                      <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
-                        <i class="glyphicon glyphicon-remove"
-                           data-original-title="<%= t('links.exlude') %>"
-                           data-toggle="tooltip">
-                         </i>
+                <div id="grid" class="row">
+                  <% @provider.feature_images.each do |i| %>
+                    <div class="mix col-sm-3 page1 page4 margin30">
+                      <% if can_manage_provider? @provider %>
+                        <%= link_to i, :method => :delete, data: { confirm: t('links.confirm') } do %>
+                          <i class="glyphicon glyphicon-remove"
+                             data-original-title="<%= t('links.exlude') %>"
+                             data-toggle="tooltip">
+                           </i>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                    <div class="item-img-wrap ">
-                      <img src="<%= i.image_url(:regular) %>" class="img-responsive" alt="">
-                      <div class="item-img-overlay">
-                        <a href="<%= i.image_url(:regular) %>" class="show-image">
-                            <span></span>
-                        </a>
+                      <div class="item-img-wrap ">
+                        <img src="<%= i.image_url(:regular) %>" class="img-responsive" alt="">
+                        <div class="item-img-overlay">
+                          <a href="<%= i.image_url(:regular) %>" class="show-image">
+                              <span></span>
+                          </a>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                 <% end %>
-              </div>
+                   <% end %>
+                </div>
 
+              </div>
             </div>
           </div>
-        </div>
 
 
-    </div><!--products list columns end-->
-    <div class="col-md-3">
-        <div class="sidebar-info-box">
-           <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
-                <div class="services-box-icon">
-                    <i class="fa fa-truck"></i>
-                </div><!--services icon-->
-                <div class="services-box-info">
-                    <h4>Free Delivery</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing metus.
-                    </p>
-                </div>
-            </div>
-        </div><!--sidebar info box-->
-        <hr>
-        <div class="sidebar-info-box">
-           <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
-                <div class="services-box-icon">
-                    <i class="fa fa-gift"></i>
-                </div><!--services icon-->
-                <div class="services-box-info">
-                    <h4>100% originals</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing metus.
-                    </p>
-                </div>
-            </div>
-        </div><!--sidebar info box-->
-        <hr>
-        <div class="sidebar-info-box">
-           <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
-                <div class="services-box-icon">
-                    <i class="fa fa-clock-o"></i>
-                </div><!--services icon-->
-                <div class="services-box-info">
-                    <h4>30 days money back</h4>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing metus.
-                    </p>
-                </div>
-            </div>
-        </div><!--sidebar info box-->
+      </div><!--products list columns end-->
+      <div class="col-md-3">
+          <div class="sidebar-info-box">
+             <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
+                  <div class="services-box-icon">
+                      <i class="fa fa-truck"></i>
+                  </div><!--services icon-->
+                  <div class="services-box-info">
+                      <h4>Free Delivery</h4>
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing metus.
+                      </p>
+                  </div>
+              </div>
+          </div><!--sidebar info box-->
+          <hr>
+          <div class="sidebar-info-box">
+             <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
+                  <div class="services-box-icon">
+                      <i class="fa fa-gift"></i>
+                  </div><!--services icon-->
+                  <div class="services-box-info">
+                      <h4>100% originals</h4>
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing metus.
+                      </p>
+                  </div>
+              </div>
+          </div><!--sidebar info box-->
+          <hr>
+          <div class="sidebar-info-box">
+             <div class="services-box wow animated fadeInUp animated animated" style="visibility: visible;">
+                  <div class="services-box-icon">
+                      <i class="fa fa-clock-o"></i>
+                  </div><!--services icon-->
+                  <div class="services-box-info">
+                      <h4>30 days money back</h4>
+                      <p>
+                          Lorem ipsum dolor sit amet, consectetur adipiscing metus.
+                      </p>
+                  </div>
+              </div>
+          </div><!--sidebar info box-->
+      </div>
+  </div>
+  </div>
+
+<% elsif can_manage_provider(@provider) %>
+  <div class="row voffset6 margin40">
+    <div class="text-center">
+      <h3><%= t(:deactivated_profile_message) %></h3>
+      <%= delete_or_recovery(@provider) %>
     </div>
-</div>
-
-
-</div>
+  </div>
+<% end %>
 
 
