@@ -37,7 +37,6 @@ pt:
   age: Idade
   image: Foto
   image_provider: Foto ou logomarca
-  wedding_date: Data do casamento
   error: Erro
   profession: "Serviços oferecidos"
   profession_hint: "(separados por virgula Ex: Fotógrafo, Buffet)"
@@ -59,7 +58,7 @@ pt:
   someone_interested: Há interessados em seus serviços
   estimate_reponse: Orçamento
   my_profile: "Meu Perfil"
-  estimate: "Orçamento"
+  estimate: "Fazer Orçamento"
   bride: Noiva(o)
   workers: 'Profissionais'
   completed_account_msg: "Complete o seu cadastro para poder pesquisar ou ser encontrado"
@@ -68,6 +67,18 @@ pt:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  deactivated_profile_message: "Este perfil está desativado. Clique aqui para ativar:"
+  customers:
+    about_my_wedding: "Sobre o meu casamento"
+    wedding_date: Data do casamento
+  providers:
+    review:
+      one: Uma recomendação
+      other:  '%{count} recomendações'
+    review_tab:
+      one: Uma recomendação
+      other:  'Recomendações (%{count})'
+    video: Video
   errors:
     messages:
       blank: "blank"

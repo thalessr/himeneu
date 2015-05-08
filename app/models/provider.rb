@@ -121,7 +121,7 @@ class Provider < ActiveRecord::Base
    def self.best_sellers
     best_sellers = get_redis_value("best_sellers")
     if best_sellers.blank?
-      best_sellers = order("score DESC").limit(3)
+      best_sellers = not_deleted.order("score DESC").limit(3)
       unless best_sellers.blank? && Rails.env.production?
         set_redis_key("best_sellers" , best_sellers.to_json, 3)
         best_sellers = get_redis_value("best_sellers")

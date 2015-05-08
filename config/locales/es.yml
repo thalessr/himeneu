@@ -37,7 +37,6 @@ es:
   age: Idade
   image: Foto
   image_provider: Foto ou logomarca
-  wedding_date: Data do casamento
   error: Erro
   profession: "Serviços oferecidos"
   profession_hint: "(separados por virgula Ex: Fotógrafo, Buffet)"
@@ -68,6 +67,18 @@ es:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  deactivated_profile_message: "This profile is disabled. Click here to activate:"
+  customers:
+    about_my_wedding: "Sobre o meu casamento"
+    wedding_date: Data do casamento
+  providers:
+    review:
+      one: One review
+      other:  '%{count} reviews'
+    review_tab:
+      one: One review
+      other:  'Reviews (%{count})'
+    video: Video
   errors:
     messages:
       blank: "blank"
