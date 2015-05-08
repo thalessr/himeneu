@@ -63,7 +63,7 @@ class CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.includes(:address).friendly.find(params[:id])
+    @customer = Customer.friendly.find(params[:id])
     @customer.get_wedding_date
   end
 

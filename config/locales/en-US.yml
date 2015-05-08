@@ -38,7 +38,6 @@ en-US:
   age: Age
   image: Picture
   image_provider: Picture
-  wedding_date: Wedding Date
   error: Error
   profession: "Profession"
   profession_hint: "(Separate by commas)"
@@ -49,11 +48,11 @@ en-US:
   zipcode: Zip code
   zipcode_hint: "99999-999"
   phone: Phone number
-  phone_hint: (99)8888-8888
+  phone_hint: (888)888-8888
   email: Email
   email_hint: "example@himeneu.com"
   address: Address
-  years_experience: ""
+  years_experience: "Years of experience"
   search: Search
   view_detail: View Detail
   hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
@@ -69,19 +68,18 @@ en-US:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
-  state_machine:
-    interested: "Ver contato"
-    interested_hint: "O contato do fornecedor passará a ser visivel e você poderá solicitar um orçamento"
-    negotiate: "Negociar"
-    negotiate_hint: "O seu contato passará a ser visivel para este fornecedor"
-    hire: "Contratar"
-    hire_hint: "Demostre interesse em contratá-lo"
-    review: "Recomendar"
-    review_hint: "Recomende este fornecedor"
-    complete: "Clique para finalizar"
-    complete_hint: "Finalize"
-    completed: "Obrigado pela preferência :D"
-    completed_hint: "=)"
+  deactivated_profile_message: "This profile is disabled. Click here to activate:"
+  customers:
+    about_my_wedding: About my wedding
+    wedding_date: Wedding Date
+  providers:
+    review:
+      one: One review
+      other:  '%{count} reviews'
+    review_tab:
+      one: One review
+      other:  'Reviews (%{count})'
+    video: Video
   links:
       back: "Back"
       cancel: "Cancel"
