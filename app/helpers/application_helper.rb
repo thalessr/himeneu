@@ -18,10 +18,17 @@ module ApplicationHelper
       link_to send("recover_#{name.pluralize}_path",id: "#{object.slug}") ,class: "btn btn-info" do
          content_tag(:span, I18n.t('links.activate'), class: "", 'data-original-title'.to_sym => t('links.activate'), "data-toggle".to_sym => "tooltip" )
       end
-    else
+    elsif !object.slug.blank?
       link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "btn btn-danger" do
          content_tag(:span, I18n.t('links.destroy'), class: "", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
       end
     end
   end
+
+def resource_class
+  devise_mapping.to
 end
+
+end
+
+

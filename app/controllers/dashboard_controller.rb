@@ -15,7 +15,7 @@ class DashboardController < ApplicationController
 	def privacy
 	end
 
-  def decision3
+  def decision
    @customer = Customer.new
    @customer.build_address
    @provider = Provider.new
