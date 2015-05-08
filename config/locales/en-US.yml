@@ -1,5 +1,6 @@
 en-US:
-  login: "login"
+  login: "Sign in"
+  login_with: Sign in with
   login_account: Log in to your account
   logout: "logout"
   create_account: 'create account'
@@ -80,6 +81,10 @@ en-US:
       one: One review
       other:  'Reviews (%{count})'
     video: Video
+  decision:
+    choose: "Choose one type:"
+    bride: "I'm a bride or groom"
+    provider: "I'm a service provider"
   links:
       back: "Back"
       cancel: "Cancel"

@@ -63,9 +63,10 @@ group :development, :test do
   gem 'capybara'
   gem 'spring'
   gem 'spring-commands-rspec'
+  # gem 'therubyracer'
 end
 
-gem 'therubyracer'
+
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -79,7 +80,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem "devise-async"
-# gem 'cancancan', '~> 1.9.2'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'

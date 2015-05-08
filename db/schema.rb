@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150507075932) do
+ActiveRecord::Schema.define(version: 20150508204108) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace",     limit: 255
@@ -210,6 +210,8 @@ ActiveRecord::Schema.define(version: 20150507075932) do
     t.datetime "confirmation_sent_at"
     t.boolean  "is_completed",                       default: false
     t.boolean  "is_deleted"
+    t.string   "api_provider"
+    t.string   "uid"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true

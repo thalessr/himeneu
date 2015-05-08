@@ -1,5 +1,6 @@
 pt-BR:
   login: "acessar"
+  login_with: Acessar com
   login_account: Acessar a sua conta
   create_account: cadastrar
   create_account_himeneu: Criar uma nova conta no Himeneu
@@ -79,6 +80,10 @@ pt-BR:
       one: Uma recomendação
       other:  'Recomendações (%{count})'
     video: Video de divulgação
+  decision:
+    choose: "Escolha uma opção:"
+    bride: "Sou noiva(o)"
+    provider: "Sou prestador de serviços"
   errors:
     messages:
       blank: "blank"

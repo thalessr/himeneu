@@ -90,7 +90,11 @@
                                 </div>
                             </div>
                             <div class="col-sm-6">
-                                <button class="btn btn-lg btn-facebook"><i class="fa fa-facebook"></i> Login with facebook</button>
+                              <%= link_to user_omniauth_authorize_path(:facebook),
+                                          :class =>"btn btn-lg btn-facebook"  do %>
+                                  <i class="fa fa-facebook"></i> <%= t(:login_with) %> facebook
+                               <% end %>
+
                             </div>
                             <div class="col-sm-6">
                                 <button class="btn btn-lg btn-twitter"><i class="fa fa-twitter"></i> Login with Twitter</button>
