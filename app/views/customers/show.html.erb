@@ -62,7 +62,7 @@
                             <span>
                                 <% if can_manage_customer? @customer %>
                                   <%= link_to edit_customer_path(@customer.slug) do %>
-                                    <span class="h6">EDITAR</span>
+                                    <span class="h6"><%= t('links.edit') %></span>
                                   <% end %>
                                 <% end %>
                             </span>
