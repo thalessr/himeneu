@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
   if Rails.env.production?
     devise :database_authenticatable, :registerable,
       :recoverable, :rememberable, :async,:trackable, :validatable,
-      :confirmable, :omniauthable, :omniauth_providers => [:facebook]
+      :confirmable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
   else
     devise :database_authenticatable, :registerable,
       :recoverable, :rememberable, :trackable, :validatable,
-      :omniauthable, :omniauth_providers => [:facebook]
+      :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
   end
 
   has_one :customer, dependent: :destroy
@@ -94,7 +94,7 @@ class User < ActiveRecord::Base
 
   def self.new_with_session(params, session)
     super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
+      if data = session["devise.auth_data"] && session["devise.auth_data"]["extra"]["raw_info"]
         user.email = data["email"] if user.email.blank?
       end
     end
