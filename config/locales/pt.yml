@@ -69,6 +69,28 @@ pt:
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
   deactivated_profile_message: "Este perfil está desativado. Clique aqui para ativar:"
+  home:
+    slide1_tagline_html: Case mais fácil <br> com o Himeneu
+    slide1_subtitle_html: Encontre os melhores profissionais do mercado <br> para deixar sua festa ainda mais especial.
+    slide1_button2: Criar perfil profissional
+    we_do_icon1_title: Só os melhores
+    we_do_icon1_html: Encontre os melhores profissionais <br> para fazer seu casamento <br> ainda mais especial
+    we_do_icon2_title: Planejamento
+    we_do_icon2_html: Planeje com antecedência e cuidado <br> todos os detalhes da sua cerimônia
+    we_do_icon3_title: Orçamentos
+    we_do_icon3_html: Receba orçamentos dos melhores <br> profissionais do mercado <br> com apenas 1 clique
+    we_do_icon4_title: Divulgue seu trabalho
+    we_do_icon4_html: É profissional? <br> Crie seu perfil e seja encontrado <br>por milhares de clientes
+    what_we_do: O que fazemos
+    what_we_do_text_html: "O himeneu chegou para tornar o planejamento de festas de casamento muito mais fáceis.<br> Nós reunimos os melhores e mais conceituados profissionais do mercado,<br> que vão fazer sua festa mais e mais especial."
+    slide2_tagline: Orçamento fácil
+    slide2_text_html: "Com poucos cliques, peça orçamentos <br> honestos dos profissionais cadastrados <br>no Himeneu e economize"
+    slide3_title: Todos os tipos de profissionais
+    slide3_profession1: Florista
+    slide3_profession2: Mestre de Cerimônias
+    slide3_profession3: Buffets
+    slide3_profession4: Aluguel de Veículos
+    slide3_much_more: "e muito mais..."
   customers:
     about_my_wedding: "Sobre o meu casamento"
     wedding_date: Data do casamento
