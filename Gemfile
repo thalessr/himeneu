@@ -82,6 +82,8 @@ gem 'devise'
 gem "devise-async"
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"
 
 gem 'carrierwave'
 gem 'carrierwave_backgrounder'
