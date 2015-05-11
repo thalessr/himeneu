@@ -110,6 +110,10 @@ $(document).ready(function(){
   $( "#estimate" ).click(function() {
     $('#estimatesModal').modal('toggle');
   });
+  $( "#resposta" ).click(function() {
+    $('#responseModal').modal('toggle');
+  });
+
 
   $.ajaxSetup({
     dataType: 'json'
@@ -123,6 +127,16 @@ $(document).ready(function(){
   $("#customer_wedding_date").datepicker({
       format: 'dd/mm/yyyy'
     });
+
+
+  $('#estimatesShowModal').on('show.bs.modal', function (event) {
+    var button = $(event.relatedTarget);
+    var recipient = button.data('param');
+    var modal = $(this);
+    modal.data( "param", recipient );
+    console.log(modal.data( "param"));
+  });
+
 
   // google.maps.event.addDomListener(window, 'load', initialize);
 
