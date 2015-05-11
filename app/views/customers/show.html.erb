@@ -1,4 +1,4 @@
-<% if can? :read, @customer %>
+<% if can_read_customers? || ( can_manage_customer?(@customer) && !is_deleted? )%>
 
 <!-- Modal -->
 <div class="modal fade"
@@ -35,44 +35,51 @@
 </div>
 
 
+<div class="divide60"></div>
 
-<div class="row">
-     <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad" >
-         <div class="panel panel-info">
-            <div class="panel-heading">
-              <h3 class="panel-title"><%= @customer.full_name %></h3>
-            </div>
-            <div class="panel-body">
-              <div class="row">
-                    <div class="col-md-3 col-lg-3 " align="center">
-                        <% if @customer.image? %>
-                          <img class="profile_image lazy" data-original="<%= @customer.image_url(:thumb) %>" width="140" heigh="140"> </img>
-                          <noscript>
-                           <%= image_tag @customer.image_url(:thumb), :class => "profile_image" %>
-                          </noscript>
-                        <% else %>
-                           <img alt="image" src="https://lh5.googleusercontent.com/-b0-k99FZlyE/AAAAAAAAAAI/AAAAAAAAAAA/eu7opA4byxI/photo.jpg?sz=100" class="img-circle">
-                        <% end %>
+<div class="container" ng-controller="CustomerCtrl" data-param= "<%=@customer.slug %>" id="showCustomer">
+    <div class="row">
+        <div class="col-md-9 margin30">
+            <div class="row">
+                <div class="col-sm-5 margin30">
+                    <div class="detail-img-col">
+                            <img src="{{customer.image.regular.url}}" alt="">
+                        <div class="divide15"></div>
+
                     </div>
-                    <div class=" col-md-9 col-lg-9 ">
+                </div><!--product detail img col end-->
+
+                <div class="col-sm-7">
+                    <div class="detail-content-right">
+                        <h3 class="title">
+                            {{full_name}}
+                            <span>
+                                <% if can_manage_customer? @customer %>
+                                  <%= link_to edit_customer_path(@customer.slug) do %>
+                                    <span class="h6"><%= t('links.edit') %></span>
+                                  <% end %>
+                                <% end %>
+                            </span>
+                        </h3>
+
+                        <h4><%= t('customers.about_my_wedding') %></h4>
                         <table class="table table-user-information">
                           <tbody>
                             <tr>
-                              <td><%= t(:address) %></td>
-                              <td><%= @customer.city %>, <%= @customer.zipcode  %></td>
+                              <td><%= t(:city) %></td>
+                               <td>{{customer.address.city}}</td>
                             </tr>
                             <tr>
                               <td><%= t(:wedding_date) %></td>
-                              <td><%= distance_of_time_in_words(Time.now,@customer.wedding_date) %></td>
+                              <td>{{customer.wedding_date | date : format : timezone}}</td>
                             </tr>
-                            <% if get_interest(@customer) == "negotiating" %>
-                              <tr>
-                                <td><%= t(:phone) %></td>
-                                <td><%= @customer.phone %><br><br>
-                                </td>
-                              </tr>
-                            <% end %>
+
                             <% if verify_estimate(@customer, current_user) %>
+                            <tr>
+                              <td><%= t(:phone) %></td>
+                              <td>{{customer.phone}}<br><br>
+                              </td>
+                            </tr>
                               <tr>
                                 <td>
                                   <%= link_to "Resposta Orçamento", "",:class=>"btn btn-primary", :id => 'resposta' %>
@@ -83,25 +90,24 @@
                         </table>
                     </div>
                 </div>
-            </div>
-            <div class="panel-footer" style="height:43px">
-                <span class="pull-right">
-                    <% if can? :update, @customer %>
-                      <%= link_to edit_customer_path(@customer.slug) ,class: "btn btn-sm btn-warning" do %>
-                        <i class="glyphicon glyphicon-edit" data-original-title="<%= t('links.edit') %>" data-toggle="tooltip"  ></i>
-                      <% end %>
-                    <% end %>
-                    <% if can? :destroy, @customer %>
-                      <%= delete_or_recovery(@customer) %>
-                    <% end %>
-                </span>
-            </div>
-            <div class="row" id="address_show">
-                <div class="col-md-12">
-                      <%= image_tag "http://maps.google.com/maps/api/staticmap?size=400x300&sensor=false&zoom=16&markers=#{@customer.latitude}%2C#{@customer.longitude}" %>
-                </div>
-            </div>
+            </div><!--product details up end-->
+            <hr>
+        </div><!--products list columns end-->
+        <div class="col-md-3">
+        </div>
         </div>
     </div>
-</div>
+    <div class="divide50"></div>
+</div><!--shop columns container end-->
+
+
+<div class="divide30"></div>
+
+<% elsif can_manage_customer(@customer) %> %>
+    <div class="row voffset6 margin40">
+        <div class="text-center">
+            <h3><%= t(:deactivated_profile_message) %></h3>
+            <%= delete_or_recovery(@customer) %>
+        </div>
+    </div>
 <% end %>

@@ -10,81 +10,80 @@ function add_fields(link, association, content) {
   $("#addresses").append(content.replace(regexp, new_id));
 }
 
-function showScore(){
-   $('div#provider_rating').raty({
-      readOnly: function() {
-        return true;
-      },
-      score: function() {
-        return $(this).attr('data-score');
-      },
-  });
-}
+// function showScore(){
+//    $('div#provider_rating').raty({
+//       readOnly: function() {
+//         return true;
+//       },
+//       score: function() {
+//         return $(this).attr('data-score');
+//       },
+//   });
+// }
 
-$(document).ready(function(){
-  $.fn.raty.defaults.path = "/assets";
-  $.fn.raty.defaults.half_show = true;
-
-  $('textarea').autosize();
+// $(document).ready(function(){
+//   $.fn.raty.defaults.path = "/assets";
+//   $.fn.raty.defaults.half_show = true;
 
 
-$( "#estimate" ).click(function() {
-  $('#estimatesModal').modal('toggle');
-});
 
-  $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
-  	$('#error_msg').remove();
-     $('.bottom-right').notify({
-        message: { text: xhr.getResponseHeader("X-Flash-Notice") },
-        type: 'success'
-      }).show();
+// $( "#estimate" ).click(function() {
+//   $('#estimatesModal').modal('toggle');
+// });
 
-      if (null !== data.slug) {
-        window.location.href = "/providers/"+data.slug;
-      }
+//   $('#provider_form').bind('ajax:success', function(evt, data, status, xhr) {
+//   	$('#error_msg').remove();
+//      $('.bottom-right').notify({
+//         message: { text: xhr.getResponseHeader("X-Flash-Notice") },
+//         type: 'success'
+//       }).show();
 
-   });
-   $('#provider_form').bind('ajax:error', function(data, xhr, status) {
+//       if (null !== data.slug) {
+//         window.location.href = "/providers/"+data.slug;
+//       }
 
-      var errors, errorText;
+//    });
+//    $('#provider_form').bind('ajax:error', function(data, xhr, status) {
 
-      errors = $.parseJSON(xhr.responseText);
+//       var errors, errorText;
 
-      for ( var error in errors ) {
-        errorText = "";
-        if (typeof error !== "undefined" && typeof errors[error] !== "undefined"){
-           errorText += error + ': ' + errors[error];
-            var field = error.replace(':', "");
-            $("#"+field).closest('div').addClass('has-error');
-        }
+//       errors = $.parseJSON(xhr.responseText);
 
-      }
+//       for ( var error in errors ) {
+//         errorText = "";
+//         if (typeof error !== "undefined" && typeof errors[error] !== "undefined"){
+//            errorText += error + ': ' + errors[error];
+//             var field = error.replace(':', "");
+//             $("#"+field).closest('div').addClass('has-error');
+//         }
 
-     $('.bottom-right').notify({
-        message: { text: errorText},
-        type: 'danger'
-      }).show();
+//       }
 
-   });
+//      $('.bottom-right').notify({
+//         message: { text: errorText},
+//         type: 'danger'
+//       }).show();
 
-  $('#rate').raty();
-  showScore();
+//    });
 
-});
+//   $('#rate').raty();
+//   showScore();
 
-$(window).bind("load", function(){
-  $.fn.raty.defaults.path = "/assets";
-  $.fn.raty.defaults.half_show = true;
-  $('div#score').raty({
-      readOnly: function() {
-        return true;
-      },
-      score: function() {
-        return $(this).attr('data-score');
-      }
-  });
+// });
 
-});
+// $(window).bind("load", function(){
+//   $.fn.raty.defaults.path = "/assets";
+//   $.fn.raty.defaults.half_show = true;
+//   $('div#score').raty({
+//       readOnly: function() {
+//         return true;
+//       },
+//       score: function() {
+//         return $(this).attr('data-score');
+//       }
+//   });
+
+// });
 
 
 

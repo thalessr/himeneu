@@ -1,4 +1,4 @@
-<%- if controller_name != 'sessions' %>
+<%- if controller_name != 'sessions' && controller_name != 'dashboard'%>
   <%= link_to " Já é cadastrado? Entre aqui", new_session_path(resource_name) %><br />
 <% end -%>
 
@@ -20,6 +20,10 @@
 
 <%- if devise_mapping.omniauthable? %>
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%- if provider == :google_oauth2 %>
+      <%= link_to t(:login_with) + " #{provider.to_s.gsub!("_oauth2","").titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    <% else %>
+      <%= link_to t(:login_with) + " #{provider.to_s.titleize}", omniauth_authorize_path(resource_name, provider) %><br />
+    <% end -%>
   <% end -%>
 <% end -%>

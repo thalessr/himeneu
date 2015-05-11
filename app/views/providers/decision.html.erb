@@ -1,0 +1,8 @@
+<div class="divide80"></div>
+<div class="container">
+  <h4>Put you content here</h4>
+  <%= f.collection_radio_buttons :role_ids, @roles, :id, :name ,{:selected => @user.role_ids} do |r| %>
+  <%= r.label(:class => 'radio-inline') %>
+  <%= r.radio_button %>
+  <% end %>
+  </div>

@@ -15,25 +15,20 @@ module ApplicationHelper
   def delete_or_recovery(object)
     name = object.class.to_s.underscore
     if object.is_deleted?
-      link_to send("recover_#{name.pluralize}_path",id: "#{object.slug}") ,class: "edit-button" do
-         content_tag(:i, "", class: "glyphicon glyphicon-plus-sign btn-info", 'data-original-title'.to_sym => t('links.activate'), "data-toggle".to_sym => "tooltip" )
+      link_to send("recover_#{name.pluralize}_path",id: "#{object.slug}") ,class: "btn btn-info" do
+         content_tag(:span, I18n.t('links.activate'), class: "", 'data-original-title'.to_sym => t('links.activate'), "data-toggle".to_sym => "tooltip" )
       end
-    else
-      link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "edit-button" do
-         content_tag(:i, "", class: "glyphicon glyphicon-minus-sign btn-danger", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
+    elsif !object.slug.blank?
+      link_to send("#{name}_path",object.slug), method: :delete, data: { confirm: t('links.confirm') }  ,class: "btn btn-danger" do
+         content_tag(:span, I18n.t('links.destroy'), class: "", 'data-original-title'.to_sym => t('links.destroy'), "data-toggle".to_sym => "tooltip" )
       end
     end
   end
 
-  # needs improvements
-  # def meta_tag(title, description, tags, image, url)
-  #   content_for :meta_tag do
-  #     content_tag :title, title
-  #     content_tag(:meta, "", name: :description, content: description)
-  #     content_tag(:meta, "", name: :keywords, content: tags)
-  #     content_tag(:meta, "", property: "og:image" , content: image)
-  #     content_tag(:meta, "", property: "og:url" , content: url)
-  #   end
-  # end
+def resource_class
+  devise_mapping.to
+end
 
 end
+
+

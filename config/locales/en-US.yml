@@ -1,0 +1,137 @@
+en-US:
+  login: "Sign in"
+  login_with: Sign in with
+  login_account: Log in to your account
+  logout: "logout"
+  create_account: 'create account'
+  create_account_himeneu: Create new account with Himeneu
+  create_account_text: ""
+  create_account_agree: I agree with the Terms and Conditions
+  repeat_password: Repeat the password
+  welcome: Welcome
+  title: "Himeneu"
+  forgot_password: "Forgot password?"
+  resend_password: "Send"
+  reset_password_instrutions: Someone has requested a link to change your password. You can do this through the link below.
+  change_password: 'Change my password'
+  alert_password: "If you didn't request this, please ignore this email."
+  not_changing_password: "Your password won't change until you access the link above and create a new one"
+  resend_unlock_instructions: "Resend unlock instructions"
+  lock_reason: "Your account has been locked due to an excessive number of unsuccessful sign in attempts."
+  unlock_instructions: "Click the link below to unlock your account:"
+  unlock_account: "Unlock my account"
+  unlock_instructions_question: "Didn't receive unlock instructions?"
+  sign_up: "Sign up"
+  sign_in: "Please Sign In"
+  about_us: About us
+  follow_us: Follow us
+  contact: Contact
+  remember_me: "Remember me"
+  password: "password"
+  confirm_account: "Confirm my account"
+  confirmation_text: "You can confirm your account email through the link below:"
+  confirmation_email: "Didn't receive confirmation instructions?"
+  reason_email: Needed to verify your account
+  resend_confirmation: "Resend confirmation instructions"
+  welcome: "Welcome"
+  first_name: "First Name"
+  last_name: "Last Name"
+  age: Age
+  image: Picture
+  image_provider: Picture
+  error: Error
+  profession: "Profession"
+  profession_hint: "(Separate by commas)"
+  experience: "Experience"
+  upload_image: "Upload image"
+  city: City
+  city_hint: Himeneulândia
+  zipcode: Zip code
+  zipcode_hint: "99999-999"
+  phone: Phone number
+  phone_hint: (888)888-8888
+  email: Email
+  email_hint: "example@himeneu.com"
+  address: Address
+  years_experience: "Years of experience"
+  search: Search
+  view_detail: View Detail
+  hint_pesquisa_providers: "Pesquise fornecedores nome, serviço, cidade ex: Jão, cerimonial, Santos"
+  someone_interested: Someone is interested in your services
+  estimate_reponse: Here is your estimate
+  my_profile: "My Profile"
+  estimate: "Estimate"
+  bride: bride
+  workers: Professionals
+  completed_account_msg: Complete your account to start searching for providers and getting reach by them
+  facebook_hint: "https://www.facebook.com/username"
+  instagram_hint: "https://instagram.com/username"
+  twitter_hint: "http://www.twitter.com/username"
+  website_hint: "http://www.himeneu.com"
+  video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  best_rating: Best suppliers
+  deactivated_profile_message: "This profile is disabled. Click here to activate:"
+  about_us_text_html: "With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region, such as DJs, florists, master of ceremonies, special car rental, etc. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special. "
+  home:
+    slide1_tagline_html: Making your wedding easier <br> with Himeneu
+    slide1_subtitle_html: Find the best wedding suppliers on market <br> to make your wedding party even better.
+    slide1_button2: create a wedding supplier profile
+    we_do_icon1_title: Just the bests
+    we_do_icon1_html: Encontre os melhores profissionais <br> para fazer seu casamento <br> ainda mais especial
+    we_do_icon2_title: Planning
+    we_do_icon2_html: Planning in advance and taking care of <br> every single detail of your wedding ceremony
+    we_do_icon3_title: Estimate
+    we_do_icon3_html: Get estimates from the best <br> wedding suppliers <br> with one click
+    we_do_icon4_title: Promote your work
+    we_do_icon4_html: Are you a wedding suppliers?<br> Create your profile and get reach by<br> tons of clients
+    what_we_do: What we do
+    what_we_do_text_html: "Himeneu is a useful app which is gonna help you finding the best service providers in the market. With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special"
+    slide2_tagline: Easier budgets
+    slide2_text_html: "With a few clicks, get estimates from <br> honest professionals registered<br>in the Himeneu and save money"
+    slide3_title: All kinds of profissionals
+    slide3_profession1: Florists
+    slide3_profession2: Musicians
+    slide3_profession3: Catering
+    slide3_profession4: Car renting
+    slide3_much_more: "and much more..."
+  customers:
+    about_my_wedding: About my wedding
+    wedding_date: Wedding Date
+    wedding_description: Wedding description
+  providers:
+    review:
+      one: One review
+      other:  '%{count} reviews'
+    review_tab:
+      one: One review
+      other:  'Reviews (%{count})'
+    video: Video
+  decision:
+    choose: "Choose one type:"
+    bride: "I'm a bride or groom"
+    provider: "I'm a service provider"
+  links:
+      back: "Back"
+      cancel: "Cancel"
+      confirm: "Are you sure?"
+      destroy: "Delete"
+      activate: "Activate"
+      exlude: "exlude"
+      new: "New"
+      edit: "Edit"
+      save: "Save"
+      new_address: "New address"
+      remove_address: "Remove address"
+      close: "Close"
+  sorting:
+    name: Name
+    rating: Rating
+  errors:
+    messages:
+      blank: "blank"
+      carrierwave_direct_filename_taken: filename was already taken
+      carrierwave_direct_upload_missing: upload is missing
+      carrierwave_direct_attachment_missing: attachment is missing
+      carrierwave_direct_filename_invalid: "is invalid. "
+      carrierwave_direct_allowed_extensions: Allowed file types are %{extensions}
+      carrierwave_direct_allowed_schemes: Allowed schemes are %{schemes}

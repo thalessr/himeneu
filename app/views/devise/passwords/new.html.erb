@@ -1,18 +1,18 @@
-<div class="container">
-  <h2><%= t(:forgot_password) %></h2>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "sky-form ", :id => "sky-form2" }) do |f| %>
+  <%= devise_error_messages! %>
+  <header><%= t(:forgot_password) %></header>
+  <fieldset>
+    <section>
+      <label class="label">E-mail</label>
+      <label class="input">
+        <i class="icon-append fa fa-envelope-o"></i>
+        <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: t(:email_hint)  %>
+      </label>
+    </section>
+  </fieldset>
+  <footer>
+    <%= f.submit t(:resend_password), class: "button"  %>
+  </footer>
 
-  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "form-inline" }) do |f| %>
-    <%= devise_error_messages! %>
+<% end %>
 
-    <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: t(:email_hint)  %>
-    </div>
-
-    <div class="form-group">
-      <%= f.submit t(:resend_password), class: "btn btn-default"  %>
-    </div>
-  <% end %>
-
-  <%= render "devise/shared/links" %>
-</div>

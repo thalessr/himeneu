@@ -5,9 +5,9 @@ class Customer < ActiveRecord::Base
   belongs_to :user
   belongs_to :address, dependent: :destroy
 
-  has_many :providers, through: [:interests, :estimates]
+  has_many :providers, through: [:estimates]
 
-  delegate :city, :zipcode, :email, :phone, :longitude, :latitude, to: :address
+  delegate :city, :state, :zipcode, :email, :phone, :longitude, :latitude, to: :address
   delegate :email, to: :user
   # before_save :set_wedding_date
   #include all required fields here
