@@ -72,26 +72,26 @@ en-US:
   deactivated_profile_message: "This profile is disabled. Click here to activate:"
   about_us_text_html: "With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region, such as DJs, florists, master of ceremonies, special car rental, etc. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special. "
   home:
-    slide1_tagline_html: Enjoy only the best <br>of a wedding party
-    slide1_subtitle_html: ""
-    slide1_button2: create provider profile
-    we_do_icon1_title: Just the best
+    slide1_tagline_html: Making your wedding easier <br> with Himeneu
+    slide1_subtitle_html: Find the best wedding suppliers on market <br> to make your wedding party even better.
+    slide1_button2: create a wedding supplier profile
+    we_do_icon1_title: Just the bests
     we_do_icon1_html: Encontre os melhores profissionais <br> para fazer seu casamento <br> ainda mais especial
     we_do_icon2_title: Planning
-    we_do_icon2_html: Planeje com antecedência e cuidado <br> todos os detalhes da sua cerimônia
-    we_do_icon3_title: Estimates
-    we_do_icon3_html: Receba orçamentos dos melhores <br> profissionais do mercado <br> com apenas 1 clique
-    we_do_icon4_title: Share your work
-    we_do_icon4_html: "Are you a provider? <br> Sign up, create your profile <br>and be fond by hundreds of new clients"
+    we_do_icon2_html: Planning in advance and taking care of <br> every single detail of your wedding ceremony
+    we_do_icon3_title: Estimate
+    we_do_icon3_html: Get estimates from the best <br> wedding suppliers <br> with one click
+    we_do_icon4_title: Promote your work
+    we_do_icon4_html: Are you a wedding suppliers?<br> Create your profile and get reach by<br> tons of clients
     what_we_do: What we do
     what_we_do_text_html: "Himeneu is a useful app which is gonna help you finding the best service providers in the market. With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special"
-    slide2_tagline: Easy estimates
-    slide2_text_html: "Com poucos cliques, peça orçamentos <br> honestos dos profissionais cadastrados <br>no Himeneu e economize"
-    slide3_title: All kinds of prefessionals
+    slide2_tagline: Easier budgets
+    slide2_text_html: "With a few clicks, get estimates from <br> honest professionals registered<br>in the Himeneu and save money"
+    slide3_title: All kinds of profissionals
     slide3_profession1: Florists
-    slide3_profession2: Master of Ceremonies
-    slide3_profession3: Buffets
-    slide3_profession4: Special Car rentals
+    slide3_profession2: Musicians
+    slide3_profession3: Catering
+    slide3_profession4: Car renting
     slide3_much_more: "and much more..."
   customers:
     about_my_wedding: About my wedding
