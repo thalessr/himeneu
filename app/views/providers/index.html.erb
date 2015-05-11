@@ -1,18 +1,18 @@
 <% if can_read_providers? %>
   <!-- Modal -->
   <div class="modal fade"
-       id="estimatesModal"
+       id="estimatesShowModal"
        tabindex="-1"
        role="dialog"
-       aria-labelledby="estimatesModalLabel"
+       aria-labelledby="estimatesShowModalLabel"
         aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="estimatesModalLabel"><%= t("customers.wedding_description") %></h4>
+          <h4 class="modal-title" id="estimatesShowModalLabel"><%= t("customers.wedding_description") %></h4>
         </div>
-        <form ng-controller="EstimateCtrl" ng-submit="save()">
+        <form ng-controller="EstimateCtrl" ng-submit="saveShow()">
           <div class="modal-body">
            <wysiwyg textarea-id="description"
                     textarea-class="form-control"
@@ -72,7 +72,14 @@
               </p>
               <p>
                 <a href="/providers/{{p.slug}}" class="btn btn-theme-dark"><%= t(:view_detail) %></a>
-                <a href="#" class="btn btn-theme-bg"><%= t(:estimate) %></a>
+                <% if is_customer? %>
+                  <a href="#" class="btn btn-theme-bg"
+                              data-toggle="modal"
+                              data-param="{{p.slug}}"
+                              data-target="#estimatesShowModal" >
+                    <%= t(:estimate) %>
+                  </a>
+                <% end %>
               </p>
           </div>
         </div>
