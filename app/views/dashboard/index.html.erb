@@ -94,7 +94,7 @@
                              data-speed="600"
                              data-start="1200"
                              data-end="9400"
-                             data-endspeed="600">Powerful Multipurpose Theme
+                             data-endspeed="600"><%= t('home.slide3_title')%>
                         </div>
 
                         <!-- LAYER NR. 2 -->
@@ -114,7 +114,7 @@
                              data-speed="600"
                              data-start="1600"
                              data-end="9400"
-                             data-endspeed="600">Fully Responsive
+                             data-endspeed="600"><%= t('home.slide3_profession1')%>
                         </div>
 
                         <!-- LAYER NR. 4 -->
@@ -134,7 +134,7 @@
                              data-speed="600"
                              data-start="1800"
                              data-end="9400"
-                             data-endspeed="600">80+ HTML5 Valid Pages
+                             data-endspeed="600"><%= t('home.slide3_profession2')%>
                         </div>
 
                         <!-- LAYER NR. 6 -->
@@ -154,7 +154,7 @@
                              data-speed="600"
                              data-start="2000"
                              data-end="9400"
-                             data-endspeed="600">Slider revolution
+                             data-endspeed="600"><%= t('home.slide3_profession3')%>
                         </div>
 
                         <!-- LAYER NR. 8 -->
@@ -174,7 +174,7 @@
                              data-speed="600"
                              data-start="2200"
                              data-end="9400"
-                             data-endspeed="600">Clean & Commented Code
+                             data-endspeed="600"><%= t('home.slide3_profession4')%>
                         </div>
 
                         <!-- LAYER NR. 10 -->
@@ -184,7 +184,7 @@
                              data-speed="600"
                              data-start="2400"
                              data-end="9400"
-                             data-endspeed="600">And Much More...
+                             data-endspeed="600"><%= t('home.slide3_much_more')%>
                         </div>
 
                     </li>
@@ -197,10 +197,10 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="center-heading">
-                        <h2><%= t(:what_we_do) %></h2>
+                        <h2><%= t('home.what_we_do') %></h2>
                         <span class="center-line"></span>
                         <p class="sub-text margin40">
-                        <%= t('home.what_we_do_html') %>
+                        <%= t('home.what_we_do_text_html') %>
                         </p>
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                 <div class="col-md-3 col-sm-6 margin30">
                     <div class="colored-boxed green">
                         <i class="fa fa-birthday-cake"></i>
-                        <h3>Free support & updates</h3>
+                        <h3><%= t('home.we_do_icon1_title') %></h3>
                         <span class="center-line"></span>
                         <p>
                             <%= t('home.we_do_icon1_html') %>
@@ -220,8 +220,8 @@
                 </div><!--colored boxed col end-->
                 <div class="col-md-3 col-sm-6 margin30">
                     <div class="colored-boxed dark">
-                        <i class="fa fa-tablet"></i>
-                        <h3>Ultra responsive</h3>
+                        <i class="fa fa-calendar"></i>
+                        <h3><%= t('home.we_do_icon2_title') %></h3>
                         <span class="center-line"></span>
                         <p>
                             <%= t('home.we_do_icon2_html') %>
@@ -230,126 +230,23 @@
                 </div><!--colored boxed col end-->
                 <div class="col-md-3 col-sm-6 margin30">
                     <div class="colored-boxed blue">
-                        <i class="fa fa-heart"></i>
-                        <h3>made with love</h3>
+                        <i class="fa fa-calculator"></i>
+                        <h3><%= t('home.we_do_icon3_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                            <%= t('home.we_do_icon3_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
                 <div class="col-md-3 col-sm-6 margin30">
                     <div class="colored-boxed red">
                         <i class="fa fa-search"></i>
-                        <h3>Premium plugins</h3>
+                        <h3><%= t('home.we_do_icon4_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            Nullam vulputate lorem ut leo. Sed volutpat. Etiam non pede. Nullam et mauris.
+                            <%= t('home.we_do_icon4_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
-            </div>
-        </div>
-        <div class="testimonials-v-2 wow animated fadeInUp" data-wow-duration="700ms" data-wow-delay="100ms">
-          <div class="container">
-            <div class="row">
-              <div class="col-sm-8 col-sm-offset-2">
-                <div class="center-heading">
-                  <h2>Customers says</h2>
-                  <span class="center-line"></span>
-
-                </div>
-            </div>
-            </div><!--center heading end-->
-
-            <div class="row" ng-controller="CarouselCtrl">
-
-              <div class="col-sm-8 col-sm-offset-2">
-                <div class="testi-slide">
-                  <ul class="slides">
-                    <li ng-repeat=" p in slides "
-                        ng-show="sliderReady"
-                        ng-class="{'flex-active-slide': $first , '': !$first}"
-                        style="width: 100%; float: left; margin-right: -100%; position: relative; opacity: 0; display: block; z-index: {{$index}};">
-                        <img ng-src="{{p.image.carousel.url}}"
-                             alt="{{p.first_name}}"
-                             draggable="false">
-                        <p>
-                            <i class="ion-quote"></i>
-                            {{p.experience | limitTo:230 }}
-                        </p>
-                        <h4 class="test-author">
-                            {{p.first_name}} - <em>{{p.last_name}}</em>
-                        </h4>
-                    </li><!--testi item-->
-                  </ul>
-                  <ol class="flex-control-nav flex-control-paging">
-                    <li  ng-repeat=" p in slides "
-                        data-slide-to="{{$index}}"
-                        ng-class="{'flex-active': $first}">
-                        <a class="">{{$index}}</a>
-                    </li>
-                  </ol>
-                </div><!--flex slider testimonials end here-->
-              </div>
-            </div>
-
-            <div class="divide70"></div>
-                <div class="row">
-                    <div class="col-md-4 margin-btm-20">
-                        <div class="quote dark">
-                            <blockquote>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="quote-footer text-right">
-                            <div class="quote-author-img">
-                                <img src="img/customer-1.jpg" alt="">
-                            </div>
-                            <h4>Rakesh Sharma</h4>
-                            <p>
-                                <strong>Design_mylife</strong>
-                            </p>
-                        </div>
-                    </div><!--colored quote box col-->
-                    <div class="col-md-4 margin-btm-20">
-                        <div class="quote green">
-                            <blockquote>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="quote-footer text-right">
-                            <div class="quote-author-img">
-                                <img src="img/customer-2.jpg" alt="">
-                            </div>
-                            <h4>Rakesh Sharma</h4>
-                            <p>
-                                <strong>Design_mylife</strong>
-                            </p>
-                        </div>
-                    </div><!--colored quote box col-->
-                    <div class="col-md-4 margin-btm-20">
-                        <div class="quote dark">
-                            <blockquote>
-                                <p>
-                                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-                                </p>
-                            </blockquote>
-                        </div>
-                        <div class="quote-footer text-right">
-                            <div class="quote-author-img">
-                                <img src="img/customer-3.jpg" alt="">
-                            </div>
-                            <h4>Rakesh Sharma</h4>
-                            <p>
-                                <strong>Design_mylife</strong>
-                            </p>
-                        </div>
-                    </div><!--colored quote box col-->
-                </div>
             </div>
         </div>
