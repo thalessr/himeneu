@@ -122,8 +122,8 @@
                 <hr>
                 <ul class="list-unstyled product-feautres-list">
                   <li><i class="fa fa-check"></i> <%= @provider.age %> Anos de experiência</li>
-                  <li><i class="fa fa-check"></i> made in Usa</li>
-                  <li><i class="fa fa-check"></i> 30 day Money back</li>
+               <!--    <li><i class="fa fa-check"></i> made in Usa</li>
+                  <li><i class="fa fa-check"></i> 30 day Money back</li> -->
                 </ul>
                 <hr>
                 <% if is_customer? %>
@@ -166,7 +166,7 @@
               <div class="tab-content">
                   <div class="tab-pane active" id="home">
                     <div class="tab-desc animated fadeInDown">
-                      <h4>Product Description</h4>
+                      <h4><%= t(:experience) %></h4>
                       <p>
                         <%= @provider.experience %>
                       </p>
