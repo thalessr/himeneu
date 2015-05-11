@@ -21,15 +21,17 @@ module Extra
     end
 
     def delete
-      update_attribute(:is_deleted, true)
+      user.update_attribute(:is_deleted, true)
     end
 
     def recover
-      update_attribute(:is_deleted, false)
+      user.update_attribute(:is_deleted, false)
     end
 
     def is_deleted?
-      is_deleted
+      if user
+        user.is_deleted
+      end
     end
 
   end
@@ -41,7 +43,6 @@ module Extra
     def self.extended(base)
       base.class_eval do
         has_many :recommendations, dependent: :destroy
-        has_many :interests, dependent: :destroy
         has_many :estimates, dependent: :destroy
       end
     end
@@ -55,11 +56,11 @@ module Extra
     end
 
     def not_deleted
-      where(is_deleted: [false, nil] )
+      joins(:user).where('users.is_deleted = ? OR users.is_deleted = ?', false, nil )
     end
 
     def deleted
-      where(is_deleted: true )
+      joins(:user).where('users.is_deleted = ?', true )
     end
 
     def first_last_name_search(name)

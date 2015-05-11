@@ -1,0 +1,23 @@
+<div class="divide80"></div>
+<div class="container">
+  <h4><%= t('decision.choose') %></h4>
+  <div class="radio">
+      <label>
+        <input type="radio" name="type" id="optionsRadios1" value="1">
+         <%= t('decision.bride') %>
+      </label>
+       <label>
+        <input type="radio" name="type" id="optionsRadios1" value="2">
+          <%= t('decision.provider') %>
+      </label>
+  </div>
+
+  <div id="1" style="display:none;" class="magic">
+    <%= render 'customers/form' %>
+  </div>
+  <div id="2" style="display:none;" class="magic">
+    <%= render 'providers/form' %>
+  </div>
+
+</div>
+

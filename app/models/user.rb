@@ -2,21 +2,26 @@ class User < ActiveRecord::Base
   include CacheRedis::Utils
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
-  devise :database_authenticatable, :registerable,
-    :recoverable, :rememberable, :async,:trackable, :validatable,
-    :confirmable
+  if Rails.env.production?
+    devise :database_authenticatable, :registerable,
+      :recoverable, :rememberable, :async,:trackable, :validatable,
+      :confirmable, :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+  else
+    devise :database_authenticatable, :registerable,
+      :recoverable, :rememberable, :trackable, :validatable,
+      :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+  end
 
   has_one :customer, dependent: :destroy
   has_one :provider, dependent: :destroy
   has_and_belongs_to_many :roles
-  validates_presence_of :roles
+  # validates_presence_of :roles
 
-  # ROLES = %w[fornecedor noiva(o)]
   @is_provider = nil
   @is_customer = nil
 
-  def set_completed
-    self.update_attribute(:is_completed, true)
+  def set_completed(role)
+    update_attributes(is_completed: true, role_ids: [role])
   end
 
   def is_customer?
@@ -45,23 +50,15 @@ class User < ActiveRecord::Base
     end
   end
 
-  def role_id
-    self.roles.first.id
-  end
-
-  def customer_id(user_id)
-    customer = Customer.select(:id).find_by(user_id: user_id)
-    customer.id
-  end
-
-  def provider_id(user_id)
-    provider = Provider.select(:id).find_by(user_id: user_id)
-    provider.id
-  end
-
   def is_completed?
     if self
       self.is_completed
+    end
+  end
+
+  def is_deleted?
+    if self
+      self.is_deleted if self
     end
   end
 
@@ -74,6 +71,32 @@ class User < ActiveRecord::Base
   def is_provider_completed?
     if self
       is_completed? && self.is_provider?
+    end
+  end
+
+  def address
+    if is_customer?
+      self.customer.city
+    else
+      self.provider.addresses.map(&city)
+    end
+
+  end
+
+  def self.from_omniauth(auth)
+    where(api_provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.password = Devise.friendly_token[0,20]
+      # user.first_name = auth.info.name
+      # user.image = auth.info.image
+    end
+  end
+
+  def self.new_with_session(params, session)
+    super.tap do |user|
+      if data = session["devise.auth_data"] && session["devise.auth_data"]["extra"]["raw_info"]
+        user.email = data["email"] if user.email.blank?
+      end
     end
   end
 

@@ -2,7 +2,116 @@
   <title>Himeneu - <%= t(:login) %></title>
 <% end %>
 
-<div class="container-fluid">
+  <div class="divide40"></div>
+
+    <div class="container">
+      <div class="row">
+          <div class="col-sm-6 col-sm-offset-3 sky-form-login-register">
+            <div class="margin40">
+              <%= form_for(resource, as: resource_name, url: session_path(resource_name), :html => { :class => "sky-form", :id => "sky-form"}) do |f| %>
+
+                <h3 class="text-center"><%= t(:login_account) %></h3>
+                  <fieldset>
+                    <section>
+                      <div class="row">
+                        <label class="label col col-4">Email</label>
+                          <div class="col col-8">
+                            <label class="input">
+                              <i class="icon-append fa fa-user"></i>
+                              <%= f.email_field :email, autofocus: true, placeholder: "email" %>
+                            </label>
+                          </div>
+                      </div>
+                    </section>
+
+                    <section>
+                      <div class="row">
+                        <label class="label col col-4"><%= t(:password) %></label>
+                        <div class="col col-8">
+                          <label class="input">
+                            <i class="icon-append fa fa-lock"></i>
+                            <%= f.password_field :password, autocomplete: "off", placeholder: t(:password) %>
+                          </label>
+                          <div class="note">
+                            <a href="#sky-form2" class="modal-opener"><%= t(:forgot_password) %></a>
+                          </div>
+                        </div>
+                      </div>
+                    </section>
+                    <% if devise_mapping.rememberable? -%>
+                      <section>
+                        <div class="row">
+                          <div class="col col-4"></div>
+                          <div class="col col-8">
+                            <label class="checkbox">
+                              <%= f.check_box :remember_me %><i></i><%= t(:remember_me) %>
+                            </label>
+                          </div>
+                        </div>
+                      </section>
+                    <% end %>
+                  </fieldset>
+                  <footer class="text-right">
+                    <%= link_to t(:sign_up), new_registration_path(resource), :class => "btn btn-link" %>
+                    <%= f.submit t(:login).capitalize, class: "btn btn-theme-bg btn-lg" %>
+                  </footer>
+                <% end %>
+              </div><!--login form wrap end-->
+              <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, :class => "sky-form sky-form-modal", :id => "sky-form2" }) do |f| %>
+                <%= devise_error_messages! %>
+                <header><%= t(:forgot_password) %></header>
+                <fieldset>
+                  <section>
+                    <label class="label">E-mail</label>
+                    <label class="input">
+                      <i class="icon-append fa fa-envelope-o"></i>
+                      <%= f.email_field :email, autofocus: true, :class => "form-control", placeholder: t(:email_hint)  %>
+                    </label>
+                  </section>
+                </fieldset>
+                <footer>
+                  <%= f.submit t(:resend_password), class: "button"  %>
+                  <a href="#" class="button button-secondary modal-closer"><%= t('links.close') %></a>
+                </footer>
+
+              <% end %>
+
+            </div>
+          </div>
+        </div>
+        <div class="social-login-wrapper">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <div class="row social-login">
+                            <div class="col-sm-12">
+                                <div class="border-rits">
+                                    <span>or</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <%= link_to user_omniauth_authorize_path(:facebook),
+                                          :class =>"btn btn-lg btn-facebook"  do %>
+                                  <i class="fa fa-facebook"></i> <%= t(:login_with) %> facebook
+                               <% end %>
+
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="col-sm-6">
+                                <%= link_to user_omniauth_authorize_path(:google_oauth2),
+                                          :class =>"btn btn-lg btn-google"  do %>
+                                  <i class="fa fa-google"></i> <%= t(:login_with) %> google
+                                <% end %>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div><!--social login wrapper-->
+
+
+<!-- <div class="container-fluid">
    <div class="row">
       <div class="col-md-7 col-md-offset-3">
           <div class="panel panel-default">
@@ -50,8 +159,8 @@
               </div>
           </div>
       </div>
-  </div>
-</div>
+  </div> -->
+<!-- </div> -->
 
 
 

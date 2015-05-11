@@ -1,7 +1,5 @@
 class CustomersController < ApplicationController
   before_filter :authenticate_user!
-  load_and_authorize_resource
-  skip_authorize_resource :only => [:new, :create]
 
   def index
     # @customers = Customer.all.where(user_id: current_user.id)
@@ -37,20 +35,35 @@ class CustomersController < ApplicationController
   def create
     @customer = current_user.build_customer(customer_params)
     if @customer.save
-      current_user.set_completed
+      current_user.set_completed(1)
       redirect_to @customer
     else
       render :new
     end
   end
 
+  # def show
+  #   @customer = Customer.includes(:address).friendly.find(params[:id])
+  #   @customer.get_wedding_date
+  #   respond_to do |format|
+  #     format.json { render json: @customer }
+  #     format.html
+  #   end
+  # end
+
+  ### SUBSTITUIR ANTES DE PUSHAR
+
   def show
-    @customer = Customer.includes(:address).friendly.find(params[:id])
-    @customer.get_wedding_date
+    @customer = Customer.friendly.find(params[:id])
+    # @customer.get_wedding_date
+    respond_to do |format|
+      format.json { render json: @customer }
+      format.html
+    end
   end
 
   def edit
-    @customer = Customer.includes(:address).friendly.find(params[:id])
+    @customer = Customer.friendly.find(params[:id])
     @customer.get_wedding_date
   end
 
@@ -80,7 +93,7 @@ class CustomersController < ApplicationController
     params.require(:customer).permit(
       :first_name, :last_name,
       :age, :key, :wedding_date, :image, :image_cache,
-      address_attributes: [:id, :city, :zipcode, :email, :phone, :_destroy]
+      address_attributes: [:id, :city, :zipcode, :state, :country, :email, :phone, :_destroy]
     )
   end
 end
