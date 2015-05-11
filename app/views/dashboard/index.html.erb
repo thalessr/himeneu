@@ -18,7 +18,12 @@
                     <!-- SLIDE -->
         <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
                 <!-- MAIN IMAGE -->
-                <img src="/assets/backhome.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+          <%= image_tag "backhome.jpg", :alt => "Himeneu",
+                         "data-bgfit".to_sym => "cover",
+                         "data-bgposition".to_sym => "left top",
+                         "data-bgrepeat".to_sym =>"no-repeat"
+          -%>
+
                 <div class="caption title-2 sft"
                      data-x="50"
                      data-y="110"
@@ -62,7 +67,11 @@
                     <!-- SLIDE -->
             <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
                 <!-- MAIN IMAGE -->
-                <img src="/assets/bc2.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+              <%= image_tag "bc2.jpg", :alt => "casamento",
+                 "data-bgfit".to_sym => "cover",
+                 "data-bgposition".to_sym => "left top",
+                 "data-bgrepeat".to_sym =>"no-repeat"
+              -%>
                 <div class="caption text-bg-top sft"
                      data-x="600"
                      data-y="150"
@@ -84,9 +93,13 @@
                 </div>
             </li>
                     <!-- SLIDE -->
-                    <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
+                  <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
                         <!-- MAIN IMAGE -->
-                        <img src="/assets/bc3.jpg"  alt="darkblurbg"  data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat">
+              <%= image_tag "bc3.jpg", :alt => "fornecedores",
+                 "data-bgfit".to_sym => "cover",
+                 "data-bgposition".to_sym => "left top",
+                 "data-bgrepeat".to_sym =>"no-repeat"
+              -%>
                         <!-- LAYER NR. 1 -->
                         <div class="caption modern_big_bluebg sfr tp-resizeme"
                              data-x="40"
