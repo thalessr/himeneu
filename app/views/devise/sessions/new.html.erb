@@ -97,7 +97,12 @@
 
                             </div>
                             <div class="col-sm-6">
-                                <button class="btn btn-lg btn-twitter"><i class="fa fa-twitter"></i> Login with Twitter</button>
+                              <div class="col-sm-6">
+                                <%= link_to user_omniauth_authorize_path(:google_oauth2),
+                                          :class =>"btn btn-lg btn-google"  do %>
+                                  <i class="fa fa-google"></i> <%= t(:login_with) %> google
+                                <% end %>
+                               </div>
                             </div>
                         </div>
                     </div>
