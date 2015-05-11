@@ -68,6 +68,7 @@ pt-BR:
   twitter_hint: "http://www.twitter.com/username"
   website_hint: "http://www.himeneu.com"
   video_hint: "http://www.youtube.com/v/LX9QoRGdArE"
+  best_rating: Melhores fornecedores
   deactivated_profile_message: "Este perfil está desativado. Clique aqui para ativar:"
   about_us_text_html: "Com poucos cliques, o Himeneu fornece uma quantidade sem igual de excelentes prestadores de serviços reconhecidos do mercado. De DJs, floristas, mestre de cerimônias a aluguel de carros especiais. Aqui a qualidade é o principal argumento na contratação. Saiba, por meio de recomendações de quem já contratou, quem merece fazer parte do seu casamento."
   home:
@@ -95,6 +96,7 @@ pt-BR:
   customers:
     about_my_wedding: "Sobre o meu casamento"
     wedding_date: Data do casamento
+    wedding_description: Descrição do casamento
   providers:
     review:
       one: Uma recomendação
