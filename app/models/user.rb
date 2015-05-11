@@ -100,4 +100,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def confirmation_required?
+    if self
+      self.api_provider.blank?
+    end
+  end
+
 end
