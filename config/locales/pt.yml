@@ -134,6 +134,16 @@ pt:
   sorting:
     name: Nome
     rating: Pontuação
+  activerecord:
+    attributes:
+      customer:
+        wedding_date: Data do casamento
+        age: Idade
+        first_name: Nome
+        last_name: Sobrenome
+      provider:
+        first_name: Nome
+        last_name: Sobrenome
   date:
     abbr_day_names:
     - Dom

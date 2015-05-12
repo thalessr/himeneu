@@ -126,6 +126,16 @@ en-US:
   sorting:
     name: Name
     rating: Rating
+  activerecord:
+    attributes:
+      customer:
+        wedding_date: Wedding Date
+        age: Age
+        first_name: First Name
+        last_name: Last Name
+      provider:
+        first_name: First Name
+        last_name: Last Name
   errors:
     messages:
       blank: "blank"
