@@ -12,208 +12,208 @@
 <% end %>
 
 
-  <div class="fullwidthbanner">
-    <div class="tp-banner">
+<div class="fullwidthbanner">
+  <div class="tp-banner">
       <ul>
-                    <!-- SLIDE -->
-        <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
-                <!-- MAIN IMAGE -->
-          <%= image_tag "backhome.jpg", :alt => "Himeneu",
+
+          <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1">
+              <!-- MAIN IMAGE -->
+              <%= image_tag "backhome.jpg", :alt => "Himeneu",
                          "data-bgfit".to_sym => "cover",
                          "data-bgposition".to_sym => "left top",
                          "data-bgrepeat".to_sym =>"no-repeat"
-          -%>
+              -%>
+              <div class="caption title-2 sft"
+                   data-x="50"
+                   data-y="110"
+                   data-speed="1000"
+                   data-start="1000"
+                   data-easing="easeOutExpo">
+                  <%= t('home.slide1_tagline_html') %> <br>
 
-                <div class="caption title-2 sft"
-                     data-x="50"
-                     data-y="110"
-                     data-speed="1000"
-                     data-start="1000"
-                     data-easing="easeOutExpo">
-                    <%= t('home.slide1_tagline_html') %> <br>
+              </div>
 
+              <div class="caption text sfl"
+                   data-x="50"
+                   data-y="250"
+                   data-speed="1000"
+                   data-start="1800"
+                   data-easing="easeOutExpo">
+                   <%= t('home.slide1_subtitle_html') %>
+              </div>
+              <div class="caption sfb rev-buttons tp-resizeme"
+                   data-x="50"
+                   data-y="330"
+                   data-speed="500"
+                   data-start="1800"
+                   data-easing="Sine.easeOut">
+                  <%= link_to t(:sign_up), new_user_registration_path,
+                      :class => "btn btn-theme-bg btn-lg" %>
+              </div>
 
-                </div>
+              <div class="caption sfb rev-buttons tp-resizeme"
+                   data-x="250"
+                   data-y="330"
+                   data-speed="500"
+                   data-start="2100"
+                   data-easing="Sine.easeOut">
+                   <%= link_to t('home.slide1_button2'), new_user_registration_path,
+                      :class => "btn border-white btn-lg" %>
+              </div>
 
-
-
-                <div class="caption text sfl"
-                     data-x="50"
-                     data-y="250"
-                     data-speed="1000"
-                     data-start="1800"
-                     data-easing="easeOutExpo">
-                    <%= t('home.slide1_subtitle_html') %>
-                </div>
-                <div class="caption sfb rev-buttons tp-resizeme"
-                     data-x="50"
-                     data-y="330"
-                     data-speed="500"
-                     data-start="1800"
-                     data-easing="Sine.easeOut">
-                    <a href="#" class="btn btn-theme-bg btn-lg"><%= t(:sign_up) %></a>
-                </div>
-
-                <div class="caption sfb rev-buttons tp-resizeme"
-                     data-x="250"
-                     data-y="330"
-                     data-speed="500"
-                     data-start="2100"
-                     data-easing="Sine.easeOut">
-                    <a href="#" class="btn border-white btn-lg"><%= t('home.slide1_button2') %></a>
-                </div>
-
-            </li>
-                    <!-- SLIDE -->
-            <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
-                <!-- MAIN IMAGE -->
+          </li>
+          <!-- SLIDE -->
+          <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2">
+              <!-- MAIN IMAGE -->
               <%= image_tag "bc2.jpg", :alt => "casamento",
                  "data-bgfit".to_sym => "cover",
                  "data-bgposition".to_sym => "left top",
                  "data-bgrepeat".to_sym =>"no-repeat"
               -%>
-                <div class="caption text-bg-top sft"
-                     data-x="600"
-                     data-y="150"
-                     data-speed="1000"
-                     data-start="2200"
-                     data-easing="easeOutExpo">
-                    <%= t('home.slide2_tagline') %>
-                </div>
 
-                <div class="caption text-bg-btm sfr"
-                     data-x="600"
-                     data-y="215"
-                     data-speed="1000"
-                     data-start="2600"
-                     data-easing="easeOutExpo">
 
-                        <%= t('home.slide2_text_html') %>
+              <div class="caption text-bg-top sft"
+                   data-x="600"
+                   data-y="150"
+                   data-speed="1000"
+                   data-start="2200"
+                   data-easing="easeOutExpo">
+                 <%= t('home.slide2_tagline') %>
+              </div>
 
-                </div>
-            </li>
-                    <!-- SLIDE -->
-                  <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
-                        <!-- MAIN IMAGE -->
+              <div class="caption text-bg-btm sfr"
+                   data-x="600"
+                   data-y="215"
+                   data-speed="1000"
+                   data-start="2600"
+                   data-easing="easeOutExpo">
+
+                  <%= t('home.slide2_text_html') %>
+
+              </div>
+          </li>
+          <!-- SLIDE -->
+          <li data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3">
+              <!-- MAIN IMAGE -->
               <%= image_tag "bc3.jpg", :alt => "fornecedores",
                  "data-bgfit".to_sym => "cover",
                  "data-bgposition".to_sym => "left top",
                  "data-bgrepeat".to_sym =>"no-repeat"
               -%>
-                        <!-- LAYER NR. 1 -->
-                        <div class="caption modern_big_bluebg sfr tp-resizeme"
-                             data-x="40"
-                             data-y="110"
-                             data-speed="600"
-                             data-start="1200"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_title')%>
-                        </div>
+              <!-- LAYER NR. 1 -->
+              <div class="caption modern_big_bluebg sfr tp-resizeme"
+                   data-x="40"
+                   data-y="110"
+                   data-speed="600"
+                   data-start="1200"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_title')%>
+              </div>
 
-                        <!-- LAYER NR. 2 -->
-                        <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                             data-x="40"
-                             data-y="170"
-                             data-speed="600"
-                             data-start="1600"
-                             data-end="9400"
-                             data-endspeed="600"><i class="fa fa-check"></i>
-                        </div>
+              <!-- LAYER NR. 2 -->
+              <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                   data-x="40"
+                   data-y="170"
+                   data-speed="600"
+                   data-start="1600"
+                   data-end="9400"
+                   data-endspeed="600"><i class="fa fa-check"></i>
+              </div>
 
-                        <!-- LAYER NR. 3 -->
-                        <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                             data-x="90"
-                             data-y="170"
-                             data-speed="600"
-                             data-start="1600"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_profession1')%>
-                        </div>
+              <!-- LAYER NR. 3 -->
+              <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                   data-x="90"
+                   data-y="170"
+                   data-speed="600"
+                   data-start="1600"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_profession1')%>
+              </div>
 
-                        <!-- LAYER NR. 4 -->
-                        <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                             data-x="40"
-                             data-y="220"
-                             data-speed="600"
-                             data-start="1800"
-                             data-end="9400"
-                             data-endspeed="600"><i class="fa fa-check"></i>
-                        </div>
+              <!-- LAYER NR. 4 -->
+              <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                   data-x="40"
+                   data-y="220"
+                   data-speed="600"
+                   data-start="1800"
+                   data-end="9400"
+                   data-endspeed="600"><i class="fa fa-check"></i>
+              </div>
 
-                        <!-- LAYER NR. 5 -->
-                        <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                             data-x="90"
-                             data-y="220"
-                             data-speed="600"
-                             data-start="1800"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_profession2')%>
-                        </div>
+              <!-- LAYER NR. 5 -->
+              <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                   data-x="90"
+                   data-y="220"
+                   data-speed="600"
+                   data-start="1800"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_profession2')%>
+              </div>
 
-                        <!-- LAYER NR. 6 -->
-                        <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                             data-x="40"
-                             data-y="270"
-                             data-speed="600"
-                             data-start="2000"
-                             data-end="9400"
-                             data-endspeed="600"><i class="fa fa-check"></i>
-                        </div>
+              <!-- LAYER NR. 6 -->
+              <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                   data-x="40"
+                   data-y="270"
+                   data-speed="600"
+                   data-start="2000"
+                   data-end="9400"
+                   data-endspeed="600"><i class="fa fa-check"></i>
+              </div>
 
-                        <!-- LAYER NR. 7 -->
-                        <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                             data-x="90"
-                             data-y="270"
-                             data-speed="600"
-                             data-start="2000"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_profession3')%>
-                        </div>
+              <!-- LAYER NR. 7 -->
+              <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                   data-x="90"
+                   data-y="270"
+                   data-speed="600"
+                   data-start="2000"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_profession3')%>
+              </div>
 
-                        <!-- LAYER NR. 8 -->
-                        <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
-                             data-x="40"
-                             data-y="320"
-                             data-speed="600"
-                             data-start="2200"
-                             data-end="9400"
-                             data-endspeed="600"><i class="fa fa-check"></i>
-                        </div>
+              <!-- LAYER NR. 8 -->
+              <div class="caption medium_bg_darkblue sfl medium tp-resizeme"
+                   data-x="40"
+                   data-y="320"
+                   data-speed="600"
+                   data-start="2200"
+                   data-end="9400"
+                   data-endspeed="600"><i class="fa fa-check"></i>
+              </div>
 
-                        <!-- LAYER NR. 9 -->
-                        <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                             data-x="90"
-                             data-y="320"
-                             data-speed="600"
-                             data-start="2200"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_profession4')%>
-                        </div>
+              <!-- LAYER NR. 9 -->
+              <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                   data-x="90"
+                   data-y="320"
+                   data-speed="600"
+                   data-start="2200"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_profession4')%>
+              </div>
 
-                        <!-- LAYER NR. 10 -->
-                        <div class="caption modern_big_redbg sfb medium tp-resizeme"
-                             data-x="40"
-                             data-y="370"
-                             data-speed="600"
-                             data-start="2400"
-                             data-end="9400"
-                             data-endspeed="600"><%= t('home.slide3_much_more')%>
-                        </div>
+              <!-- LAYER NR. 10 -->
+              <div class="caption modern_big_redbg sfb medium tp-resizeme"
+                   data-x="40"
+                   data-y="370"
+                   data-speed="600"
+                   data-start="2400"
+                   data-end="9400"
+                   data-endspeed="600"><%= t('home.slide3_much_more')%>
+              </div>
 
-                    </li>
-                </ul>
-            </div>
-        </div>
+          </li>
+      </ul>
+  </div>
+</div>
 
-        <div class="divide60"></div>
-        <div class="container">
+  <div class="divide60"></div>
+  <div class="container">
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2">
                     <div class="center-heading">
                         <h2><%= t('home.what_we_do') %></h2>
                         <span class="center-line"></span>
                         <p class="sub-text margin40">
-                        <%= t('home.what_we_do_text_html') %>
+                           <%= t('home.what_we_do_text_html') %>
                         </p>
                     </div>
                 </div>
@@ -227,7 +227,7 @@
                         <h3><%= t('home.we_do_icon1_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            <%= t('home.we_do_icon1_html') %>
+                          <%= t('home.we_do_icon1_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
@@ -237,7 +237,7 @@
                         <h3><%= t('home.we_do_icon2_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            <%= t('home.we_do_icon2_html') %>
+                          <%= t('home.we_do_icon2_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
@@ -247,7 +247,7 @@
                         <h3><%= t('home.we_do_icon3_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            <%= t('home.we_do_icon3_html') %>
+                          <%= t('home.we_do_icon3_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
@@ -257,9 +257,11 @@
                         <h3><%= t('home.we_do_icon4_title') %></h3>
                         <span class="center-line"></span>
                         <p>
-                            <%= t('home.we_do_icon4_html') %>
+                          <%= t('home.we_do_icon4_html') %>
                         </p>
                     </div>
                 </div><!--colored boxed col end-->
             </div>
-        </div>
+
+  <div class="divide80"></div>
+  </div>

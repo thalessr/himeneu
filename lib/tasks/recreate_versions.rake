@@ -33,7 +33,7 @@ namespace :recreate_versions do
   task feature_images: :environment do
     FeatureImage.where.not(image: nil).find_each do |p|
       begin
-        p.process_image_upload = true
+        #p.process_image_upload = true
         p.image.cache_stored_file!
         p.image.retrieve_from_cache!(p.image.cache_name)
         p.image.recreate_versions!
