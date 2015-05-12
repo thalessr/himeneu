@@ -56,7 +56,7 @@ module Extra
     end
 
     def not_deleted
-      joins(:user).where('users.is_deleted = ? OR users.is_deleted = ?', false, nil )
+      joins(:user).where('users.is_deleted = ? OR users.is_deleted is null', false)
     end
 
     def deleted
