@@ -103,7 +103,7 @@
 
 <div class="divide30"></div>
 
-<% elsif can_manage_customer(@customer) %> %>
+<% elsif can_manage_customer?(@customer) %> %>
     <div class="row voffset6 margin40">
         <div class="text-center">
             <h3><%= t(:deactivated_profile_message) %></h3>
