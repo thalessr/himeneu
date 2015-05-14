@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head lang="<%= t(:lang) %>">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <%= javascript_include_tag "application" %>
@@ -22,7 +22,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 </head>
-<body ng-app="App" class='<%= controller.controller_name %> ' ui-view>
+<body ng-app="App" class='<%= controller.controller_name %> '>
   <div class='notifications top-right'></div>
 
   <div id="header-top" class="hidden-xs">
