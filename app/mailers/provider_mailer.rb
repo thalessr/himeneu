@@ -20,7 +20,7 @@ class ProviderMailer < ActionMailer::Base
     @provider = estimate.provider
     @customer = estimate.customer
     @description = estimate.response
-    mail(to: @provider.email, subject: I18n.t(:estimate_reponse))
+    mail(to: @customer.email, subject: I18n.t(:estimate_reponse))
   end
 
 end
