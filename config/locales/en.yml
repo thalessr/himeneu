@@ -9,7 +9,10 @@ en:
   create_account_agree: I agree with the Terms and Conditions
   repeat_password: Repeat the password
   welcome: Welcome
+  lang: en
   title: "Himeneu"
+  description: "Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial."
+  keywords: "wedding, wedding flowers. himeneu"
   forgot_password: "Forgot password?"
   resend_password: "Send"
   reset_password_instrutions: Someone has requested a link to change your password. You can do this through the link below.

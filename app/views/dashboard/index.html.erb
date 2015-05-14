@@ -1,7 +1,9 @@
 <% content_for :meta_tag do %>
     <title><%= t(:title) %></title>
-    <meta name="description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial.">
-    <meta name="keywords" content="casamento, fotografia, fotografia de casamento ,cerimonial, bolo de casamento, wedding">
+    <%= tag(:meta, name: "description", content: t(:description)) %>
+    <%= tag(:meta, name: "keywords", content: t(:keywords)) %>
+    <meta name="ROBOTS" content="index,follow">
+    <meta property="og:type" content="website">
     <meta property="og:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
     <meta property="og:url" content="http://www.himeneu.com"/>
     <meta name="twitter:card" content="summary" />

@@ -8,7 +8,10 @@ es:
   create_account_agree: Concordo com os Termos e Condições
   repeat_password: Repita a senha
   logout: "sair"
+  lang: es
   title: "Himeneu - O melhor do casamento"
+  description: "Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial."
+  keywords: "festa de casamento, himeneu, casamento, fotografos, decoração casamento ,casamento convite, lista casamento, festa de casamento"
   forgot_password: "Esqueceu a senha?"
   resend_password: "Enviar"
   reset_password_instrutions: "Alguém pediu a alteração da sua senha. Você poderá alterá-la clicando no link abaixo"
