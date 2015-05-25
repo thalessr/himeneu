@@ -115,7 +115,13 @@
                     <%= t('providers.review', count:  @provider.recommendations.count ) %>)
                   </a>
                 </li>
+                <% if is_customer? %>
+                  <li>
+                    <%= chat_url(@provider.slug) %>
+                  </li>
+                <% end %>
               </ul>
+
               <p>
                 <%= truncate(@provider.experience, length: 250) %>
               </p>
