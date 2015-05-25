@@ -24,10 +24,11 @@ class FeatureImagesController < ApplicationController
     feature_image = FeatureImage.find(params[:id])
     unless feature_image.blank?
       feature_image.destroy
-      respond_to do |format|
-        format.html
-        format.json { head :no_content }
-      end
+      # respond_to do |format|
+      #   format.html
+      #   format.json { head :no_content }
+      # end
+      redirect_to provider_path(feature_image.provider)
     end
   end
 
