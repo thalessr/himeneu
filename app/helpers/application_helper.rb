@@ -42,7 +42,7 @@ module ApplicationHelper
   # http://chat.himeneu.com/himeneu/thales
   #
   #
-  def chat_url(provider = nil)
+  def chat_url(provider = nil, msg = "")
     base_url = "http://chat.himeneu.com/"
 
     unless provider.blank?
@@ -50,8 +50,10 @@ module ApplicationHelper
       if current_user.is_customer?
         base_url += "/#{current_user.customer.slug}"
       end
-      link_to base_url do
-        content_tag(:span, "",class: "fa fa-weixin", 'data-original-title'.to_sym => "Chat", "data-toggle".to_sym => "tooltip", "data-placement".to_sym => "top")
+      link_to base_url, target: "_blank" do
+        raw(msg + ' ' +
+            content_tag(:i, "",class: "fa fa-weixin", 'data-original-title'.to_sym => "Chat", "data-toggle".to_sym => "tooltip", "data-placement".to_sym => "top")
+            )
       end
     end
 

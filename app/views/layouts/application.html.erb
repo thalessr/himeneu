@@ -94,15 +94,9 @@
                       <% end %>
                       <!-- Chat -->
                       <% if is_provider? %>
-                        <!-- only for a testing user -->
-                        <% if current_user.provider.slug.include?("himeneu") %>
-                         <li>
-                        <%= link_to chat_url do %>
-                              Chat
-                              <span class="fa fa-weixin"></span>
-                          <% end %>
-                           </li>
-                         <% end -%>
+                        <li>
+                          <%= chat_url(current_user.provider.slug, "Chat") %>
+                        </li>
                       <% end %>
                       <!-- End Chat -->
                       <li><%= link_to redirect_to_profile do %>
