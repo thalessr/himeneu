@@ -8,10 +8,6 @@ module ApplicationHelper
     end
   end
 
-  def flash_message(msg)
-    h(showFlashMessage(msg))
-  end
-
   def delete_or_recovery(object)
     name = object.class.to_s.underscore
     if object.is_deleted?
