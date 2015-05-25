@@ -13,9 +13,9 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#index'
   get 'privacy' => 'dashboard#privacy'
-  get '/anuncie' => 'static_pages#anuncie'
-  get '/sobre' => 'static_pages#sobre'
-  get '/contato' => 'static_pages#contato'
+  # get '/anuncie' => 'static_pages#anuncie'
+  # get '/sobre' => 'static_pages#sobre'
+  # get '/contato' => 'static_pages#contato'
   # get 'newpro' => 'static_pages#newpro'
 
 
@@ -51,9 +51,6 @@ Rails.application.routes.draw do
     get 'bestSeller', on: :collection
   end
 
-  resources :interests, :only => :create do
-    post 'change_state', on: :collection
-  end
 
   resources :dashboard, only: :index do
     collection do
