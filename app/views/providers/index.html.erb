@@ -58,7 +58,7 @@
           <div class="col-sm-7">
             <h3><a href="/providers/{{p.slug}}">{{p.first_name}} {{p.last_name | limitTo:30}}</a></h3>
             <ul class="filter list-inline" style="text-align: left; margin-bottom: 5px">
-                <li ng-repeat="n in p.profession track by $index">
+                <li ng-repeat="n in p.profession track by $index" style="padding-left: 0; padding-right: 0">
                   <a href="#">{{n.name}}</a>
                 </li>
             </ul>
