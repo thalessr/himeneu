@@ -1,16 +1,28 @@
 <% content_for :meta_tag do %>
-  <title>Himeneu - <%= @provider.full_name %></title>
-  <meta name="ROBOTS" content="index,follow">
-  <meta name="description" content="<%= @provider.experience %>">
-  <meta property="og:type" content="website">
-  <meta name="keywords" content="<%= @provider.profession_list.join(' ,') %>">
-  <meta property="og:image" content="<%= @provider.image_url(:regular) %>" />
-  <meta property="og:url" content="<%= provider_url(@provider) %>"/>
-  <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content='Himeneu - <%= @provider.full_name %>' />
-  <meta name="twitter:description" content="Himeneu | <%= @provider.full_name %>" />
-  <meta name="twitter:image" content="<%= @provider.image_url(:regular) %>" />
-  <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
+    <title>Himeneu - <%= @provider.full_name %></title>
+    <%= tag(:meta, name: "description", content: truncate(@provider.experience, length: 180)) %>
+    <%= tag(:meta, name: "keywords", content: @provider.profession_list.join(' ,')) %>
+
+    <meta property="og:site_name" content="Himeneu - <%= @provider.full_name %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Himeneu - <%= @provider.full_name %>">
+    <meta property="og:description" content="<%= truncate(@provider.experience, length: 180) %>">
+    <meta property="og:url" content="<%= provider_url(@provider) %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Himeneu - <%= @provider.full_name %>">
+    <meta name="twitter:description" content="<%= truncate(@provider.experience, length: 180) %>">
+    <meta name="twitter:url" content="<%= provider_url(@provider) %>">
+
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "Website",
+          "publisher": "Himeneu",
+          "url": "<%= provider_url(@provider) %>",
+          "description": "<%= truncate(@provider.experience, length: 180) %>"
+      }
+    </script>
+
 <% end %>
 
 <div class="divide60"></div>

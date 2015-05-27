@@ -3,18 +3,22 @@
 <head lang="<%= t(:lang) %>">
     <%= stylesheet_link_tag    "application", media: "all" %>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-    <%= javascript_include_tag "application", :async => true %>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="ONLab">
-
+    <meta name="ROBOTS" content="index,follow">
+    <meta name="HandheldFriendly" content="True">
     <meta name="msvalidate.01" content="7E18800C43DF85C72AA2B64038A26451" />
+    <link rel="canonical" href="http://www.himeneu.com/">
+    <%= favicon_link_tag 'favicon.ico' %>
+
     <% if content_for?(:meta_tag) %>
       <%= yield(:meta_tag) %>
     <% end %>
-    <%= favicon_link_tag 'favicon.ico' %>
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>

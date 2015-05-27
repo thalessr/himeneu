@@ -2,15 +2,28 @@
     <title><%= t(:title) %></title>
     <%= tag(:meta, name: "description", content: t(:description)) %>
     <%= tag(:meta, name: "keywords", content: t(:keywords)) %>
-    <meta name="ROBOTS" content="index,follow">
+
+    <meta property="og:site_name" content="<%= t(:title) %>">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
-    <meta property="og:url" content="http://www.himeneu.com"/>
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content='<%= t(:title) %>' />
-    <meta name="twitter:description" content="Himeneu é a solução para facilitar o seu casamento. Encontre os melhores profissionais para fazer seu casamento ainda mais especial." />
-    <meta name="twitter:image" content="http://www.himeneu.com/assets/backhome_mobile.jpg" />
-    <meta name="twitter:url" content="http://www.himeneu.com" />
+    <meta property="og:title" content="<%= t(:title) %>">
+    <meta property="og:description" content="<%= t(:description) %>">
+    <meta property="og:url" content="http://wwww.himeneu.com/">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="<%= t(:title) %>">
+    <meta name="twitter:description" content="<%= t(:description) %>">
+    <meta name="twitter:url" content="http://wwww.himeneu.com/">
+
+    <script type="application/ld+json">
+      {
+          "@context": "http://schema.org",
+          "@type": "Website",
+          "publisher": "Himeneu",
+          "url": "http://www.himeneu.com/",
+          "description": "<%= t(:description) %>"
+      }
+    </script>
+
 <% end %>
 
 
