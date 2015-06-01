@@ -14,12 +14,12 @@
 ActiveRecord::Schema.define(version: 20150508204108) do
 
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string   "namespace",     limit: 255
+    t.string   "namespace"
     t.text     "body"
-    t.string   "resource_id",   limit: 255, null: false
-    t.string   "resource_type", limit: 255, null: false
+    t.string   "resource_id",   null: false
+    t.string   "resource_type", null: false
     t.integer  "author_id"
-    t.string   "author_type",   limit: 255
+    t.string   "author_type"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -29,15 +29,15 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
 
   create_table "addresses", force: :cascade do |t|
-    t.string   "city",        limit: 255
-    t.string   "zipcode",     limit: 255
+    t.string   "city"
+    t.string   "zipcode"
     t.float    "latitude"
     t.float    "longitude"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "provider_id"
-    t.string   "email",       limit: 255
-    t.string   "phone",       limit: 255
+    t.string   "email"
+    t.string   "phone"
     t.string   "state"
     t.string   "country"
     t.string   "address"
@@ -49,16 +49,16 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "addresses", ["state"], name: "index_addresses_on_state"
 
   create_table "admin_users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "", null: false
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,17 +67,17 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
 
   create_table "customers", force: :cascade do |t|
-    t.string   "first_name",       limit: 255
-    t.string   "last_name",        limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
     t.integer  "age"
-    t.string   "image",            limit: 255
+    t.string   "image"
     t.date     "wedding_date"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "address_id"
-    t.boolean  "image_processing",             default: false, null: false
-    t.string   "slug",             limit: 255
+    t.boolean  "image_processing", default: false, null: false
+    t.string   "slug"
   end
 
   add_index "customers", ["address_id"], name: "index_customers_on_address_id"
@@ -87,8 +87,8 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   create_table "estimates", force: :cascade do |t|
     t.integer  "provider_id"
     t.integer  "customer_id"
-    t.text     "description", limit: 2000
-    t.text     "response",    limit: 2000
+    t.text     "description"
+    t.text     "response"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -97,7 +97,7 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "estimates", ["provider_id"], name: "index_estimates_on_provider_id"
 
   create_table "feature_images", force: :cascade do |t|
-    t.string   "image",       limit: 255
+    t.string   "image"
     t.integer  "provider_id"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -106,10 +106,10 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "feature_images", ["provider_id"], name: "index_feature_images_on_provider_id"
 
   create_table "friendly_id_slugs", force: :cascade do |t|
-    t.string   "slug",           limit: 255, null: false
-    t.integer  "sluggable_id",               null: false
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
     t.string   "sluggable_type", limit: 50
-    t.string   "scope",          limit: 255
+    t.string   "scope"
     t.datetime "created_at"
   end
 
@@ -119,25 +119,25 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type"
 
   create_table "providers", force: :cascade do |t|
-    t.string   "first_name",       limit: 255
-    t.string   "last_name",        limit: 255
+    t.string   "first_name"
+    t.string   "last_name"
     t.integer  "age"
-    t.string   "image",            limit: 255
-    t.string   "profession",       limit: 255
+    t.string   "image"
+    t.string   "profession"
     t.text     "experience"
-    t.string   "city",             limit: 255
-    t.string   "contact",          limit: 255
+    t.string   "city"
+    t.string   "contact"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.boolean  "image_processing",                                     default: false, null: false
     t.decimal  "score",                        precision: 3, scale: 2
-    t.string   "slug",             limit: 255
-    t.string   "video_url",        limit: 255
-    t.string   "facebook",         limit: 255
+    t.string   "slug"
+    t.string   "video_url"
+    t.string   "facebook"
     t.string   "twitter",          limit: 100
-    t.string   "instagram",        limit: 255
-    t.string   "website",          limit: 255
+    t.string   "instagram"
+    t.string   "website"
   end
 
   add_index "providers", ["slug"], name: "index_providers_on_slug", unique: true
@@ -145,7 +145,7 @@ ActiveRecord::Schema.define(version: 20150508204108) do
 
   create_table "recommendations", force: :cascade do |t|
     t.text     "comment"
-    t.string   "title",       limit: 255
+    t.string   "title"
     t.integer  "rating"
     t.integer  "customer_id"
     t.integer  "provider_id"
@@ -157,7 +157,7 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "recommendations", ["provider_id"], name: "index_recommendations_on_provider_id"
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -174,9 +174,9 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   create_table "taggings", force: :cascade do |t|
     t.integer  "tag_id"
     t.integer  "taggable_id"
-    t.string   "taggable_type", limit: 255
+    t.string   "taggable_type"
     t.integer  "tagger_id"
-    t.string   "tagger_type",   limit: 255
+    t.string   "tagger_type"
     t.string   "context",       limit: 128
     t.datetime "created_at"
   end
@@ -185,30 +185,30 @@ ActiveRecord::Schema.define(version: 20150508204108) do
   add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
 
   create_table "tags", force: :cascade do |t|
-    t.string  "name",           limit: 255
-    t.integer "taggings_count",             default: 0
+    t.string  "name"
+    t.integer "taggings_count", default: 0
   end
 
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true
 
   create_table "users", force: :cascade do |t|
-    t.string   "email",                  limit: 255, default: "",    null: false
-    t.string   "encrypted_password",     limit: 255, default: "",    null: false
-    t.string   "reset_password_token",   limit: 255
+    t.string   "email",                  default: "",    null: false
+    t.string   "encrypted_password",     default: "",    null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                      default: 0,     null: false
+    t.integer  "sign_in_count",          default: 0,     null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip",     limit: 255
-    t.string   "last_sign_in_ip",        limit: 255
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "confirmation_token",     limit: 255
-    t.string   "unconfirmed_email",      limit: 255
+    t.string   "confirmation_token"
+    t.string   "unconfirmed_email"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
-    t.boolean  "is_completed",                       default: false
+    t.boolean  "is_completed",           default: false
     t.boolean  "is_deleted"
     t.string   "api_provider"
     t.string   "uid"
