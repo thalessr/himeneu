@@ -1,5 +1,5 @@
 class ProviderMailer < ActionMailer::Base
-  default from: "contato@himeneu.com"
+  default from: "info@himeneu.com"
 
   def interested_email(customer, provider)
     @provider = provider
