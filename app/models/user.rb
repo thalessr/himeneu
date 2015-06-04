@@ -106,4 +106,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.not_completed
+    where(is_completed: false).where.not(confirmed_at: nil).select(:id, :email)
+  end
+
+  def self.not_confirmated
+    where(confirmed_at: nil).select(:id, :email)
+  end
+
 end
