@@ -21,3 +21,8 @@
 every 1.day, :at => '2:00 am' do
   rake "-s sitemap:refresh"
 end
+
+every 1.day, :at => '4:00 am' do
+  rake "-s mailchimp:not_completed"
+  rake "-s mailchimp:not_confirmated"
+end

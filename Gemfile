@@ -114,7 +114,6 @@ gem "sitemap_generator"
 gem 'state_machine'
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
-# Use debugger
-# gem 'debugger', group: [:development, :test]
-#
+
+gem 'gibbon'
 
