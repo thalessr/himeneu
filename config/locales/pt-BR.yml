@@ -54,6 +54,7 @@ pt-BR:
   phone_hint: (99)8888-8888
   email: Email
   email_hint: "exemplo@himeneu.com"
+  forum: Forum
   years_experience: "Anos de experiência"
   address: Endereço
   search: Pesquisa
@@ -88,6 +89,8 @@ pt-BR:
     we_do_icon4_html: É profissional? </br> Crie seu perfil e seja encontrado <br>por milhares de clientes
     we_do_icon5_title: Chat online
     we_do_icon5_html: Está com pressa de uma orçamento?<br>Fale agora pelo chat online com fornecedores
+    we_do_icon6_title: Forum de discussão
+    we_do_icon6_html: Converse com outras noivas e tire suas dúvidas sobre casamento 
     what_we_do: O que fazemos
     what_we_do_text_html: "O himeneu chegou para tornar o planejamento de festas de casamento muito mais fáceis.<br> Nós reunimos os melhores e mais conceituados profissionais do mercado,<br> que vão fazer sua festa mais e mais especial."
     slide2_tagline: Orçamento fácil
