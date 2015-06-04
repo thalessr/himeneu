@@ -65,7 +65,7 @@ namespace :mailchimp do
   end
 
   desc "Sync the HimeneuNoivas list and should be executed only once"
-  task providers: :environment do
+  task customers: :environment do
     Customer.find_each do |c|
       begin
 
