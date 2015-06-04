@@ -1,5 +1,4 @@
 namespace :mailchimp do
-  # gb = Gibbon::API.new(Gibbon::API.api_key)
 
   desc "Sync the not_completed list"
   task not_completed: :environment do
@@ -30,6 +29,49 @@ namespace :mailchimp do
         Gibbon::API.lists.subscribe({
                                       :id => "32def9e4ea",
                                       :email => {:email => user.email},
+        :double_optin => false, :update_existing => true})
+
+      rescue Gibbon::MailChimpError => e
+        puts e.message
+        puts e.code
+
+      rescue => ex
+        puts e.message
+        puts e.code
+      end
+    end
+  end
+
+
+  desc "Sync the HimeneuFornecedores list and should be executed only once"
+  task providers: :environment do
+    Provider.find_each do |p|
+      begin
+
+        Gibbon::API.lists.subscribe({
+                                      :id => "fcf8671c29",
+                                      :email => {:email => p.user.email},
+        :double_optin => false, :update_existing => true})
+
+      rescue Gibbon::MailChimpError => e
+        puts e.message
+        puts e.code
+
+      rescue => ex
+        puts e.message
+        puts e.code
+      end
+    end
+  end
+
+  desc "Sync the HimeneuNoivas list and should be executed only once"
+  task providers: :environment do
+    Customer.find_each do |c|
+      begin
+
+        Gibbon::API.lists.subscribe({
+                                      :id => "2c7321aed9",
+                                      :email => {:email => c.user.email},
         :double_optin => false, :update_existing => true})
 
       rescue Gibbon::MailChimpError => e
