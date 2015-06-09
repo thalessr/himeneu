@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery.min.js
+//= require jquery-migrate.min.js
+//= require bootstrap/dist/js/bootstrap.min.js
+//= require jquery.counterup.min.js
 //= require angular/angular.min.js
 //= require angular-resource/angular-resource.min.js
 //= require angular-ui-router/release/angular-ui-router.min.js
@@ -18,7 +21,6 @@
 //= require angular-wysiwyg/dist/angular-wysiwyg.min.js
 //= require app/app.js
 //= require app/app.services.js
-//= require app/app.routes.js
 //= require app/controllers/customersController.js
 //= require app/controllers/providersController.js
 //= require app/controllers/providerSearchController.js
@@ -30,17 +32,12 @@
 //= require providers.js
 //= require jquery_ujs
 //= require jquery.stellar/jquery.stellar.min.js
-//= require bootstrap/dist/js/bootstrap.min.js
 //= require wow/dist/wow.min.js
 //= require raty/lib/jquery.raty
 //= require bootstrap-notify/js/bootstrap-notify.js
-//= require fancybox/source/jquery.fancybox.js
 //= require jquery.lazyload/jquery.lazyload.js
-//= require jquery-migrate.min.js
-//= require jquery.easing.1.3.min.js
 //= require jquery.sticky.js
 //= require jquery.flexslider-min.js
-//= require jquery.counterup.min.js
 //= require jquery.isotope.min.js
 //= require jquery.imagesloaded.min.js
 //= require jquery.modal.js
@@ -65,41 +62,6 @@ function showFlashMessage(msg, type, seconds){
         type: type
       }).show();
 }
-
-
-   //  var myLatlng;
-   //  var map;
-   //  var marker;
-
-   // function initialize(latitude, longitude, elemID, providerName) {
-   //    myLatlng = new google.maps.LatLng(latitude, longitude);
-
-   //    var mapOptions = {
-   //        zoom: 13,
-   //        center: myLatlng,
-   //        mapTypeId: google.maps.MapTypeId.ROADMAP,
-   //        scrollwheel: false,
-   //        draggable: false
-   //    };
-   //    map = new google.maps.Map(document.getElementById('maps'), mapOptions);
-
-   //    var contentString = '<p style="line-height: 20px;"><strong>'+providerName+'</strong></p><p></p>';
-
-   //    var infowindow = new google.maps.InfoWindow({
-   //        content: contentString
-   //    });
-
-   //    marker = new google.maps.Marker({
-   //        position: myLatlng,
-   //        map: map,
-   //        title: 'Marker'
-   //    });
-   //     $("#maps").remove();
-
-   //    google.maps.event.addListener(marker, 'click', function() {
-   //        infowindow.open(map, marker);
-   //    });
-   // }
 
 
 $(document).ready(function(){
@@ -134,55 +96,7 @@ $(document).ready(function(){
     var recipient = button.data('param');
     var modal = $(this);
     modal.data( "param", recipient );
-    console.log(modal.data( "param"));
   });
-
-
-  // google.maps.event.addDomListener(window, 'load', initialize);
-
-
-	// $('form').bind('ajax:beforeSend', function(event, xhr, status) {
-
-	// 	$(this).before('<img alt="Loading" id="load" class="img-responsive" src="/assets/loading.gif">');
-
-	// });
-
-	// $('form').bind('ajax:complete', function(event, xhr, status) {
-	// 	$("#load").remove();
-	// });
-
-  // $(function () {
-  //   $('[data-toggle="popover"]').popover();
-  //   $('.carousel').carousel();
-  // });
-
-  // $(window).scroll(function(){
-  //   var b = $(window).scrollTop();
-  //   if( b > 60 ){
-  //       $(".navbar").addClass("is-scrolling");
-  //   } else {
-  //       $(".navbar").removeClass("is-scrolling");
-  //   }
-  // });
-  // $.stellar({
-  //   horizontalScrolling: false,
-  //   verticalOffset: 50
-  // });
-  $("img.lazy").show().lazyload({
-    effect : "fadeIn"
-  });
-
- var config = {
-      ui: {
-          flyout: 'top center',
-          button_text: '',
-          button_font: true,
-          icon_font: true
-        }
-  };
-  if($('#socialMedia').length){
-     new Share("#socialMedia", config);
-  }
 
 
 });
