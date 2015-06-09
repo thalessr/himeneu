@@ -56,6 +56,7 @@ en:
   email: Email
   email_hint: "example@himeneu.com"
   forum: Forum
+  forum_question: ask your questions about wedding
   address: Address
   years_experience: "Years of experience"
   search: Search
@@ -91,7 +92,7 @@ en:
     we_do_icon5_title: Realtime chat
     we_do_icon5_html: Hurry to give an answer?<br>Chat now with suppliers
     we_do_icon6_title: Discussion forum
-    we_do_icon6_html: Talk with other brides and ask your questions about wedding 
+    we_do_icon6_html: Talk with other brides and ask your questions about wedding
     what_we_do: What we do
     what_we_do_text_html: "Himeneu is a useful app which is gonna help you finding the best service providers in the market. With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special"
     slide2_tagline: Easier budgets

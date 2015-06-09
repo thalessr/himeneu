@@ -35,10 +35,10 @@
         <div class="top-bar">
           <div class="pull-left sample-1right">
             <a href="mailto:info@himeneu.com"><i class="fa fa-envelope"></i><%= t(:email) %>
-              <span class="colored-text">info@himeneu.com</span>
+              <span class="colored-text"><%= mail_to "info@himeneu.com" %></span>
             </a>
             <a href="http://forum.himeneu.com"><i class="fa fa-forumbee"></i><%= t(:forum) %>
-              <span class="colored-text">ask your questions about wedding</span>
+              <span class="colored-text"><%= t(:forum_question) %></span>
             </a>
           </div>
           <div class="pull-right">

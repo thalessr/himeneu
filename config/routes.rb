@@ -13,7 +13,7 @@ Rails.application.routes.draw do
 
   root to: 'dashboard#index'
   get 'privacy' => 'dashboard#privacy'
-  # get '/anuncie' => 'static_pages#anuncie'
+  get '/anuncie' => 'static_pages#anuncie'
   # get '/sobre' => 'static_pages#sobre'
   # get '/contato' => 'static_pages#contato'
   # get 'newpro' => 'static_pages#newpro'
