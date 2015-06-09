@@ -11,14 +11,14 @@ Rails.application.configure do
 
   #Bullet
   config.after_initialize do
-    Bullet.enable = true
-    Bullet.alert = true
-    Bullet.bullet_logger = true
-    Bullet.console = true
-    Bullet.rails_logger = true
-    Bullet.bugsnag = true
+    Bullet.enable = false
+    Bullet.alert = false
+    Bullet.bullet_logger = false
+    Bullet.console = false
+    Bullet.rails_logger = false
+    Bullet.bugsnag = false
     # Bullet.airbrake = true
-    Bullet.add_footer = true
+    Bullet.add_footer = false
   end
 
 

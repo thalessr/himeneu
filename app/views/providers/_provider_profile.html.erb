@@ -103,7 +103,13 @@
                   <% end %>
                 </span>
               </h3>
-
+              <ul class="filter list-inline" style="text-align: left; margin-bottom: 5px">
+                <% @provider.profession_list.each do |p| %>
+                <li style="padding-left: 0; padding-right: 0">
+                  <%= link_to p, "#" %>
+                </li>
+                <% end %>
+              </ul>
               <ul class="list-inline rating-list">
                 <li><i class="fa fa-star yellow"></i></li>
                 <li><i class="fa fa-star yellow"></i></li>

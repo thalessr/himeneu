@@ -27,7 +27,7 @@ module AuthorizationHelper
   end
 
   def is_customer?
-    current_user.is_customer?
+    current_user && current_user.is_customer?
   end
 
   def is_deleted?
