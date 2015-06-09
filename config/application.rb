@@ -19,6 +19,7 @@ module Himeneu
     config.i18n.available_locales = [:en, 'en-US', :pt, :"pt-BR", :es]
     config.i18n.default_locale = :"pt-BR"
     config.assets.paths << Rails.root.join("vendor","assets", "bower_components")
+    config.assets.precompile += %w( foo.js )
 
     if Rails.env.production?
       config.cache_store = :redis_store, 'redis://104.236.232.221:6379/0/cache', { expires_in: 180.minutes }

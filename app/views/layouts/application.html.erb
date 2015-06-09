@@ -8,7 +8,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="ONLab">
+    <meta name="author" content="ONLab Solutions">
     <meta name="ROBOTS" content="index,follow">
     <meta name="HandheldFriendly" content="True">
     <meta name="msvalidate.01" content="7E18800C43DF85C72AA2B64038A26451" />
@@ -256,7 +256,9 @@
       <% end %>
 
 
-
+  <!-- JS -->
+   <%= javascript_include_tag "foo", :cache => 'foo' %>
+  <!-- END JS -->
 
   <% if Rails.env.production? %>
     <script async>
@@ -270,6 +272,5 @@
 
     </script>
   <% end %>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
 </body>
 </html>

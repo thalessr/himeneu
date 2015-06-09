@@ -1,10 +1,3 @@
-/* 
- * assan multipurpose template
- */
-
-/**
- * Base js functions
- */
 
 $(document).ready(function(){
     var $container = $('.mas-boxes');

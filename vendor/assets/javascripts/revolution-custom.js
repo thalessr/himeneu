@@ -1,8 +1,4 @@
-/*
- * Revolution custom js file
- * Author: Design_mylife
- * 
- */
+
 
 //full width slider
 
