@@ -51,6 +51,7 @@ namespace :mailchimp do
         Gibbon::API.lists.subscribe({
                                       :id => "fcf8671c29",
                                       :email => {:email => p.user.email},
+                                      :merge_vars => {:FNAME => p.first_name, :LNAME => p.last_name},
         :double_optin => false, :update_existing => true})
 
       rescue Gibbon::MailChimpError => e
@@ -72,6 +73,7 @@ namespace :mailchimp do
         Gibbon::API.lists.subscribe({
                                       :id => "2c7321aed9",
                                       :email => {:email => c.user.email},
+                                      :merge_vars => {:FNAME => c.first_name, :LNAME => c.last_name},
         :double_optin => false, :update_existing => true})
 
       rescue Gibbon::MailChimpError => e
