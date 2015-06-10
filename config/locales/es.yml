@@ -97,7 +97,10 @@ es:
     slide3_profession2: Mestre de Cerimônias
     slide3_profession3: Buffets
     slide3_profession4: Aluguel de Veículos
-    slide3_much_more: "e muito mais..."
+    slide3_much_more: "e mucho mas..."
+    suppliers: Fornecedores
+    customers: Noivas(os)
+    users: Usuários
   customers:
     about_my_wedding: "Sobre o meu casamento"
     wedding_date: Data do casamento

@@ -11,4 +11,16 @@ module DashboardHelper
     @devise_mapping ||= Devise.mappings[:user]
   end
 
+  def providers_count
+    Provider.count("providers.id")
+  end
+
+  def customers_count
+    Customer.count("customers.id")
+  end
+
+  def users_count
+    User.count("users.id")
+  end
+
 end
