@@ -17,7 +17,7 @@
     <meta name="twitter:description" content="<%= truncate(@provider.experience, length: 180) %>">
     <meta name="twitter:url" content="<%= provider_url(@provider) %>">
     <meta name="twitter:site" content="@_himeneu" />
-    <meta name="twitter:image" content="<%= @provider.image(:list).url %>"/>
+    <meta name="twitter:image" content="<%= @provider.image_url(:list) %>"/>
 
     <script type="application/ld+json">
       {
