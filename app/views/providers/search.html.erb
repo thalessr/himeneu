@@ -1,6 +1,91 @@
-<% @providers.each do |p| %>
-  <p>
-    <%= p.first_name %>
-    <%= p.last_name %>
-  </p>
-<%end%>
+<!DOCTYPE html>
+<html lang="en">
+    <body>
+        <!--navigation -->
+        <div class="search-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search here ...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-theme-bg btn-lg" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="divide40"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="results-sidebar-box">
+                        <h4>Related search</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Bootstrap template</a></li>
+                            <li><a href="#">Admin template</a></li>
+                            <li><a href="#">Responsive template</a></li>
+                        </ul>
+                        <hr>
+                    </div><!--sidebar box of search results end-->
+                    <div class="results-sidebar-box">
+                        <h4>Hot topics</h4>
+                        <ul class="list-unstyled">
+                            <li><a href="#">Bootstrap </a></li>
+                            <li><a href="#">Wrap bootstrap</a></li>
+                            <li><a href="#">Assan template</a></li>
+                        </ul>
+                        <span class="view-all"><a href="#">View all</a></span>
+                        <hr>
+                    </div><!--sidebar box of search results end-->
+                </div><!--search sidebar col end-->
+                <div class="col-sm-9">
+                    <span class="results-number">About 230,000 results (in 0.40 seconds)</span>
+                    <% @providers.each do |provider| %>
+                        <div class="results-box">
+                            <h3><%= link_to provider.first_name + provider.last_name, provider  %><h3>
+                            <ul class="list-inline link-ul">
+                                <li>http:/www.designmylife.co.in/assan</li>
+                                <li class="btn-group">
+                                    <button data-toggle="dropdown" class="btn btn-default dropdown-toggle" type="button">
+                                        <i class="fa fa-caret-down"></i>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul role="menu" class="dropdown-menu">
+                                        <li><a href="#">Similar</a></li>
+                                        <li><a href="#">Advanced search</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="#">Wrapbootstrap</a></li>
+                                <li><a href="#">Design_mylife</a></li>
+                            </ul>
+                            <p>
+                                <%= provider.experience %>
+                            </p>
+                        </div>
+                       <hr>
+                    <% end %>
+                    <hr>
+                    <ul class="pagination">
+                        <li>
+                            <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">«</span>
+                            </a>
+                        </li>
+                        <li class="active"><a href="#">1</a></li>
+                        <li><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                            <a href="#" aria-label="Next">
+                                <span aria-hidden="true">»</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div><!--search results container end-->
+    </body>
+</html>
