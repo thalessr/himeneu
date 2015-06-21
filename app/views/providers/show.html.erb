@@ -1,5 +1,5 @@
 <script type="text/javascript" src="/assets/share-button/build/share.min.js"></script>
-<% if  can_read_providers? || user_signed_in?  %>
+<% if  can_read_providers? %>
   <%= render 'provider_profile' %>
 <% else %>
   <%= render 'vCard' %>

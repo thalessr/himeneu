@@ -1,19 +1,23 @@
 module AuthorizationHelper
 
   def can_read_providers?
-    can_read?
+    true
   end
 
   # This method refers to edit and destroy
   # It verify if the current_user is "themself"
   def can_manage_provider?(provider)
-    if current_user.is_provider?
+    if current_user && current_user.is_provider?
       current_user.provider.id == provider.id
     end
   end
 
   def is_provider?
-    current_user.is_provider?
+    if current_user
+      current_user.is_provider?
+    else
+      true
+    end
   end
 
   def can_read_customers?
