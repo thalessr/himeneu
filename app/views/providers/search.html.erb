@@ -2,20 +2,24 @@
 <html lang="en">
     <body>
         <!--navigation -->
-        <div class="search-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-5">
-                        <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search here ...">
-                            <span class="input-group-btn">
-                                <button class="btn btn-theme-bg btn-lg" type="button"><i class="fa fa-search"></i></button>
-                            </span>
-                        </div>
-                    </div>
-                </div>
+<div class="search-area">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <div class="input-group col-sm-6">
+          <%= form_tag(search_providers_path, :method => "get", class: "search-widget", id: "q-form") do %>
+            <div class="input-append">
+              <%= text_field_tag :q, params[:q], class: " col-sm-5", placeholder: "Search provider" %>
+              <span class="input-group-btn">
+                  <button class="btn btn-theme-bg btn-lg" type="button" style="width: 32px; height: 30px;"><i class="fa fa-search" style="top: 8px; right: 4px; color: #FFF;"></i></button>
+              </span>
             </div>
+          <% end %>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
         <div class="divide40"></div>
         <div class="container">
             <div class="row">
