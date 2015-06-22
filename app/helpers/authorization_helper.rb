@@ -1,7 +1,7 @@
 module AuthorizationHelper
 
   def can_read_providers?
-    true
+    can_read?
   end
 
   # This method refers to edit and destroy
@@ -13,11 +13,7 @@ module AuthorizationHelper
   end
 
   def is_provider?
-    if current_user
-      current_user.is_provider?
-    else
-      true
-    end
+    current_user.is_provider?
   end
 
   def can_read_customers?

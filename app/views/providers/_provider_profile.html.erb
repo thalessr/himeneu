@@ -12,8 +12,6 @@
   <meta name="twitter:url" content="<%= provider_url(@provider) %>" />
 <% end %>
 
-<% if can_read_providers? || ( can_manage_provider?(@provider) && !is_deleted? )%>
-
   <!-- Modal -->
   <div class="modal fade"
        id="estimatesModal"
@@ -138,11 +136,10 @@
                   <li><i class="fa fa-check"></i> 30 day Money back</li> -->
                 </ul>
                 <hr>
-                <% if is_customer? %>
                   <div class="add-cart">
                     <%= link_to t(:estimate), "", :class=>"btn btn-theme-bg", :id => 'estimate' %>
+                    <%= link_to t(:contact), "", :class=>"btn btn-theme-bg", :id => 'contact' %>
                   </div>
-                <% end %>
             </div>
           </div>
         </div><!--product details up end-->
@@ -336,7 +333,7 @@
   </div>
   </div>
 
-<% elsif can_manage_provider?(@provider) %>
+<% if can_manage_provider?(@provider) %>
   <div class="row voffset6 margin40">
     <div class="text-center">
       <h3><%= t(:deactivated_profile_message) %></h3>
