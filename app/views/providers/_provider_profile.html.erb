@@ -45,6 +45,36 @@
       </div>
     </div>
   </div>
+  <!-- Modal -->
+
+
+  <!-- Modal Contact-->
+      <div class="modal fade"
+           id="contactModal"
+           tabindex="-1"
+           role="dialog"
+           aria-labelledby="estimatesModalLabel"
+           data-param= <%=@provider.slug  %>
+           aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="estimatesModalLabel"><%= t(:contact) %></h4>
+              <p><%= t(:modal_conatct_tagline) %></p>
+               <i class="fa fa-phone"> | </i> <%= @provider.contact %><br>
+               <i class="fa fa-envelope"> | </i> <%= @provider.email %>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  <!-- Modal Contact-->
+
+
+
+
+
   <div class="divide60"></div>
   <div class="container">
     <div class="row">

@@ -75,6 +75,8 @@ pt-BR:
   best_rating: Melhores fornecedores
   deactivated_profile_message: "Este perfil está desativado. Clique aqui para ativar:"
   about_us_text_html: "Com poucos cliques, o Himeneu fornece uma quantidade sem igual de excelentes prestadores de serviços reconhecidos do mercado. De DJs, floristas, mestre de cerimônias a aluguel de carros especiais. Aqui a qualidade é o principal argumento na contratação. Saiba, por meio de recomendações de quem já contratou, quem merece fazer parte do seu casamento."
+  modal_conatct_tagline: "Ao entrar em contato, diga que viu no Himeneu:"
+  contact: "Contato"
   home:
     slide1_tagline_html: Case mais fácil <br> com o Himeneu
     slide1_subtitle_html: Encontre os melhores profissionais do mercado <br> para deixar sua festa ainda mais especial.
@@ -90,7 +92,7 @@ pt-BR:
     we_do_icon5_title: Chat online
     we_do_icon5_html: Está com pressa de uma orçamento?<br>Fale agora pelo chat online com fornecedores
     we_do_icon6_title: Forum de discussão
-    we_do_icon6_html: Converse com outras noivas e tire suas dúvidas sobre casamento 
+    we_do_icon6_html: Converse com outras noivas e tire suas dúvidas sobre casamento
     what_we_do: O que fazemos
     what_we_do_text_html: "O himeneu chegou para tornar o planejamento de festas de casamento muito mais fáceis.<br> Nós reunimos os melhores e mais conceituados profissionais do mercado,<br> que vão fazer sua festa mais e mais especial."
     slide2_tagline: Orçamento fácil

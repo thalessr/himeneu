@@ -184,6 +184,10 @@ $(document).ready(function(){
      new Share("#socialMedia", config);
   }
 
+  $( "#contact" ).click(function() {
+    $('#contactModal').modal('toggle');
+  });
+
 
 });
 

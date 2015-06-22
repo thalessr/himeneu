@@ -76,6 +76,8 @@ en-US:
   best_rating: Best suppliers
   deactivated_profile_message: "This profile is disabled. Click here to activate:"
   about_us_text_html: "With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region, such as DJs, florists, master of ceremonies, special car rental, etc. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special. "
+  modal_conatct_tagline: "When you contact, say that you saw in Himeneu:"
+  contact: "Contact"
   home:
     slide1_tagline_html: Making your wedding easier <br> with Himeneu
     slide1_subtitle_html: Find the best wedding suppliers on market <br> to make your wedding party even better.
@@ -91,7 +93,7 @@ en-US:
     we_do_icon5_title: Realtime chat
     we_do_icon5_html: Hurry to give an answer?<br>Chat now with suppliers
     we_do_icon6_title: Discussion forum
-    we_do_icon6_html: Talk with other brides and ask your questions about wedding 
+    we_do_icon6_html: Talk with other brides and ask your questions about wedding
     what_we_do: What we do
     what_we_do_text_html: "Himeneu is a useful app which is gonna help you finding the best service providers in the market. With just a few clicks, Himeneu offers you a vast quantity of the best professionals you could possible find at your region. Search through thousands of reviewed profiles and decide who deserves to be hired to make your party even more special"
     slide2_tagline: Easier budgets
