@@ -111,7 +111,6 @@ gem 'friendly_id', '~> 5.1.0'
 gem "will_paginate"
 gem "sitemap_generator"
 
-gem 'state_machine'
 gem 'whenever', :require => false
 gem 'newrelic_rpm'
 
