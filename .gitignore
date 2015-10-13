@@ -32,3 +32,4 @@ config/env.yml
 !.elasticbeanstalk/*.global.yml
 !.elasticbeanstalk/*.config
 !.elasticbeanstalk/*.himeneu-env
+config/deploy.rb
